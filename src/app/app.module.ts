@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EscapeRoomComponent } from './games/escape-room/escape-room.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EscapeRoomComponent
   ],
   imports: [
     BrowserModule,
