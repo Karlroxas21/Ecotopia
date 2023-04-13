@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as Phaser from 'phaser';
+import Phaser from 'phaser';
 @Component({
   selector: 'app-escape-room',
   templateUrl: './escape-room.component.html',
