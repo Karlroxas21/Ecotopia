@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import Phaser from 'phaser';
+import { DefaultScene } from './scenes/default-scene';
+import { PlayScene } from './scenes/play-scene';
+import { MainScene } from './scenes/main-scene';
+
 @Component({
   selector: 'app-escape-room',
   templateUrl: './escape-room.component.html',
@@ -13,7 +17,7 @@ export class EscapeRoomComponent implements OnInit{
       type: Phaser.AUTO,
       height: 600,
       width: 800,
-      scene: [ MainScene ],
+      scene: [ MainScene, DefaultScene, PlayScene ],
       parent: 'gameContainer',
       physics: {
         default: 'arcade',
@@ -26,22 +30,5 @@ export class EscapeRoomComponent implements OnInit{
 
   ngOnInit() {
       this.phaserGame = new Phaser.Game(this.config);
-  }
-}
-
-class MainScene extends Phaser.Scene {
-  constructor(){
-    super({key: 'main'});
-  }
-  preload(){
-    this.load.image('sky', 'assets/sky.png')
-  }
-
-  create(){
-    this.add.image(400, 300, 'sky');
-  }
-
-  updates(){
-
   }
 }
