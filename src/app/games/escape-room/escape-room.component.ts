@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import Phaser from 'phaser';
 import { DefaultScene } from './scenes/default-scene';
-import { PlayScene } from './scenes/play-scene';
+import { PrePlayScene } from './scenes/pre-play-scene';
 import { MainScene } from './scenes/main-scene';
+import { PlayScene } from './scenes/play-scene-level1';
 
 @Component({
   selector: 'app-escape-room',
@@ -17,7 +18,7 @@ export class EscapeRoomComponent implements OnInit{
       type: Phaser.AUTO,
       height: 600,
       width: 800,
-      scene: [ MainScene, DefaultScene, PlayScene ],
+      scene: [ MainScene, DefaultScene, PrePlayScene, PlayScene],
       parent: 'gameContainer',
       physics: {
         default: 'arcade',
