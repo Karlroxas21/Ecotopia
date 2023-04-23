@@ -67,6 +67,9 @@ export class MainScene extends Phaser.Scene {
     this.load.image('basura10',
     '../../../../assets/lvl1/basura10.png'
     );
+    // Background Image for some Trivia
+    this.load.image('trivia1',
+    '../../../../assets/bg-popup.png');
 
     // Loading bar
     let loadingBar = this.add.graphics({

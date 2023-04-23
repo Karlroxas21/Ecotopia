@@ -51,12 +51,13 @@ export class PlayScene extends Phaser.Scene {
     this.cloud5.setScale(0.5);
 
     this.nakakalatNaBasura();
+    
+    // If win
+    this.events.on('win', this.winGraphics,  this);
 
     // Timer
-    this.timer = this.time.delayedCall(2000, this.gameOverGraphics, [], this);
- 
-    // If win
-    this.events.on('win', this.winGraphics, this);
+    this.timer = this.time.delayedCall(10000, this.gameOverGraphics, [], this);
+    
 
   }
 
@@ -195,7 +196,7 @@ export class PlayScene extends Phaser.Scene {
       this.config.width - 660,
       this.config.height / 2 - this.config.height / 6 / 2,
       this.config.width - 300,
-      this.config.height / 5
+      this.config.height / 4
     );
 
     const fact =
@@ -225,6 +226,8 @@ export class PlayScene extends Phaser.Scene {
       this.scene.start('play-level2-scene', { config: this.game.config });
     });
 
+    this.nextLevel();
+    
   }
 
   gameOverGraphics(){
@@ -248,8 +251,8 @@ export class PlayScene extends Phaser.Scene {
       .setOrigin(0.5);
 
     const restartButton = this.add.text(
-      this.config.widt / 2,
-      this.config.height / 2 - this.config.height / 6 / 2 + 15,
+      this.config.width - 80,
+      20,
       'Restart',
       { font: '18px monospace', color: '#ffffff' }
     );
@@ -259,20 +262,20 @@ export class PlayScene extends Phaser.Scene {
       this.scene.restart();
     });
 
-    // Close button
-    const closeButton = this.add.text(
-      this.config.width - 180,
-      this.config.height / 2 - this.config.height / 6 / 2 + 15,
-      'X',
+    // Quit button
+    const quitButton = this.add.text(
+      this.config.width - 80, 
+      60,
+      'Quit',
       { font: '18px monospace', color: '#ffffff' }
     );
-    closeButton.setOrigin(0.5);
-    closeButton.setInteractive();
-    closeButton.on('pointerdown', () => {
+    quitButton.setOrigin(0.5);
+    quitButton.setInteractive();
+    quitButton.on('pointerdown', () => {
       congrats.destroy();
       graphics.destroy();
-      closeButton.destroy();
-      this.scene.start('play-level2-scene', { config: this.game.config });
+      quitButton.destroy();
+      this.scene.start('default-scene', { config: this.game.config });
     });
 
   }
@@ -282,6 +285,21 @@ export class PlayScene extends Phaser.Scene {
       return true;
     }
     return false;
+  }
+
+  nextLevel(){
+    const nextLevelTxt = this.add.text(
+      this.config.width - 170, 
+      this.config.height - 210, 
+      'Next Level', 
+      { font: '20px monospace', color: '#ffffff' });
+
+      nextLevelTxt.setOrigin(1, 1);
+      nextLevelTxt.setInteractive();
+      nextLevelTxt.on('pointerdown', ()=>{
+        nextLevelTxt.destroy();
+        this.scene.start('play-level2-scene', { config: this.game.config });
+      })
   }
 
   //onTimerComplete(){
