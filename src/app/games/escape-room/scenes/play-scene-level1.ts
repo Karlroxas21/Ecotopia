@@ -58,7 +58,6 @@ export class PlayScene extends Phaser.Scene {
     // Timer
     this.timer = this.time.delayedCall(10000, this.gameOverGraphics, [], this);
     
-
   }
 
   override update() {
@@ -301,49 +300,4 @@ export class PlayScene extends Phaser.Scene {
         this.scene.start('play-level2-scene', { config: this.game.config });
       })
   }
-
-  //onTimerComplete(){
-  // const graphics = this.add.graphics();
-  // graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-  // graphics.fillRect(
-  //   this.config.width - 660,
-  //   (this.config.height / 2) - this.config.height / 6 / 2,
-  //   this.config.width - 300,
-  //   this.config.height / 5
-  // );
-
-  // const congrats = this.add.text(
-  //     this.config.width / 2,
-  //     this.config.height / 2 + 10,
-  //     'Game over!',
-  //     { font: '18px monospace', color: '#ffffff' }).setOrigin(0.5);
-
-  // const restartButton = this.add.text(
-  //     this.config. widt / 2,
-  //     this.config.height / 2 - this.config.height / 6 / 2 + 15,
-  //     'Restart',
-  //     {font: '18px monospace', color:'#ffffff'}
-  // )
-  // restartButton.setOrigin(0.5);
-  // restartButton.setInteractive();
-  // restartButton.on('pointerdown', () => {
-  //     this.scene.restart();
-  // })
-
-  // // Close button
-  // const closeButton = this.add.text(
-  //     this.config.width - 180,
-  //     this.config.height / 2 - this.config.height / 6 / 2 + 15,
-  //     'X',
-  //     { font: '18px monospace', color: '#ffffff' }
-  //   );
-  //   closeButton.setOrigin(0.5);
-  //   closeButton.setInteractive();
-  //   closeButton.on('pointerdown', () => {
-  //     congrats.destroy();
-  //     graphics.destroy();
-  //     closeButton.destroy();
-  //     this.scene.start('play-level2-scene', { config: this.game.config });
-  //   });
-  //}
 }

@@ -92,14 +92,14 @@ export class PrePlayScene extends Phaser.Scene {
       .image(
         this.config.width - 600,
         this.config.height - 100,
-        'basura1' // this will be replace
+        'basura1' 
       )
       .setScale(1.5);
     const basura111 = this.add
       .image(
         this.config.width - 370,
         this.config.height - 30,
-        'basura1' // this will be replace
+        'basura1' 
       )
       .setScale(1.5);
     const basura2 = this.add
@@ -107,24 +107,24 @@ export class PrePlayScene extends Phaser.Scene {
       .setScale(1.5);
     const basura22 = this.add
       .image(this.config.width - 80, this.config.height - 70, 'basura2')
-      .setScale(1.5); // this will be replace
+      .setScale(1.5); 
     const basura3 = this.add
       .image(this.config.width - 700, this.config.height - 100, 'basura3')
       .setScale(1.5);
     const basura33 = this.add
       .image(this.config.width - 550, this.config.height - 100, 'basura3')
-      .setScale(1.5); // this will be replace
+      .setScale(1.5); 
     const basura4 = this.add
       .image(this.config.width - 260, this.config.height - 120, 'basura4')
       .setScale(1.5);
     const basura44 = this.add
       .image(this.config.width - 285, this.config.height - 120, 'basura4')
-      .setScale(1.5); // this will be replace
+      .setScale(1.5); 
     const basura5 = this.add
       .image(this.config.width - 750, this.config.height - 140, 'basura5')
       .setScale(1.5);
     const basura55 = this.add
       .image(this.config.width - 770, this.config.height - 110, 'basura5')
-      .setScale(1.5); // this will be replace
+      .setScale(1.5); 
   }
 }

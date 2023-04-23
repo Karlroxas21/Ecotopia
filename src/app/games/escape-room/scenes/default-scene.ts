@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-import { MainScene } from './main-scene';
 
 export class DefaultScene extends Phaser.Scene{
     constructor(){
@@ -48,7 +47,6 @@ export class DefaultScene extends Phaser.Scene{
             loop: true
         });
 
-
     }
 
     override update(){
@@ -56,5 +54,4 @@ export class DefaultScene extends Phaser.Scene{
             this.scene.start('pre-play-scene', { config: this.game.config });
         }
     }
-
 }

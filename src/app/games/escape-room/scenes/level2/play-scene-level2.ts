@@ -15,9 +15,6 @@ export class PlayLevel2Scene extends Phaser.Scene {
   }
 
   override update() {
-
-
   }
-
 
 }

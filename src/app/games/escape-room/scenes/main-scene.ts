@@ -117,18 +117,14 @@ export class MainScene extends Phaser.Scene {
     });
 
     // Uncomment this when done in level 1!
-    // this.load.on('complete', () => {
-    //   this.scene.start('default-scene', { config: this.game.config });
-    // });
+    this.load.on('complete', () => {
+      this.scene.start('default-scene', { config: this.game.config });
+    });
 
     // Temporary to see Level 1 Scene Fast.
-    this.load.on('complete', () => {
-      this.scene.start('play-scene', { config: this.game.config });
-    });
-  }
-
-  create() {
-
+    // this.load.on('complete', () => {
+    //   this.scene.start('play-scene', { config: this.game.config });
+    // });
   }
 
 }
