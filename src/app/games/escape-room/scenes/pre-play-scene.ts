@@ -25,6 +25,8 @@ export class PrePlayScene extends Phaser.Scene {
   basura5: any;
   basura55: any;
 
+  bgMusic: any;
+
   create() {
     this.background = this.add.image(0, 0, 'level-1-bg');
     this.background.setOrigin(0, 0);
@@ -66,11 +68,17 @@ export class PrePlayScene extends Phaser.Scene {
       graphics.destroy();
       guide.destroy();
       closeButton.destroy();
+      this.bgMusic.destroy();
       this.scene.start('play-scene', { config: this.game.config });
     });
     // End of Guide
 
+    // Background music
+    this.bgMusic = this.sound.add('seaMusic', {loop: true, volume: 0.2});
+    this.bgMusic.play();
+
     this.nakakalatNaBasura();
+
   }
 
   override update() {
@@ -92,33 +100,33 @@ export class PrePlayScene extends Phaser.Scene {
       .image(
         this.config.width - 600,
         this.config.height - 100,
-        'basura1' 
+        'basura6' 
       )
       .setScale(1.5);
     const basura111 = this.add
       .image(
         this.config.width - 370,
         this.config.height - 30,
-        'basura1' 
+        'basura7' 
       )
       .setScale(1.5);
     const basura2 = this.add
       .image(this.config.width - 20, this.config.height - 80, 'basura2')
       .setScale(1.5);
     const basura22 = this.add
-      .image(this.config.width - 80, this.config.height - 70, 'basura2')
+      .image(this.config.width - 80, this.config.height - 70, 'basura8')
       .setScale(1.5); 
     const basura3 = this.add
       .image(this.config.width - 700, this.config.height - 100, 'basura3')
       .setScale(1.5);
     const basura33 = this.add
-      .image(this.config.width - 550, this.config.height - 100, 'basura3')
+      .image(this.config.width - 550, this.config.height - 100, 'basura9')
       .setScale(1.5); 
     const basura4 = this.add
       .image(this.config.width - 260, this.config.height - 120, 'basura4')
       .setScale(1.5);
     const basura44 = this.add
-      .image(this.config.width - 285, this.config.height - 120, 'basura4')
+      .image(this.config.width - 285, this.config.height - 120, 'basura10')
       .setScale(1.5); 
     const basura5 = this.add
       .image(this.config.width - 750, this.config.height - 140, 'basura5')

@@ -70,6 +70,12 @@ export class MainScene extends Phaser.Scene {
     // Background Image for some Trivia
     this.load.image('trivia1',
     '../../../../assets/bg-popup.png');
+    // Audio for Level 1 Sea Scene
+    this.load.audio('seaMusic', '../../../../assets/music/Tropical 8-bit Chiptune ｜ Background Music.mp3');
+    // Pick up basura SFX
+    this.load.audio('pickUpSFX', '../../../../assets/music/pick-upsuccess.mp3');
+    // BG Music sa main scene
+    this.load.audio('mainSceneSFX', '../../../../assets/music/kawai-kitsune.mp3');
 
     // Loading bar
     let loadingBar = this.add.graphics({
@@ -117,14 +123,14 @@ export class MainScene extends Phaser.Scene {
     });
 
     // Uncomment this when done in level 1!
-    this.load.on('complete', () => {
-      this.scene.start('default-scene', { config: this.game.config });
-    });
+    // this.load.on('complete', () => {
+    //   this.scene.start('default-scene', { config: this.game.config });
+    // });
 
     // Temporary to see Level 1 Scene Fast.
-    // this.load.on('complete', () => {
-    //   this.scene.start('play-scene', { config: this.game.config });
-    // });
+    this.load.on('complete', () => {
+      this.scene.start('play-scene', { config: this.game.config });
+    });
   }
 
 }

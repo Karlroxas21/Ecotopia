@@ -14,6 +14,7 @@ export class DefaultScene extends Phaser.Scene{
     background: any;
 
     gameStarted: boolean = false;
+    bgMusic: any;
 
     create(){
         const width = this.config.width;
@@ -47,10 +48,15 @@ export class DefaultScene extends Phaser.Scene{
             loop: true
         });
 
+        // BG Music
+        this.bgMusic = this.sound.add('mainSceneSFX', {loop: true});
+        this.bgMusic.play();
+
     }
 
     override update(){
         if(this.gameStarted){
+            this.bgMusic.destroy();
             this.scene.start('pre-play-scene', { config: this.game.config });
         }
     }

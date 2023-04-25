@@ -28,7 +28,9 @@ export class PlayScene extends Phaser.Scene {
   basura44: any;
   basura5: any;
   basura55: any;
+  pickUpSFX: any;
 
+  bgMusic: any;
   // if all garbage is napulot na
   garbageCount: number = 11;
 
@@ -49,6 +51,13 @@ export class PlayScene extends Phaser.Scene {
     this.cloud4.setScale(0.4);
     this.cloud5 = this.add.image(600, 200, 'cloud-shits');
     this.cloud5.setScale(0.5);
+    
+    // BG Music
+    this.bgMusic = this.sound.add('seaMusic', {volume: 0.2});
+    this.bgMusic.play();
+
+    // SFX
+    this.pickUpSFX = this.sound.add('pickUpSFX');
 
     this.nakakalatNaBasura();
     
@@ -100,6 +109,8 @@ export class PlayScene extends Phaser.Scene {
     basura1.on('pointerdown', () => {
       basura1.destroy();
       this.garbageCount -= 1;
+      // Tutunog yung SFX kapag kinilick na yung basura
+      this.pickUpSFX.play();
     });
     const basura11 = this.add
       .image(this.config.width - 600, this.config.height - 100, 'basura6')
@@ -108,6 +119,8 @@ export class PlayScene extends Phaser.Scene {
     basura11.on('pointerdown', () => {
       basura11.destroy();
       this.garbageCount -= 1;
+      // Tutunog yung SFX kapag kinilick na yung basura
+      this.pickUpSFX.play();
     });
     const basura111 = this.add
       .image(this.config.width - 370, this.config.height - 30, 'basura7')
@@ -116,6 +129,8 @@ export class PlayScene extends Phaser.Scene {
     basura111.on('pointerdown', () => {
       basura111.destroy();
       this.garbageCount -= 1;
+      // Tutunog yung SFX kapag kinilick na yung basura
+      this.pickUpSFX.play();
     });
     const basura2 = this.add
       .image(this.config.width - 20, this.config.height - 80, 'basura2')
@@ -124,6 +139,8 @@ export class PlayScene extends Phaser.Scene {
     basura2.on('pointerdown', () => {
       basura2.destroy();
       this.garbageCount -= 1;
+      // Tutunog yung SFX kapag kinilick na yung basura
+      this.pickUpSFX.play();
     });
     const basura22 = this.add
       .image(this.config.width - 80, this.config.height - 70, 'basura8')
@@ -132,6 +149,8 @@ export class PlayScene extends Phaser.Scene {
     basura22.on('pointerdown', () => {
       basura22.destroy();
       this.garbageCount -= 1;
+      // Tutunog yung SFX kapag kinilick na yung basura
+      this.pickUpSFX.play();
     });
     const basura3 = this.add
       .image(this.config.width - 700, this.config.height - 100, 'basura3')
@@ -140,6 +159,8 @@ export class PlayScene extends Phaser.Scene {
     basura3.on('pointerdown', () => {
       basura3.destroy();
       this.garbageCount -= 1;
+      // Tutunog yung SFX kapag kinilick na yung basura
+      this.pickUpSFX.play();
     });
     const basura33 = this.add
       .image(this.config.width - 550, this.config.height - 100, 'basura9')
@@ -148,6 +169,8 @@ export class PlayScene extends Phaser.Scene {
     basura33.on('pointerdown', () => {
       basura33.destroy();
       this.garbageCount -= 1;
+      // Tutunog yung SFX kapag kinilick na yung basura
+      this.pickUpSFX.play();
     });
     const basura4 = this.add
       .image(this.config.width - 260, this.config.height - 120, 'basura4')
@@ -156,6 +179,8 @@ export class PlayScene extends Phaser.Scene {
     basura4.on('pointerdown', () => {
       basura4.destroy();
       this.garbageCount -= 1;
+      // Tutunog yung SFX kapag kinilick na yung basura
+      this.pickUpSFX.play();
     });
     const basura44 = this.add
       .image(this.config.width - 285, this.config.height - 120, 'basura10')
@@ -164,6 +189,8 @@ export class PlayScene extends Phaser.Scene {
     basura44.on('pointerdown', () => {
       basura44.destroy();
       this.garbageCount -= 1;
+      // Tutunog yung SFX kapag kinilick na yung basura
+      this.pickUpSFX.play();
     });
     const basura5 = this.add
       .image(this.config.width - 750, this.config.height - 140, 'basura5')
@@ -172,6 +199,8 @@ export class PlayScene extends Phaser.Scene {
     basura5.on('pointerdown', () => {
       basura5.destroy();
       this.garbageCount -= 1;
+      // Tutunog yung SFX kapag kinilick na yung basura
+      this.pickUpSFX.play();
     });
     const basura55 = this.add
       .image(this.config.width - 770, this.config.height - 110, 'basura5')
@@ -180,6 +209,8 @@ export class PlayScene extends Phaser.Scene {
     basura55.on('pointerdown', () => {
       basura55.destroy();
       this.garbageCount -= 1;
+      // Tutunog yung SFX kapag kinilick na yung basura
+      this.pickUpSFX.play();
     });
   }
 
@@ -222,6 +253,7 @@ export class PlayScene extends Phaser.Scene {
       congrats.destroy();
       graphics.destroy();
       closeButton.destroy();
+      this.bgMusic.destroy();
       this.scene.start('play-level2-scene', { config: this.game.config });
     });
 
@@ -258,7 +290,11 @@ export class PlayScene extends Phaser.Scene {
     restartButton.setOrigin(0.5);
     restartButton.setInteractive();
     restartButton.on('pointerdown', () => {
+      this.bgMusic.destroy();
       this.scene.restart();
+      this.garbageCount = 0;
+      this.garbageCount = 11;
+      this.timer.reset();
     });
 
     // Quit button
@@ -274,6 +310,10 @@ export class PlayScene extends Phaser.Scene {
       congrats.destroy();
       graphics.destroy();
       quitButton.destroy();
+      this.bgMusic.destroy();
+      this.garbageCount = 0;
+      this.garbageCount = 11;
+      this.timer.reset();
       this.scene.start('default-scene', { config: this.game.config });
     });
 
@@ -297,6 +337,7 @@ export class PlayScene extends Phaser.Scene {
       nextLevelTxt.setInteractive();
       nextLevelTxt.on('pointerdown', ()=>{
         nextLevelTxt.destroy();
+        this.bgMusic.destroy();
         this.scene.start('play-level2-scene', { config: this.game.config });
       })
   }
