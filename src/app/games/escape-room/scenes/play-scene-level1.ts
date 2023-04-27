@@ -35,6 +35,7 @@ export class PlayScene extends Phaser.Scene {
   garbageCount: number = 11;
 
   timer: any;
+  timerText: any;
 
   create() {
     this.background = this.add.image(0, 0, 'level-1-bg');
@@ -66,10 +67,17 @@ export class PlayScene extends Phaser.Scene {
 
     // Timer
     this.timer = this.time.delayedCall(10000, this.gameOverGraphics, [], this);
-    
+    this.timerText = this.add.text(10, 10, '', {
+       font: '16px monospace', 
+       color: '#ffffff' 
+      });
   }
 
   override update() {
+    // Timer
+    const remainingTime = Math.ceil((this.timer.delay - this.timer.elapsed) / 1000);
+    // Update text
+    this.timerText.setText(`Time remaining: ${remainingTime}`);
     // Update cloud position
     this.cloud.x += 0.1;
     this.cloud2.x += 0.1;

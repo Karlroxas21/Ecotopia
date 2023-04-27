@@ -33,6 +33,7 @@ export class PlayLevel2Scene extends Phaser.Scene {
 
   numberOfJeep: number = 10;
   timer: any;
+  timerText: any;
 
   // BG Music
   bgMusic: any;
@@ -85,9 +86,18 @@ export class PlayLevel2Scene extends Phaser.Scene {
 
     // Timer
     this.timer = this.time.delayedCall(43000, this.gameOverGraphics, [], this);
+
+    this.timerText = this.add.text(10, 10, '', {
+       font: '16px monospace', 
+       color: '#ffffff' 
+      });
   }
 
   override update() {
+    // Timer
+    const remainingTime = Math.ceil((this.timer.delay - this.timer.elapsed) / 1000);
+    // Update text
+    this.timerText.setText(`Time remaining: ${remainingTime}`);
     // move Jeep
     this.moveJeep(this.jeep, 3);
     this.moveJeep(this.jeep2, 2);
