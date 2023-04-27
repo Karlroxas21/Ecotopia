@@ -338,7 +338,7 @@ export class PlayScene extends Phaser.Scene {
       nextLevelTxt.on('pointerdown', ()=>{
         nextLevelTxt.destroy();
         this.bgMusic.destroy();
-        this.scene.start('play-level2-scene', { config: this.game.config });
+        this.scene.start('pre-play-level2-scene', { config: this.game.config });
       })
   }
 }
