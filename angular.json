@@ -28,7 +28,8 @@
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules/phaser/dist/phaser.min.js"
+              "node_modules/phaser/dist/phaser.min.js",
+              "node_modules/simple-parallax-js/dist/simpleParallax.js"
             ]
           },
           "configurations": {
