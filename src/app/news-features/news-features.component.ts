@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NewsFeaturesComponent implements OnInit {
   news: any[] = [];
-  itemsToShow: number = 1;
+  itemsToShow: number = 5;
 
   constructor(private http: HttpClient){}
 
@@ -21,7 +21,11 @@ export class NewsFeaturesComponent implements OnInit {
   }
 
   loadMore(){
-    this.itemsToShow += 1;
+    this.itemsToShow += 5;
+  }
+
+  readMore(link: String){
+
   }
 }
 

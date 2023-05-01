@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
 const newsSchema = new mongoose.Schema({
+    title: String,
     photo: String,
-    datePublished: Date,
+    datePublished: String,
     description: String,
     link: String
 }, {collection: 'news_Features'});
