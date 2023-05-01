@@ -8,7 +8,7 @@ import { EscapeRoomComponent } from './games/escape-room/escape-room.component';
 @NgModule({
   declarations: [
     AppComponent,
-    EscapeRoomComponent
+    EscapeRoomComponent,
   ],
   imports: [
     BrowserModule,
