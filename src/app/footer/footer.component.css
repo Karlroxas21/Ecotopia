@@ -8,7 +8,9 @@ body{
 	box-sizing: border-box;
 }
 .footer{
-    background: black
+    background-image: url(/assets/homeimages/earthfooter.png);
+	background-repeat: no-repeat;
+	height: auto;
 }
 .container{
 	max-width: 1170px;
