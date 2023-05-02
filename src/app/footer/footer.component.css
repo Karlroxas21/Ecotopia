@@ -1,4 +1,4 @@
-body{
+html, body{
 	line-height: 1.5;
 	font-family: 'Poppins', sans-serif;
 }
@@ -10,7 +10,9 @@ body{
 .footer{
     background-image: url(/assets/homeimages/earthfooter.png);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: cover; 
+    height: 150vh;
+
 }
 .container{
 	max-width: 1170px;
