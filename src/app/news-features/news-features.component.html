@@ -1,15 +1,40 @@
 <header>
-    <img class="background_image" src="assets/news-features/pexels-andrew-beatson-3742711.jpg" alt="Clouds">
-    <h1>News & Features</h1>
+  <img
+    class="background_image"
+    src="assets/news-features/pexels-andrew-beatson-3742711.jpg"
+    alt="Clouds"
+  />
+  <h1>News & Features</h1>
 </header>
 <body>
-    <div *ngFor="let item of news | slice:0:itemsToShow">
-        <img src={{item.photo}} alt="News Photo">
-        <p>{{item.datePublished}}</p>
-        <p>{{item.description}}</p>
-        <a href="item.link">Read More</a>
+  <div class="item" *ngFor="let item of news | slice : 0 : itemsToShow">
+    <div class="item-sub">
+      <div class="item-img">
+        <img src="{{ item.photo }}" alt="News Photo" />
+      </div>
     </div>
-    <br>        <br>        <br>
-    <button (click)="loadMore()">Load More</button>
+
+    <div class="item-sub-2">
+
+      <div class="item-date">
+        <p>{{ item.datePublished }}</p>
+      </div>
+      <div class="item-title">
+        <h1>{{ item.title }}</h1>
+      </div>
+      <div class="item-desc">
+        <p>{{ item.description }}</p>
+      </div>
+      <div class="item-link">
+        <a href="{{ item.link }}" target="_blank">Read more</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="button">
+    <button (click)="loadMore()">Show More</button>
+  </div>
 
 </body>
+
