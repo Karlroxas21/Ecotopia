@@ -24,3 +24,13 @@ body{
 }
 /* End of Carousel */
 
+/* Content */
+.climate-change{
+    display: flex;
+    flex-direction: column;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+
+/* End of Content */

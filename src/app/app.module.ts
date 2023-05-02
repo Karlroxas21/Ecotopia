@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CurrentIssueComponent } from './current-issue/current-issue.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    AccordionModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
