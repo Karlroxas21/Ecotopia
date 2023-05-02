@@ -20,13 +20,13 @@
       href="https://fonts.googleapis.com/css2?family=Jost&display=swap"
       rel="stylesheet"
     />
-
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
 
   <body>
     <main>
-      <div class="content" data-animation="fade-up">
-        <div class="textbox">
+      <div class="content">
+        <div class="textbox" data-aos="fade-down-right" data-aos-duration="1500">
           <h2>The <span>Ecotopia</span></h2>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -40,7 +40,7 @@
             PageMaker including versions of Lorem Ipsum.
           </p>
         </div>
-        <div class="earth"></div>
+        <div class="earth" data-aos="fade-down-left" data-aos-duration="1500"></div>
       </div>
 
       <div class="star">
@@ -50,34 +50,60 @@
           <div id="stars3"></div>
         </section>
       </div>
-      
+
       <div class="flex-container">
-        <div class="flex-box">Overview of Climate Change</div>
-        <div class="flex-box2">News and Features</div>
-        <div class="flex-box3">Current Issue</div>
+        <div class="flex-box" data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+        data-aos-duration="1500">Overview of Climate Change</div>
+        <div class="flex-box2" data-aos="fade-left"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+        data-aos-duration="1500">News and Features</div>
+        <div class="flex-box3" data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+        data-aos-duration="1500">Current Issue</div>
       </div>
 
       <div class="flex-container2">
-        <h1>CASES</h1>
-        <div class="flex-box4">Problems</div>
-        <div class="flex-box5">Causes</div>
-        <div class="flex-box6">Effects</div>
+        <h1 data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine" data-aos-duration="1200">CASES</h1>
+        <div class="flex-box4" data-aos="fade-up"
+        data-aos-duration="1500">Problems</div>
+        <div class="flex-box5" data-aos="fade-up"
+        data-aos-duration="1500">Causes</div>
+        <div class="flex-box6" data-aos="fade-up"
+        data-aos-duration="1500">Effects</div>
       </div>
 
       <div class="flex-container">
-        <h1>SOLUTIONS</h1>
-        <div class="flex-box7">Importance of taking actions</div>
-        <div class="flex-box8">All Solutions</div>
-        <div class="flex-box9">Assessment</div>
+        <h1 data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine" data-aos-duration="1200">SOLUTIONS</h1>
+        <div class="flex-box7" data-aos="zoom-in" data-aos-duration="1500">Importance of taking actions</div>
+        <div class="flex-box8" data-aos="zoom-in" data-aos-duration="1500">All Solutions</div>
+        <div class="flex-box9" data-aos="zoom-in" data-aos-duration="1500">Assessment</div>
       </div>
 
       <div class="flex-container3">
-        <h1>HISTORY & EXPLORE</h1>
+        <h1 data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine" data-aos-duration="1200">HISTORY & EXPLORE</h1>
         <!--<span><h1>EXPLORE</h1></span>-->
-        <div class="flex-box10">History of Climate Change</div>
-        <div class="flex-box11">Assessment</div>
-        <div class="flex-box12">Earth Videos</div>
-        <div class="flex-box13">Earth Images: Then & Now</div>
+        <div class="flex-box10" div data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1500">History of Climate Change</div>
+        <div class="flex-box11" div data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1500">Assessment</div>
+        <div class="flex-box12" div data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1500">Earth Videos</div>
+        <div class="flex-box13" div data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1500">Earth Images: Then & Now</div>
       </div>
     </main>
   </body>
