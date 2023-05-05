@@ -11,4 +11,5 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
 })
 export class CurrentIssueComponent {
   isFirstOpen = true;
+  oneAtATime = true;
 }

@@ -46,3 +46,9 @@ button{
 button:hover{
     background-color: burlywood;
 }
+
+
+.thumbnail{
+    width: 100%;
+    height: 500px;
+}

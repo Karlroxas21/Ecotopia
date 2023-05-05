@@ -19,8 +19,8 @@ body{
 .images{
     display: block;
     margin: auto;
-    width: 50%;
-    height: auto;
+    width: 800px;
+    height: 600px;
 }
 /* End of Carousel */
 
@@ -30,7 +30,81 @@ body{
     flex-direction: column;
     margin-right: 10%;
     margin-left: 10%;
+    padding-top: 100px;
 }
 
+.climate-change-info{
+    color: black;
+}
+
+/* Climate Change Scenario */
+.ccs-table, th, td{
+    border: 1px black solid;
+    padding: 3px;
+}
+
+.ccs-sub-div1{
+    padding: 30px;
+}
+
+table, td, th{
+   padding: 10px;
+}
+
+.ccs-sub-div2{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.ccs-div2{
+    display: flex;
+}
+
+.padding-top-40px{
+    padding-top: 40px;
+}
+
+.ccs-div3{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.ccs-sub-confidence-climate-projection{
+    display: flex;
+}
+
+.ccot-cccp{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+/* Current Climate Trends in PH */
+.ccs-cct-1{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.ccs-cct-2{
+    display: flex;
+}
+
+.ccs-cct-padding{
+    padding: 10px;
+}
+
+.cp-sstc{
+    display: flex;
+}
+
+.padding-top-30px{
+    padding-top:30px;
+}
+
+/* :host >>> .panel.customClass .panel-body {
+    background-color: #1b3a8a;
+} */
 
 /* End of Content */
