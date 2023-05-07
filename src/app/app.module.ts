@@ -7,6 +7,10 @@ import { EscapeRoomComponent } from './games/escape-room/escape-room.component';
 import { NewsFeaturesComponent } from './news-features/news-features.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { CasesComponent } from './problems/cases.component';
+import { CausesComponent } from './causes/causes.component';
+import { EffectsComponent } from './effects/effects.component';
+import { TakeactionComponent } from './takeaction/takeaction.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +19,10 @@ import { HomeComponent } from './home/home.component';
     NewsFeaturesComponent,
     FooterComponent,
     HomeComponent,
+    CasesComponent,
+    CausesComponent,
+    EffectsComponent,
+    TakeactionComponent,
   ],
   imports: [
     BrowserModule,
