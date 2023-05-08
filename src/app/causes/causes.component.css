@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+html{
+    margin: 0;
+    padding: 0;
+}
+.text{
+    color: #ffffff;
+    padding: 100px;
+    margin-top: -50px;
+    color: #080d14;
+    font-weight: 300;
+}
+.text h1{
+    text-transform: uppercase;
+    padding-bottom: 50px;
+    font-size: 50px;
+}
+.text p{
+    line-height: 30px;
+    font-size: 21px;
+}
+.text ul{
+    margin-top: 20px;
+    font-size: 21px;
+    padding-left: 20px;
+}
+.text ul li{
+    padding-top: 20px;
+}

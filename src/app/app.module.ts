@@ -13,6 +13,10 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NgxImageComparisonSliderModule } from 'ngx-image-comparison-slider';
+import { CasesComponent } from './problems/cases.component';
+import { CausesComponent } from './causes/causes.component';
+import { EffectsComponent } from './effects/effects.component';
+import { TakeactionComponent } from './takeaction/takeaction.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +25,10 @@ import { NgxImageComparisonSliderModule } from 'ngx-image-comparison-slider';
     NewsFeaturesComponent,
     FooterComponent,
     HomeComponent,
+    CasesComponent,
+    CausesComponent,
+    EffectsComponent,
+    TakeactionComponent,
     CurrentIssueComponent,
     LandingPageComponent,
   ],
