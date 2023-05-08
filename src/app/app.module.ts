@@ -11,6 +11,8 @@ import { CurrentIssueComponent } from './current-issue/current-issue.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { NgxImageComparisonSliderModule } from 'ngx-image-comparison-slider';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
     FooterComponent,
     HomeComponent,
     CurrentIssueComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
     HttpClientModule,
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
-    AccordionModule.forRoot()
+    AccordionModule.forRoot(),
+    NgxImageComparisonSliderModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
