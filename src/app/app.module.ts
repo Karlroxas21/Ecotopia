@@ -8,9 +8,8 @@ import { NewsFeaturesComponent } from './news-features/news-features.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { CasesComponent } from './problems/cases.component';
-import { CausesComponent } from './causes/causes.component';
-import { EffectsComponent } from './effects/effects.component';
 import { TakeactionComponent } from './takeaction/takeaction.component';
+import { SolutionsComponent } from './solutions/solutions.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +19,8 @@ import { TakeactionComponent } from './takeaction/takeaction.component';
     FooterComponent,
     HomeComponent,
     CasesComponent,
-    CausesComponent,
-    EffectsComponent,
     TakeactionComponent,
+    SolutionsComponent,
   ],
   imports: [
     BrowserModule,
