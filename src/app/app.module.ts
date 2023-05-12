@@ -14,10 +14,9 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NgxImageComparisonSliderModule } from 'ngx-image-comparison-slider';
 import { CasesComponent } from './problems/cases.component';
-import { CausesComponent } from './causes/causes.component';
-import { EffectsComponent } from './effects/effects.component';
 import { TakeactionComponent } from './takeaction/takeaction.component';
 import { OverviewOfClimateChangeComponent } from './overview-of-climate-change/overview-of-climate-change.component';
+import { SolutionsComponent } from './solutions/solutions.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +26,11 @@ import { OverviewOfClimateChangeComponent } from './overview-of-climate-change/o
     FooterComponent,
     HomeComponent,
     CasesComponent,
-    CausesComponent,
-    EffectsComponent,
     TakeactionComponent,
     CurrentIssueComponent,
     LandingPageComponent,
     OverviewOfClimateChangeComponent,
+    SolutionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +39,7 @@ import { OverviewOfClimateChangeComponent } from './overview-of-climate-change/o
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
     AccordionModule.forRoot(),
-    NgxImageComparisonSliderModule 
+    NgxImageComparisonSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

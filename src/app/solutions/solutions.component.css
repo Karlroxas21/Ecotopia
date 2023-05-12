@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+html{
+    margin: 0;
+    padding: 0;
+}
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.flex-box{
+    color: #000;
+    margin-top: -50px;
+    padding: 100px;
+    font-family: 'Roboto', sans-serif;
+    transition: 0.5s;
+}
+.flex-box h1{
+    font-size: 50px;
+    text-transform: uppercase;
+}
+.flex-box h3{
+    font-size: 25px;
+    padding: 20px 20px 20px 0px;
+}
+.flex-box p{
+    font-size: 21px
+}
