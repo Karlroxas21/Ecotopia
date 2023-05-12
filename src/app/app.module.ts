@@ -17,6 +17,7 @@ import { CasesComponent } from './problems/cases.component';
 import { CausesComponent } from './causes/causes.component';
 import { EffectsComponent } from './effects/effects.component';
 import { TakeactionComponent } from './takeaction/takeaction.component';
+import { OverviewOfClimateChangeComponent } from './overview-of-climate-change/overview-of-climate-change.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TakeactionComponent } from './takeaction/takeaction.component';
     TakeactionComponent,
     CurrentIssueComponent,
     LandingPageComponent,
+    OverviewOfClimateChangeComponent,
   ],
   imports: [
     BrowserModule,

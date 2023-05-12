@@ -7,6 +7,7 @@ import { EscapeRoomComponent } from './games/escape-room/escape-room.component';
 import { NewsFeaturesComponent } from './news-features/news-features.component';
 import { CasesComponent } from './problems/cases.component';
 import { TakeactionComponent } from './takeaction/takeaction.component';
+import { OverviewOfClimateChangeComponent } from './overview-of-climate-change/overview-of-climate-change.component';
 
 const routes: Routes = [
   {component: LandingPageComponent, path: ''},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {component: NewsFeaturesComponent, path: 'newsFeatures'},
   {component: CasesComponent, path: 'problems'},
   {component: TakeactionComponent, path: 'takeAction'},
+  {component: OverviewOfClimateChangeComponent, path: 'overviewOfClimateChange'},
 ];
 
 @NgModule({
