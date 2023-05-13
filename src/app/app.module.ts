@@ -14,6 +14,7 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NgxImageComparisonSliderModule } from 'ngx-image-comparison-slider';
 import { CasesComponent } from './problems/cases.component';
+import { OverviewOfClimateChangeComponent } from './overview-of-climate-change/overview-of-climate-change.component';
 import { SolutionsComponent } from './solutions/solutions.component';
 import { ExploreComponent } from './explore/explore.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
@@ -29,6 +30,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     CasesComponent,
     CurrentIssueComponent,
     LandingPageComponent,
+    OverviewOfClimateChangeComponent,
     SolutionsComponent,
     ExploreComponent,
     AboutusComponent,

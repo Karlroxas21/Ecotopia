@@ -1,0 +1,294 @@
+.header-img{
+    height: 900px;
+    overflow: hidden;
+    position: relative;
+}
+
+header img{
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+.header-img::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1000px;
+    background: linear-gradient(to top,rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+/* insights */
+.insights-main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 50px;
+    position: absolute;
+    top: 50%;
+    color: white
+}
+
+.insights-container, .insights-container-2{
+    display: flex;
+}
+
+.insights-container-sub{
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.insights-container-sub::before {
+    content: "";
+    display: block;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+  
+.insights-container-sub::before {
+    width: 0;
+    background-color: transparent;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+  
+.insights-container-sub:hover::before {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    opacity: 1;
+}
+  
+.insights-2-base-sub{
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.insights-2-base-sub h1{
+    font-weight: bold;
+}
+
+.insights-2-base-sub h2{
+    font-size: 4rem;
+    font-weight: bolder;
+}
+
+.insights-2-base-sub p{
+    font-size: .8rem;
+}
+
+.rotate-180{
+    transform:  rotate(180deg);
+}
+
+.insights-container-text h1{
+    font-weight: bolder;
+    font-size: 3rem ;
+}
+/* end of insights */
+
+/* Example of Climate changes */
+.example-item-main-container{
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: rgb(233, 233, 233);
+}
+
+.example-item-main-container-sub1{
+    margin-top: 5%;
+    padding: 20px;
+}
+/* End of example of climate changes */
+
+/* What is Climate Change? */
+.what-is-climate-change-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.wicc-sub-container1{
+    display: flex;
+    width: 100%;
+}
+
+.wicc-deep-sub-container1{
+    height: 500px;
+    overflow: hidden;
+    /**/
+    position: relative;
+}
+
+.wicc-sub-container2{
+    display: flex;
+    width: 100%;
+}
+
+.wicc-deep-sub-container2{
+    height: 500px;
+    overflow: hidden;
+    /**/
+    position: relative;
+}
+
+
+.hover-effect img{
+    transform: scale(1);
+    transition: transform 0.4s ease-in-out;
+}
+
+.hover-effect  img:hover{
+    transform: scale(1.05);
+}
+
+.width-1000{
+    width: 1000px;
+}
+
+.what-is-climate-c{
+    display: flex;
+    justify-content: center;
+}
+
+.what-is-climate-c h1{
+    font-weight: 1000;
+    font-size: 3rem;
+}
+
+.evidence-txt{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 100;
+    width: 80%;
+    color: white;
+}
+
+.evidence-txt h2{
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.evidence-txt p{
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.margin-right-2{
+    margin-right: 2px;
+}
+
+.margin-top-2{
+    margin-top: 2px
+}
+/* End of What is Climate Change */
+
+/* Encyclopedic Entry */
+.encyclopedic-entry-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 30%;
+}
+
+.eec-1 h1{
+    font-weight: 900;
+    background-color: #001E55;
+    color: white;
+    border-radius: 10px;
+    padding-left: 5px;
+}
+
+.eec-1 p{
+    font-size: 1.5rem;
+}
+
+.eec-2{
+    padding: 20px;
+}
+
+.eec-2 p {
+    font-size: 1.2rem;
+}
+
+.all-caps{
+    text-transform: uppercase;
+    color: grey;
+}
+
+/* End of Encylopedic Entry */
+
+/* Reference */
+.reference-container{
+    margin-left: 20%;
+    margin-right: 30%;
+}
+
+/* End of Reference */
+
+/* Relaated News */
+.related-news-container-main{
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.margins{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+}
+
+.related-news-container{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.rnc-sub-div1{
+    overflow: hidden;
+}
+
+.img-400px{
+    width: 400px;
+    transition: transform 0.4s ease-in-out;
+    border-radius: 10px;
+}
+
+.img-400px:hover{
+    transform: scale(1.05);
+}
+
+.rnc-sub-div2 h3 a{
+    text-decoration: none;
+    color: black;
+}
+
+.rnc-sub-div2 h3 a:hover{
+    text-decoration: underline;
+    text-decoration-color: #001E55;
+    color: black;
+}
+
+
+.rnc-sub-div2 {
+    padding: 10px;
+}
+
+/* End of Related News */

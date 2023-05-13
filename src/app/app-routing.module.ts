@@ -8,6 +8,8 @@ import { CasesComponent } from './problems/cases.component';
 import { SolutionsComponent } from './solutions/solutions.component';
 import { ExploreComponent } from './explore/explore.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { OverviewOfClimateChangeComponent } from './overview-of-climate-change/overview-of-climate-change.component';
+
 const routes: Routes = [
   {component: LandingPageComponent, path: ''},
   {component: CurrentIssueComponent, path: 'currentIssue'},
@@ -18,6 +20,7 @@ const routes: Routes = [
   {component: SolutionsComponent, path: 'solutions'},
   {component: ExploreComponent, path: 'explore'},
   {component: AboutusComponent, path: 'aboutus'},
+  {component: OverviewOfClimateChangeComponent, path: 'overviewOfClimateChange'},
 ];
 
 @NgModule({

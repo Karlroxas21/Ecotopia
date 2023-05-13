@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { RIGHT } from 'phaser';
 import SimpleParallax from 'simple-parallax-js';
-import { CarouselConfig } from 'ngx-bootstrap/carousel';
 
 @Component({
   selector: 'app-landing-page',
@@ -9,13 +7,6 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent {
-  slickCarouselConfig = {
-    infinite: true,
-    slidesToShow: 6,
-    slidestoScroll: 1,
-    arrows: true
-  }
-
 
   ngAfterViewInit(){
     const scene1 = document.getElementsByClassName('parallax-1');
