@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecotopia: Explore</title>
+    <link rel="stylesheet" href="explore.component.css" />
+    <script src="assets/carousel.js"></script>
+  </head>
+  <body>
+    <main>
+        <!--<span><h1>The Time for Action on Climate Change is Now</h1></span>
+      <div class="image-slider">
+        <div class="arrow-left">
+          <i class="fa-sharp fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="arrow-right">
+          <i class="fa-sharp fa-solid fa-angle-right"></i>
+        </div>
+        <div class="caption">
+          <h1>Nature</h1>
+          <p>The nature has already changed</p>
+        </div>
+      </div>-->
+    </main>
+
+    <carousel [isAnimated]="true">
+        <slide>
+          <img src="assets/exploreimages/tree.jpg" alt="tree's fire" style="display: block; width: 100%;">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </slide>
+        <slide>
+          <img src="assets/exploreimages/fire.jpg" alt="fire in the forest" style="display: block; width: 100%;">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Second slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </slide>
+        <slide>
+          <img src="assets/exploreimages/soilerosion.jpg" alt="soil crack" style="display: block; width: 100%;">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Third slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </slide>
+        <slide>
+          <img src="assets/exploreimages/greenhouse.jpg" alt="greenhouse gases" style="display: block; width: 100%;">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Fourth slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </slide>
+        <slide>
+          <img src="assets/exploreimages/globalwarming.jpg" alt="global warming" style="display: block; width: 100%;">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Fifth slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </slide>
+      </carousel>
+
+    <!--
+    <script>
+      const slider = document.querySelector(".image-slider");
+      const arrLeft = document.querySelector(".arrow-left");
+      const arrRight = document.querySelector(".arrow-right");
+      const heading = document.querySelector(".caption h1");
+      const description = document.querySelector(".caption p");
+
+      const images = ["tree.jpg", "soilerosion.jpg", "fire.jpg"];
+      const headings = ["Tree", "Soil", "Forest"];
+      const descriptions = [
+        "The tree has already changed",
+        "The soil has already crack",
+        "The forest has already fire",
+      ];
+
+      let id = 0;
+      function slide(id) {
+        slider.style.backgroundImage = `url(/assets/exploreimages/${images[id]})`;
+        slider.classList.add("image-fade");
+        setTimeout(() => {
+          slider.classList.remove("image-fade");
+        }, 550);
+        heading.innerText = headings[id];
+        description.innerText = descriptions[id];
+      }
+      arrLeft.addEventListener("click", () => {
+        id--;
+        if (id < 0) {
+          id = images.length - 1;
+        }
+        slide(id);
+      });
+
+      arrRight.addEventListener("click", () => {
+        id++;
+        if (id > images.length - 1) {
+          id = 0;
+        }
+        slide(id);
+      });
+    </script>
+-->
+  </body>
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</html>

@@ -67,6 +67,7 @@ html{
     text-transform: uppercase;
     padding-bottom: 40px;
     font-size: 50px;
+    font-weight: bold;
 }
 .text p{
     line-height: 30px;
@@ -81,8 +82,5 @@ html{
     padding-top: 20px;
 }
 #next h1{
-    margin-top: 60px;
-}
-#next2 h1{
     margin-top: 60px;
 }

@@ -11,6 +11,29 @@ html{
     margin: 0;
     padding: 0;
 }
+.text{
+    padding: 100px;
+    margin-top: -50px;
+    color: #080d14;
+}
+.text h1{
+    text-transform: uppercase;
+    padding-bottom: 50px;
+    font-size: 50px;
+    font-weight: bold;
+}
+.text p{
+    line-height: 30px;
+    font-size: 21px;
+}
+.text ul{
+    margin-top: 20px;
+    font-size: 21px;
+    padding-left: 20px;
+}
+.text ul li{
+    padding-top: 20px;
+}
 .flex-container{
     display: flex;
     flex-wrap: wrap;
@@ -18,19 +41,39 @@ html{
 }
 .flex-box{
     color: #000;
-    margin-top: -50px;
+    margin-top: -100px;
     padding: 100px;
     font-family: 'Roboto', sans-serif;
     transition: 0.5s;
 }
 .flex-box h1{
     font-size: 50px;
+    font-weight: bold;
     text-transform: uppercase;
 }
 .flex-box h3{
     font-size: 25px;
-    padding: 20px 20px 20px 0px;
+    padding: 50px 20px 20px 0px;
 }
 .flex-box p{
     font-size: 21px
+}
+.viewmore{
+    margin-left: -105px;
+}
+.viewmore a{
+    text-align: left;
+    margin: 0 100px;
+    padding: 7px 15px;
+    font-size: 21px;
+    text-decoration: none;
+    color: white;
+    text-transform: capitalize;
+    font-weight: 500;
+    background-color: #000;
+    border: 2px solid transparent;
+    border-radius: 30px;
+}
+.viewmore a:hover{
+    color: #5A9700;
 }

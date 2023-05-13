@@ -14,8 +14,10 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NgxImageComparisonSliderModule } from 'ngx-image-comparison-slider';
 import { CasesComponent } from './problems/cases.component';
-import { TakeactionComponent } from './takeaction/takeaction.component';
 import { SolutionsComponent } from './solutions/solutions.component';
+import { ExploreComponent } from './explore/explore.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+/*import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';*/
 
 @NgModule({
   declarations: [
@@ -25,10 +27,11 @@ import { SolutionsComponent } from './solutions/solutions.component';
     FooterComponent,
     HomeComponent,
     CasesComponent,
-    TakeactionComponent,
     CurrentIssueComponent,
     LandingPageComponent,
     SolutionsComponent,
+    ExploreComponent,
+    AboutusComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { SolutionsComponent } from './solutions/solutions.component';
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
     AccordionModule.forRoot(),
-    NgxImageComparisonSliderModule
+    NgxImageComparisonSliderModule,
+    /*FontAwesomeModule*/
   ],
   providers: [],
   bootstrap: [AppComponent]

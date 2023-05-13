@@ -5,8 +5,9 @@ import { CurrentIssueComponent } from './current-issue/current-issue.component';
 import { EscapeRoomComponent } from './games/escape-room/escape-room.component';
 import { NewsFeaturesComponent } from './news-features/news-features.component';
 import { CasesComponent } from './problems/cases.component';
-import { TakeactionComponent } from './takeaction/takeaction.component';
-
+import { SolutionsComponent } from './solutions/solutions.component';
+import { ExploreComponent } from './explore/explore.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 const routes: Routes = [
   {component: LandingPageComponent, path: ''},
   {component: CurrentIssueComponent, path: 'currentIssue'},
@@ -14,7 +15,9 @@ const routes: Routes = [
   {component: EscapeRoomComponent, path: 'games'},
   {component: NewsFeaturesComponent, path: 'newsFeatures'},
   {component: CasesComponent, path: 'problems'},
-  {component: TakeactionComponent, path: 'takeAction'},
+  {component: SolutionsComponent, path: 'solutions'},
+  {component: ExploreComponent, path: 'explore'},
+  {component: AboutusComponent, path: 'aboutus'},
 ];
 
 @NgModule({

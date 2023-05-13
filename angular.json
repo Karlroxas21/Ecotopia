@@ -33,7 +33,8 @@
               "node_modules/phaser/dist/phaser.min.js",
               "node_modules/simple-parallax-js/dist/simpleParallax.js",
               "src/assets/custom.js",
-              "node_modules/aos/dist/aos.js"
+              "node_modules/aos/dist/aos.js",
+              "src/assets/carousel.js"
             ]
           },
           "configurations": {
