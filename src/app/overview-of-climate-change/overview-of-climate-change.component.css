@@ -1,5 +1,5 @@
 .header-img{
-    height: 900px;
+    height: 100%;
     overflow: hidden;
     position: relative;
 }
@@ -16,7 +16,7 @@ header img{
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 1000px;
+    height: 100%;
     background: linear-gradient(to top,rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
 
@@ -25,20 +25,22 @@ header img{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 50px;
     position: absolute;
-    top: 50%;
-    color: white
+    padding-left: 50px;
+    top: 30%;
+    color: white;
 }
 
 .insights-container, .insights-container-2{
     display: flex;
+    position: relative;
 }
 
 .insights-container-sub{
     padding: 50px;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .insights-container-sub::before {
@@ -99,12 +101,15 @@ header img{
     margin-top: 50px;
     margin-bottom: 50px;
     background-color: rgb(233, 233, 233);
+    height: 100%;
+    position: relative;
 }
 
 .example-item-main-container-sub1{
     margin-top: 5%;
     padding: 20px;
 }
+
 /* End of example of climate changes */
 
 /* What is Climate Change? */
@@ -292,3 +297,46 @@ header img{
 }
 
 /* End of Related News */
+
+@media (max-width: 768px) {
+    /* Insights */
+    .insights-container, .insights-container-2{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .insights-main-container{
+        position: relative;
+        background-color: black;
+    }
+
+    .insights-container-sub{
+        padding-left: 0;
+    }
+
+    /* Example of Climate Change */
+    .example-item-main-container{
+        flex-wrap: wrap;
+    }
+
+    .example-item-main-container-sub2 img{
+        width: 100%;
+    }
+
+    /* Encyclopedic Entry */
+    .encyclopedic-entry-container{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    /* Reference */
+    .reference-container{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    /* Related News */
+    .related-news-container{
+        width: 80%;
+
+    }
+}
