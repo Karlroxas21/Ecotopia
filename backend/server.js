@@ -7,7 +7,8 @@ const { async } = require('rxjs');
 
 const app = express();
 const port = process.env.PORT || 3000;
-mongoose.connect('mongodb://localhost:27017/ecotopia');
+// mongoose.connect('mongodb://localhost:27017/ecotopia');
+mongoose.connect('mongodb+srv://karlmarxroxas1:Mvckf9rVcnZoxP0V@website.h8t2kwr.mongodb.net/ecotopia',)
 
 // CORS Middleware
 app.use(cors());

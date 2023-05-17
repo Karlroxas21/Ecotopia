@@ -6,7 +6,7 @@ const newsSchema = new mongoose.Schema({
     datePublished: String,
     description: String,
     link: String
-}, {collection: 'news_Features'});
+}, {collection: 'news_features'});
 
 const News = mongoose.model('News', newsSchema);
 
