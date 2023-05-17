@@ -1,9 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+body{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
 
-.parallax-div1 img {
+.parralax-div1{
+  height: 600px;
+}
+
+header img{
+  width: 100%;
+}
+/* .parallax-div1 img {
   padding-top: 50px;
   width: 100%;
   height: 600px;
+  position: relative;
+} */
+
+header{
   position: relative;
 }
 
@@ -19,19 +35,6 @@
   font-size: 3rem;
   color: white;
   font-weight: 500;
-}
-
-.parallax-div4 {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-.parallax-div4 img {
-  width: 100%;
 }
 
 /* Earth */
@@ -60,11 +63,15 @@
 .what-can-you-do {
   display: flex;
   justify-content: center;
-  padding-top: 30px;
+  position: relative;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 50px;
+  gap: 90px;
 }
 
 .wcyd-sub-div-1 {
-  width: 200px;
+  width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,12 +79,12 @@
 
 .wcyd-sub-div-1 p {
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: bold;
 }
 .wcyd-sub-div-2 {
   display: flex;
   flex-wrap: wrap;
-  width: 60%;
+  width: 80%;
 }
 
 .tile1,
@@ -88,6 +95,7 @@
   padding: 5px;
 }
 /* End of tiles */
+
 .div-parallax-3 {
   display: flex;
   align-items: center;
@@ -95,101 +103,100 @@
 }
 
 .div-parallax-3 img {
-  height: 500px;
   width: 90%;
 }
 
 /* Game, Webtoon, and Interactive Video */
-.three-projects-container {
+.three-projects-container-exp{
   display: flex;
-  justify-content: center;
-  height: 500px;
-  padding: 20px;
-  margin-left: 10%;
-  margin-right: 10%;
-  position: relative;
+  margin-left: 5%;
+  margin-right: 5%;
+  gap: 5px;
 }
 
-.three-projects-container p {
-  font-size: 2rem;
+.three-projects-container-exp p{
   position: absolute;
+  font-size: 2rem;
   font-weight: 900;
 }
 
-.two-projects-container {
+.two-projects-container-exp{
+  width: 50%;
   display: flex;
   flex-direction: column;
-  width: 45%;
+  gap: 5px;
 }
-
-.webtoon {
-  /* background-color: wheat; */
-  height: 50%;
-  padding: 10px;
-}
-
-.webtoon p {
-  top: 30px;
-  padding-left: 10px;
-  color: white;
-}
-
-.interactive-video {
-  /* background-color: rgb(7, 137, 252); */
-  height: 50%;
-  padding: 10px;
-}
-
-.interactive-video p {
-  top: 260px;
-  padding-left: 10px;
-  color: white;
-}
-
-.climate-escape {
-  /* background-color: green; */
+.interactive-video-exp{
   width: 50%;
-  padding: 10px;
 }
 
-.climate-escape p {
-  top: 30px;
-  padding-left: 10px;
-  color: white;
-}
-.webtoon-img,
-.interactive-img,
-.climate-img {
-  object-fit: contain;
-  height: 100%;
+.webtoon-exp, .interactive-video-exp, .climate-escape-exp{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
-.three-projects-container img {
+.hover-effect img{
   transform: scale(1);
   transition: transform 0.4s ease-in-out;
 }
 
-.webtoon img:hover,
-.interactive-video img:hover,
-.climate-escape img:hover {
+.hover-effect  img:hover{
   transform: scale(1.05);
 }
 
-/* Before and After */
-.carousel-before-after {
+.climate-escape-exp img{
+  scale: 1.5;
+}
+
+.webtoon-exp p, 
+.interactive-video-exp p,
+.climate-escape-exp p {
+  top: 20px;
+  padding-left: 20px;
+  color: white;
+}
+
+.parallax-div4 {
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  margin-bottom: 50px;
 }
 
-/* Carousel */
-.carousel {
+.parallax-div4 img {
   width: 100%;
 }
-
+/* Before and After */
+/* 
 .main-container-cba {
   display: flex;
   justify-content: center;
-  gap: 20px;
-}
+  border: 2px red dashed;
+} */
+
 /* End of Carousel */
+
+@media (max-width: 768px) {
+  .wcyd-sub-div-2{
+    gap: 10px;
+  }
+
+  .parallax-div2-text p {
+    font-size: 1.5rem;
+  }
+
+  .three-projects-container-exp{
+    height: 500px;
+  }
+
+  .tile1,
+  .tile2,
+  .tile3,
+  .tile4 {
+    width: 100%;
+    padding: 5px;
+    border: 2px dashed red  ;
+  }
+}
