@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+html{
+    margin: 0;
+    padding: 0;
+}
+main{
+    margin-bottom: 50px;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.text{
+    padding: 100px;
+    margin-top: -50px;
+    color: #080d14;
+}
+.text h1{
+    text-transform: uppercase;
+    padding-bottom: 50px;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+.text p{
+    line-height: 30px;
+    font-size: 21px;
+}
+.text ul{
+    margin-top: 20px;
+    font-size: 21px;
+    padding-left: 20px;
+}
+.text ul li{
+    padding-top: 20px;
+}
+.secondparagraph p{
+    margin-top: 50px;
+}
+.assessment h1{
+    text-transform: uppercase;
+    padding-bottom: 50px;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+.container {
+    width: 55%;
+    margin: 0 auto;
+}
+.container li{
+    font-size: 20px;
+    text-align: justify;
+}
+.question-box {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.answer-box textarea {
+    width: 100%;
+    padding: 10px;
+    resize: vertical;
+}
+.container .answer-box{
+    margin-top: 20px;
+    background-color: #080d14;
+}
+button {
+    display: block;
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 5px 10px;
+    background-color: #ddd;
+    color: #000;
+}
+@media screen and (max-width: 1180px){
+    img{
+        height: 500px;
+    }
+}
+@media screen and (max-width: 940px){
+    img{
+        height: 900px;
+    }
+}

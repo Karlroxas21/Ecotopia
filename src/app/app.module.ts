@@ -18,7 +18,8 @@ import { OverviewOfClimateChangeComponent } from './overview-of-climate-change/o
 import { SolutionsComponent } from './solutions/solutions.component';
 import { ExploreComponent } from './explore/explore.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
-/*import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';*/
+import { HistoryComponent } from './history/history.component';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     SolutionsComponent,
     ExploreComponent,
     AboutusComponent,
+    HistoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,6 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     CarouselModule.forRoot(),
     AccordionModule.forRoot(),
     NgxImageComparisonSliderModule,
-    /*FontAwesomeModule*/
   ],
   providers: [],
   bootstrap: [AppComponent]

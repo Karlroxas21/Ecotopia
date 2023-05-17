@@ -5,44 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
     <header data-aos="fade-down"
     data-aos-easing="linear"
     data-aos-duration="500">
-      <img class="logo" src="/assets/logo/logo.png" alt="Ecotopia Logo" height="120px" width="160px"/>
-      <div class="lines">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+      <a routerLink=""><img class="logo" src="/assets/logo/logo.png" alt="Ecotopia Logo" height="120px" width="160px"/></a>
+      <div class="lines" (click)="toggleMenu()"><i class="material-icons md-36">{{ isMenuOpen ? "close" : "menu" }}</i>
       </div>
-      <nav class="navbar">
+      <nav class="navbar" [class.is-open]="isMenuOpen">
         <ul class="nav_links">
-          <li><a routerLink=''>Home</a></li>
+          <li><a routerLink="">Home</a></li>
           <li><a routerLink="overviewOfClimateChange">Overview of Climate Change</a></li>
           <li><a routerLink="currentIssue">Current Issues</a></li>
           <li><a routerLink="newsFeatures">News & Features</a></li>
           <li><a routerLink="problems">Cases</a></li>
           <li><a routerLink="solutions">Solutions</a></li>
-          <li><a routerLink="">History</a></li>
+          <li><a routerLink="history">History</a></li>
           <li><a routerLink="explore">Explore</a></li>
           <li><a routerLink="games">Game</a></li>
         </ul>
       </nav>
       <a class="cta" href="aboutus"><button>About Us</button></a>
-      
-      <div class="dropdown_menu open">
-          <li><a routerLink="">Home</a></li>
-          <li><a routerLink="">Overview of Climate Change</a></li>
-          <li><a routerLink="currentIssue">Current Issues</a></li>
-          <li><a routerLink="newsFeatures">News & Features</a></li>
-          <li><a routerLink="problems">Cases</a></li>
-          <li><a routerLink="solutions">Solutions</a></li>
-          <li><a routerLink="">History</a></li>
-          <li><a routerLink="explore">Explore</a></li>
-          <li><a routerLink="games">Game</a></li>
-          <li><a href="aboutus" class="action_btn">About Us</a></li>
-      </div>
     </header>
   </body>
 </html>

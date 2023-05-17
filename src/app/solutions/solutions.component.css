@@ -11,6 +11,9 @@ html{
     margin: 0;
     padding: 0;
 }
+main{
+    margin-bottom: 50px;
+}
 .text{
     padding: 100px;
     margin-top: -50px;
@@ -42,7 +45,7 @@ html{
 .flex-box{
     color: #000;
     margin-top: -100px;
-    padding: 100px;
+    padding: 100px 100px 50px 100px;
     font-family: 'Roboto', sans-serif;
     transition: 0.5s;
 }
@@ -76,4 +79,68 @@ html{
 }
 .viewmore a:hover{
     color: #5A9700;
+}
+
+.assessment{
+    background-color: #263874;
+    padding-bottom: 50px;
+}
+.assessment h1{
+    text-transform: uppercase;
+    padding-bottom: 50px;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 50px;
+    color: #fff;
+}
+.container{
+    width: 500px;
+    margin: 0 auto;
+    padding: 10px 50px 10px 50px;
+    border: 5px solid;
+    background-color: #393f50;
+    color: white;
+}
+.container li, .container2 li{
+    font-size: 20px;
+}
+.container li p, .container2 li p{
+    margin-top: 20px;
+}
+.container h2{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.question {
+    margin-bottom: 20px;
+}
+button {
+    display: block;
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 5px 10px;
+    background-color: #ddd;
+    color: #000;
+}
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+.container2{
+    width: 500px;
+    margin: 50px auto;
+    padding: 10px 50px 10px 50px;
+    border: 5px solid;
+    background-color: #393f50;
+    color: white;
+}
+.container2 h2{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.assessment2{
+    background-image: url(/assets/assessmentpics/assessment.jpeg);
+    background-repeat: no-repeat;
+	background-size: cover; 
 }

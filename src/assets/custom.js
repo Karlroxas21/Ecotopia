@@ -1,15 +1,12 @@
-const observer = new IntersectionObserver((entries, observer) =>{
-    entries.forEach(entry =>{
-        if(entry.isIntersecting){
-            const animationDirection = entry.target.getAttribute('data-animation');
-            entry.target.classList.add(`${animationDirection}-visible`)
-            observer.unobserve(entry.target);
-        }
-    })
-})
+const toggleBtn = document.querySelector('.toggle_btn')
+const toggleBtnIcon = document.querySelector('.toggle_btn i')
+const dropdownMenu = document.querySelector('.dropdown_menu')
 
-const elements = document.querySelectorAll('[data-animation]');
+toggleBtn.onClick = function (){
+  dropdownMenu.classList.toggle('open')
+  const isOpen= dropdownMenu.classList.contains('open')
 
-elements.forEach(element => {
-    observer.observe(element);
-})
+  toggleBtnIcon.classList = isOpen
+  ? '<i class="ri-menu-line"></i>'
+  : '<i class="ri-close-line"></i>'
+}

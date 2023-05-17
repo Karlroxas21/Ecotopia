@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import * as AOS from 'aos';
 import { Scenes } from 'phaser';
 import SimpleParallax from 'simple-parallax-js';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'ecotopia-capstone';
@@ -21,4 +20,11 @@ export class AppComponent {
     AOS.init();
     window.addEventListener('load',AOS.refresh)
   }
+
+  isMenuOpen = false;
+
+  toggleMenu(): void{
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }
+

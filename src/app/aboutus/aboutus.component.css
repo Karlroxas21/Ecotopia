@@ -22,7 +22,7 @@ main{
 .texts p{
     line-height: 30px;
     font-size: 21px;
-    text-align: center;
+    text-align: justify;
 }
 .about{
     width: 100%;
@@ -73,20 +73,6 @@ main{
     line-height: 28px;
     margin-bottom: 45px;
 }
-@media screen and (max-width: 1180px){
-    .about{
-        width: 100%;
-        height: auto;
-        padding: 70px;
-    }
-}
-@media screen and (max-width: 1180px){
-    .about .content img{
-        margin-bottom: 35px;
-        margin-top: 100px;
-    }
-}
-
 .about2{
     margin-top: -200px;
     width: 100%;
@@ -104,20 +90,6 @@ main{
     width: 500px;
     max-width: 100%;
 }
-@media screen and (max-width: 1180px){
-    .about2{
-        width: 100%;
-        height: auto;
-        padding: 70px;
-    }
-}
-@media screen and (max-width: 1180px){
-    .about2 .content img{
-        margin-top: 100px;
-        margin-bottom: 35px;
-    }
-}
-
 .about3{
     margin-top: -200px;
     width: 100%;
@@ -132,20 +104,6 @@ main{
     width: 500px;
     max-width: 100%;
 }
-@media screen and (max-width: 1180px){
-    .about3{
-        width: 100%;
-        height: auto;
-        padding: 70px;
-    }
-}
-@media screen and (max-width: 1180px){
-    .about3 .content img{
-        margin-top: 100px;
-        margin-bottom: 35px;
-    }
-}
-
 .about4{
     margin-top: -200px;
     width: 100%;
@@ -163,14 +121,42 @@ main{
     width: 500px;
     max-width: 100%;
 }
-@media screen and (max-width: 1180px){
+@media screen and (max-width: 1430px){
+    .texts p{
+        text-align: justify;
+    }
+    .about{
+        width: 100%;
+        height: auto;
+        padding: 70px;
+    }
+    .about .content img{
+        margin-bottom: 35px;
+        margin-top: 100px;
+    }
+    .about2{
+        width: 100%;
+        height: auto;
+        padding: 70px;
+    }
+    .about2 .content img{
+        margin-top: 100px;
+        margin-bottom: 35px;
+    }
+    .about3{
+        width: 100%;
+        height: auto;
+        padding: 70px;
+    }
+    .about3 .content img{
+        margin-top: 100px;
+        margin-bottom: 35px;
+    }
     .about4{
         width: 100%;
         height: auto;
         padding: 70px;
     }
-}
-@media screen and (max-width: 1180px){
     .about4 .content img{
         margin-top: 100px;
         margin-bottom: 35px;
