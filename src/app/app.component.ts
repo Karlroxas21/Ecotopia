@@ -23,8 +23,9 @@ export class AppComponent {
 
   isMenuOpen = false;
 
+  /*
   toggleMenu(): void{
     this.isMenuOpen = !this.isMenuOpen;
-  }
+  }*/
 }
 
