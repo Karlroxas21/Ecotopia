@@ -8,14 +8,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
-    <header data-aos="fade-down"
-    data-aos-easing="linear"
-    data-aos-duration="500">
-      <a routerLink=""><img class="logo" src="/assets/logo/logo.png" alt="Ecotopia Logo" height="120px" width="160px"/></a>
-      <!--<div class="lines" (click)="toggleMenu()"><i class="material-icons md-36">{{ isMenuOpen ? "close" : "menu" }}</i>
-      </div>-->
-      <nav class="navbar" [class.is-open]="isMenuOpen">
-        <ul class="nav_links">
+    <header>
+      <div class="logo"><a routerLink=""><img src="/assets/logo/logo.png" alt="Ecotopia Logo" height="120px" width="160px"/></a></div>
+      <input type="checkbox" id="nav_check" hidden>
+      <nav>
+        <ul>
+          <div class="logo"><a routerLink=""><img src="/assets/logo/logo.png" alt="Ecotopia Logo" height="120px" width="160px"/></a></div>
           <li><a routerLink="">Home</a></li>
           <li><a routerLink="overviewOfClimateChange">Overview of Climate Change</a></li>
           <li><a routerLink="currentIssue">Current Issues</a></li>
@@ -25,9 +23,14 @@
           <li><a routerLink="history">History</a></li>
           <li><a routerLink="explore">Explore</a></li>
           <li><a routerLink="games">Game</a></li>
+          <li><a routerLink="aboutus" class="active">About Us</a></li>
         </ul>
       </nav>
-      <a class="cta" href="aboutus"><button>About Us</button></a>
+      <label for = "nav_check" class="lines">
+        <div></div>
+        <div></div>
+        <div></div>
+      </label>
     </header>
   </body>
 </html>

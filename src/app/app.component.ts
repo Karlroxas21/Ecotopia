@@ -20,12 +20,5 @@ export class AppComponent {
     AOS.init();
     window.addEventListener('load',AOS.refresh)
   }
-
-  isMenuOpen = false;
-
-  /*
-  toggleMenu(): void{
-    this.isMenuOpen = !this.isMenuOpen;
-  }*/
 }
 
