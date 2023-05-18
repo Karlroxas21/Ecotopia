@@ -36,9 +36,7 @@ html{
 }
 .content .textbox h2{
     color: #080d14;
-    font-size: 4em;
     line-height: 120px;
-    font-weight: 900;
     font-family: 'Roboto', sans-serif;
     font-size: 100px;
     font-weight: 900;
@@ -84,16 +82,24 @@ html{
 #next h1{
     margin-top: 60px;
 }
-@media only screen and (max-width: 1800px) {
-    header{
-        padding: 0 30px;
+@media screen and (max-width: 750px){
+    h1{
+        text-align: center;
     }
-    .nav_links li{
-        padding: 0px 10px;
+    .text p{
+        text-align: justify;
     }
-}
-@media only screen and (max-width: 1430px) {
-    .logo{
-        margin-top: -40px;
+    .content .textbox h2{
+    line-height: 110px;
+    font-size: 80px;
+    }
+    .content{
+        margin-top: 50px;
+        flex-direction: column;
+    }
+    .content .sadearth{
+        margin-top: -10px;
+        width: 130%;
+        margin-left: -100px;
     }
 }

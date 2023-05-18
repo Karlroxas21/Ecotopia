@@ -91,6 +91,11 @@ button {
 }
 @media screen and (max-width: 940px){
     img{
-        height: 900px;
+        height: 500px;
+    }
+}
+@media screen and (max-width: 750px){
+    img{
+        height: 400px;
     }
 }
