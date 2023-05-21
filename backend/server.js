@@ -7,13 +7,19 @@ const { async } = require('rxjs');
 
 const app = express();
 const port = process.env.PORT || 3000;
-// mongoose.connect('mongodb://localhost:27017/ecotopia');
-mongoose.connect('mongodb+srv://karlmarxroxas1:Mvckf9rVcnZoxP0V@website.h8t2kwr.mongodb.net/ecotopia',)
+mongoose.connect('mongodb+srv://karlmarxroxas1:Mvckf9rVcnZoxP0V@website.h8t2kwr.mongodb.net/ecotopia');
 
 // CORS Middleware
 app.use(cors());
 
-app.get('/', async(req, res) =>{
+app.use(express.static(path.join(__dirname, '../dist/ecotopia-capstone')));
+
+app.get('/', (req, res) => {
+  res.
+  sendFile(path.join(__dirname, '../dist/ecotopia-capstone/index.html'));
+});
+
+app.get('/overviewOfClimateChange', async(req, res) =>{
     try{
         const news = await News.find();
         res.json(news);
@@ -23,6 +29,17 @@ app.get('/', async(req, res) =>{
     }
 });
 
-app.listen(port, () => {
-    console.log(`Listening on port ${port}`) // REMOVE THIS LINE IN PROD
+app.get('/news_features', async(req, res) =>{
+    try{
+        const news = await News.find();
+        res.json(news);
+    }catch(err){
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error'});
+    }
+});
+
+app.listen(port, ()=>{
+    console.log(`Listening on ${port}`);
 })
+
