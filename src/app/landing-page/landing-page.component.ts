@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import SimpleParallax from 'simple-parallax-js';
 
 @Component({
@@ -6,7 +6,10 @@ import SimpleParallax from 'simple-parallax-js';
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css']
 })
-export class LandingPageComponent {
+export class LandingPageComponent implements OnInit {
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   ngAfterViewInit(){
     const scene1 = document.getElementsByClassName('parallax-1');

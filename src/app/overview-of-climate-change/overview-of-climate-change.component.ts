@@ -19,6 +19,8 @@ export class OverviewOfClimateChangeComponent implements OnInit {
     .subscribe(news =>{
       this.news = news;
     })
+    throw new Error('Method not implemented.');
+
   }
 
   ngAfterViewInit(){
