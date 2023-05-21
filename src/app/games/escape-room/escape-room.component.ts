@@ -14,7 +14,7 @@ import { PlayLevel3Scene } from './scenes/level2/play-scene-level3';
   styleUrls: ['./escape-room.component.css']
 })
 export class EscapeRoomComponent implements OnInit{
-  phaserGame: Phaser.Game | undefined;
+  phaserGame !: Phaser.Game ;
   config: Phaser.Types.Core.GameConfig;
   constructor(){
     this.config = {
@@ -38,7 +38,26 @@ export class EscapeRoomComponent implements OnInit{
     }
   }
 
-  ngOnInit() {
-      this.phaserGame = new Phaser.Game(this.config);
+  createGame(){
+    this.phaserGame = new Phaser.Game(this.config);
   }
+
+  getGameInstance(){
+    return this.phaserGame;
+  }
+
+  ngOnInit() {
+    if(!this.phaserGame){
+      this.createGame();
+    }else{
+      this.getGameInstance();
+    }
+ }
+
+ ngOnDestroy(){
+  if(this.phaserGame){
+    this.phaserGame.destroy(true);
+  }
+ }
+ 
 }
