@@ -8,10 +8,11 @@ html, body{
 	box-sizing: border-box;
 }
 .footer{
-    background-image: url(/assets/homeimages/earthfooter.png);
+    background-image: url(/assets/footerimage/earthfinal.png);
+	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover; 
-    height: 170vh;
+    height: 150vh;
 }
 .container{
 	max-width: 1170px;
@@ -92,16 +93,31 @@ ul{
 .footer-col h4{
     padding-top: 50px;
 }
+
 /*responsive*/
-@media(max-width: 767px){
-  .footer-col{
-    width: 50%;
-    margin-bottom: 30px;
+@media(max-width: 1245px){
+	.footer{
+		height: 150vh;
+	}
+    .footer-col{
+        margin-bottom: 30px;
+}
+}
+@media(max-width: 970px){
+	.footer{
+		height: 200vh;
+	}
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
 }
 }
 @media(max-width: 574px){
-  .footer-col{
-    width: 100%;
+	.footer{
+		height: 220vh;
+	}
+   .footer-col{
+        width: 50%;
 }
 }
 
