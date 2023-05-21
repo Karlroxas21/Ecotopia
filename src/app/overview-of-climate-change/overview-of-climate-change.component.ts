@@ -15,7 +15,7 @@ export class OverviewOfClimateChangeComponent implements OnInit {
   constructor(private http: HttpClient){}
 
   ngOnInit():void{
-    this.http.get<any[]>('http://localhost:3000/')
+    this.http.get<any[]>('http://localhost:3000/overviewOfClimateChange')
     .subscribe(news =>{
       this.news = news;
     })
