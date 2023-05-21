@@ -11,20 +11,15 @@ html{
     margin: 0;
     padding: 0;
 }
-main{
-    margin-bottom: 50px;
-}
-img{
+/*img{
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
     margin-bottom: 50px;
-}
+}*/
 .text{
-    padding: 100px;
-    margin-top: -50px;
-    color: #080d14;
+    padding: 50px;
 }
 .text h1{
     text-transform: uppercase;
@@ -36,17 +31,6 @@ img{
 .text p{
     line-height: 30px;
     font-size: 21px;
-}
-.text ul{
-    margin-top: 20px;
-    font-size: 21px;
-    padding-left: 20px;
-}
-.text ul li{
-    padding-top: 20px;
-}
-.secondparagraph p{
-    margin-top: 50px;
 }
 .assessment h1{
     text-transform: uppercase;
@@ -83,6 +67,9 @@ button {
     padding: 5px 10px;
     background-color: #ddd;
     color: #000;
+}
+section .reference-container{
+    padding: 50px;
 }
 @media screen and (max-width: 1180px){
     img{
