@@ -46,6 +46,7 @@ html{
 .container li{
     font-size: 20px;
     text-align: justify;
+    margin-top: 20px;
 }
 .question-box {
     padding: 10px;

@@ -42,6 +42,14 @@ header img{
     flex-direction: column;
     position: relative;
 }
+.insights-container .insights-container-sub:hover {
+    transform: scale(1.1);
+    transition: 1s;
+}
+.insights-container-2 .insights-container-sub:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}
 
 .insights-container-sub::before {
     content: "";
