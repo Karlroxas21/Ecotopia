@@ -19,6 +19,8 @@ import { SolutionsComponent } from './solutions/solutions.component';
 import { ExploreComponent } from './explore/explore.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { HistoryComponent } from './history/history.component';
+import { WebtoonComponent } from './webtoon/webtoon.component';
+import { InteractivevideoComponent } from './interactivevideo/interactivevideo.component';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import { HistoryComponent } from './history/history.component';
     ExploreComponent,
     AboutusComponent,
     HistoryComponent,
+    WebtoonComponent,
+    InteractivevideoComponent,
   ],
   imports: [
     BrowserModule,
