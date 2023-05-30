@@ -121,6 +121,9 @@ header img{
 /* End of example of climate changes */
 
 /* What is Climate Change? */
+section h1{
+    margin-bottom: 20px;
+}
 .what-is-climate-change-container{
     display: flex;
     flex-direction: column;
@@ -352,6 +355,8 @@ header img{
     /* Related News */
     .related-news-container{
         width: 80%;
-
+    }
+    .insights-main-container{
+        
     }
 }
