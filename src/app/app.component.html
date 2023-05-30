@@ -14,16 +14,16 @@
       <nav>
         <ul>
           <div class="logo"><a routerLink=""><img src="/assets/logo/logo.png" alt="Ecotopia Logo" height="120px" width="160px"/></a></div>
-          <li><a routerLink="">Home</a></li>
-          <li><a routerLink="overviewOfClimateChange">Overview of Climate Change</a></li>
-          <li><a routerLink="currentIssue">Current Issues</a></li>
-          <li><a routerLink="newsFeatures">News & Features</a></li>
-          <li><a routerLink="problems">Cases</a></li>
-          <li><a routerLink="solutions">Solutions</a></li>
-          <li><a routerLink="webtoon">Webtoon</a></li>
-          <li><a routerLink="interactivevideo">Interactive Video</a></li>
-          <li><a routerLink="games">Game</a></li>
-          <li><a routerLink="aboutus" class="active">About Us</a></li>
+          <li [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><a routerLink="">Home</a></li>
+          <li [routerLinkActive]="'active'"><a routerLink="overviewOfClimateChange">Overview of Climate Change</a></li>
+          <li [routerLinkActive]="'active'"><a routerLink="currentIssue">Current Issues</a></li>
+          <li [routerLinkActive]="'active'"><a routerLink="newsFeatures">News & Features</a></li>
+          <li [routerLinkActive]="'active'"><a routerLink="problems">Cases</a></li>
+          <li [routerLinkActive]="'active'"><a routerLink="solutions">Solutions</a></li>
+          <li [routerLinkActive]="'active'"><a routerLink="webtoon">Webtoon</a></li>
+          <li [routerLinkActive]="'active'"><a routerLink="interactivevideo">Interactive Video</a></li>
+          <li [routerLinkActive]="'active'"><a routerLink="games">Game</a></li>
+          <li [routerLinkActive]="'active'"><a routerLink="aboutus">About Us</a></li>
         </ul>
       </nav>
       <label for = "nav_check" class="lines">
