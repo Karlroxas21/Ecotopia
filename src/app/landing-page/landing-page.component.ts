@@ -18,15 +18,8 @@ export class LandingPageComponent implements OnInit {
 	    transition: 'cubic-bezier(0,0,0,1)',
     });
 
-    const scene2 = document.getElementsByClassName('parallax-2');
-    const parallaxInstance2 = new SimpleParallax(scene2, {
-      overflow: true,
-      scale: 1.5
-    });
-
     const scene3 = document.getElementsByClassName('parallax-3');
     const parallaxInstance3 = new SimpleParallax(scene3, {
-      overflow: true,
       orientation: 'right'
     });
 
