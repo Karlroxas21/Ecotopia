@@ -82,6 +82,7 @@ main{
 }
 
 .assessment{
+    border-radius: 20px;
     background-color: #263874;
     padding-bottom: 50px;
 }

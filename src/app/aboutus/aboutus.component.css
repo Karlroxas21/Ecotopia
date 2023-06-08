@@ -9,7 +9,7 @@ main{
 }
 .texts{
     color: #ffffff;
-    padding: 150px 100px;
+    padding: 100px 200px 200px;
 }
 .texts h1{
     text-transform: uppercase;
@@ -24,14 +24,15 @@ main{
     font-size: 21px;
     text-align: justify;
 }
-.about{
+.about, .about2, .about3, .about4{
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -200px;
+    margin-top: -250px;
 }
+
 .about .content img{
     border-radius: 50%;
     height: auto;
@@ -73,14 +74,6 @@ main{
     line-height: 28px;
     margin-bottom: 45px;
 }
-.about2{
-    margin-top: -200px;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .about2 .content{
     flex-direction: row-reverse;
 }
@@ -90,27 +83,11 @@ main{
     width: 500px;
     max-width: 100%;
 }
-.about3{
-    margin-top: -200px;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .about3 .content img{
     border-radius: 50%;
     height: auto;
     width: 500px;
     max-width: 100%;
-}
-.about4{
-    margin-top: -200px;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .about4 .content{
     flex-direction: row-reverse;
@@ -160,5 +137,44 @@ main{
     .about4 .content img{
         margin-top: 100px;
         margin-bottom: 35px;
+    }
+}
+@media screen and (max-width: 1050px){
+    .texts{
+        padding: 100px 110px;
+    }
+    .texts h1{
+        font-size: 40px;
+    }
+}
+@media screen and (max-width: 665px){
+    .texts h1{
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 1403px){
+    .about{
+        margin-top: -200px;
+    }
+    .about2, .about3, .about4{
+        margin-top: -400px;
+    }
+}
+@media screen and (max-width: 1245px){
+    .about{
+        margin-top: -100px;
+    }
+    .about2, .about3, .about4{
+        margin-top: -200px;
+    }
+}
+@media screen and (max-width: 1205px){
+    .texts h1{
+    font-size: 55px;
+    }
+}
+@media screen and (max-width: 567px){
+    .texts h1{
+        font-size: 25px;
     }
 }

@@ -1,4 +1,5 @@
 <body>
+<!--
   <div class="carousel-div">
     <carousel class="carousel">
       <slide>
@@ -38,6 +39,44 @@
       </slide>
     </carousel>
   </div>
+-->
+    <carousel [isAnimated]="true">
+        <slide>
+          <img src="assets/exploreimages/tree.jpg" alt="tree's fire" style="display: block; width: 100%;">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </slide>
+        <slide>
+          <img src="assets/exploreimages/fire.jpg" alt="fire in the forest" style="display: block; width: 100%;">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Second slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </slide>
+        <slide>
+          <img src="assets/exploreimages/soilerosion.jpg" alt="soil crack" style="display: block; width: 100%;">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Third slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </slide>
+        <slide>
+          <img src="assets/exploreimages/greenhouse.jpg" alt="greenhouse gases" style="display: block; width: 100%;">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Fourth slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </slide>
+        <slide>
+          <img src="assets/exploreimages/globalwarming.jpg" alt="global warming" style="display: block; width: 100%;">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Fifth slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </slide>
+      </carousel>
 
   <section class="climate-change" >
     <h1>Climate Change in the Philippines</h1>
@@ -47,7 +86,7 @@
      >
         <accordion-group  class="customClass"
         [isOpen]="isFirstOpen"
-        heading="Introduction">
+        heading="Introduction" >
           <div>
             <p>
               Climate change is happening now. Evidences being seen support the

@@ -27,11 +27,15 @@
     flex-direction: column;
     margin-right: 10%;
     margin-left: 10%;
-    padding-top: 5%;
+    padding-top: 2%;
+}
+.climate-change h1{
+    font-weight: bolder;
 }
 
 .climate-change-info{
     color: black;
+    margin-top: 10px;
 }
 
 /* Climate Change Scenario */
@@ -108,7 +112,6 @@ table, td, th{
 /* End of Content */
 
 @media (max-width: 768px){
-    
     .images{
         width: 80%;
         height: 60%; 

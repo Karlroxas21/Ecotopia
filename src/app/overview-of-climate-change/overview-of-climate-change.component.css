@@ -310,6 +310,9 @@ section h1{
 /* End of Related News */
 
 @media (max-width: 768px) {
+    .wicc-sub-container1, .wicc-sub-container2{
+        flex-direction: column;
+    }
     .header-img{
         height:90%;
     }
