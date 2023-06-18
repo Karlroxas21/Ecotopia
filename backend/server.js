@@ -12,11 +12,11 @@ mongoose.connect('mongodb+srv://karlmarxroxas1:Mvckf9rVcnZoxP0V@website.h8t2kwr.
 // CORS Middleware
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, '../dist/ecotopia-capstone')));
+app.use(express.static(path.join(__dirname, 'dist/ecotopia-capstone')));
 
 app.get('/', (req, res) => {
   res.
-  sendFile(path.join(__dirname, '../dist/ecotopia-capstone/index.html'));
+  sendFile(path.join(__dirname, 'dist/ecotopia-capstone/index.html'));
 });
 
 app.get('/overviewOfClimateChange', async(req, res) =>{
