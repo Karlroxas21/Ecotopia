@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sidenav</title>
+</head>
+<body>
+    <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+        <div class="logo-container">
+            <button class="logo" (click)="toggleCollapse()">E</button>
+            <div class="logo-text" *ngIf="collapsed">Ecotopia</div>
+            <button class="btn-close"  *ngIf="collapsed" (click)="closeSidenav()">
+                <i class="fal fa-times close-icon"></i>
+            </button>
+        </div>
+        <ul class="sidenav-nav">
+            <li class="sidenav-nav-item" *ngFor="let data of navData">
+                <a class="sidenav-nav-link" [routerLink]="[data.routeLink]"
+                routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                >
+                    <i class="sidenav-link-icon" [class]="data.icon"></i>
+                    <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -11,6 +11,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { OverviewOfClimateChangeComponent } from './overview-of-climate-change/overview-of-climate-change.component';
 import { WebtoonComponent } from './webtoon/webtoon.component';
 import { InteractivevideoComponent } from './interactivevideo/interactivevideo.component';
+import { ADMINComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {component: LandingPageComponent, path: ''},
@@ -25,7 +26,7 @@ const routes: Routes = [
   {component: OverviewOfClimateChangeComponent, path: 'overviewOfClimateChange'},
   {component: WebtoonComponent, path: 'webtoon'},
   {component: InteractivevideoComponent, path: 'interactivevideo'},
-  
+  {component: ADMINComponent, path: 'ADMIN'},
 ];
 
 @NgModule({

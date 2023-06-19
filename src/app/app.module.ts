@@ -21,6 +21,15 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { HistoryComponent } from './history/history.component';
 import { WebtoonComponent } from './webtoon/webtoon.component';
 import { InteractivevideoComponent } from './interactivevideo/interactivevideo.component';
+import { AdminCasesComponent } from './admin-cases/admin-cases.component';
+import { AdminSolutionsComponent } from './admin-solutions/admin-solutions.component';
+import { AdminWebtoonComponent } from './admin-webtoon/admin-webtoon.component';
+import { AdminInteractivevideoComponent } from './admin-interactivevideo/admin-interactivevideo.component';
+import { AdminBodyComponent } from './admin-body/admin-body.component';
+import { AdminSidenavComponent } from './admin-sidenav/admin-sidenav.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { ADMINComponent } from './admin/admin.component';
+import { AdminRoutingModule } from './admin/admin-routing.module';
 
 
 @NgModule({
@@ -40,9 +49,19 @@ import { InteractivevideoComponent } from './interactivevideo/interactivevideo.c
     HistoryComponent,
     WebtoonComponent,
     InteractivevideoComponent,
+    AdminCasesComponent,
+    AdminSolutionsComponent,
+    AdminWebtoonComponent,
+    AdminInteractivevideoComponent,
+    AdminBodyComponent,
+    AdminSidenavComponent,
+    AdminHomeComponent,
+    ADMINComponent,
+
   ],
   imports: [
     BrowserModule,
+    AdminRoutingModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,

@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import * as AOS from 'aos';
 import { Scenes } from 'phaser';
 import SimpleParallax from 'simple-parallax-js';
+
+//interface SideNavToggle{
+  //screenWidth: number;
+  //collapsed: boolean;
+//}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,5 +25,13 @@ export class AppComponent {
     AOS.init();
     window.addEventListener('load',AOS.refresh)
   }
+
+  //isSideNavCollapsed = false;
+  //screenWidth = 0;
+
+  //onToggleSideNav(data: SideNavToggle): void{
+   // this.screenWidth = data.screenWidth;
+   // this.isSideNavCollapsed = data.collapsed;
+ // }
 }
 
