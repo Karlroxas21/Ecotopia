@@ -24,7 +24,6 @@
     "bootstrap": "^5.2.3",
     "jquery": "^3.6.4",
     "ngx-bootstrap": "^10.2.0",
-    "ngx-image-comparison-slider": "^0.0.5",
     "phaser": "^3.55.2",
     "rxjs": "~7.8.0",
     "simple-parallax-js": "^5.6.2",
