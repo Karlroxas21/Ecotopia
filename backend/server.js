@@ -6,7 +6,7 @@ const News = require('./model/news.models');
 const { async } = require('rxjs');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 mongoose.connect('mongodb+srv://karlmarxroxas1:Mvckf9rVcnZoxP0V@website.h8t2kwr.mongodb.net/ecotopia');
 
 // CORS Middleware
