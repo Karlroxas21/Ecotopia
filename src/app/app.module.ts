@@ -65,7 +65,7 @@ import { AdminRoutingModule } from './admin/admin-routing.module';
     HttpClientModule,
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
-    AccordionModule.forRoot(),
+    AccordionModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

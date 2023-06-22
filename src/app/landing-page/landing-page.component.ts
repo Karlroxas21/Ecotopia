@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import SimpleParallax from 'simple-parallax-js';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
