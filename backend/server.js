@@ -3,6 +3,7 @@ const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
 const News = require('./model/news.models');
+const ClimateChange = require('./model/cases.model');
 const { async } = require('rxjs');
 
 const app = express();
@@ -33,6 +34,16 @@ app.get('/news_features', async(req, res) =>{
     try{
         const news = await News.find();
         res.json(news);
+    }catch(err){
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error'});
+    }
+});
+
+app.get('/problems', async(req, res) =>{
+    try{
+        const climate_change = await ClimateChange.find();
+        res.json(climate_change);
     }catch(err){
         console.error(err);
         res.status(500).json({ message: 'Internal server error'});

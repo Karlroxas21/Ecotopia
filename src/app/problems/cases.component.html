@@ -12,9 +12,9 @@
   </head>
   <body>
     <main>
-      <div class="content">
-        <div class="textbox" data-aos="fade-down-right">
-          <h2>Everything <br /><span>is Changing</span></h2>
+      <div class="content" >
+        <div class="textbox" data-aos="fade-down-right" *ngFor="let item of cases">
+          <h2>{{item.headers[0].header_1}}</h2>
           <p>
             Climate change is happening now: understand the problem and take
             action.

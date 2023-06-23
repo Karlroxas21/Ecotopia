@@ -8,12 +8,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CasesComponent implements OnInit {
   cases: any[] = [];
-  itemsToShow: number = 20;
 
   constructor(private http: HttpClient){}
 
   ngOnInit():void{
-    this.http.get<any[]>('http://localhost:3000/problems')
+    this.http.get<any[]>('http://localhost:80/problems')
     .subscribe(cases =>{
       this.cases = cases;
     })
