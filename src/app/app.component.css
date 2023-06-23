@@ -78,7 +78,7 @@ nav ul a:hover{
         padding: 0px 10px;
     }
 }*/
-@media only screen and (max-width: 1453px) { /*1400 without admin*/
+@media only screen and (max-width: 1400px) {
     header{
         width: 100%;
         padding: 0 20px;
@@ -116,7 +116,7 @@ nav ul a:hover{
         display: block;
     }
 }
-/*@media only screen and (max-width: 1453px){ /*1450 without admin tab
+@media only screen and (max-width: 1450px){
     header{
         width: 100%;
         padding: 0 5px;
@@ -124,8 +124,8 @@ nav ul a:hover{
     nav ul li{
         padding: 1px;
     }
-}*/
-@media only screen and (max-width: 1617px){ /*1560 without admin tab*/
+}
+@media only screen and (max-width: 1560px){
     header{
         width: 100%;
         padding: 0 5px;
