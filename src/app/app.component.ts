@@ -26,8 +26,6 @@ export class AppComponent {
     window.addEventListener('load',AOS.refresh)
   }
 
-  isSideNavCollapsed = false;
-  screenWidth = 0;
 
   // onToggleSideNav(data: SideNavToggle): void{
   //   this.screenWidth = data.screenWidth;
