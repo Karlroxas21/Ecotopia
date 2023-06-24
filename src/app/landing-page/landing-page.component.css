@@ -1,4 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+@font-face {
+  font-family: 'Henry Sans Bold';
+  src: url(/assets/font/HenrySansBold.6affb29a.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Henry Sans Regular';
+  src: url(/assets/font/HenrySansRegular.a74efa90.ttf) format('truetype');
+}
+
+
 body{
   display: flex;
   flex-direction: column;
@@ -44,9 +54,18 @@ section .parallax-div4 img{
   /*padding: 50px 100px 20px 100px;*/
 }
 .parallax-div2-text p {
-  font-family: 'Lemon', cursive;
+  font-family: 'Henry Sans Bold', sans-serif;
   font-size: 3rem;
   color: white;
+}
+
+/* .pd2t-sof{
+  background-color: #FF96A9;
+  border-radius: 20px;
+} */
+
+.pd2t-sof p{
+  color: #FF96A9;
 }
 
 /* Earth */
@@ -87,24 +106,58 @@ section .parallax-div4 img{
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 40px;
 }
 
 .wcyd-sub-div-1 p {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
+  line-height: .8;
+  font-family: 'Henry Sans Bold', sans-serif;
+  color: #0030FF;
 }
 .wcyd-sub-div-2 {
-  display: flex;
-  flex-wrap: wrap;
-  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
+}
+.wcyd-sub-div-2 p{
+  font-family: 'Henry Sans Regular', sans-serif;
+  letter-spacing: .5px;
+  font-size: 1.3rem;
 }
 
+.wcyd-sub-div-2 h2{
+  font-weight: 900;
+}
 .tile1,
 .tile2,
 .tile3,
 .tile4 {
-  width: 50%;
-  padding: 10px;
+  padding: 20px;
+  display: grid;
+  grid-template-rows: .5fr 1fr;
+}
+
+.tile1{
+  border: 5px solid #B45C6A;
+  border-radius: 20px;
+}
+
+.tile2{
+  border: 5px solid #5E55DB;
+  border-radius: 20px;
+}
+
+.tile3{
+  border: 5px solid #DD9E3B;
+  border-radius: 20px;
+}
+
+.tile4{
+  border: 5px solid #396A63;
+  border-radius: 20px;
 }
 /* End of tiles */
 
@@ -120,10 +173,12 @@ section .parallax-div4 img{
 
 /* Game, Webtoon, and Interactive Video */
 .three-projects-container-exp{
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
   margin-left: 5%;
   margin-right: 5%;
-  gap: 5px;
+  gap: 10px;
 }
 
 .three-projects-container-exp p{
@@ -134,9 +189,6 @@ section .parallax-div4 img{
 
 .two-projects-container-exp{
   width: 50%;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
 }
 .interactive-video-exp{
   width: 50%;
@@ -146,6 +198,14 @@ section .parallax-div4 img{
   width: 100%;
   overflow: hidden;
   position: relative;
+  border: 5px solid black;
+  border-radius: 20px;
+  height: 350px;
+
+}
+
+.webtoon-exp img, .interactive-video-exp img{
+  scale: 1.5;
 }
 
 .hover-effect img{
@@ -166,16 +226,20 @@ section .parallax-div4 img{
 .climate-escape-exp p {
   top: 20px;
   padding-left: 20px;
-  color: white;
+  color: #FF96A9;
+  font-family: 'Henry Sans Bold', sans-serif;
+
 }
 
 .parallax-div4 {
   display: flex;
-  justify-content: center;
+  align-items: center;
   gap: 5px;
-  width: 100%;
   margin-bottom: 50px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
+
 /* Before and After */
 /* 
 .main-container-cba {
