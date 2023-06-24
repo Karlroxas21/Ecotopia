@@ -276,7 +276,7 @@ export class PlayLevel2Scene extends Phaser.Scene {
     );
 
     const fact =
-      'Did you know that more than 500,000 jeep and other vehicles \nin Metro Manila produce in Metro Manila, produce 70% of\nblack carbon emissions in Philippines.';
+      'Did you know that more than 500,000 jeep and other vehicles \nin Metro Manila, produce 70% of black carbon emissions \nin Philippines.';
     const congrats = this.add
       .text(
         this.config.width / 2,
