@@ -29,11 +29,11 @@
   gap: 50px;
 }
 
-.margin-left {
+.right-side {
   margin-left: 3%;
 }
 
-.margin-right {
+.left-side {
   margin-right: 3%;
 }
 
@@ -71,4 +71,78 @@
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3 ease 0s;
+}
+
+.checkbtn{
+  font-size: 30px;
+  color: black;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+
+#check{
+  display: none;
+
+}
+@media only screen and (max-width: 858px){
+
+  .checkbtn{
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  
+  .center-logo img{
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    width: 70px;
+  }
+  .navbar {
+    top: 0;
+    width: 100%;
+  }
+
+  .left-side, .right-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+
+  }
+
+  .parent{
+    display: flex;
+    flex-direction: column;
+    display: none;
+    height: 100vh;
+    margin-top: 10%;
+  }
+
+  .dropdown-content{
+    display: hidden;
+  }
+
+  .left-side a, .right-side a{
+    padding-left: 5%;
+  }
+
+  .left-side a:hover, .right-side a:hover{
+    color: #FF96A9;
+  }
+
+  .parent{
+    /* position: fixed; */
+  }
+
+  #check:checked ~ .parent {
+    display: flex;
+    left: 0;
+  }
+
 }
