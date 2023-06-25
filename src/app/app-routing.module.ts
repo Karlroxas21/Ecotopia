@@ -11,8 +11,22 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { OverviewOfClimateChangeComponent } from './overview-of-climate-change/overview-of-climate-change.component';
 import { WebtoonComponent } from './webtoon/webtoon.component';
 import { InteractivevideoComponent } from './interactivevideo/interactivevideo.component';
-import { ADMINComponent } from './admin/admin.component';
+import { ProblemtrashComponent } from './problemtrash/problemtrash.component';
+import { CausesofclimatechangeComponent } from './causesofclimatechange/causesofclimatechange.component';
+import { EffectsofclimatechangeComponent } from './effectsofclimatechange/effectsofclimatechange.component';
+import { WhyshouldwetakeactionComponent } from './whyshouldwetakeaction/whyshouldwetakeaction.component';
+import { OthersolutionsComponent } from './othersolutions/othersolutions.component';
+import { RespondingtoclimatechangeComponent } from './respondingtoclimatechange/respondingtoclimatechange.component';
+import { GovernmentresourcesComponent } from './governmentresources/governmentresources.component';
+import { ProblemjeepoutdatedengineComponent } from './problemjeepoutdatedengine/problemjeepoutdatedengine.component';
+import { AssessmentComponent } from './assessment/assessment.component';
 import { MaterialComponent } from './material/material.component';
+// import { ADMINComponent } from './admin/admin.component';
+// import { AdminCasesComponent } from './admin-cases/admin-cases.component';
+// import { AdminInteractivevideoComponent } from './admin-interactivevideo/admin-interactivevideo.component';
+// import { AdminWebtoonComponent } from './admin-webtoon/admin-webtoon.component';
+// import { AdminSolutionsComponent } from './admin-solutions/admin-solutions.component';
+// import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 const routes: Routes = [
   {component: LandingPageComponent, path: ''},
@@ -27,8 +41,23 @@ const routes: Routes = [
   {component: OverviewOfClimateChangeComponent, path: 'overviewOfClimateChange'},
   {component: WebtoonComponent, path: 'webtoon'},
   {component: InteractivevideoComponent, path: 'interactivevideo'},
-  {component: ADMINComponent, path: 'ADMIN'},
+  {component: ProblemtrashComponent, path: 'problemtrash'},
+  {component: CausesofclimatechangeComponent, path: 'causesofclimatechange'},
+  {component: EffectsofclimatechangeComponent, path: 'effectsofclimatechange'},
+  {component: WhyshouldwetakeactionComponent, path: 'whyshouldwetakeactions'},
+  {component: RespondingtoclimatechangeComponent, path: 'respondingtoclimatechange'},
+  {component: OthersolutionsComponent, path: 'othersolutions'},
+  {component: GovernmentresourcesComponent, path: 'governmentresources'},
+  {component: ProblemjeepoutdatedengineComponent, path: 'outdatedjeepengine'},
+  {component: AssessmentComponent, path: 'assessment'},
+  // {component: ADMINComponent, path: 'ADMIN'},
   {component: MaterialComponent, path: 'material'}
+  // {component: AdminCasesComponent, path: 'admin-cases'},
+  // {component: AdminInteractivevideoComponent, path: 'admin-interactivevideo'},
+  // {component: AdminWebtoonComponent, path: 'admin-webtoon'},
+  // {component: AdminSolutionsComponent, path: 'admin-solutions'},
+  // {component: AdminHomeComponent, path: 'admin-home'},
+  // {path:'', redirectTo: 'home', pathMatch:'full'},
 ];
 
 @NgModule({

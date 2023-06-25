@@ -30,6 +30,15 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { ADMINComponent } from './admin/admin.component';
 import { AdminRoutingModule } from './admin/admin-routing.module';
 import { MaterialComponent } from './material/material.component';
+import { ProblemtrashComponent } from './problemtrash/problemtrash.component';
+import { CausesofclimatechangeComponent } from './causesofclimatechange/causesofclimatechange.component';
+import { EffectsofclimatechangeComponent } from './effectsofclimatechange/effectsofclimatechange.component';
+import { WhyshouldwetakeactionComponent } from './whyshouldwetakeaction/whyshouldwetakeaction.component';
+import { OthersolutionsComponent } from './othersolutions/othersolutions.component';
+import { RespondingtoclimatechangeComponent } from './respondingtoclimatechange/respondingtoclimatechange.component';
+import { GovernmentresourcesComponent } from './governmentresources/governmentresources.component';
+import { ProblemjeepoutdatedengineComponent } from './problemjeepoutdatedengine/problemjeepoutdatedengine.component';
+import { AssessmentComponent } from './assessment/assessment.component';
 
 
 @NgModule({
@@ -58,6 +67,15 @@ import { MaterialComponent } from './material/material.component';
     AdminHomeComponent,
     ADMINComponent,
     MaterialComponent,
+    ProblemtrashComponent,
+    CausesofclimatechangeComponent,
+    EffectsofclimatechangeComponent,
+    WhyshouldwetakeactionComponent,
+    OthersolutionsComponent,
+    RespondingtoclimatechangeComponent,
+    GovernmentresourcesComponent,
+    ProblemjeepoutdatedengineComponent,
+    AssessmentComponent,
 
   ],
   imports: [

@@ -1,25 +1,6 @@
 <!--<app-admin-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-admin-sidenav>
 <app-admin-body [collapsed]="isSideNavCollapsed"
 [screenWidth]="screenWidth"></app-admin-body>>-->
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap"
-      rel="stylesheet"
-    />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
     <div class="navbar">
       <input type="checkbox" id="check">
         <label for="check" class="checkbtn">
@@ -28,7 +9,7 @@
       <div class="parent">
         <div class="left-side">
           <div class="dropdown">
-            <a routerLink="material">MATERIAL</a>
+            <a>MATERIAL</a>
             <div class="dropdown-content">
               <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="currentIssue"
                 >Current Issues</a
@@ -42,7 +23,7 @@
                 routerLink="overviewOfClimateChange"
                 >Overview of Climate Change</a
               >
-              <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="solutions"
+              <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="assessment"
                 >Assessment</a
               >
             </div>
@@ -66,5 +47,9 @@
       </div>
     </div>
     <router-outlet></router-outlet>
-  </body>
-</html>
+
+<!-- <app-admin-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-admin-sidenav>
+<app-admin-body [collapsed]="isSideNavCollapsed"
+[screenWidth]="screenWidth"></app-admin-body>> -->
+<router-outlet></router-outlet>
+

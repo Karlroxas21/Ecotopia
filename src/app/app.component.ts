@@ -3,10 +3,10 @@ import * as AOS from 'aos';
 import { Scenes } from 'phaser';
 import SimpleParallax from 'simple-parallax-js';
 
-//interface SideNavToggle{
-  //screenWidth: number;
-  //collapsed: boolean;
-//}
+// interface SideNavToggle{
+//   screenWidth: number;
+//   collapsed: boolean;
+// }
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,12 +15,12 @@ import SimpleParallax from 'simple-parallax-js';
 export class AppComponent {
   title = 'ecotopia-capstone';
 
-  // ngAfterViewInit(){
-  //   const scene = document.getElementsByClassName('thumbnail');
-  //   const parallaxInstance = new SimpleParallax(scene, {
+   ngAfterViewInit(){
+     const scene = document.getElementsByClassName('thumbnail');
+     const parallaxInstance = new SimpleParallax(scene, {
      
-  //   })
-  // }
+     })
+   }
   ngOnInit(){
     AOS.init();
     window.addEventListener('load',AOS.refresh)
@@ -31,12 +31,12 @@ export class AppComponent {
     checkbox.checked = false;
   }
 
-  //isSideNavCollapsed = false;
-  //screenWidth = 0;
+  isSideNavCollapsed = false;
+  screenWidth = 0;
 
-  //onToggleSideNav(data: SideNavToggle): void{
-   // this.screenWidth = data.screenWidth;
-   // this.isSideNavCollapsed = data.collapsed;
- // }
+  // onToggleSideNav(data: SideNavToggle): void{
+  //   this.screenWidth = data.screenWidth;
+  //   this.isSideNavCollapsed = data.collapsed;
+  // }
 }
 

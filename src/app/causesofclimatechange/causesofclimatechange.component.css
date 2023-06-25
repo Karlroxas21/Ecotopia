@@ -30,9 +30,23 @@ html{
     margin-bottom: 60px;
     transition: 0.5s;
 }
+.content2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    min-height: 30vh;
+}
+.content2 i{
+    font-size: 200%;
+}
 .content .textbox{
     position: relative;
     max-width: 600px;
+}
+.content2, .textbox2{
+    padding-right: 10px;
 }
 .content .textbox h2{
     color: #0030FF;
@@ -40,6 +54,17 @@ html{
     font-family: 'Roboto', sans-serif;
     font-size: 100px;
     font-weight: 900;
+}
+.content2 .textbox2 h3{
+    color: #0030FF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 50px;
+    border-style: solid;
+    padding: 50px 50px 50px 50px;
+
 }
 .content .textbox span{
     color: #FF96A9;
@@ -52,26 +77,61 @@ html{
     font-weight: 300;
     padding-top: 20px;
 }
+
+  /****** NEXT CONTENT ******/
+
+.text{
+    padding: 100px 100px 0 100px;
+    margin-top: -100px;
+    color: #080d14;
+    transition: 0.5s;
+}
+.text h1{
+    padding-bottom: 40px;
+    font-size: 50px;
+    font-weight: bold;
+}
+.text p{
+    line-height: 30px;
+    font-size: 21px;
+}
+.text ul{
+    margin-top: 20px;
+    font-size: 21px;
+    padding-left: 20px;
+}
+.text ul li{
+    padding-top: 20px;
+}
+#next h1{
+    margin-top: 60px;
+}
+section .reference-container{
+    padding: 50px;
+}
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
 .card-container {
     display: flex;
-    margin-bottom: 50px;
-    padding: 0 60px 0 60px;
+    flex-wrap: wrap;
+    padding: 25px;
   }
   
-.card {
-    flex-grow: 1;
-    transition: all 0.3s ease;
-    margin: 0 10px;
-    padding: 30px;
-    border: 3px solid;
-    border-radius: 35px;
-}
-  
+  .card {
+    flex-basis: calc(25% - 20px);
+    margin: 10px;
+    transition: transform 0.3s ease;
+    padding: 20px 10px;
+    text-align: center;
+    border-radius: 20px;
+  }
   /*.card:hover {
     transform: scale(1.1);
-    border-color: #ff0000;
   }*/
-  
   .card h2 {
     margin-top: 0;
   }
@@ -81,16 +141,11 @@ html{
         transition: 0.2s;
     }
     .card-container{
-        flex-flow: row wrap;
+        flex-direction: column;
         transition: 0.2s;
     }
     .card{
         margin-top: 30px;
-    }
-    .textbox2{
-        flex-direction: column;
-        transition: 0.2s;
-        margin-top: 25px;
     }
     h2{
         margin-top: 100px;
@@ -114,6 +169,8 @@ html{
         line-height: 110px;
         font-size: 80px;
     }
+    .content{
+        margin-top: 50px;
+        flex-direction: column;
+    }
 }
-  
-
