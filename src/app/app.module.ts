@@ -29,6 +29,7 @@ import { AdminSidenavComponent } from './admin-sidenav/admin-sidenav.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { ADMINComponent } from './admin/admin.component';
 import { AdminRoutingModule } from './admin/admin-routing.module';
+import { MaterialComponent } from './material/material.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { AdminRoutingModule } from './admin/admin-routing.module';
     AdminSidenavComponent,
     AdminHomeComponent,
     ADMINComponent,
+    MaterialComponent,
 
   ],
   imports: [
