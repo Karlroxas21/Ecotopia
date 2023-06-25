@@ -12,7 +12,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { NgxImageComparisonSliderModule } from 'ngx-image-comparison-slider';
 import { CasesComponent } from './problems/cases.component';
 import { OverviewOfClimateChangeComponent } from './overview-of-climate-change/overview-of-climate-change.component';
 import { SolutionsComponent } from './solutions/solutions.component';
@@ -84,8 +83,7 @@ import { AssessmentComponent } from './assessment/assessment.component';
     HttpClientModule,
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
-    AccordionModule.forRoot(),
-    NgxImageComparisonSliderModule,
+    AccordionModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
