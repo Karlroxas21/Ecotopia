@@ -103,7 +103,7 @@
   .navbar {
     top: 0;
     width: 100%;
-    position:;
+    position: fixed;
   }
 
   .left-side, .right-side{
