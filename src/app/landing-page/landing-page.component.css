@@ -50,8 +50,14 @@ section .div-parallax-3 img{
   width: 90%;
 }
 section .parallax-div4 img{
-  width: 90%;
+  width: 100%;
   /*padding: 50px 100px 20px 100px;*/
+}
+
+.parallax-sub-div4{
+  border: 5px solid black;
+  border-radius: 20px;
+  overflow: hidden;
 }
 .parallax-div2-text p {
   font-family: 'Henry Sans Bold', sans-serif;
