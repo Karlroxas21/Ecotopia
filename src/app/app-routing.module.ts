@@ -20,6 +20,7 @@ import { RespondingtoclimatechangeComponent } from './respondingtoclimatechange/
 import { GovernmentresourcesComponent } from './governmentresources/governmentresources.component';
 import { ProblemjeepoutdatedengineComponent } from './problemjeepoutdatedengine/problemjeepoutdatedengine.component';
 import { AssessmentComponent } from './assessment/assessment.component';
+import { MaterialComponent } from './material/material.component';
 // import { ADMINComponent } from './admin/admin.component';
 // import { AdminCasesComponent } from './admin-cases/admin-cases.component';
 // import { AdminInteractivevideoComponent } from './admin-interactivevideo/admin-interactivevideo.component';
@@ -48,7 +49,7 @@ const routes: Routes = [
   {component: OthersolutionsComponent, path: 'othersolutions'},
   {component: GovernmentresourcesComponent, path: 'governmentresources'},
   {component: ProblemjeepoutdatedengineComponent, path: 'outdatedjeepengine'},
-  {component: AssessmentComponent, path: 'assessment'}
+  {component: AssessmentComponent, path: 'assessment'},
   // {component: ADMINComponent, path: 'ADMIN'},
   {component: MaterialComponent, path: 'material'}
   // {component: AdminCasesComponent, path: 'admin-cases'},
