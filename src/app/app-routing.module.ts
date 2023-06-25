@@ -50,6 +50,7 @@ const routes: Routes = [
   {component: ProblemjeepoutdatedengineComponent, path: 'outdatedjeepengine'},
   {component: AssessmentComponent, path: 'assessment'}
   // {component: ADMINComponent, path: 'ADMIN'},
+  {component: MaterialComponent, path: 'material'}
   // {component: AdminCasesComponent, path: 'admin-cases'},
   // {component: AdminInteractivevideoComponent, path: 'admin-interactivevideo'},
   // {component: AdminWebtoonComponent, path: 'admin-webtoon'},
@@ -59,7 +60,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -29,6 +29,7 @@ import { AdminSidenavComponent } from './admin-sidenav/admin-sidenav.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { ADMINComponent } from './admin/admin.component';
 import { AdminRoutingModule } from './admin/admin-routing.module';
+import { MaterialComponent } from './material/material.component';
 import { ProblemtrashComponent } from './problemtrash/problemtrash.component';
 import { CausesofclimatechangeComponent } from './causesofclimatechange/causesofclimatechange.component';
 import { EffectsofclimatechangeComponent } from './effectsofclimatechange/effectsofclimatechange.component';
@@ -65,6 +66,7 @@ import { AssessmentComponent } from './assessment/assessment.component';
     AdminSidenavComponent,
     AdminHomeComponent,
     ADMINComponent,
+    MaterialComponent,
     ProblemtrashComponent,
     CausesofclimatechangeComponent,
     EffectsofclimatechangeComponent,
@@ -83,7 +85,7 @@ import { AssessmentComponent } from './assessment/assessment.component';
     HttpClientModule,
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
-    AccordionModule.forRoot(),
+    AccordionModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

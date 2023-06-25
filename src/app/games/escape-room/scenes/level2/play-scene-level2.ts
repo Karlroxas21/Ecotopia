@@ -99,30 +99,30 @@ export class PlayLevel2Scene extends Phaser.Scene {
     // Update text
     this.timerText.setText(`Time remaining: ${remainingTime}`);
     // move Jeep
-    this.moveJeep(this.jeep, 3);
+    this.moveJeep(this.jeep, 2);
     this.moveJeep(this.jeep2, 2);
     this.moveJeep(this.jeep3, 2);
-    this.moveJeep(this.jeep4, 1);
-    this.moveJeep(this.jeep5, 3);
+    this.moveJeep(this.jeep4, 2);
+    this.moveJeep(this.jeep5, 2);
     this.moveJeep(this.jeep6, 2);
-    this.moveJeep(this.jeep7, 3);
+    this.moveJeep(this.jeep7, 2);
     this.moveJeep(this.jeep8, 2);
-    this.moveJeep(this.jeep9, 1);
+    this.moveJeep(this.jeep9, 2);
     this.moveJeep(this.jeep10, 2);
 
     // Move Background, Building, and Road
     this.moveBackgrounds();
 
     // Move replacement jeep
-    this.moveNewJeep(this.replacementJeep1, 4);
-    this.moveNewJeep(this.replacementJeep2, 1);
+    this.moveNewJeep(this.replacementJeep1, 2);
+    this.moveNewJeep(this.replacementJeep2, 2);
     this.moveNewJeep(this.replacementJeep3, 2);
-    this.moveNewJeep(this.replacementJeep4, 1);
-    this.moveNewJeep(this.replacementJeep5, 3);
+    this.moveNewJeep(this.replacementJeep4, 2);
+    this.moveNewJeep(this.replacementJeep5, 2);
     this.moveNewJeep(this.replacementJeep6, 2);
-    this.moveNewJeep(this.replacementJeep7, 3);
+    this.moveNewJeep(this.replacementJeep7, 2);
     this.moveNewJeep(this.replacementJeep8, 2);
-    this.moveNewJeep(this.replacementJeep9, 1);
+    this.moveNewJeep(this.replacementJeep9, 2);
     this.moveNewJeep(this.replacementJeep10, 2);
 
     // If naclick na lahat ng outdated jeeps
@@ -276,7 +276,7 @@ export class PlayLevel2Scene extends Phaser.Scene {
     );
 
     const fact =
-      'Did you know that more than 500,000 jeep and other vehicles \nin Metro Manila produce in Metro Manila, produce 70% of\nblack carbon emissions in Philippines.';
+      'Did you know that more than 500,000 jeep and other vehicles \nin Metro Manila, produce 70% of black carbon emissions \nin Philippines.';
     const congrats = this.add
       .text(
         this.config.width / 2,

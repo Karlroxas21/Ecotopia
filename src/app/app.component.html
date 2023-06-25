@@ -1,40 +1,71 @@
+<!--<app-admin-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-admin-sidenav>
+<app-admin-body [collapsed]="isSideNavCollapsed"
+[screenWidth]="screenWidth"></app-admin-body>>-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header>
-      <div class="logo"><a routerLink=""><img src="/assets/logo/logo.png" alt="Ecotopia Logo" height="120px" width="160px"/></a></div>
-      <input type="checkbox" id="nav_check" hidden>
-      <nav>
-        <ul>
-          <div class="logo"><a routerLink=""><img src="/assets/logo/logo.png" alt="Ecotopia Logo" height="120px" width="160px"/></a></div>
-          <li [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><a routerLink="">Home</a></li>
-          <li [routerLinkActive]="'active'"><a routerLink="overviewOfClimateChange">Overview of Climate Change</a></li>
-          <li [routerLinkActive]="'active'"><a routerLink="currentIssue">Current Issues</a></li>
-          <li [routerLinkActive]="'active'"><a routerLink="newsFeatures">News & Features</a></li>
-          <li [routerLinkActive]="'active'"><a routerLink="problems">Cases</a></li>
-          <li [routerLinkActive]="'active'"><a routerLink="solutions">Solutions</a></li>
-          <li [routerLinkActive]="'active'"><a routerLink="webtoon">Webtoon</a></li>
-          <li [routerLinkActive]="'active'"><a routerLink="interactivevideo">Interactive Video</a></li>
-          <li [routerLinkActive]="'active'"><a routerLink="games">Game</a></li>
-          <li [routerLinkActive]="'active'"><a routerLink="aboutus">About Us</a></li>
-        </ul>
-      </nav>
-      <label for = "nav_check" class="lines">
-        <div></div>
-        <div></div>
-        <div></div>
-      </label>
-    </header>
+    <div class="navbar">
+      <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+      <div class="parent">
+        <div class="left-side">
+          <div class="dropdown">
+            <a routerLink="material">MATERIAL</a>
+            <div class="dropdown-content">
+              <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="currentIssue"
+                >Current Issues</a
+              >
+              <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="problems">Cases</a>
+              <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="solutions"
+                >Solutions</a
+              >
+              <a
+                (click)="closeNavbar()" [routerLinkActive]="'active'"
+                routerLink="overviewOfClimateChange"
+                >Overview of Climate Change</a
+              >
+              <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="solutions"
+                >Assessment</a
+              >
+            </div>
+          </div>
+
+          <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="newsFeatures">News</a>
+          <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="aboutus">About Us</a>
+        </div>
+
+        <div class="center-logo">
+          <a (click)="closeNavbar()" routerLink=""> <img src="assets/logo/logo.png" alt="" /> </a>
+        </div>
+
+        <div class="right-side">
+          <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="webtoon">Webtoon</a>
+          <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="interactivevideo"
+            >Interactive</a
+          >
+          <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="games">Game</a>
+        </div>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
   </body>
 </html>
 <!-- <app-admin-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-admin-sidenav>

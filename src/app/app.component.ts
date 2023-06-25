@@ -26,6 +26,11 @@ export class AppComponent {
     window.addEventListener('load',AOS.refresh)
   }
 
+  closeNavbar() {
+    const checkbox = document.getElementById('check') as HTMLInputElement;
+    checkbox.checked = false;
+  }
+
   isSideNavCollapsed = false;
   screenWidth = 0;
 

@@ -1,20 +1,179 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Jost', sans-serif;
+
+.parent{
+    display: flex;
+    flex-direction: row;
+    margin: 5%;
+    gap: 20px;
 }
-main{
-    background-color: rgb(0, 0, 0);
+
+/* LEFT SIDE */
+.sub-left{
+    width: 40%;
 }
-.texts{
-    color: #ffffff;
+/* RIGHT SIDE */
+.sub-right{
+    width: 60%;
+}
+.about-maafia{
+    background-color: #FF96A9;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.about-maafia p{
+    font-size: 1.5rem;
+    font-family: 'Henry Sans Bold', sans-serif;
+    letter-spacing: 1px;
+    color: white;
+    text-transform: uppercase;
+    padding: 20px;
+}
+
+/* LOGO */
+.ecotopia img, .nu-ccit img{
+    width: 250px;
+}
+
+/* ECOTOPIA */
+.ecotopia{
+    padding: 30px;
+}
+
+.email p, .address p{
+    font-family: 'Henry Sans Medium', sans-serif;
+    font-size: 1.5rem;
+}
+
+/* Objectives */
+.objectives{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.objectives h2{
+    text-transform: uppercase;
+    padding: 20px;
+    font-size: 2rem;
+    color: #FF96A9;
+    font-family: 'Henry Sans Bold', sans-serif;
+}
+
+.sub-objective{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 5px;
+}
+
+.objective-1{
+    padding: 10px;
+}
+
+.objective-1 img{
+    width: 100px;
+    padding-bottom: 10px;
+}
+
+/* Partners */
+.partners{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.partners h2{
+    text-transform: uppercase;
+    font-size: 2rem;
+    color: #FF96A9;
+    font-family: 'Henry Sans Bold', sans-serif;
+}
+
+.partners-logos{
+    display: flex;
+    gap: 20px;
+    
+}
+
+/* Sub right */
+.profiles{
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.sub-right{
+    display: flex;
+    font-family: 'Henry Sans Regular', sans-serif;
+}
+
+.the-team-name{
+    display: flex;
+    justify-content: center;
+    color: #0030FF;
+}
+
+.the-team-name h1{
+    text-transform: uppercase;
+    font-family: 'Henry Sans Bold', sans-serif;
+    font-size: 4rem;
+}
+
+.content{
+    display: flex;
+    gap: 20px;
+}
+
+.content-left img{
+    border-radius: 50%;
+}
+
+.color1 h1{
+    color: #6051E3;
+}
+.color1 img{
+    border: 7px solid #6051E3;
+}
+
+.color2 h1{
+    color: #FF96A9;
+}
+.color2 img{
+    border: 7px solid #FF96A9;
+}
+
+.color3 h1{
+    color: #246C63;
+}
+.color3 img{
+    border: 7px solid #246C63;
+}
+
+.color4 h1{
+    color: #96AAFF;
+}
+.color4 img{
+    border: 7px solid #96AAFF;
+}
+
+/* The TEAM */
+/* .texts{
     padding: 100px 200px 200px;
 }
+
+.texts h1{
+    color: #0030FF;
+}
+
 .texts h1{
     text-transform: uppercase;
     font-weight: bold;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     text-align: center;
     font-size: 60px;
     margin-bottom: 30px;
@@ -36,7 +195,7 @@ main{
 .about .content img{
     border-radius: 50%;
     height: auto;
-    width: 500px;
+    width: 300px;
     max-width: 100%;
 }
 .text{
@@ -56,21 +215,21 @@ main{
     transition: 0.5s;
 }
 .text h1{
-    color: #ffffff;
+    color: #FF96A9;
     font-size: 50px;
     margin-bottom: 20px;
     text-transform: capitalize;
     font-weight: bold;
 }
 .text h5{
-    color: white;
+    color: black;
     font-size: 25px;
     margin-bottom: 25px;
     text-transform: capitalize;
 }
 .text p{
     font-size: 18px;
-    color: #ffffff;
+    color: black;
     line-height: 28px;
     margin-bottom: 45px;
 }
@@ -177,4 +336,4 @@ main{
     .texts h1{
         font-size: 25px;
     }
-}
+} */
