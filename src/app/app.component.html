@@ -1,55 +1,105 @@
 <!--<app-admin-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-admin-sidenav>
 <app-admin-body [collapsed]="isSideNavCollapsed"
 [screenWidth]="screenWidth"></app-admin-body>>-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
     <div class="navbar">
-      <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-          <i class="fas fa-bars"></i>
-        </label>
+      <input type="checkbox" id="check" />
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
       <div class="parent">
         <div class="left-side">
           <div class="dropdown">
             <a>MATERIAL</a>
             <div class="dropdown-content">
-              <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="currentIssue"
+              <a
+                (click)="closeNavbar()"
+                [routerLinkActive]="'active'"
+                routerLink="currentIssue"
                 >Current Issues</a
               >
-              <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="problems">Cases</a>
-              <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="solutions"
+              <a
+                (click)="closeNavbar()"
+                [routerLinkActive]="'active'"
+                routerLink="problems"
+                >Cases</a
+              >
+              <a
+                (click)="closeNavbar()"
+                [routerLinkActive]="'active'"
+                routerLink="solutions"
                 >Solutions</a
               >
               <a
-                (click)="closeNavbar()" [routerLinkActive]="'active'"
+                (click)="closeNavbar()"
+                [routerLinkActive]="'active'"
                 routerLink="overviewOfClimateChange"
                 >Overview of Climate Change</a
               >
-              <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="assessment"
+              <a
+                (click)="closeNavbar()"
+                [routerLinkActive]="'active'"
+                routerLink="assessment"
                 >Assessment</a
               >
             </div>
           </div>
 
-          <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="newsFeatures">News</a>
-          <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="aboutus">About Us</a>
+          <a
+            (click)="closeNavbar()"
+            [routerLinkActive]="'active'"
+            routerLink="newsFeatures"
+            >News</a
+          >
+          <a
+            (click)="closeNavbar()"
+            [routerLinkActive]="'active'"
+            routerLink="aboutus"
+            >About Us</a
+          >
         </div>
 
         <div class="center-logo">
-          <a (click)="closeNavbar()" routerLink=""> <img src="assets/logo/logo.png" alt="" /> </a>
+          <a (click)="closeNavbar()" routerLink="">
+            <img src="assets/logo/logo.png" alt="" />
+          </a>
         </div>
 
         <div class="right-side">
-          <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="webtoon">Webtoon</a>
-          <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="interactivevideo"
+          <a
+            (click)="closeNavbar()"
+            [routerLinkActive]="'active'"
+            routerLink="webtoon"
+            >Webtoon</a
+          >
+          <a
+            (click)="closeNavbar()"
+            [routerLinkActive]="'active'"
+            routerLink="interactivevideo"
             >Interactive</a
           >
-          <a (click)="closeNavbar()" [routerLinkActive]="'active'" routerLink="games">Game</a>
+          <a
+            (click)="closeNavbar()"
+            [routerLinkActive]="'active'"
+            routerLink="games"
+            >Game</a
+          >
         </div>
       </div>
     </div>
-    <router-outlet></router-outlet>
+  </body>
+</html>
+
+<router-outlet></router-outlet>
 
 <!-- <app-admin-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-admin-sidenav>
 <app-admin-body [collapsed]="isSideNavCollapsed"
 [screenWidth]="screenWidth"></app-admin-body>> -->
 <router-outlet></router-outlet>
-
