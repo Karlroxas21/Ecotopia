@@ -54,11 +54,12 @@ body, header{
 
 .item-img img{
   height: 250px;
+  transform: scale(1.5);
   transition: transform 0.3s ease-in-out;
 }
 
 .item-img img:hover{
-  transform: scale(1.1);
+  transform: scale(1.6);
 }
 
 .item-sub{

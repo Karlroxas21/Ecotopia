@@ -1,12 +1,12 @@
 <header>
 
-  <div class="header-txt">
+  <div class="header-txt" data-aos="fade-down-left" data-aos-duration="1000">
     <h1>News & Features</h1>
   </div>
 </header>
 <body>
   <div class="grid-container">
-    <div class="item" *ngFor="let item of news | slice : 0 : itemsToShow">
+    <div class="item" *ngFor="let item of news | slice : 0 : itemsToShow" data-aos="fade-right" data-aos-duration="1000">
       <div class="item-sub">
         <div class="item-img">
           <img src="{{ item.photo }}" alt="News Photo" />
