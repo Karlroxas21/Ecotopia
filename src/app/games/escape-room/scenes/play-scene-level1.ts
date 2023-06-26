@@ -66,7 +66,7 @@ export class PlayScene extends Phaser.Scene {
     this.events.on('win', this.winGraphics,  this);
 
     // Timer
-    this.timer = this.time.delayedCall(10000, this.gameOverGraphics, [], this);
+    this.timer = this.time.delayedCall(20000, this.gameOverGraphics, [], this);
     this.timerText = this.add.text(10, 10, '', {
        font: '16px monospace', 
        color: '#ffffff' 
