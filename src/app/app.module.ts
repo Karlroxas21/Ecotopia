@@ -39,6 +39,7 @@ import { RespondingtoclimatechangeComponent } from './respondingtoclimatechange/
 import { GovernmentresourcesComponent } from './governmentresources/governmentresources.component';
 import { ProblemjeepoutdatedengineComponent } from './problemjeepoutdatedengine/problemjeepoutdatedengine.component';
 import { AssessmentComponent } from './assessment/assessment.component';
+import { AdminCurrentissueComponent } from './admin-currentissue/admin-currentissue.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { AssessmentComponent } from './assessment/assessment.component';
     GovernmentresourcesComponent,
     ProblemjeepoutdatedengineComponent,
     AssessmentComponent,
+    AdminCurrentissueComponent,
 
   ],
   imports: [

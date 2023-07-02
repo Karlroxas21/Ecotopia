@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import * as AOS from 'aos';
 import { Scenes } from 'phaser';
 import SimpleParallax from 'simple-parallax-js';
+import { Router, NavigationEnd } from '@angular/router';
 
 // interface SideNavToggle{
 //   screenWidth: number;
@@ -14,8 +15,22 @@ import SimpleParallax from 'simple-parallax-js';
 })
 export class AppComponent {
   title = 'ecotopia-capstone';
+  hideNavbar = false;
+  hideNavbarPages = ['/admin-currentissue']; // Add all admin pages here
 
-   ngAfterViewInit(){
+  constructor(private router: Router){
+    router.events.subscribe(event => {
+      if(event instanceof NavigationEnd){
+        this.checkHideNavbar(event.url);
+      }
+    });
+  }
+
+  private checkHideNavbar(url: string): void{
+    this.hideNavbar = this.hideNavbarPages.includes(url);
+  }
+
+  ngAfterViewInit(){
      const scene = document.getElementsByClassName('thumbnail');
      const parallaxInstance = new SimpleParallax(scene, {
      
