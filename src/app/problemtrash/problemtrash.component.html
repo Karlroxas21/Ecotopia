@@ -1,240 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ecotopia: Cases</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <main>
-      <div class="content">
-        <div class="textbox" data-aos="fade-right">
-          <h2>Everything <br /><span>is Changing</span></h2>
-          <p>
-            Climate change is happening now: understand the problem and take
-            action. 
-          </p>
-        </div>
-        <img src="/assets/casesimages/cases1.png" alt="sad earth" data-aos="fade-left">
-      </div>
+<main>
+  <div class="content">
+    <div class="textbox" data-aos="fade-right" *ngFor="let item of problem_trash">
+      <h2>{{item.header}}</h2>
+      <p>{{item.header_description}}</p>
+    </div>
+    <img src="/assets/casesimages/cases1.png" alt="sad earth" data-aos="fade-left">
+  </div>
 
-      <h1 style="color: #0030FF; text-align: center;
+  <div *ngFor="let item of problem_trash">
+    <h1 style="color: #0030FF; text-align: center;
       font-size: 50px;
-      font-weight: bold;">The Urgent Problems of Climate Change</h1>
+      font-weight: bold;">{{item.title}}</h1>
+  </div>
 
-      <div class="card-container" data-aos="zoom-in">
-        <div class="card" style="border-color:#C15669; align-items: center;">
-          <div class="card-content">
-            <h2><a class="learn-more-button" href="problemtrash"
-               style="text-decoration: none;color: #C15669;" ><i class="fal fa-times fa-trash"></i> Problem of Removing Waste</a></h2>
-          </div>
-        </div>
-        
-        <div class="card" style="border-color:#5E55DB; align-items: center;">
-          <div class="card-content">
-            <h2><a class="learn-more-button" href="outdatedjeepengine"
-               style="text-decoration: none;color: #5E55DB;" ><i class="fal fa-times fa-trash"></i> Jeep Outdated Engine</a></h2>
-          </div>
-        </div>
-        
-
-        <div class="card" style="border-color:#DD9E3B; align-items: center;">
-          <div class="card-content">
-            <h2><a class="learn-more-button" href="causesofclimatechange"
-               style="text-decoration: none;color: #DD9E3B;" ><i class="fal fa-times fa-trash"></i> Causes of Climate Change</a></h2>
-          </div>
-        </div>
-      
-
-        <div class="card" style="border-color:#396A63; align-items: center;">
-          <div class="card-content">
-            <h2><a class="learn-more-button" href="effectsofclimatechange"
-               style="text-decoration: none;color: #396A63;" ><i class="fal fa-times fa-trash"></i> Effects of Climate Change</a></h2>
-          </div>
-        </div>
+  <div class="card-container" data-aos="zoom-in" *ngFor="let item of problem_trash">
+    <div class="card" style="border-color:#C15669; align-items: center;">
+      <div class="card-content">
+        <h2><a class="learn-more-button" href="problemtrash" style="text-decoration: none;color: #C15669;"><i
+              class="fal fa-times fa-trash"></i> {{item.cases.case1[0]}}</a></h2>
       </div>
-      <hr style="width:100%;">
+    </div>
 
-      <div class="text">
-        <h1
-
-          style="padding-top: 50px; color: #C15669;"
-          
-        >
-        Problem of Removing Waste
-        </h1>
-
-        <ul
-
-          style="margin-top: -20px"
-        >
-          <li>
-            <b style="color: #FF96A9; font-size: 27px;">Fighting for trash seas</b>
-            <br />
-            - Ocean trash affects the health of wildlife, people, and local
-            economies. Trash in the water and on the shore can be mistaken as
-            food by wildlife or entangle animals with lethal consequences.
-            <br />
-            - Marine debris isn’t an ocean problem—it’s a people problem. That
-            means people are the solution.
-          </li>
-          <li>
-            <b style="color: #FF96A9; font-size: 27px;">Marine Pollutions</b>
-            <br />
-            - Marine pollution is a combination of chemicals and trash, most of
-            which comes from land sources and is washed or blown into the ocean.
-            <br />
-            - Ocean is being flooded with two main types of pollution: chemicals
-            and trash.
-            <br />
-            - Chemical contamination, or nutrient pollution, is concerning for
-            health, environmental, and economic reasons. This type of pollution
-            occurs when human activities, notably the use of fertilizer on
-            farms, lead to the runoff of chemicals into waterways that
-            ultimately flow into the ocean.
-            <br />
-            - Marine trash encompasses all manufactured products—most of them
-            plastic—that end up in the ocean. Littering, storm winds, and poor
-            waste management all contribute to the accumulation of this debris,
-            80 percent of which comes from sources on land.
-          </li>
-          <li>
-            <b style="color: #FF96A9; font-size: 27px;">Marine Plastic Pollutions</b>
-            <br />
-            - At least 14 million tons of plastic end up in the ocean every
-            year, and plastic makes up 80% of all marine debris found from
-            surface waters to deep-sea sediments.
-            <br />
-            - Marine species ingest or are entangled by plastic debris, which
-            causes severe injuries and death.
-            <br />
-            - Plastic pollution threatens food safety and quality, human health,
-            coastal tourism, and contributes to climate change.
-            <br />
-            - Plastic production contributes to climate change. If plastic waste
-            is incinerated, it releases carbon dioxide and methane (from
-            landfills) into the atmosphere, thereby increasing emissions.
-          </li>
-          <li>
-            <b style="color: #FF96A9; font-size: 27px;">Plastic and climate change </b>
-            <br />
-            - As 99% of plastics are made from fossil feedstocks, plastic
-            pollution is indubitably linked with climate change.
-            <br />
-            - Plastics are negatively affecting people and the environment at
-            each stage of their lifecycle
-            <br />
-            - extraction of fossil fuel, production, manufacturing, use,
-            recycling, and disposal. The impacts are felt in a wide range of
-            areas, including on biodiversity, climate change, human health and
-            human rights.
-            <br />
-            - Plastics are threatening the ability of the global community to
-            keep global temperature rise below 1.5°C, as greenhouse gases (GHG)
-            are emitted throughout the plastic life cycle.
-            <br />
-            - The rapid global growth of the plastic industry, largely fueled by
-            natural gas, undermines efforts to reduce carbon pollution and
-            prevent a climate catastrophe.
-          </li>
-          <li>
-            <b style="color: #FF96A9; font-size: 27px;">6 reasons to blame plastic pollution for climate change </b>
-            <br />
-            - When not recycled or disposed of in a controlled manner, discarded
-            plastic waste generates GHG emissions when exposed to solar
-            radiation both in air and water.
-            <br />
-            - Marine plastic pollution breaks down into microplastics and
-            contributes to climate change both through direct GHG emissions and
-            indirectly by negatively affecting ocean organisms
-          </li>
-          <li>
-            <b style="color: #FF96A9; font-size: 27px;">Ocean plastics pollution an overview: data and statistics</b>
-            <br />
-            - Microplastics are tiny particles of plastic that can be eaten by
-            marine animals and end up in their bodies and tissues, entering the
-            food chain and leading to disastrous consequences for the health of
-            our planet and all its inhabitants.
-            <br />
-            - the presence of plastic in our ocean is continually increasing,
-            and plastic pollution is still one of the main causes of marine
-            species extinction, health problems for human beings and animals
-            alike, and the destruction of our ecosystems.
-            <br />
-            - Plastic waste makes up 80% of all marine pollution and around 8 to
-            10 million metric tons of plastic end up in the ocean each year.
-            <br />
-            - Research states that, by 2050, plastic will likely outweigh all
-            fish in the sea.
-            <br />
-            - Plastic generally takes between 500-1000 years to degrade. Even
-            then, it becomes microplastics, without fully degrading.
-            <br />
-            - Most of the plastic we find in the ocean comes from land: it flows
-            downstream through rivers all the way to the sea. At first, it may
-            stay in coastal waters, but it can soon be picked up by rotating
-            ocean currents, called gyres, and transported literally anywhere in
-            the world.
-            <br />
-            - When plastic waste is incinerated, it releases carbon dioxide and
-            methane into the atmosphere, increasing emissions and worsening
-            global warming.
-          </li>
-        </ul>
+    <div class="card" style="border-color:#5E55DB; align-items: center;">
+      <div class="card-content">
+        <h2><a class="learn-more-button" href="outdatedjeepengine" style="text-decoration: none;color: #5E55DB;"><i
+              class="fal fa-times fa-trash"></i> {{item.cases.case2[0]}}</a></h2>
       </div>
-      <section>
-        <div class="reference-container">
-          <accordion [isAnimated]="true">
-            <accordion-group
-              heading="References"
-            >
-              <a
-                href="https://oceanconservancy.org/trash-free-seas/#:~:text=Ocean%20trash%20affects%20the%20health,entangle%20animals%20with%20lethal%20consequences."
-                target="_blank"
-                >https://oceanconservancy.org/trash-free-seas/#:~:text=Ocean%20trash%20affects%20the%20health,entangle%20animals%20with%20lethal%20consequences.
-              </a>
-              <br />
-              <a
-                href="https://education.nationalgeographic.org/resource/marine-pollution/"
-                target="_blank"
-                >https://education.nationalgeographic.org/resource/marine-pollution/</a
-              >
-              <br />
-              <a
-                href="https://www.iucn.org/resources/issues-brief/marine-plastic-pollution#:~:text=The%20most%20visible%20impacts%20of,stomachs%20become%20filled%20with%20plastic."
-                target="_blank"
-                >https://www.iucn.org/resources/issues-brief/marine-plastic-pollution#:~:text=The%20most%20visible%20impacts%20of,stomachs%20become%20filled%20with%20plastic.</a
-              >
-              <br />
-              <a
-                href="https://www.genevaenvironmentnetwork.org/resources/updates/plastics-and-climate/"
-                target="_blank"
-                >https://www.genevaenvironmentnetwork.org/resources/updates/plastics-and-climate/</a
-              >
-              <br />
-              <a
-                href="https://blogs.worldbank.org/endpovertyinsouthasia/6-reasons-blame-plastic-pollution-climate-change#:~:text=Marine%20litter%3A%20A%20garbage%20truck,by%20negatively%20affecting%20ocean%20organisms"
-                target="_blank"
-                >https://blogs.worldbank.org/endpovertyinsouthasia/6-reasons-blame-plastic-pollution-climate-change#:~:text=Marine%20litter%3A%20A%20garbage%20truck,by%20negatively%20affecting%20ocean%20organisms</a
-              >
-              <br />
-              <a
-                href="https://oceanliteracy.unesco.org/plastic-pollution-ocean/"
-                target="_blank"
-                >https://oceanliteracy.unesco.org/plastic-pollution-ocean/</a
-              >
-            </accordion-group>
-          </accordion>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <app-footer></app-footer>
-    </footer>
-  </body>
-</html>
+    </div>
+
+
+    <div class="card" style="border-color:#DD9E3B; align-items: center;">
+      <div class="card-content">
+        <h2><a class="learn-more-button" href="causesofclimatechange" style="text-decoration: none;color: #DD9E3B;"><i
+              class="fal fa-times fa-trash"></i> {{item.cases.case3[0]}}</a></h2>
+      </div>
+    </div>
+
+
+    <div class="card" style="border-color:#396A63; align-items: center;">
+      <div class="card-content">
+        <h2><a class="learn-more-button" href="effectsofclimatechange" style="text-decoration: none;color: #396A63;"><i
+              class="fal fa-times fa-trash"></i> {{item.cases.case4[0]}}</a></h2>
+      </div>
+    </div>
+  </div>
+  <hr style="width:100%;">
+
+  <div class="text" *ngFor="let item of problem_trash">
+    <h1 style="padding-top: 50px; color: #C15669;">
+      {{item.cases.case1[0]}}
+    </h1>
+
+    <ul style="margin-top: -20px">
+      <li>
+        <b style="color: #FF96A9; font-size: 27px;">{{item.bullets.bullet_1[0]}}</b>
+        <br />
+        - {{item.bullets.bullet_1[1]}}
+        <br />
+        - {{item.bullets.bullet_1[2]}}
+      </li>
+      <li>
+        <b style="color: #FF96A9; font-size: 27px;">{{item.bullets.bullet_2[0]}}</b>
+        <br />
+        - {{item.bullets.bullet_2[1]}}
+        <br />
+        - {{item.bullets.bullet_2[2]}}
+        <br />
+        - {{item.bullets.bullet_2[3]}}
+        <br />
+        - {{item.bullets.bullet_2[4]}}
+      </li>
+      <li>
+        <b style="color: #FF96A9; font-size: 27px;">{{item.bullets.bullet_3[0]}}</b>
+        <br />
+        - {{item.bullets.bullet_3[1]}}
+        <br />
+        - {{item.bullets.bullet_3[2]}}
+        <br />
+        - {{item.bullets.bullet_3[3]}}
+        <br />
+        - {{item.bullets.bullet_3[4]}}
+      </li>
+      <li>
+        <b style="color: #FF96A9; font-size: 27px;">{{item.bullets.bullet_4[0]}} </b>
+        <br />
+        - {{item.bullets.bullet_4[1]}}
+        <br />
+        - {{item.bullets.bullet_4[2]}}
+        <br />
+        - {{item.bullets.bullet_4[3]}}
+        <br />
+        - {{item.bullets.bullet_4[4]}}
+        <br />
+        - {{item.bullets.bullet_4[5]}}
+      </li>
+      <li>
+        <b style="color: #FF96A9; font-size: 27px;">{{item.bullets.bullet_5[0]}}</b>
+        <br />
+        - {{item.bullets.bullet_5[1]}}
+        <br />
+        - {{item.bullets.bullet_5[2]}}
+      </li>
+      <li>
+        <b style="color: #FF96A9; font-size: 27px;">{{item.bullets.bullet_6[0]}}</b>
+        <br />
+        - {{item.bullets.bullet_6[1]}}
+        <br />
+        - {{item.bullets.bullet_6[2]}}
+        <br />
+        - {{item.bullets.bullet_6[3]}}
+        <br />
+        - {{item.bullets.bullet_6[4]}}
+        <br />
+        - {{item.bullets.bullet_6[5]}}
+        <br />
+        - {{item.bullets.bullet_6[6]}}
+        <br />
+        - {{item.bullets.bullet_6[7]}}
+      </li>
+    </ul>
+  </div>
+  <section>
+    <div class="reference-container" *ngFor="let item of problem_trash">
+      <accordion [isAnimated]="true">
+        <accordion-group heading="References">
+          <a href={{item.references[0]}}
+            target="_blank">{{item.references[0]}}
+          </a>
+          <br />
+          <a href={{item.references[1]}}
+            target="_blank">{{item.references[1]}}</a>
+          <br />
+          <a href={{item.references[2]}}
+            target="_blank">{{item.references[2]}}</a>
+          <br />
+          <a href={{item.references[3]}}
+            target="_blank">{{item.references[3]}}</a>
+          <br />
+          <a href={{item.references[4]}}
+            target="_blank">{{item.references[4]}}</a>
+          <br />
+          <a href={{item.references[5]}}
+            target="_blank">{{item.references[5]}}</a>
+        </accordion-group>
+      </accordion>
+    </div>
+  </section>
+</main>
+<footer>
+  <app-footer></app-footer>
+</footer>
