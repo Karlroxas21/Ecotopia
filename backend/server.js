@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const News = require('./model/news.models');
 const ClimateChange = require('./model/cases.model');
 const ProblemTrash = require('./model/problem_trash.model');
+const OutDatedEngineModel = require('./model/outdated_engine.model');
 
 const { async } = require('rxjs');
 
@@ -60,6 +61,17 @@ app.get('/problemtrash', async(req, res) =>{
     try{
         const problem_trash = await ProblemTrash.find();
         res.json(problem_trash);
+    }catch(err){
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error'});
+    }
+});
+
+// Jeep Outdated Engine
+app.get('/outdatedjeepengine', async(req, res) =>{
+    try{
+        const outdated_engine = await OutDatedEngineModel.find();
+        res.json(outdated_engine);
     }catch(err){
         console.error(err);
         res.status(500).json({ message: 'Internal server error'});
