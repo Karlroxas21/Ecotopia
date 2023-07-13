@@ -17,7 +17,6 @@ export class ProblemtrashComponent implements OnInit {
     this.http.get<any[]>('http://localhost:80/problemtrash')
     .subscribe(problem_trash =>{
       this.problem_trash = problem_trash;
-      console.log(problem_trash);
     })
 
     this.titleService.setTitle(this.title);

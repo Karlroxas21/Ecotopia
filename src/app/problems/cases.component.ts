@@ -17,7 +17,6 @@ export class CasesComponent implements OnInit {
     this.http.get<any[]>('http://localhost:80/problems')
     .subscribe(cases =>{
       this.cases = cases;
-      console.log(this.cases);
     })
 
     this.titleService.setTitle(this.title);
