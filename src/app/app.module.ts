@@ -40,7 +40,7 @@ import { GovernmentresourcesComponent } from './governmentresources/governmentre
 import { ProblemjeepoutdatedengineComponent } from './problemjeepoutdatedengine/problemjeepoutdatedengine.component';
 import { AssessmentComponent } from './assessment/assessment.component';
 import { AdminCurrentissueComponent } from './admin-currentissue/admin-currentissue.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -78,7 +78,7 @@ import { AdminCurrentissueComponent } from './admin-currentissue/admin-currentis
     ProblemjeepoutdatedengineComponent,
     AssessmentComponent,
     AdminCurrentissueComponent,
-
+    
   ],
   imports: [
     BrowserModule,
@@ -87,7 +87,9 @@ import { AdminCurrentissueComponent } from './admin-currentissue/admin-currentis
     HttpClientModule,
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
-    AccordionModule.forRoot()
+    AccordionModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
