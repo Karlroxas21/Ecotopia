@@ -2,31 +2,20 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const climateChangeSchema = new Schema({
-  headers: [{
-    header_1: String,
-    header_paragraph: String
-  }],
-  Causes: [{
-    cause_title: String,
-    cause_description: String,
-    'Causes Bullets': [{
-      cause_bullet: String,
-      cause_bullet_description: String
-    }]
-  }],
-  Effects: [{
-    effect_title: String,
-    effect_description: String,
-    'Effects Bullet': [{
-      effect_bullet: String,
-      effect_bullet_description: String
-    }]
-  }]
+const caseSchema = new Schema({
+        header: String,
+        header_description: String,
+        title: String,
+        cases: {
+                case1: [String],
+                case2: [String],
+                case3: [String],
+                case4: [String]
+        }
 },
 {collection: 'cases'}
 );
 
-const ClimateChangeModel = mongoose.model('ClimateChange', climateChangeSchema);
+const CaseModel = mongoose.model('Case', caseSchema);
 
-module.exports = ClimateChangeModel;
+module.exports = CaseModel;
