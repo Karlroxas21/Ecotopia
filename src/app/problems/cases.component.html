@@ -1,187 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ecotopia: Cases</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <main>
-      <div class="content" >
-        <div class="textbox" data-aos="fade-down-right" *ngFor="let item of cases">
-          <h2>{{item.headers[0].header_1}}</h2>
-          <p>
-            Climate change is happening now: understand the problem and take
-            action.
-          </p>
-        </div>
-        <img
-          src="/assets/casesimages/cases1.png"
-          alt="sad earth"
-          data-aos="fade-left"
-        />
-      </div>
+<main>
+  <div class="content">
+    <div class="textbox" data-aos="fade-down-right" *ngFor="let item of cases">
+      <h2>{{item.header}}</h2>
+      <p>
+        {{item.header_description}}
+      </p>
+    </div>
+    <img src="/assets/casesimages/cases1.png" alt="sad earth" data-aos="fade-left" />
+  </div>
 
-      <h1 style="color: #0030FF; padding-bottom: 30px; padding-left: 80px;
-      font-size: 50px;
-      font-weight: bold;">The Urgent Problems of Climate Change</h1>
-      <div class="card-container" data-aos="zoom-in">
-        <div class="card" style="border-color: #c15669">
-          <div class="card-content">
-            <h2 style="color: #c15669">
-              <i class="fal fa-times fa-trash"></i> Problem of Picking Up Trash
-              <br />
-              <br />
-              <p
-                style="
+  <div *ngFor="let item of cases">
+    <h1 style="color: #0030FF; padding-bottom: 30px; padding-left: 80px;
+        font-size: 50px;
+        font-weight: bold;">{{item.title}}</h1>
+  </div>
+
+  <div class="card-container" data-aos="zoom-in" *ngFor="let item of cases">
+    <div class="card" style="border-color: #c15669">
+      <div class="card-content">
+        <h2 style="color: #c15669">
+          <i class="fal fa-times fa-trash"></i> {{item.cases.case1[0]}}
+          <br />
+          <br />
+          <p style="
                   font-size: 20px;
                   font-weight: 100;
                   color: #000;
-                "
-              >
-                The problem of picking up trash is a global environmental and
-                social issue that requires a comprehensive approach involving
-                public awareness, policy changes, infrastructure development,
-                behavioral modifications, and community involvement.
-                Collaboration among individuals, governments, organizations, and
-                businesses is crucial for long-term solutions and to create a
-                sustainable and clean environment.
-              </p>
-              <br />
-              <div
-                style="
+                ">
+            {{item.cases.case1[1]}}
+          </p>
+          <br />
+          <div style="
                   text-transform: uppercase;
                   font-size: 20px;
                   font-weight: bold;
                   margin-top: 70px;
-                "
-              >
-                <br /><a
-                  style="text-decoration: none; color: #c15669"
-                  href="problemtrash"
-                  >know more</a
-                >
-              </div>
-            </h2>
+                ">
+            <br /><a style="text-decoration: none; color: #c15669"
+              href={{item.cases.case1[3]}}>{{item.cases.case1[2]}}</a>
           </div>
-        </div>
+        </h2>
+      </div>
+    </div>
 
-        <div class="card" style="border-color: #5e55db">
-          <div class="card-content">
-            <h2 style="color: #5e55db">
-              <i class="fal fa-times fa-trash"></i> Problem with the Jeep
-              Outdated Engine
-              <br />
-              <br />
-              <p style="font-size: 20px; font-weight: 100; color: #000">
-                Jeepneys in the Philippines often have outdated diesel engines
-                that lack modern emission control technologies. <br>As a result,
-                these engines produce higher levels of pollutants, which have
-                adverse effects on both human health, leading to respiratory and
-                cardiovascular problems, and the environment, contributing to
-                climate change through increased greenhouse gas emissions and
-                causing air pollution due to the formation of ground-level ozone
-                and smog.
-              </p>
-              <br />
-              <div
-                style="
+    <div class="card" style="border-color: #5e55db" *ngFor="let item of cases">
+      <div class="card-content">
+        <h2 style="color: #5e55db">
+          <i class="fal fa-times fa-trash"></i> {{item.cases.case2[0]}}
+          <br />
+          <br />
+          <p style="font-size: 20px; font-weight: 100; color: #000">
+            {{item.cases.case2[1]}}
+          </p>
+          <br />
+          <div style="
                   text-transform: uppercase;
                   font-size: 20px;
                   font-weight: bold;
-                "
-              >
-                <br /><a
-                  style="text-decoration: none; color: #5e55db"
-                  href="outdatedjeepengine"
-                  >know more</a
-                >
-              </div>
-            </h2>
+                ">
+            <br /><a style="text-decoration: none; color: #5e55db"
+              href={{item.cases.case2[3]}}>{{item.cases.case2[2]}}</a>
           </div>
-        </div>
+        </h2>
+      </div>
+    </div>
 
-        <div class="card" style="border-color: #dd9e3b;">
-          <div class="card-content">
-            <h2 style="color: #dd9e3b">
-              <i class="fal fa-times fa-trash"></i> Causes of Climate Change
-              <br />
-              <br />
-              <p style="font-size: 20px; font-weight: 100; color: #000">
-                Climate change is primarily caused by human activities that
-                release greenhouse gases, such as burning fossil fuels and
-                deforestation. While natural factors also play a role, the
-                current rapid pace of climate change is largely attributed to
-                human activities and their impact on the Earth's atmosphere.
-                environment.
-              </p>
-              <br />
-              <div
-                style="
+    <div class="card" style="border-color: #dd9e3b;" *ngFor="let item of cases">
+      <div class="card-content">
+        <h2 style="color: #dd9e3b">
+          <i class="fal fa-times fa-trash"></i> {{item.cases.case3[0]}}
+          <br />
+          <br />
+          <p style="font-size: 20px; font-weight: 100; color: #000">
+            {{item.cases.case3[1]}}
+          </p>
+          <br />
+          <div style="
                   text-transform: uppercase;
                   font-size: 20px;
                   font-weight: bold;
                   margin-top: 73px;
-                "
-              >
-                <br /><a
-                  style="text-decoration: none; color: #dd9e3b"
-                  href="causesofclimatechange"
-                  >know more</a
-                >
-              </div>
-            </h2>
+                ">
+            <br /><a style="text-decoration: none; color: #dd9e3b"
+              href={{item.cases.case3[3]}}>{{item.cases.case3[2]}}</a>
           </div>
-        </div>
+        </h2>
+      </div>
+    </div>
 
-        <div class="card" style="border-color: #246c63">
-          <div class="card-content">
-            <h2 style="color: #246c63">
-              <i class="fal fa-times fa-trash"></i> Effects of Climate Change
-              <br />
-              <br />
-              <p
-                style="
+    <div class="card" style="border-color: #246c63" *ngFor="let item of cases">
+      <div class="card-content">
+        <h2 style="color: #246c63">
+          <i class="fal fa-times fa-trash"></i> {{item.cases.case4[0]}}
+          <br />
+          <br />
+          <p style="
                   font-size: 20px;
                   font-weight: 100;
                   color: #000;
-                "
-              >
-                Climate change has diverse and significant effects on natural
-                systems and human societies, necessitating mitigation efforts to
-                reduce greenhouse gas emissions and adaptation strategies to
-                enhance resilience. International cooperation, policy
-                interventions, technological advancements, and behavioral
-                changes are vital for addressing these effects and creating a
-                sustainable future.
-              </p>
-              <br />
-              <div
-                style="
+                ">
+            {{item.cases.case4[1]}}
+          </p>
+          <br />
+          <div style="
                   text-transform: uppercase;
                   font-size: 20px;
                   font-weight: bold;
                   margin-top: 75px;
-                "
-              >
-                <br /><a
-                  style="text-decoration: none; color: #246c63"
-                  href="effectsofclimatechange"
-                  >know more</a
-                >
-              </div>
-            </h2>
+                ">
+            <br /><a style="text-decoration: none; color: #246c63"
+              href={{item.cases.case4[3]}}>{{item.cases.case4[2]}}</a>
           </div>
-        </div>
+        </h2>
       </div>
-    </main>
-    <footer>
-      <app-footer></app-footer>
-    </footer>
-  </body>
-</html>
+    </div>
+  </div>
+</main>
+<footer>
+  <app-footer></app-footer>
+</footer>
