@@ -6,6 +6,7 @@ const News = require('./model/news.models');
 const ClimateChange = require('./model/cases.model');
 const ProblemTrash = require('./model/problem_trash.model');
 const OutDatedEngineModel = require('./model/outdated_engine.model');
+const CauseClimateChange = require('./model/cause_climate_change.model');
 
 const { async } = require('rxjs');
 
@@ -77,6 +78,18 @@ app.get('/outdatedjeepengine', async(req, res) =>{
         res.status(500).json({ message: 'Internal server error'});
     }
 });
+
+// Causes of Climate Change
+app.get('/causesofclimatechange', async(req, res) =>{
+    try{
+        const cause_climate_change = await CauseClimateChange.find();
+        res.json(cause_climate_change);
+    }catch(err){
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error'});
+    }
+});
+
 
 app.listen(port, ()=>{
     console.log(`Listening on ${port}`);
