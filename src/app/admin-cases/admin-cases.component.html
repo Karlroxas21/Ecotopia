@@ -1,1 +1,256 @@
-<h1>Cases</h1>
+<main>
+  <div class="content">
+    <div class="textbox" data-aos="fade-down-right" *ngFor="let item of cases">
+      <div *ngIf="!editing_header" (click)="startEditingHeader()">
+        <h2>{{ header }}</h2>
+      </div>
+      <h3>
+        <textarea
+          *ngIf="editing_header"
+          [value]="item.header"
+          (blur)="finishEditingHeader($event)"
+          class="resizable-input"
+        ></textarea>
+      </h3>
+
+      <div
+        *ngIf="!editing_header_description"
+        (click)="startEditingHeaderDescription()"
+      >
+        <p>{{ header_desc }}</p>
+      </div>
+      <p>
+        <textarea
+          *ngIf="editing_header_description"
+          [value]="header_desc"
+          (blur)="finishEditingHeaderDescription($event)"
+          class="resizable-input"
+        ></textarea>
+      </p>
+    </div>
+    <img
+      src="/assets/casesimages/cases1.png"
+      alt="sad earth"
+      data-aos="fade-left"
+    />
+  </div>
+
+  <div *ngFor="let item of cases">
+    <h1
+      style="
+        color: #0030ff;
+        padding-bottom: 30px;
+        padding-left: 80px;
+        font-size: 50px;
+        font-weight: bold;
+      "
+    >
+      <div *ngIf="!editing_header_title" (click)="startEditingTitle()">
+        <p>{{ header_title }}</p>
+      </div>
+      <textarea
+        *ngIf="editing_header_title"
+        [value]="header_title"
+        (blur)="finishEditingTitle($event)"
+        class="resizable-input"
+      ></textarea>
+    </h1>
+  </div>
+
+  <div class="card-container" data-aos="zoom-in" *ngFor="let item of cases">
+    <div class="card" style="border-color: #c15669">
+      <div class="card-content">
+        <div *ngIf="!editing_case1_0" (click)="startEditingCase1_0()">
+          <h2 style="color: #c15669">
+            <i class="fal fa-times fa-trash"></i>
+            {{ cases1[0] }}
+          </h2>
+        </div>
+        <textarea
+          *ngIf="editing_case1_0"
+          [value]="cases1[0]"
+          (blur)="finishEditingCase1_0($event)"
+          class="resizable-input"
+        ></textarea>
+        <br />
+        <br />
+
+        <div *ngIf="!editing_case1_1" (click)="startEditingCase1_1()">
+          <p style="font-size: 20px; font-weight: 100; color: #000">
+            {{ cases1[1] }}
+          </p>
+        </div>
+
+        <textarea
+          *ngIf="editing_case1_1"
+          [value]="cases1[1]"
+          (blur)="finishEditingCase1_1($event)"
+          class="resizable-input"
+        ></textarea>
+
+        <br />
+        <div
+          style="
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 70px;
+          "
+        >
+          <br /><a
+            style="text-decoration: none; color: #c15669"
+            href="{{ item.cases.case1[3] }}"
+            >{{ item.cases.case1[2] }}</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="border-color: #5e55db" *ngFor="let item of cases">
+      <div class="card-content">
+        <div *ngIf="!editing_case2_0" (click)="startEditingCase2_0()">
+          <h2 style="color: #5e55db">
+            <i class="fal fa-times fa-trash"></i>
+            {{ cases2[0] }}
+          </h2>
+        </div>
+
+        <textarea
+          *ngIf="editing_case2_0"
+          [value]="cases2[0]"
+          (blur)="finishEditingCase2_0($event)"
+          class="resizable-input"
+        ></textarea>
+
+        <br />
+        <br />
+
+        <div *ngIf="!editing_case2_1" (click)="startEditingCase2_1()">
+          <p style="font-size: 20px; font-weight: 100; color: #000">
+            {{ cases2[1] }}
+          </p>
+        </div>
+
+        <textarea
+          *ngIf="editing_case2_1"
+          [value]="cases2[1]"
+          (blur)="finishEditingCase2_1($event)"
+          class="resizable-input"
+        ></textarea>
+
+        <br />
+        <div
+          style="text-transform: uppercase; font-size: 20px; font-weight: bold"
+        >
+          <br /><a
+            style="text-decoration: none; color: #5e55db"
+            href="{{ item.cases.case2[3] }}"
+            >{{ item.cases.case2[2] }}</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="border-color: #dd9e3b" *ngFor="let item of cases">
+      <div class="card-content">
+        <div *ngIf="!editing_case3_0" (click)="startEditingCase3_0()">
+          <h2 style="color: #dd9e3b">
+            <i class="fal fa-times fa-trash"></i>
+            {{ cases3[0] }}
+          </h2>
+        </div>
+
+        <textarea
+          *ngIf="editing_case3_0"
+          [value]="cases3[0]"
+          (blur)="finishEditingCase3_0($event)"
+          class="resizable-input"
+        ></textarea>
+        <br />
+        <br />
+
+        <div *ngIf="!editing_case3_1" (click)="startEditingCase3_1()">
+          <p style="font-size: 20px; font-weight: 100; color: #000">
+            {{ cases3[1] }}
+          </p>
+        </div>
+
+        <textarea
+          *ngIf="editing_case3_1"
+          [value]="cases3[1]"
+          (blur)="finishEditingCase3_1($event)"
+          class="resizable-input"
+        ></textarea>
+
+        <br />
+        <div
+          style="
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 73px;
+          "
+        >
+          <br /><a
+            style="text-decoration: none; color: #dd9e3b"
+            href="{{ item.cases.case3[3] }}"
+            >{{ item.cases.case3[2] }}</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="border-color: #246c63" *ngFor="let item of cases">
+      <div class="card-content">
+        <div *ngIf="!editing_case4_0" (click)="startEditingCase4_0()">
+          <h2 style="color: #246c63">
+            <i class="fal fa-times fa-trash"></i>
+            {{ cases4[0] }}
+          </h2>
+        </div>
+
+        <textarea
+          *ngIf="editing_case4_0"
+          [value]="cases4[0]"
+          (blur)="finishEditingCase4_0($event)"
+          class="resizable-input"
+        ></textarea>
+
+        <br />
+        <br />
+
+        <div *ngIf="!editing_case4_1" (click)="startEditingCase4_1()">
+          <p style="font-size: 20px; font-weight: 100; color: #000">
+            {{ cases4[1] }}
+          </p>
+        </div>
+
+        <textarea
+          *ngIf="editing_case4_1"
+          [value]="cases4[1]"
+          (blur)="finishEditingCase4_1($event)"
+          class="resizable-input"
+        ></textarea>
+
+        <br />
+        <div
+          style="
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 75px;
+          "
+        >
+          <br /><a
+            style="text-decoration: none; color: #246c63"
+            href="{{ item.cases.case4[3] }}"
+            >{{ item.cases.case4[2] }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>
+  <app-footer></app-footer>
+</footer>
