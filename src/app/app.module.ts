@@ -77,7 +77,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     GovernmentresourcesComponent,
     ProblemjeepoutdatedengineComponent,
     AssessmentComponent,
-    AdminCurrentissueComponent,
+    AdminCurrentissueComponent
     
   ],
   imports: [
