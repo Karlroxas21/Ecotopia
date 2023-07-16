@@ -14,7 +14,7 @@ We use MEAN stack to build this project. All back-end related are in the *backen
 1. In root directory, run  `ng build` and the *dist folder* will automatically generated in *backend folder*.
 2. `cd backend`
 3. `docker build -t <give-a-container-name> .` to dockerize and build.
-4. `docker run -p 3000:3000 <container-name-you-provide-in-3>`
+4. `docker run -p 3000:3000 <container-name-you-provide-in-3>` or change port to 80:80
 5. Then access `localhost:3000` in your browser.
 ---
 ## Running Ecotopia in Development

@@ -10,6 +10,7 @@ const CauseClimateChange = require('./model/cause_climate_change.model');
 const EffectsClimateChange = require('./model/effects_climate_change.model');
 
 const { async } = require('rxjs');
+const history = require('connect-history-api-fallback');
 
 const app = express();
 const port = process.env.PORT || 80;
@@ -17,6 +18,8 @@ mongoose.connect('mongodb+srv://karlmarxroxas1:Mvckf9rVcnZoxP0V@website.h8t2kwr.
 
 // CORS Middleware
 app.use(cors());
+
+app.use(history());
 
 app.use(express.static(path.join(__dirname, 'dist/ecotopia-capstone')));
 
