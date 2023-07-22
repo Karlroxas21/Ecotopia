@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import * as AOS from 'aos';
 import { Scenes } from 'phaser';
 import SimpleParallax from 'simple-parallax-js';
@@ -53,5 +53,15 @@ export class AppComponent {
   //   this.screenWidth = data.screenWidth;
   //   this.isSideNavCollapsed = data.collapsed;
   // }
+
+  navbarfixed:boolean = false;
+
+  @HostListener('window:scroll', ['$event']) onscroll(){
+    if(window.scrollY > 100){
+      this.navbarfixed = true;
+    } else{
+      this.navbarfixed = false;
+    }
+  }
 }
 
