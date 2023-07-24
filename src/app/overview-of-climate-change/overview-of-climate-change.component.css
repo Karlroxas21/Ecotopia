@@ -383,9 +383,6 @@ section h1{
     .related-news-container{
         width: 80%;
     }
-    .insights-main-container{
-        
-    }
 }
 @media (max-width: 1294px) {
     .insights-container-sub{
@@ -490,7 +487,7 @@ section h1{
   /* For screens smaller than 576px (phones) */
   @media screen and (max-width: 380px) {
     .what-is-climate-c h1{
-        text-align: ce;
+        text-align: center;
     }
   }
   @media screen and (max-width: 577px) {
