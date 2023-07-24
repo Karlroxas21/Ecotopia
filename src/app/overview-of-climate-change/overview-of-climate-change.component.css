@@ -1,5 +1,5 @@
 .header-img{
-    height:900px;
+    height:980px;
     overflow: hidden;
     position: relative;
 }
@@ -101,11 +101,9 @@ header img{
 }
 /* end of insights */
 
-/* Example of Climate changes */
-.example-item-main-container{
+.container {
     display: flex;
-    margin-left: 10%;
-    margin-right: 10%;
+    align-items: center;
     margin-top: 50px;
     margin-bottom: 50px;
     background-color: rgb(233, 233, 233);
@@ -113,10 +111,38 @@ header img{
     position: relative;
 }
 
-.example-item-main-container-sub1{
-    margin-top: 5%;
-    padding: 20px;
+.text {
+  flex: 1;
+  padding: 20px;
 }
+
+.image {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Optional: You can add some additional styling for the text and image */
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
 
 /* End of example of climate changes */
 
@@ -138,7 +164,6 @@ section h1{
 .wicc-deep-sub-container1{
     height: 500px;
     overflow: hidden;
-    /**/
     position: relative;
 }
 
@@ -150,7 +175,6 @@ section h1{
 .wicc-deep-sub-container2{
     height: 500px;
     overflow: hidden;
-    /**/
     position: relative;
 }
 
@@ -361,5 +385,131 @@ section h1{
     }
     .insights-main-container{
         
+    }
+}
+@media (max-width: 1294px) {
+    .insights-container-sub{
+        padding: 20px;
+    }
+}
+@media (max-width: 1171px) {
+    .insights-container-sub{
+        padding: 5px;
+    }
+}
+
+
+@media screen and (max-width: 1427px) {
+    .image img{
+        max-width: 100%;
+    }
+}
+  
+  /* Media query for responsiveness */
+  @media screen and (max-width: 1041px) {
+    .container3{
+      flex-direction: column;
+      
+    }
+    .image img{
+        max-width: 90%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  }
+  @media screen and (max-width: 1017px) {
+    .insights-container, .insights-container-2{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .insights-main-container{
+        position: relative;
+        background-color: black;
+    }
+
+    .insights-container-sub{
+        padding-left: 0;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .container3{
+      flex-direction: column;
+    }
+    .image img{
+        max-width: 90%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  }
+  
+
+
+  .flex-container2 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .box2 {
+    flex: 0 0 50%; 
+    position: relative;
+  }
+  
+  .box2 img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .box2 h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 40px;
+  }
+  .box2 h2 span{
+    font-weight: 700;
+  }
+  
+  /* For screens smaller than 768px (tablets and below) */
+@media screen and (max-width: 768px) {
+    .box2 {
+      flex: 0 0 100%; /* Single box per row */
+    }
+  
+    .box2 h2 {
+      font-size: 16px;
+    }
+  }
+  
+  /* For screens smaller than 576px (phones) */
+  @media screen and (max-width: 380px) {
+    .what-is-climate-c h1{
+        text-align: ce;
+    }
+  }
+  @media screen and (max-width: 577px) {
+    .what-is-climate-c h1{
+        font-size: 2rem;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    .box2 h2 {
+      font-size: 14px;
+    }
+  }
+  @media screen and (max-width: 1574px) {
+    .box2 h2 {
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 1392px) {
+    .box2 h2 {
+        font-size: 20px;
     }
 }
