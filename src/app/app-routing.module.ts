@@ -24,6 +24,7 @@ import { MaterialComponent } from './material/material.component';
 import { AdminCurrentissueComponent } from './admin-currentissue/admin-currentissue.component';
 // import { ADMINComponent } from './admin/admin.component';
 import { AdminCasesComponent } from './admin-cases/admin-cases.component';
+import { AdminCasesProblemtrashComponent } from './admin-cases-problemtrash/admin-cases-problemtrash.component';
 // import { AdminInteractivevideoComponent } from './admin-interactivevideo/admin-interactivevideo.component';
 // import { AdminWebtoonComponent } from './admin-webtoon/admin-webtoon.component';
 // import { AdminSolutionsComponent } from './admin-solutions/admin-solutions.component';
@@ -55,6 +56,7 @@ const routes: Routes = [
   {component: MaterialComponent, path: 'material'},
   {component: AdminCurrentissueComponent, path: 'admin-currentissue'},
   {component: AdminCasesComponent, path: 'admin-cases'},
+  {component: AdminCasesProblemtrashComponent, path: 'admin-cases-problemtrash'},
   // {component: AdminInteractivevideoComponent, path: 'admin-interactivevideo'},
   // {component: AdminWebtoonComponent, path: 'admin-webtoon'},
   // {component: AdminSolutionsComponent, path: 'admin-solutions'},

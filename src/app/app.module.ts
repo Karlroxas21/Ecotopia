@@ -41,6 +41,7 @@ import { ProblemjeepoutdatedengineComponent } from './problemjeepoutdatedengine/
 import { AssessmentComponent } from './assessment/assessment.component';
 import { AdminCurrentissueComponent } from './admin-currentissue/admin-currentissue.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminCasesProblemtrashComponent } from './admin-cases-problemtrash/admin-cases-problemtrash.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     GovernmentresourcesComponent,
     ProblemjeepoutdatedengineComponent,
     AssessmentComponent,
-    AdminCurrentissueComponent
+    AdminCurrentissueComponent,
+    AdminCasesProblemtrashComponent
     
   ],
   imports: [

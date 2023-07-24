@@ -1,0 +1,231 @@
+<main>
+  <div class="content">
+    <div
+      class="textbox"
+      data-aos="fade-right"
+      *ngFor="let item of problem_trash"
+    >
+    <div *ngIf="!editing_header" (click)="startEditingHeader()">
+      <h2>{{ header }}</h2>
+    </div>
+    <h3>
+      <textarea
+        *ngIf="editing_header"
+        [value]="header"
+        (blur)="finishEditingHeader($event)"
+        class="resizable-input"
+      ></textarea>
+    </h3>
+    
+    <div *ngIf="!editing_header_desc" (click)="startEditingHeaderDescription()">
+      <p>{{ header_desc }}</p>
+    </div>
+
+      <textarea
+        *ngIf="editing_header_desc"
+        [value]="header_desc"
+        (blur)="finishEditingHeaderDescription($event)"
+        class="resizable-input"
+      ></textarea>
+
+    </div>
+    <img
+      src="/assets/casesimages/cases1.png"
+      alt="sad earth"
+      data-aos="fade-left"
+    />
+  </div>
+
+  <div *ngFor="let item of problem_trash">
+    <h1
+      style="
+        color: #0030ff;
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+      "
+    >
+      {{ item.title }}
+    </h1>
+  </div>
+
+  <div
+    class="card-container"
+    data-aos="zoom-in"
+    *ngFor="let item of problem_trash"
+  >
+    <div class="card" style="border-color: #c15669; align-items: center">
+      <div class="card-content">
+        <h2>
+          <a
+            class="learn-more-button"
+            href="{{ item.cases.case1[1] }}"
+            style="text-decoration: none; color: #c15669"
+            ><i class="fal fa-times fa-trash"></i> {{ item.cases.case1[0] }}</a
+          >
+        </h2>
+      </div>
+    </div>
+
+    <div class="card" style="border-color: #5e55db; align-items: center">
+      <div class="card-content">
+        <h2>
+          <a
+            class="learn-more-button"
+            href="{{ item.cases.case2[1] }}"
+            style="text-decoration: none; color: #5e55db"
+            ><i class="fal fa-times fa-trash"></i> {{ item.cases.case2[0] }}</a
+          >
+        </h2>
+      </div>
+    </div>
+
+    <div class="card" style="border-color: #dd9e3b; align-items: center">
+      <div class="card-content">
+        <h2>
+          <a
+            class="learn-more-button"
+            href="{{ item.cases.case3[1] }}"
+            style="text-decoration: none; color: #dd9e3b"
+            ><i class="fal fa-times fa-trash"></i> {{ item.cases.case3[0] }}</a
+          >
+        </h2>
+      </div>
+    </div>
+
+    <div class="card" style="border-color: #396a63; align-items: center">
+      <div class="card-content">
+        <h2>
+          <a
+            class="learn-more-button"
+            href="{{ item.cases.case4[1] }}"
+            style="text-decoration: none; color: #396a63"
+            ><i class="fal fa-times fa-trash"></i> {{ item.cases.case4[0] }}</a
+          >
+        </h2>
+      </div>
+    </div>
+  </div>
+  <hr style="width: 100%" />
+
+  <div class="text" *ngFor="let item of problem_trash">
+    <h1 style="padding-top: 50px; color: #c15669">
+      {{ item.cases.case1[0] }}
+    </h1>
+
+    <ul style="margin-top: -20px">
+      <li>
+        <b style="color: #ff96a9; font-size: 27px">{{
+          item.bullets.bullet_1[0]
+        }}</b>
+        <br />
+        - {{ item.bullets.bullet_1[1] }}
+        <br />
+        - {{ item.bullets.bullet_1[2] }}
+      </li>
+      <li>
+        <b style="color: #ff96a9; font-size: 27px">{{
+          item.bullets.bullet_2[0]
+        }}</b>
+        <br />
+        - {{ item.bullets.bullet_2[1] }}
+        <br />
+        - {{ item.bullets.bullet_2[2] }}
+        <br />
+        - {{ item.bullets.bullet_2[3] }}
+        <br />
+        - {{ item.bullets.bullet_2[4] }}
+      </li>
+      <li>
+        <b style="color: #ff96a9; font-size: 27px">{{
+          item.bullets.bullet_3[0]
+        }}</b>
+        <br />
+        - {{ item.bullets.bullet_3[1] }}
+        <br />
+        - {{ item.bullets.bullet_3[2] }}
+        <br />
+        - {{ item.bullets.bullet_3[3] }}
+        <br />
+        - {{ item.bullets.bullet_3[4] }}
+      </li>
+      <li>
+        <b style="color: #ff96a9; font-size: 27px"
+          >{{ item.bullets.bullet_4[0] }}
+        </b>
+        <br />
+        - {{ item.bullets.bullet_4[1] }}
+        <br />
+        - {{ item.bullets.bullet_4[2] }}
+        <br />
+        - {{ item.bullets.bullet_4[3] }}
+        <br />
+        - {{ item.bullets.bullet_4[4] }}
+        <br />
+        - {{ item.bullets.bullet_4[5] }}
+      </li>
+      <li>
+        <b style="color: #ff96a9; font-size: 27px">{{
+          item.bullets.bullet_5[0]
+        }}</b>
+        <br />
+        - {{ item.bullets.bullet_5[1] }}
+        <br />
+        - {{ item.bullets.bullet_5[2] }}
+      </li>
+      <li>
+        <b style="color: #ff96a9; font-size: 27px">{{
+          item.bullets.bullet_6[0]
+        }}</b>
+        <br />
+        - {{ item.bullets.bullet_6[1] }}
+        <br />
+        - {{ item.bullets.bullet_6[2] }}
+        <br />
+        - {{ item.bullets.bullet_6[3] }}
+        <br />
+        - {{ item.bullets.bullet_6[4] }}
+        <br />
+        - {{ item.bullets.bullet_6[5] }}
+        <br />
+        - {{ item.bullets.bullet_6[6] }}
+        <br />
+        - {{ item.bullets.bullet_6[7] }}
+      </li>
+    </ul>
+  </div>
+  <section>
+    <div class="reference-container" *ngFor="let item of problem_trash">
+      <accordion [isAnimated]="true">
+        <accordion-group heading="References">
+          <a href="{{ item.references[0] }}" target="_blank"
+            >{{ item.references[0] }}
+          </a>
+          <br />
+          <a href="{{ item.references[1] }}" target="_blank">{{
+            item.references[1]
+          }}</a>
+          <br />
+          <a href="{{ item.references[2] }}" target="_blank">{{
+            item.references[2]
+          }}</a>
+          <br />
+          <a href="{{ item.references[3] }}" target="_blank">{{
+            item.references[3]
+          }}</a>
+          <br />
+          <a href="{{ item.references[4] }}" target="_blank">{{
+            item.references[4]
+          }}</a>
+          <br />
+          <a href="{{ item.references[5] }}" target="_blank">{{
+            item.references[5]
+          }}</a>
+        </accordion-group>
+      </accordion>
+    </div>
+  </section>
+</main>
+<footer>
+  <app-footer></app-footer>
+</footer>
