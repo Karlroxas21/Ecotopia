@@ -267,8 +267,14 @@ section .parallax-div4 img{
 /* End of Carousel */
 
 @media (max-width: 858px) {
-
-
+.three-projects-container-exp{
+  grid-template-columns: 1fr;
+  margin-bottom: 100px;
+}
+.parallax-div4{
+  flex-direction: column;
+  margin-top: 30px;
+}
   .wcyd-sub-div-1{
     display: flex;
   }
@@ -341,5 +347,9 @@ section .parallax-div4 img{
   .parallax-div2-text p{
     font-size: 12px;
     transition: 0.2s;
+  }
+  .earth{
+    width: 200px;
+    height: 200px;
   }
 }

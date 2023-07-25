@@ -4,22 +4,19 @@
 }
 
 .header-txt{
-  display: flex;
-  text-align: center;
-  width: 40%;
-  background-color: #FF96A9;
-  border-radius: 20px;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
 }
 
 .header-txt h1{
-  bottom: 40px;
-  width: 100%;
+  background-color: #FF96A9;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: inline-block;
+  text-transform: capitalize;
   color: white;
-  font-size: 3rem;
-  font-weight: 900;
-  padding: 20px;
+  font-weight: bolder;
 }
 
 body, header{
@@ -132,4 +129,9 @@ body, header{
 .button button:hover {
   background-color: #f37088;
   color: white;
+}
+@media only screen and (max-width: 359px) {
+  .header-txt h1{
+    margin-right: 70px;
+  }
 }

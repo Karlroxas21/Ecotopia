@@ -1,4 +1,3 @@
-
 .parent{
     display: flex;
     flex-direction: row;
@@ -14,12 +13,21 @@
 .sub-right{
     width: 60%;
 }
-.about-maafia{
+.about-maafia h1{
+    font-size: 50px;
+    font-weight: bolder;
+    color: #fff;
     background-color: #FF96A9;
+    border-radius: 20px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    transition: all .45s ease;
+}
+.about-maafia{
     margin-bottom: 50px;
     display: flex;
     justify-content: center;
-    border-radius: 20px;
 }
 
 .about-maafia p{
@@ -29,8 +37,8 @@
     color: white;
     text-transform: uppercase;
     padding: 20px;
+    transition: all .45s ease;
 }
-
 /* LOGO */
 .ecotopia img, .nu-ccit img{
     width: 250px;
@@ -39,11 +47,15 @@
 /* ECOTOPIA */
 .ecotopia{
     padding: 30px;
+    transition: all .45s ease;
 }
 
-.email p, .address p{
+.email p{
     font-family: 'Henry Sans Medium', sans-serif;
     font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+    transition: all .45s ease;
 }
 
 /* Objectives */
@@ -52,6 +64,7 @@
     flex-direction: column;
     align-items: center;
     gap: 5px;
+    transition: all .45s ease;
 }
 
 .objectives h2{
@@ -60,18 +73,22 @@
     font-size: 2rem;
     color: #FF96A9;
     font-family: 'Henry Sans Bold', sans-serif;
+    transition: all .45s ease;
 }
-
 .sub-objective{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 5px;
+    transition: all .45s ease;
 }
 
 .objective-1{
     padding: 10px;
 }
-
+.sub-objective2 .objective-2 img{
+    height: 180px;
+    width: 250px;
+}
 .objective-1 img{
     width: 100px;
     padding-bottom: 10px;
@@ -91,11 +108,13 @@
     font-size: 2rem;
     color: #FF96A9;
     font-family: 'Henry Sans Bold', sans-serif;
+    transition: all .45s ease;
 }
 
 .partners-logos{
     display: flex;
     gap: 20px;
+    transition: all .45s ease;
     
 }
 
@@ -105,6 +124,7 @@
     gap: 40px;
     flex-direction: column;
     margin-top: 100px;
+    transition: all .45s ease;
 }
 
 .sub-right{
@@ -127,6 +147,7 @@
 .content{
     display: flex;
     gap: 20px;
+    transition: 0.5s;
 }
 
 .content-left img{
@@ -159,6 +180,61 @@
 }
 .color4 img{
     border: 7px solid #96AAFF;
+}
+@media screen and (max-width: 1299px){
+    .parent{
+        flex-direction: column;
+        align-items: center;
+    }
+    .sub-left{
+        order: 3;
+    }
+}
+@media screen and (max-width: 1090px){
+    .content{
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-maafia h1{
+        font-size: 40px;
+    }
+    .ecotopia{
+        display: flex;
+        justify-content: center;
+        padding-right: 20px;
+    }
+}
+@media screen and (max-width: 500px){
+    .sub-right{
+        margin-right: 50px;
+    }
+}
+@media screen and (max-width: 446px){
+    .sub-right{
+        margin-right: 100px;
+    }
+    .partners-logos{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .ecotopia{
+        display: flex;
+        flex-direction: column;
+    }
+    .sub-objective{
+        display: flex;
+        flex-direction: column;
+    }
+    .sub-objective2{
+        margin-left: -40px;
+    }
+}
+@media screen and (max-width: 330px){
+    .about .content img{
+        width: 250px;
+        height: 250px;
+    }
 }
 
 /* The TEAM */

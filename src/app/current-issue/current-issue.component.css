@@ -17,6 +17,9 @@
   display: inline-block;
   padding: 10px 20px;
   color: white;
+  font-weight: bolder;
+  transition: all .45s ease;
+  font-size: 40px;
 }
 
 .climate-change-info{
@@ -112,5 +115,12 @@ table, td, th{
     .wrap img{
         width: 100%;
     }
-
+}
+@media screen and (max-width: 858px){
+    .climate-change h1{
+      text-align: center;
+      display: block;
+      margin: 20px;
+      margin-top: 20px;
+    }
 }
