@@ -131,7 +131,33 @@ section .reference-container{
   .card h2 {
     margin-top: 0;
   }
-  
+
+  .resizable-input {
+    resize: both;
+}
+
+.publish-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 50px;
+}
+
+.publish:hover{
+    background: #0030ff;
+}
+
+.publish{
+    border-radius: 20px;
+    background: #FF96A9;
+    font-size: 2rem;
+    padding: 10px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1.65px; 
+   
+}
+
 @media screen and (max-width: 1299px){
     .content{
         flex-direction: column;

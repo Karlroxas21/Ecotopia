@@ -7,7 +7,7 @@
       <h3>
         <textarea
           *ngIf="editing_header"
-          [value]="item.header"
+          [value]="header"
           (blur)="finishEditingHeader($event)"
           class="resizable-input"
         ></textarea>
