@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
+import { AdminCasesService } from './admin-cases-services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-cases-problemtrash',
@@ -27,8 +29,14 @@ export class AdminCasesProblemtrashComponent {
   bullet7: string [] = [];
   references: string [] = [];
 
-  constructor(private http: HttpClient, private titleService: Title){}
+  isThereAnyChanges: boolean = false;
+
+  constructor(private http: HttpClient, 
+    private titleService: Title,
+    private AdminCasesService: AdminCasesService,
+    private router:Router){}
   
+  // Main Methods and functions here
   bulletPusher(bullet: string[], bulletNumber: string, items: integer){
     for(let i = 0; i < items; i++){
       const propertyName = `bullet_${bulletNumber}`;
@@ -49,11 +57,9 @@ export class AdminCasesProblemtrashComponent {
     }
   }
 
-  ngOnInit(): void{
-
-    this.http.get<any[]>('http://localhost:80/problemtrash')
-    .subscribe(problem_trash =>{
-      this.problem_trash = problem_trash;
+  getData(): void{
+    this.AdminCasesService.getData().subscribe(incoming_data =>{
+      this.problem_trash = incoming_data;
 
       this.header = this.problem_trash[0].header;
       this.header_desc = this.problem_trash[0].header_description;
@@ -75,8 +81,36 @@ export class AdminCasesProblemtrashComponent {
 
       //References
       this.referencePusher(this.references);
-
     })
+  }
+
+  updateData(): void{
+    if(this.isAnyChanges()){
+      this.AdminCasesService.updateData(this.problem_trash[0]).subscribe(updatedItem =>{
+        this.router.navigate(['/admin-cases-problemtrash']);
+       console.log(this.problem_trash[0])
+        // Insert toaster here
+        console.log('Update success', updatedItem);
+      },(err)=>{
+        console.error("Error updating item. ", err);
+      })
+      this.isThereAnyChanges = false;
+    }else{
+      // Insert toaster here
+      console.log("You did not make any changes");
+    }
+  }
+
+  // Track if there is any changes made
+  isAnyChanges(){
+    return this.isThereAnyChanges;
+  }
+
+  // End of main function and methods
+
+  ngOnInit(): void{
+
+    this.getData();
 
     this.titleService.setTitle(this.title);
   }
@@ -110,10 +144,6 @@ export class AdminCasesProblemtrashComponent {
   editing_reference: boolean [] =
   [false, false, false, false, false, false];
 
-  onPublish(){
-
-  }
-
   // Header
   startEditingHeader() {
     this.editing_header = true;
@@ -121,6 +151,9 @@ export class AdminCasesProblemtrashComponent {
   finishEditingHeader(event: any) {
     this.editing_header = false;
     this.header = event.target.value;
+  }
+  doesChange(){
+    this.isThereAnyChanges = true;
   }
 
   // Header Description

@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const News = require('./model/news.models');
 const ClimateChange = require('./model/cases.model');
@@ -19,7 +20,11 @@ mongoose.connect('mongodb+srv://karlmarxroxas1:Mvckf9rVcnZoxP0V@website.h8t2kwr.
 // CORS Middleware
 app.use(cors());
 
-app.use(history());
+app.use(bodyParser.json());
+
+// This causes bug in API. Enable only if dockerizing it.
+// See : https://chat.openai.com/share/99b39e15-397a-496c-8689-1d023344b37d
+// app.use(history());
 
 app.use(express.static(path.join(__dirname, 'dist/ecotopia-capstone')));
 
@@ -104,6 +109,28 @@ app.get('/effectsofclimatechange', async(req, res) =>{
         res.status(500).json({ message: 'Internal server error'});
     }
 });
+
+// Admin Problem Trash / Case 1
+app.put('/admin-cases-problemtrash/:id', async (req, res) =>{
+    try{
+        const upstream_data = await ProblemTrash.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+        res.send(upstream_data);
+    }catch(err){
+        res.status(500).send(err.message);
+    }
+})
+
+app.get('/admin-cases-problemtrash', async(req, res) =>{
+    try{
+        const problem_trash = await ProblemTrash.find();
+        res.json(problem_trash);
+    }catch(err){
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error'});
+    }
+});
+
 
 app.listen(port, ()=>{
     console.log(`Listening on ${port}`);
