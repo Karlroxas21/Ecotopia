@@ -4,7 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const News = require('./model/news.models');
-const ClimateChange = require('./model/cases.model');
+const Cases = require('./model/cases.model');
 const ProblemTrash = require('./model/problem_trash.model');
 const OutDatedEngineModel = require('./model/outdated_engine.model');
 const CauseClimateChange = require('./model/cause_climate_change.model');
@@ -58,8 +58,8 @@ app.get('/news_features', async(req, res) =>{
 // Cases 
 app.get('/problems', async(req, res) =>{
     try{
-        const climate_change = await ClimateChange.find();
-        res.json(climate_change);
+        const cases = await Cases.find();
+        res.json(cases);
     }catch(err){
         console.error(err);
         res.status(500).json({ message: 'Internal server error'});
@@ -104,6 +104,27 @@ app.get('/effectsofclimatechange', async(req, res) =>{
     try{
         const effect_climate_change = await EffectsClimateChange.find();
         res.json(effect_climate_change);
+    }catch(err){
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error'});
+    }
+});
+
+// Admin Cases
+app.put('/admin-cases/:id', async (req, res) =>{
+    try{
+        const cases = await Cases.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+        res.send(cases);
+    }catch(err){
+        res.status(500).send(err.message);
+    }
+})
+
+app.get('/admin-cases', async(req, res) =>{
+    try{
+        const cases = await Cases.find();
+        res.json(cases);
     }catch(err){
         console.error(err);
         res.status(500).json({ message: 'Internal server error'});

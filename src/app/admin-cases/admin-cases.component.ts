@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
+import { AdminService } from './admin-cases-services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-cases',
@@ -16,39 +18,65 @@ export class AdminCasesComponent implements OnInit {
   header: string = "";
   header_desc: string = "";
   header_title: string = "";
-  cases1: string[] = [];
-  cases2: string[] = [];
-  cases3: string[] = [];
-  cases4: string[] = [];
+  case1: string[] = [];
+  case2: string[] = [];
+  case3: string[] = [];
+  case4: string[] = [];
 
-  constructor(private http: HttpClient, private titleService: Title){}
+  isThereAnyChanges: boolean = false;
+
+  constructor(private http: HttpClient, 
+    private titleService: Title,
+    private AdminCase: AdminService,
+    private router: Router){}
+
+  casePusher(caseArray: string[], caseNumber: string){
+    for(let i = 0; i < 4; i++){
+      const propertyName = `case${caseNumber}`;
+      caseArray.push(this.cases[0].cases[propertyName][i]);
+    }
+  }  
+
+  getData():void {
+    this.AdminCase.getData().subscribe(incoming_data => {
+      this.cases = incoming_data;
+
+      this.header = this.cases[0].header;
+      this.header_desc = this.cases[0].header_description;
+      this.header_title = this.cases[0].title;
+
+      this.casePusher(this.case1, "1");
+      this.casePusher(this.case2, "2");
+      this.casePusher(this.case3, "3");
+      this.casePusher(this.case4, "4");
+      
+    })
+  }
+
+  updateData():void{
+    if(this.isAnyChanges()){
+      this.AdminCase.updateData(this.cases[0]).subscribe(updatedItem =>{
+        this.router.navigate(['/admin-cases']);
+        // Insert toaster here
+        console.log('Update success', updatedItem);
+      },(err) =>{
+        console.error("Error updating item. ", err);
+      });
+      this.isThereAnyChanges = false;
+    }else{
+      // Insert toaster here
+      console.log("You did not make any changes");
+    }
+  }
+
+  // Track if there is any changes made
+  isAnyChanges(){
+    return this.isThereAnyChanges;
+  }
 
   ngOnInit(): void{
-    this.http.get<any[]>('http://localhost:80/problems')
-    .subscribe(cases =>{
-      this.cases = cases;
-      
-      this.header_desc = this.cases[0].header_description;
-      this.header = this.cases[0].header;
-      this.header_title = this.cases[0].title;
-      
-      //Case 1
-      this.cases1.push(this.cases[0].cases.case1[0]);
-      this.cases1.push(this.cases[0].cases.case1[1]);
-
-      //Case 2
-      this.cases2.push(this.cases[0].cases.case2[0]);
-      this.cases2.push(this.cases[0].cases.case2[1]);
-
-      //Case 3
-      this.cases3.push(this.cases[0].cases.case3[0]);
-      this.cases3.push(this.cases[0].cases.case3[1]);
-
-      //Case 4
-      this.cases4.push(this.cases[0].cases.case4[0]);
-      this.cases4.push(this.cases[0].cases.case4[1]);
-      console.log(this.cases4);
-    })
+    
+    this.getData();
 
     this.titleService.setTitle(this.title);
   }
@@ -68,6 +96,10 @@ export class AdminCasesComponent implements OnInit {
 
   editing_case4_0: boolean = false; 
   editing_case4_1: boolean = false;  
+
+  doesChange(){
+    this.isThereAnyChanges = true;
+  }
 
   // Header
   startEditingHeader() {
@@ -103,7 +135,7 @@ export class AdminCasesComponent implements OnInit {
   }
   finishEditingCase1_0(event: any) {
     this.editing_case1_0 = false;
-    this.cases1[0] = event.target.value;
+    this.case1[0] = event.target.value;
   }
 
   // Case 1.1
@@ -112,7 +144,7 @@ export class AdminCasesComponent implements OnInit {
   }
   finishEditingCase1_1(event: any) {
     this.editing_case1_1 = false;
-    this.cases1[1] = event.target.value;
+    this.case1[1] = event.target.value;
   }
 
   // Case 2.0
@@ -121,7 +153,7 @@ export class AdminCasesComponent implements OnInit {
   }
   finishEditingCase2_0(event: any) {
     this.editing_case2_0 = false;
-    this.cases2[0] = event.target.value;
+    this.case2[0] = event.target.value;
   }
 
   // Case 2.1
@@ -130,7 +162,7 @@ export class AdminCasesComponent implements OnInit {
   }
   finishEditingCase2_1(event: any) {
     this.editing_case2_1 = false;
-    this.cases2[1] = event.target.value;
+    this.case2[1] = event.target.value;
   }
 
   // Case 3.0
@@ -139,7 +171,7 @@ export class AdminCasesComponent implements OnInit {
   }
   finishEditingCase3_0(event: any) {
     this.editing_case3_0 = false;
-    this.cases3[0] = event.target.value;
+    this.case3[0] = event.target.value;
   }
 
   // Case 3.1
@@ -148,7 +180,7 @@ export class AdminCasesComponent implements OnInit {
   }
   finishEditingCase3_1(event: any) {
     this.editing_case3_1 = false;
-    this.cases3[1] = event.target.value;
+    this.case3[1] = event.target.value;
   }
 
   // Case 4.0
@@ -157,7 +189,7 @@ export class AdminCasesComponent implements OnInit {
   }
   finishEditingCase4_0(event: any) {
     this.editing_case4_0 = false;
-    this.cases4[0] = event.target.value;
+    this.case4[0] = event.target.value;
   }
 
    // Case 4.1
@@ -166,10 +198,6 @@ export class AdminCasesComponent implements OnInit {
   }
   finishEditingCase4_1(event: any) {
     this.editing_case4_1 = false;
-    this.cases4[1] = event.target.value;
+    this.case4[1] = event.target.value;
   }
-
-
-
- 
 }

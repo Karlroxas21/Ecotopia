@@ -6,10 +6,12 @@
       </div>
       <h3>
         <textarea
+          style="color: #0030ff; font-size: 3rem; font-weight: 600"
           *ngIf="editing_header"
-          [value]="header"
           (blur)="finishEditingHeader($event)"
           class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="cases[0].header"
         ></textarea>
       </h3>
 
@@ -22,9 +24,10 @@
       <p>
         <textarea
           *ngIf="editing_header_description"
-          [value]="header_desc"
           (blur)="finishEditingHeaderDescription($event)"
           class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="cases[0].header_description"
         ></textarea>
       </p>
     </div>
@@ -49,10 +52,12 @@
         <p>{{ header_title }}</p>
       </div>
       <textarea
+        style="color: #0030ff; font-size: 3rem; font-weight: 600"
         *ngIf="editing_header_title"
-        [value]="header_title"
         (blur)="finishEditingTitle($event)"
         class="resizable-input"
+        (ngModelChange)="doesChange()"
+        [(ngModel)]="cases[0].title"
       ></textarea>
     </h1>
   </div>
@@ -63,29 +68,32 @@
         <div *ngIf="!editing_case1_0" (click)="startEditingCase1_0()">
           <h2 style="color: #c15669">
             <i class="fal fa-times fa-trash"></i>
-            {{ cases1[0] }}
+            {{ case1[0] }}
           </h2>
         </div>
         <textarea
+          style="color: #c15669; font-size: 2rem; font-weight: 500"
           *ngIf="editing_case1_0"
-          [value]="cases1[0]"
           (blur)="finishEditingCase1_0($event)"
           class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="cases[0].cases.case1[0]"
         ></textarea>
         <br />
         <br />
 
         <div *ngIf="!editing_case1_1" (click)="startEditingCase1_1()">
           <p style="font-size: 20px; font-weight: 100; color: #000">
-            {{ cases1[1] }}
+            {{ case1[1] }}
           </p>
         </div>
 
         <textarea
           *ngIf="editing_case1_1"
-          [value]="cases1[1]"
           (blur)="finishEditingCase1_1($event)"
           class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="cases[0].cases.case1[1]"
         ></textarea>
 
         <br />
@@ -96,13 +104,7 @@
             font-weight: bold;
             margin-top: 70px;
           "
-        >
-          <br /><a
-            style="text-decoration: none; color: #c15669"
-            href="{{ item.cases.case1[3] }}"
-            >{{ item.cases.case1[2] }}</a
-          >
-        </div>
+        ></div>
       </div>
     </div>
 
@@ -111,15 +113,17 @@
         <div *ngIf="!editing_case2_0" (click)="startEditingCase2_0()">
           <h2 style="color: #5e55db">
             <i class="fal fa-times fa-trash"></i>
-            {{ cases2[0] }}
+            {{ case2[0] }}
           </h2>
         </div>
 
         <textarea
+          style="color: #5e55db; font-size: 2rem; font-weight: 500"
           *ngIf="editing_case2_0"
-          [value]="cases2[0]"
           (blur)="finishEditingCase2_0($event)"
           class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="cases[0].cases.case2[0]"
         ></textarea>
 
         <br />
@@ -127,27 +131,22 @@
 
         <div *ngIf="!editing_case2_1" (click)="startEditingCase2_1()">
           <p style="font-size: 20px; font-weight: 100; color: #000">
-            {{ cases2[1] }}
+            {{ case2[1] }}
           </p>
         </div>
 
         <textarea
           *ngIf="editing_case2_1"
-          [value]="cases2[1]"
           (blur)="finishEditingCase2_1($event)"
           class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="cases[0].cases.case2[1]"
         ></textarea>
 
         <br />
         <div
           style="text-transform: uppercase; font-size: 20px; font-weight: bold"
-        >
-          <br /><a
-            style="text-decoration: none; color: #5e55db"
-            href="{{ item.cases.case2[3] }}"
-            >{{ item.cases.case2[2] }}</a
-          >
-        </div>
+        ></div>
       </div>
     </div>
 
@@ -156,30 +155,33 @@
         <div *ngIf="!editing_case3_0" (click)="startEditingCase3_0()">
           <h2 style="color: #dd9e3b">
             <i class="fal fa-times fa-trash"></i>
-            {{ cases3[0] }}
+            {{ case3[0] }}
           </h2>
         </div>
 
         <textarea
+          style="color: #dd9e3b; font-size: 2rem; font-weight: 500"
           *ngIf="editing_case3_0"
-          [value]="cases3[0]"
           (blur)="finishEditingCase3_0($event)"
           class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="cases[0].cases.case3[0]"
         ></textarea>
         <br />
         <br />
 
         <div *ngIf="!editing_case3_1" (click)="startEditingCase3_1()">
           <p style="font-size: 20px; font-weight: 100; color: #000">
-            {{ cases3[1] }}
+            {{ case3[1] }}
           </p>
         </div>
 
         <textarea
           *ngIf="editing_case3_1"
-          [value]="cases3[1]"
           (blur)="finishEditingCase3_1($event)"
           class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="cases[0].cases.case3[1]"
         ></textarea>
 
         <br />
@@ -190,13 +192,7 @@
             font-weight: bold;
             margin-top: 73px;
           "
-        >
-          <br /><a
-            style="text-decoration: none; color: #dd9e3b"
-            href="{{ item.cases.case3[3] }}"
-            >{{ item.cases.case3[2] }}</a
-          >
-        </div>
+        ></div>
       </div>
     </div>
 
@@ -205,15 +201,17 @@
         <div *ngIf="!editing_case4_0" (click)="startEditingCase4_0()">
           <h2 style="color: #246c63">
             <i class="fal fa-times fa-trash"></i>
-            {{ cases4[0] }}
+            {{ case4[0] }}
           </h2>
         </div>
 
         <textarea
+          style="color: #246c63; font-size: 2rem; font-weight: 500"
           *ngIf="editing_case4_0"
-          [value]="cases4[0]"
           (blur)="finishEditingCase4_0($event)"
           class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="cases[0].cases.case4[0]"
         ></textarea>
 
         <br />
@@ -221,15 +219,16 @@
 
         <div *ngIf="!editing_case4_1" (click)="startEditingCase4_1()">
           <p style="font-size: 20px; font-weight: 100; color: #000">
-            {{ cases4[1] }}
+            {{ case4[1] }}
           </p>
         </div>
 
         <textarea
           *ngIf="editing_case4_1"
-          [value]="cases4[1]"
           (blur)="finishEditingCase4_1($event)"
           class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="cases[0].cases.case4[1]"
         ></textarea>
 
         <br />
@@ -240,15 +239,15 @@
             font-weight: bold;
             margin-top: 75px;
           "
-        >
-          <br /><a
-            style="text-decoration: none; color: #246c63"
-            href="{{ item.cases.case4[3] }}"
-            >{{ item.cases.case4[2] }}</a
-          >
-        </div>
+        ></div>
       </div>
     </div>
+  </div>
+
+  <div class="publish-container">
+    <button type="button" class="publish" (click)="updateData()">
+      Publish
+    </button>
   </div>
 </main>
 <footer>
