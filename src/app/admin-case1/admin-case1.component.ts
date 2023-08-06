@@ -4,12 +4,14 @@ import { Title } from '@angular/platform-browser';
 import { AdminCasesService } from './admin-cases-services';
 import { Router } from '@angular/router';
 
+
 @Component({
-  selector: 'app-admin-cases-problemtrash',
-  templateUrl: './admin-cases-problemtrash.component.html',
-  styleUrls: ['./admin-cases-problemtrash.component.css']
+  selector: 'app-admin-case1',
+  templateUrl: './admin-case1.component.html',
+  styleUrls: ['./admin-case1.component.css']
 })
-export class AdminCasesProblemtrashComponent {
+
+export class AdminCase1Component {
   problem_trash: any;
   title = "Admin: Cases";
 

@@ -21,14 +21,11 @@ import { GovernmentresourcesComponent } from './governmentresources/governmentre
 import { ProblemjeepoutdatedengineComponent } from './problemjeepoutdatedengine/problemjeepoutdatedengine.component';
 import { AssessmentComponent } from './assessment/assessment.component';
 import { MaterialComponent } from './material/material.component';
+
+// Admin components
 import { AdminCurrentissueComponent } from './admin-currentissue/admin-currentissue.component';
-// import { ADMINComponent } from './admin/admin.component';
 import { AdminCasesComponent } from './admin-cases/admin-cases.component';
-import { AdminCasesProblemtrashComponent } from './admin-cases-problemtrash/admin-cases-problemtrash.component';
-// import { AdminInteractivevideoComponent } from './admin-interactivevideo/admin-interactivevideo.component';
-// import { AdminWebtoonComponent } from './admin-webtoon/admin-webtoon.component';
-// import { AdminSolutionsComponent } from './admin-solutions/admin-solutions.component';
-// import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminCase1Component } from './admin-case1/admin-case1.component';
 
 const routes: Routes = [
   {component: LandingPageComponent, path: ''},
@@ -54,9 +51,11 @@ const routes: Routes = [
   {component: AssessmentComponent, path: 'assessment'},
   // {component: ADMINComponent, path: 'ADMIN'},
   {component: MaterialComponent, path: 'material'},
+
+  // Admin Components
   {component: AdminCurrentissueComponent, path: 'admin-currentissue'},
   {component: AdminCasesComponent, path: 'admin-cases'},
-  {component: AdminCasesProblemtrashComponent, path: 'admin-cases-problemtrash'},
+  {component: AdminCase1Component, path: 'admin-cases-1'},
   // {component: AdminInteractivevideoComponent, path: 'admin-interactivevideo'},
   // {component: AdminWebtoonComponent, path: 'admin-webtoon'},
   // {component: AdminSolutionsComponent, path: 'admin-solutions'},

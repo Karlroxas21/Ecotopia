@@ -41,7 +41,8 @@ import { ProblemjeepoutdatedengineComponent } from './problemjeepoutdatedengine/
 import { AssessmentComponent } from './assessment/assessment.component';
 import { AdminCurrentissueComponent } from './admin-currentissue/admin-currentissue.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AdminCasesProblemtrashComponent } from './admin-cases-problemtrash/admin-cases-problemtrash.component';
+import { AdminCase2Component } from './admin-case2/admin-case2.component';
+import { AdminCase1Component } from './admin-case1/admin-case1.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { AdminCasesProblemtrashComponent } from './admin-cases-problemtrash/admi
     ProblemjeepoutdatedengineComponent,
     AssessmentComponent,
     AdminCurrentissueComponent,
-    AdminCasesProblemtrashComponent
+    AdminCase2Component,
+    AdminCase1Component,
     
   ],
   imports: [
