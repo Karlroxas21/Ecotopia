@@ -143,7 +143,12 @@
     font-family: 'Henry Sans Bold', sans-serif;
     font-size: 4rem;
 }
-
+.the-team-description p{
+    font-size: 21px;
+}
+.content-right p{
+    font-size: 21px;
+}
 .content{
     display: flex;
     gap: 20px;
