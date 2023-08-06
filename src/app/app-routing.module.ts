@@ -22,6 +22,7 @@ import { ProblemjeepoutdatedengineComponent } from './problemjeepoutdatedengine/
 import { AssessmentComponent } from './assessment/assessment.component';
 import { MaterialComponent } from './material/material.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AdminCasesComponent } from './admin-cases/admin-cases.component';
 
 const routes: Routes = [
   {component: LandingPageComponent, path: ''},
@@ -47,6 +48,7 @@ const routes: Routes = [
   {component: AssessmentComponent, path: 'assessment'},
   {component: MaterialComponent, path: 'material'},
   {component: AdminPanelComponent, path: 'adminpanel'},
+  {component: AdminCasesComponent, path: 'admin-cases'}
 ];
 
 @NgModule({

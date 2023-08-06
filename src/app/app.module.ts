@@ -63,6 +63,7 @@ import { AdminCasesComponent } from './admin-cases/admin-cases.component';
     AssessmentComponent,
     AdminPanelComponent,
     AdminCasesComponent,
+
     
   ],
   imports: [
