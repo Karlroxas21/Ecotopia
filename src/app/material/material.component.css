@@ -18,14 +18,14 @@
   color: white;
 }
 
-.card-container {
+.card-container, .card-container2, .card-container3{
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-bottom: 50px;
   transition: all .45s ease;
 }
-.card {
+.card{
     width: 600px;
     height: 470px;
     border: 1px solid;
@@ -59,13 +59,6 @@
     padding: 0 30px 0 30px;
     font-size: 30px;
   }
-
-  .card-content p {
-    margin: 20px 0 50px;
-    font-size: 20px;
-    padding: 0 30px 0 30px;
-
-  }
   .learn-more-button {
     padding: 0 30px 0 30px;
     color: white;
@@ -76,11 +69,27 @@
     font-weight: bold;
 }
 @media screen and (max-width: 1299px){
-  .card-container{
+  .text h1{
+    margin-bottom: 50px;
+  }
+  .card-container, .card-container2, .card-container3{
       flex-direction: column;
       transition: 0.2s;
       align-items: center;
       transition: all .45s ease;
+  }
+  .spacer{
+    display: none;
+  }
+  .card-container{
+    margin-bottom: -20px;
+  }
+  .card-container2{
+    margin-top: -50px;
+    margin-bottom: -20px;
+  }
+  .card-container{
+    margin-top: -50px;
   }
   .card{
       margin-top: 10px;
@@ -90,7 +99,10 @@
 @media screen and (max-width: 640px){
   .card {
       width: 400px;
-      height: 350px;
+      height: 370px;
+  }
+  .card-content h1{
+    margin-top: 20px;
   }
 }
 @media screen and (max-width: 470px){
@@ -98,8 +110,12 @@
       width: 300px;
       height: 350px;
   }
-  .text h1{
-    font-size: 13px
+  .card-content h1{
+    font-size: 25px;
+    margin-top: 20px;
+  }
+  .card{
+    height: 300px;
   }
 }
   @media screen and (max-width: 858px){

@@ -20,15 +20,6 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { HistoryComponent } from './history/history.component';
 import { WebtoonComponent } from './webtoon/webtoon.component';
 import { InteractivevideoComponent } from './interactivevideo/interactivevideo.component';
-import { AdminCasesComponent } from './admin-cases/admin-cases.component';
-import { AdminSolutionsComponent } from './admin-solutions/admin-solutions.component';
-import { AdminWebtoonComponent } from './admin-webtoon/admin-webtoon.component';
-import { AdminInteractivevideoComponent } from './admin-interactivevideo/admin-interactivevideo.component';
-import { AdminBodyComponent } from './admin-body/admin-body.component';
-import { AdminSidenavComponent } from './admin-sidenav/admin-sidenav.component';
-import { AdminHomeComponent } from './admin-home/admin-home.component';
-import { ADMINComponent } from './admin/admin.component';
-import { AdminRoutingModule } from './admin/admin-routing.module';
 import { MaterialComponent } from './material/material.component';
 import { ProblemtrashComponent } from './problemtrash/problemtrash.component';
 import { CausesofclimatechangeComponent } from './causesofclimatechange/causesofclimatechange.component';
@@ -39,8 +30,9 @@ import { RespondingtoclimatechangeComponent } from './respondingtoclimatechange/
 import { GovernmentresourcesComponent } from './governmentresources/governmentresources.component';
 import { ProblemjeepoutdatedengineComponent } from './problemjeepoutdatedengine/problemjeepoutdatedengine.component';
 import { AssessmentComponent } from './assessment/assessment.component';
-import { AdminCurrentissueComponent } from './admin-currentissue/admin-currentissue.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AdminCasesComponent } from './admin-cases/admin-cases.component';
 
 @NgModule({
   declarations: [
@@ -59,14 +51,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HistoryComponent,
     WebtoonComponent,
     InteractivevideoComponent,
-    AdminCasesComponent,
-    AdminSolutionsComponent,
-    AdminWebtoonComponent,
-    AdminInteractivevideoComponent,
-    AdminBodyComponent,
-    AdminSidenavComponent,
-    AdminHomeComponent,
-    ADMINComponent,
     MaterialComponent,
     ProblemtrashComponent,
     CausesofclimatechangeComponent,
@@ -77,12 +61,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     GovernmentresourcesComponent,
     ProblemjeepoutdatedengineComponent,
     AssessmentComponent,
-    AdminCurrentissueComponent
+    AdminPanelComponent,
+    AdminCasesComponent,
     
   ],
   imports: [
     BrowserModule,
-    AdminRoutingModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,

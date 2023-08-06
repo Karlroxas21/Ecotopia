@@ -21,12 +21,13 @@
   transition: all .45s ease;
   font-size: 40px;
 }
-
 .climate-change-info{
     color: black;
     margin-top: 10px;
 }
-
+.climate-change p{
+    font-size: 21px;
+}
 /* Climate Change Scenario */
 .ccs-table, th, td{
     border: 1px black solid;
