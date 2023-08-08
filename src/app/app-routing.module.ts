@@ -24,6 +24,7 @@ import { MaterialComponent } from './material/material.component';
 
 // Admin components
 import { AdminCurrentissueComponent } from './admin-currentissue/admin-currentissue.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AdminCasesComponent } from './admin-cases/admin-cases.component';
 import { AdminCase1Component } from './admin-case1/admin-case1.component';
 import { AdminCase2Component } from './admin-case2/admin-case2.component';
@@ -50,7 +51,6 @@ const routes: Routes = [
   {component: GovernmentresourcesComponent, path: 'governmentresources'},
   {component: ProblemjeepoutdatedengineComponent, path: 'outdatedjeepengine'},
   {component: AssessmentComponent, path: 'assessment'},
-  // {component: ADMINComponent, path: 'ADMIN'},
   {component: MaterialComponent, path: 'material'},
 
   // Admin Components
@@ -63,6 +63,8 @@ const routes: Routes = [
   // {component: AdminSolutionsComponent, path: 'admin-solutions'},
   // {component: AdminHomeComponent, path: 'admin-home'},
   // {path:'', redirectTo: 'home', pathMatch:'full'},
+  {component: AdminPanelComponent, path: 'adminpanel'},
+  {component: AdminCasesComponent, path: 'admin-cases'}
 ];
 
 @NgModule({

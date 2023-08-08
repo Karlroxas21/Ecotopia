@@ -1,0 +1,120 @@
+@import url('https://fonts.cdnfonts.com/css/henry-sans');
+*{
+  font-family: 'Henry Sans Bold', sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Henry Sans Bold', sans-serif;
+}
+
+#sidebar {
+  height: 100vh;
+  width: 250px;
+  background-color: #FF96A9;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.admin-panel {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #ce7787;
+}
+
+.admin-panel img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.admin-panel span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  display: block;
+  font-weight: bold;
+}
+
+#sidebar a:hover {
+  background-color: #a85a69;
+  transition: all .45s ease;
+}
+
+.dropdown-content {
+  display: none;
+  background-color: #ce7787;
+  left: 10px; /* Adjust the position to the left */
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+#logout {
+  position: absolute;
+  bottom: 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px 15px;
+  font-weight: bold;
+}
+#logout:hover {
+  background-color: #a85a69;
+  transition: all .45s ease;
+  width: 13%;
+}
+.content{
+  margin-left: 250px; padding: 20px;
+}
+.publish-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #FF96A9;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.publish-button:hover {
+  background-color: #ce7787;
+}
+.arrow {
+  position: absolute;
+  top: 166px;
+  left: 90px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid;
+}
+.arrow2 {
+  position: absolute;
+  top: 209px;
+  left: 120px;
+  transform: translateY(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid;
+}

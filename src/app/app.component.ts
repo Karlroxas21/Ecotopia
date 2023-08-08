@@ -63,5 +63,6 @@ export class AppComponent {
       this.navbarfixed = false;
     }
   }
+  
 }
 
