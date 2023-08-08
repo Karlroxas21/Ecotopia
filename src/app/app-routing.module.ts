@@ -23,7 +23,6 @@ import { AssessmentComponent } from './assessment/assessment.component';
 import { MaterialComponent } from './material/material.component';
 
 // Admin components
-import { AdminCurrentissueComponent } from './admin-currentissue/admin-currentissue.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AdminCasesComponent } from './admin-cases/admin-cases.component';
 import { AdminCase1Component } from './admin-case1/admin-case1.component';
@@ -54,7 +53,6 @@ const routes: Routes = [
   {component: MaterialComponent, path: 'material'},
 
   // Admin Components
-  {component: AdminCurrentissueComponent, path: 'admin-currentissue'},
   {component: AdminCasesComponent, path: 'admin-cases'},
   {component: AdminCase1Component, path: 'admin-case-1'},
   {component: AdminCase2Component, path: 'admin-case-2'},

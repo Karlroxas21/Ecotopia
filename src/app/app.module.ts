@@ -63,7 +63,6 @@ import { AdminCasesComponent } from './admin-cases/admin-cases.component';
     GovernmentresourcesComponent,
     ProblemjeepoutdatedengineComponent,
     AssessmentComponent,
-    AdminCurrentissueComponent,
     AdminCase2Component,
     AdminCase1Component,
     AdminPanelComponent,
