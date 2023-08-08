@@ -173,6 +173,27 @@ app.get('/admin-case-2', async(req, res) =>{
     }
 });
 
+// Admin Causes of Climate Change / Case 3
+app.put('/admin-case-3/:id', async (req, res) =>{
+    try{
+        const upstream_data = await CauseClimateChange.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+        res.send(upstream_data);
+    }catch(err){
+        res.status(500).send(err.message);
+    }
+})
+
+app.get('/admin-case-3', async(req, res) =>{
+    try{
+        const causes_climate_change = await CauseClimateChange.find();
+        res.json(causes_climate_change);
+    }catch(err){
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error'});
+    }
+});
+
 
 
 app.listen(port, ()=>{

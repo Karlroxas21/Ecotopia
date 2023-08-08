@@ -27,6 +27,7 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AdminCasesComponent } from './admin-cases/admin-cases.component';
 import { AdminCase1Component } from './admin-case1/admin-case1.component';
 import { AdminCase2Component } from './admin-case2/admin-case2.component';
+import { AdminCase3Component } from './admin-case3/admin-case3.component';
 
 const routes: Routes = [
   {component: LandingPageComponent, path: ''},
@@ -56,6 +57,7 @@ const routes: Routes = [
   {component: AdminCasesComponent, path: 'admin-cases'},
   {component: AdminCase1Component, path: 'admin-case-1'},
   {component: AdminCase2Component, path: 'admin-case-2'},
+  {component: AdminCase3Component, path: 'admin-case-3'},
   // {component: AdminInteractivevideoComponent, path: 'admin-interactivevideo'},
   // {component: AdminWebtoonComponent, path: 'admin-webtoon'},
   // {component: AdminSolutionsComponent, path: 'admin-solutions'},
