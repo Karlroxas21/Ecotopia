@@ -16,7 +16,7 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent {
   title = 'ecotopia-capstone';
   hideNavbar = false;
-  hideNavbarPages = ['/admin-currentissue', '/admin-cases', '/admin-cases-1','/admin-case-2']; // Add all admin pages here
+  hideNavbarPages = ['/admin-currentissue', '/admin-cases', '/admin-case-1','/admin-case-2','/adminpanel']; // Add all admin pages here
 
   constructor(private router: Router){
     router.events.subscribe(event => {
@@ -63,6 +63,10 @@ export class AppComponent {
       this.navbarfixed = false;
     }
   }
-  
+  isMenuOpen: boolean = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }
 

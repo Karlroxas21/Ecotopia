@@ -1,5 +1,5 @@
 @import url("https://fonts.cdnfonts.com/css/henry-sans");
-
+@import "~boxicons/css/boxicons.min.css";
 * {
   margin: 0;
   padding: 0;
@@ -133,6 +133,7 @@ section .reference-container {
   display: flex;
   flex-wrap: wrap;
   padding: 25px;
+  margin-left: 50px; /*you can remove this*/
 }
 
 .card {
@@ -160,10 +161,12 @@ section .reference-container {
 
 .publish:hover {
   background: #0030ff;
+  transition: 0.2s;
 }
 
 .publish {
   border-radius: 20px;
+  border: 1px solid #dee2e6;
   background: #ff96a9;
   font-size: 2rem;
   padding: 10px;

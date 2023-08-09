@@ -9,6 +9,10 @@
 .text{
   margin: 50px;
 }
+body{
+  padding-left: 10%;
+  padding-right: 10%;
+}
 .text h1{
   background-color: #FF96A9;
   border-radius: 10px;
