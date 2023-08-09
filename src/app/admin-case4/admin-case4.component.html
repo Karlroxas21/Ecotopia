@@ -1,0 +1,476 @@
+<main>
+  <div class="content" *ngFor="let item of effects_climate_change">
+    <div class="textbox" data-aos="fade-right">
+      <div *ngIf="!editing_header" (click)="startEditingHeader()">
+        <h2>{{ header }}</h2>
+      </div>
+
+      <textarea
+        style="font-size: 3rem; color: #0030ff; font-weight: 600"
+        *ngIf="editing_header"
+        (blur)="finishEditingHeader($event)"
+        class="resizable-input"
+        (ngModelChange)="doesChange()"
+        [(ngModel)]="effects_climate_change[0].header"
+      ></textarea>
+
+      <div
+        *ngIf="!editing_header_desc"
+        (click)="startEditingHeaderDescription()"
+      >
+        <p>
+          {{ header_desc }}
+        </p>
+      </div>
+
+      <textarea
+        style="font-size: 1.5rem"
+        *ngIf="editing_header_desc"
+        (blur)="finishEditingHeaderDescription($event)"
+        class="resizable-input"
+        (ngModelChange)="doesChange()"
+        [(ngModel)]="effects_climate_change[0].header_description"
+      ></textarea>
+    </div>
+    <img
+      src="/assets/casesimages/cases1.png"
+      alt="sad earth"
+      data-aos="fade-left"
+    />
+  </div>
+
+  <div *ngFor="let item of effects_climate_change">
+    <div *ngIf="!editing_title" (click)="startEditingTitle()">
+      <h1
+        style="
+          color: #0030ff;
+          text-align: center;
+          font-size: 50px;
+          font-weight: bold;
+        "
+      >
+        {{ header_title }}
+      </h1>
+    </div>
+
+    <textarea
+      style="
+        font-size: 2rem;
+        color: #0030ff;
+        text-align: center;
+        font-weight: bold;
+      "
+      *ngIf="editing_title"
+      (blur)="finishEditingTitle($event)"
+      class="resizable-input"
+      (ngModelChange)="doesChange()"
+      [(ngModel)]="effects_climate_change[0].title"
+    ></textarea>
+  </div>
+
+  <div
+    class="card-container"
+    data-aos="zoom-in"
+    *ngFor="let item of effects_climate_change"
+  >
+    <div class="card" style="border-color: #c15669; align-items: center">
+      <div class="card-content">
+        <div *ngIf="!editing_case1" (click)="startEditingCase1()">
+          <h1
+            class="learn-more-button"
+            style="text-decoration: none; color: #c15669"
+          >
+            <i class="fal fa-times fa-trash"></i>
+            {{ case1[0] }}
+          </h1>
+        </div>
+
+        <textarea
+          style="
+            font-size: 2rem;
+            text-decoration: none;
+            color: #c15669;
+            font-weight: bold;
+          "
+          *ngIf="editing_case1"
+          (blur)="finishEditingCase1($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].cases.case1[0]"
+        ></textarea>
+
+        <p><i>(linked to Case 1)</i></p>
+      </div>
+    </div>
+
+    <div class="card" style="border-color: #5e55db; align-items: center">
+      <div class="card-content">
+        <div *ngIf="!editing_case2" (click)="startEditingCase2()">
+          <h2
+            class="learn-more-button"
+            style="text-decoration: none; color: #5e55db"
+          >
+            <i class="fal fa-times fa-trash"></i>
+            {{ case2[0] }}
+          </h2>
+        </div>
+
+        <textarea
+          style="
+            font-size: 2rem;
+            text-decoration: none;
+            color: #5e55db;
+            font-weight: bold;
+          "
+          *ngIf="editing_case2"
+          (blur)="finishEditingCase2($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].cases.case2[0]"
+        ></textarea>
+      </div>
+      <p><i>(linked to Case 2)</i></p>
+    </div>
+
+    <div class="card" style="border-color: #dd9e3b; align-items: center">
+      <div class="card-content">
+        <div *ngIf="!editing_case3" (click)="startEditingCase3()">
+          <h2
+            class="learn-more-button"
+            style="text-decoration: none; color: #dd9e3b"
+          >
+            <i class="fal fa-times fa-trash"></i>
+            {{ case3[0] }}
+          </h2>
+        </div>
+
+        <textarea
+          style="
+            font-size: 2rem;
+            text-decoration: none;
+            color: #dd9e3b;
+            font-weight: bold;
+          "
+          *ngIf="editing_case3"
+          (blur)="finishEditingCase3($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].cases.case3[0]"
+        ></textarea>
+      </div>
+      <p><i>(linked to Case 3)</i></p>
+    </div>
+
+    <div class="card" style="border-color: #396a63; align-items: center">
+      <div class="card-content">
+        <div *ngIf="!editing_case4" (click)="startEditingCase4()">
+          <h2
+            class="learn-more-button"
+            style="text-decoration: none; color: #396a63"
+          >
+            <i class="fal fa-times fa-trash"></i>
+            {{ case4[0] }}
+          </h2>
+        </div>
+
+        <textarea
+          style="
+            font-size: 2rem;
+            text-decoration: none;
+            color: #396a63;
+            font-weight: bold;
+          "
+          *ngIf="editing_case4"
+          (blur)="finishEditingCase4($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].cases.case4[0]"
+        ></textarea>
+      </div>
+      <p><i>(linked to Case 4)</i></p>
+    </div>
+  </div>
+  <hr style="width: 100%" />
+
+  <div class="text" *ngFor="let item of effects_climate_change">
+    <span id="next">
+      <h1 style="color: #396a63">
+        {{ item.cases.case4[0] }}
+      </h1>
+    </span>
+    <div *ngIf="!editing_descriptions[0]" (click)="startEditingDesc1()">
+      <p>{{ descriptions[0] }}</p>
+    </div>
+
+    <textarea
+      style="font-size: 1.2rem"
+      *ngIf="editing_descriptions[0]"
+      (blur)="finishEditingDesc1($event)"
+      class="resizable-input"
+      (ngModelChange)="doesChange()"
+      [(ngModel)]="effects_climate_change[0].descriptions[0]"
+    ></textarea>
+
+    <ul>
+      <li>
+        <div *ngIf="!editing_bullet_1[0]" (click)="startEditingBullet1Title()">
+          <b style="color: #e89b12; font-size: 27px">
+            {{ bullet1[0] }}
+          </b>
+        </div>
+
+        <textarea
+          style="color: #e89b12; font-size: 27px; font-weight: 600"
+          *ngIf="editing_bullet_1[0]"
+          (blur)="finishEditingBullet1Title($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].bullets.bullet_1[0]"
+        ></textarea>
+
+        <div
+          *ngIf="!editing_bullet_1[1]"
+          (click)="startEditingBullet1Description1()"
+        >
+          <p>- {{ bullet1[1] }}</p>
+        </div>
+
+        <textarea
+          *ngIf="editing_bullet_1[1]"
+          (blur)="finishEditingBullet1Description1($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].bullets.bullet_1[1]"
+        ></textarea>
+      </li>
+      <li>
+        <div *ngIf="!editing_bullet_2[0]" (click)="startEditingBullet2Title()">
+          <b style="color: #e89b12; font-size: 27px">
+            {{ bullet2[0] }}
+          </b>
+        </div>
+
+        <textarea
+          style="color: #e89b12; font-size: 27px; font-weight: 600"
+          *ngIf="editing_bullet_2[0]"
+          (blur)="finishEditingBullet2Title($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].bullets.bullet_2[0]"
+        ></textarea>
+
+        <div
+          *ngIf="!editing_bullet_2[1]"
+          (click)="startEditingBullet2Description1()"
+        >
+          <p>- {{ bullet2[1] }}</p>
+        </div>
+
+        <textarea
+          *ngIf="editing_bullet_2[1]"
+          (blur)="finishEditingBullet2Description1($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].bullets.bullet_2[1]"
+        ></textarea>
+      </li>
+      <li>
+        <div *ngIf="!editing_bullet_3[0]" (click)="startEditingBullet3Title()">
+          <b style="color: #e89b12; font-size: 27px">
+            {{ bullet3[0] }}
+          </b>
+        </div>
+
+        <textarea
+          style="color: #e89b12; font-size: 27px; font-weight: 600"
+          *ngIf="editing_bullet_3[0]"
+          (blur)="finishEditingBullet3Title($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].bullets.bullet_3[0]"
+        ></textarea>
+
+        <div
+          *ngIf="!editing_bullet_3[1]"
+          (click)="startEditingBullet3Description1()"
+        >
+          <p>- {{ bullet3[1] }}</p>
+        </div>
+
+        <textarea
+          *ngIf="editing_bullet_3[1]"
+          (blur)="finishEditingBullet3Description1($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].bullets.bullet_3[1]"
+        ></textarea>
+      </li>
+      <li>
+        <div *ngIf="!editing_bullet_4[0]" (click)="startEditingBullet4Title()">
+          <b style="color: #e89b12; font-size: 27px">
+            {{ bullet4[0] }}
+          </b>
+        </div>
+
+        <textarea
+          style="color: #e89b12; font-size: 27px; font-weight: 600"
+          *ngIf="editing_bullet_4[0]"
+          (blur)="finishEditingBullet4Title($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].bullets.bullet_4[0]"
+        ></textarea>
+
+        <div
+          *ngIf="!editing_bullet_4[1]"
+          (click)="startEditingBullet4Description1()"
+        >
+          <p>- {{ bullet4[1] }}</p>
+        </div>
+
+        <textarea
+          *ngIf="editing_bullet_4[1]"
+          (blur)="finishEditingBullet4Description1($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].bullets.bullet_4[1]"
+        ></textarea>
+      </li>
+      <li>
+        <div *ngIf="!editing_bullet_5[0]" (click)="startEditingBullet5Title()">
+          <b style="color: #e89b12; font-size: 27px">
+            {{ bullet5[0] }}
+          </b>
+        </div>
+
+        <textarea
+          style="color: #e89b12; font-size: 27px; font-weight: 600"
+          *ngIf="editing_bullet_5[0]"
+          (blur)="finishEditingBullet5Title($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].bullets.bullet_5[0]"
+        ></textarea>
+
+        <div
+          *ngIf="!editing_bullet_5[1]"
+          (click)="startEditingBullet5Description1()"
+        >
+          <p>- {{ bullet5[1] }}</p>
+        </div>
+
+        <textarea
+          *ngIf="editing_bullet_5[1]"
+          (blur)="finishEditingBullet5Description1($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].bullets.bullet_5[1]"
+        ></textarea>
+      </li>
+      <li>
+        <div *ngIf="!editing_bullet_6[0]" (click)="startEditingBullet6Title()">
+          <b style="color: #e89b12; font-size: 27px">
+            {{ bullet6[0] }}
+          </b>
+        </div>
+
+        <textarea
+          style="color: #e89b12; font-size: 27px; font-weight: 600"
+          *ngIf="editing_bullet_6[0]"
+          (blur)="finishEditingBullet6Title($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].bullets.bullet_6[0]"
+        ></textarea>
+
+        <div
+          *ngIf="!editing_bullet_6[1]"
+          (click)="startEditingBullet6Description1()"
+        >
+          <p>- {{ bullet6[1] }}</p>
+        </div>
+
+        <textarea
+          *ngIf="editing_bullet_6[1]"
+          (blur)="finishEditingBullet6Description1($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].bullets.bullet_6[1]"
+        ></textarea>
+      </li>
+      <li>
+        <div *ngIf="!editing_bullet_7[0]" (click)="startEditingBullet7Title()">
+          <b style="color: #e89b12; font-size: 27px">
+            {{ bullet7[0] }}
+          </b>
+        </div>
+
+        <textarea
+          style="color: #e89b12; font-size: 27px; font-weight: 600"
+          *ngIf="editing_bullet_7[0]"
+          (blur)="finishEditingBullet7Title($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].bullets.bullet_7[0]"
+        ></textarea>
+
+        <div
+          *ngIf="!editing_bullet_7[1]"
+          (click)="startEditingBullet7Description1()"
+        >
+          <p>- {{ bullet7[1] }}</p>
+        </div>
+
+        <textarea
+          *ngIf="editing_bullet_7[1]"
+          (blur)="finishEditingBullet7Description1($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="effects_climate_change[0].bullets.bullet_7[1]"
+        ></textarea>
+      </li>
+    </ul>
+  </div>
+  <section>
+    <div
+      class="reference-container"
+      *ngFor="let item of effects_climate_change"
+    >
+      <accordion [isAnimated]="true">
+        <accordion-group heading="References">
+          <div *ngIf="!editing_reference[0]" (click)="startEditingRef1()">
+            <p>{{ references[0] }}</p>
+          </div>
+
+          <textarea
+            *ngIf="editing_reference[0]"
+            (blur)="finishEditingRef1($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="effects_climate_change[0].references[0]"
+          ></textarea>
+
+          <div *ngIf="!editing_reference[1]" (click)="startEditingRef2()">
+            <p>{{ references[1] }}</p>
+          </div>
+
+          <textarea
+            *ngIf="editing_reference[1]"
+            (blur)="finishEditingRef2($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="effects_climate_change[0].references[1]"
+          ></textarea>
+        </accordion-group>
+      </accordion>
+    </div>
+  </section>
+  <div class="publish-container">
+    <button type="button" class="publish" (click)="updateData()">
+      Publish
+    </button>
+  </div>
+</main>
+<footer>
+  <app-footer></app-footer>
+</footer>
