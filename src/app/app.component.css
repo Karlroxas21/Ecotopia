@@ -1,4 +1,4 @@
-
+@import "~boxicons/css/boxicons.min.css";
 *{
   box-sizing: border-box;
   margin: 0;
@@ -80,7 +80,22 @@ nav ul li{
   position: absolute;
   right: 1px;
 }
-.lines:hover{
+.lines {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.bx {
+  font-size: 50px;
+  transition: transform 0.3s ease;
+}
+.bx-x {
+  transform: rotate(90deg);
+}
+/* .lines:hover{
   background: #737279;
 }
 .lines div{
@@ -91,7 +106,7 @@ nav ul li{
 }
 .lines:hover{
   background: #FF96A9;
-}
+} */
 .logo{
   display: none;
   cursor: pointer;
@@ -150,7 +165,7 @@ ul li:hover ul.dropdown{
   }
 }*/
 
-@media only screen and (max-width: 1230px) {
+@media only screen and (max-width: 1242px) {
   header{
       width: 100%;
       padding: 0 20px;
@@ -262,5 +277,3 @@ ul li:hover ul.dropdown{
       padding: 0 5px;
   }
 }*/
-
-

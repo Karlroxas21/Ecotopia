@@ -213,6 +213,9 @@
     .sub-right{
         margin-right: 50px;
     }
+    .sub-objective2{
+        margin-left: -50px;
+    }
 }
 @media screen and (max-width: 446px){
     .sub-right{
@@ -232,7 +235,7 @@
         flex-direction: column;
     }
     .sub-objective2{
-        margin-left: -40px;
+        margin-left: -70px;
     }
 }
 @media screen and (max-width: 330px){

@@ -1,5 +1,6 @@
 <main>
-        <div class="content">
+        <app-admin-panel></app-admin-panel>
+  <div class="content">
           <div
             class="textbox"
             data-aos="fade-right"
@@ -84,7 +85,7 @@
                     class="learn-more-button"
                     style="text-decoration: none; color: #c15669"
                   >
-                    <i class="fal fa-times fa-trash"></i>
+                  <i class='bx bx-trash' style="font-size: 40px;"></i>
                     {{ case1[0] }}
                   </a>
                 </h2>
@@ -113,7 +114,7 @@
                     class="learn-more-button"
                     style="text-decoration: none; color: #5e55db"
                   >
-                    <i class="fal fa-times fa-trash"></i>
+                  <i class='bx bx-bus' style="font-size: 45px;"></i>
                     {{ case2[0] }}
                   </a>
                 </div>
@@ -140,7 +141,7 @@
                     class="learn-more-button"
                     style="text-decoration: none; color: #dd9e3b"
                   >
-                    <i class="fal fa-times fa-trash"></i>
+                  <i class='bx bx-question-mark' style="font-size: 45px;"></i>
                     {{ case3[0] }}
                   </a>
                 </div>
@@ -167,7 +168,7 @@
                     class="learn-more-button"
                     style="text-decoration: none; color: #396a63"
                   >
-                    <i class="fal fa-times fa-trash"></i>
+                  <i class='bx bxs-magic-wand' style="font-size: 45px;"></i>
                     {{ case4[0] }}
                   </a>
                 </div>
@@ -584,7 +585,7 @@
           </ul>
         </div>
         <section>
-          <div class="reference-container" *ngFor="let item of problem_trash">
+          <div class="reference-container" *ngFor="let item of problem_trash" style="margin: 50px;">
             <accordion [isAnimated]="true">
               <accordion-group heading="References">
                 <div *ngIf="!editing_reference[0]" (click)="startEditingRef1()">

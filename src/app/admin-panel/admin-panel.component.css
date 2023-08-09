@@ -1,4 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/henry-sans');
+@import "~boxicons/css/boxicons.min.css";
+
 *{
   font-family: 'Henry Sans Bold', sans-serif;
 }
@@ -10,7 +12,7 @@ body {
 
 #sidebar {
   height: 100vh;
-  width: 250px;
+  width: 380px; /*250px*/
   background-color: #FF96A9;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -18,38 +20,60 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  bottom: 0;
   overflow-x: hidden;
   padding-top: 20px;
+  transition: width 0.3s;
+  position: fixed;
+  border-right: 1px solid #dee2e6;
+  overflow-y: auto;
+  z-index: 1;
 }
-
+#sidebar.collapsed {
+  width: 55px;
+}
 .admin-panel {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 20px 20px 20px 10px;
   border-bottom: 1px solid #ce7787;
 }
-
 .admin-panel img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 10px;
 }
-
 .admin-panel span {
   font-size: 20px;
   font-weight: bold;
 }
-
+#sidebar ul{
+  list-style: none;
+  margin-left: -32px;
+}
+#sidebar ul li{
+  list-style: none;
+}
 #sidebar a {
-  padding: 10px 15px;
+  padding: 10px 16px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 22px;
   color: #fff;
   display: block;
   font-weight: bold;
 }
-
+.toggle-button i{
+  font-size: 28px;
+}
+.toggle-button {
+  background-color: #181bad;
+  color: white;
+  border: none;
+  padding: 8px;
+  width: 100%;
+  cursor: pointer;
+}
 #sidebar a:hover {
   background-color: #a85a69;
   transition: all .45s ease;
@@ -58,7 +82,7 @@ body {
 .dropdown-content {
   display: none;
   background-color: #ce7787;
-  left: 10px; /* Adjust the position to the left */
+  left: 10px;
 }
 .dropdown:hover .dropdown-content {
   display: block;
@@ -67,36 +91,15 @@ body {
 #logout {
   position: absolute;
   bottom: 20px;
-  text-decoration: none;
-  color: white;
-  font-size: 20px;
-  padding: 10px 15px;
-  font-weight: bold;
 }
 #logout:hover {
   background-color: #a85a69;
   transition: all .45s ease;
-  width: 13%;
+  width: 100%;
 }
 .content{
-  margin-left: 250px; padding: 20px;
-}
-.publish-button {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background-color: #FF96A9;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 20px;
-  cursor: pointer;
-  margin-right: 20px;
-}
-
-.publish-button:hover {
-  background-color: #ce7787;
+  margin-left: 250px; 
+  padding: 20px;
 }
 .arrow {
   position: absolute;
@@ -117,4 +120,8 @@ body {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 5px solid;
+}
+
+.bx-chevron-down.rotate {
+  transform: rotate(180deg);
 }

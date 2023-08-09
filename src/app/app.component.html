@@ -60,17 +60,12 @@
         </ul>
       </nav>
       <div class="logo"><a href=""><img src="/assets/logo/logo.png" alt="Ecotopia Logo" height="70px" width="100px"/></a></div>
-      <label for = "nav_check" class="lines">
-        <div></div>
-        <div></div>
-        <div></div>
+      <label for = "nav_check" class="lines" (click)="toggleMenu()">
+        <i class="bx" [ngClass]="{ 'bx-menu': !isMenuOpen, 'bx-x': isMenuOpen }"></i>
       </label>
     </header>
   </body>
 </html>
-<!-- <app-admin-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-admin-sidenav>
-<app-admin-body [collapsed]="isSideNavCollapsed"
-[screenWidth]="screenWidth"></app-admin-body>> -->
 <router-outlet></router-outlet>
 
 
