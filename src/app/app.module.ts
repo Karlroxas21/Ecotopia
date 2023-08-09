@@ -36,6 +36,7 @@ import { AdminCase1Component } from './admin-case1/admin-case1.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AdminCasesComponent } from './admin-cases/admin-cases.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

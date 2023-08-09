@@ -6,7 +6,6 @@
 .header-txt{
   margin-top: 50px;
   margin-bottom: 50px;
-  margin-left: 50px;
 }
 
 .header-txt h1{
@@ -31,6 +30,7 @@ body, header{
   display: grid; 
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 80px;
+  position: relative;
 }
 .item{
   color: rgb(14, 13, 13);
@@ -113,7 +113,9 @@ body, header{
 
 /* End of Content */
 .button{
-  padding: 50px
+  padding: 50px 0 50px 50px;
+  display: flex;
+  justify-content: flex-end;
 }
 .button button {
   background-color: #FF96A9;
@@ -123,7 +125,6 @@ body, header{
   font-size: 1.5rem;
   cursor: pointer; 
   border-radius: 4px; 
-
 }
 
 .button button:hover {
@@ -133,5 +134,18 @@ body, header{
 @media only screen and (max-width: 359px) {
   .header-txt h1{
     margin-right: 70px;
+  }
+}
+
+@media only screen and (max-width: 1138px){
+  .grid-container{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 565px){
+  .header-txt{
+    text-align: center;
   }
 }

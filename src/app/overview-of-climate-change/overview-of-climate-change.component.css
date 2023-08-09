@@ -121,16 +121,6 @@ header img{
   padding: 20px;
 }
 
-/* Optional: You can add some additional styling for the text and image */
-h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 16px;
-}
-
 img {
   max-width: 100%;
   height: auto;
@@ -278,14 +268,20 @@ section h1{
 
 /* End of Reference */
 
-/* Relaated News */
+/* Related News */
 .related-news-container-main{
-    display: flex;
-    gap: 20px;
+    /* background-color: lightblue;
+    border: 1px solid black; */
+    height: 100%;
+    width: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
 }
-
+.tile-1{
+    width: 180%;
+}
 .margins{
     margin-top: 5%;
     margin-left: 10%;
@@ -294,11 +290,10 @@ section h1{
 }
 
 .related-news-container{
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+    display: inline-block;
+    padding: 14px;
+    padding-right: 150px;
+    text-decoration: none;
 }
 
 .rnc-sub-div1{
