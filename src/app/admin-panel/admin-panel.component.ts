@@ -22,10 +22,10 @@ export class AdminPanelComponent {
     { text: 'Assessment', icon: 'bx-edit' },
 
     //Cases
-    { text: 'Problem of Picking Up Trash', icon: 'bx-trash' },
-    { text: 'Problem with the Jeep Outdated Engine', icon: 'bx-bus' },
-    { text: 'Causes of Climate Change', icon: 'bx-question-mark' },
-    { text: 'Effects of Climate Change', icon: 'bxs-magic-wand' },
+    { text: 'Case 1', icon: 'bx-trash' },
+    { text: 'Case 2', icon: 'bx-bus' },
+    { text: 'Case 3', icon: 'bx-question-mark' },
+    { text: 'Case 4', icon: 'bxs-magic-wand' },
 
     //Solutions
     { text: 'Solution 1', icon: 'bx-check-shield' },
