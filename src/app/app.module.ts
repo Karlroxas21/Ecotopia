@@ -39,6 +39,7 @@ import { AdminCase3Component } from './admin-case3/admin-case3.component';
 import { AdminCase4Component } from './admin-case4/admin-case4.component';
 import { AdminSolution1Component } from './admin-solution1/admin-solution1.component';
 import { AdminSolution2Component } from './admin-solution2/admin-solution2.component';
+import { AdminSolution3Component } from './admin-solution3/admin-solution3.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { AdminSolution2Component } from './admin-solution2/admin-solution2.compo
     AdminCase4Component,
     AdminSolution1Component,
     AdminSolution2Component,
+    AdminSolution3Component,
 
     
   ],

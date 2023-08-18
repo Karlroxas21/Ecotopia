@@ -31,6 +31,7 @@ import { AdminCase3Component } from './admin-case3/admin-case3.component';
 import { AdminCase4Component } from './admin-case4/admin-case4.component';
 import { AdminSolution1Component } from './admin-solution1/admin-solution1.component';
 import { AdminSolution2Component } from './admin-solution2/admin-solution2.component';
+import { AdminSolution3Component } from './admin-solution3/admin-solution3.component';
 
 const routes: Routes = [
   {component: LandingPageComponent, path: ''},
@@ -66,6 +67,7 @@ const routes: Routes = [
   {component: AdminCasesComponent, path: 'admin-cases'},
   {component: AdminSolution1Component, path: 'admin-solution-1'},
   {component: AdminSolution2Component, path: 'admin-solution-2'},
+  {component: AdminSolution3Component, path: 'admin-solution-3'}
 
 ];
 

@@ -1,0 +1,212 @@
+@import url('https://fonts.cdnfonts.com/css/henry-sans');
+
+
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Henry Sans', sans-serif;
+}
+
+body {
+        margin: 0;
+        padding: 0;
+}
+
+html {
+        margin: 0;
+        padding: 0;
+}
+
+main {
+        margin-top: 50px;
+}
+
+.text {
+        padding: 0 50px;
+        color: #080d14;
+}
+
+.text h1 {
+        padding-bottom: 50px;
+        font-size: 50px;
+        font-weight: bold;
+}
+
+.text p {
+        line-height: 30px;
+        font-size: 21px;
+}
+
+.text ul {
+        margin-top: 20px;
+        font-size: 21px;
+        padding-left: 20px;
+}
+
+.text ul li {
+        padding-top: 20px;
+}
+
+.flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+}
+
+.flex-box {
+        color: #000;
+        margin-top: -100px;
+        padding: 100px 100px 0 100px;
+        font-family: 'Roboto', sans-serif;
+        transition: 0.5s;
+}
+
+.flex-box h1 {
+        margin-top: 50px;
+        font-size: 50px;
+        font-weight: bold;
+        text-transform: uppercase;
+}
+
+.flex-box h3 {
+        font-size: 25px;
+        padding: 50px 20px 20px 0px;
+}
+
+.flex-box p {
+        font-size: 21px
+}
+
+.viewmore {
+        margin-left: -105px;
+}
+
+.viewmore a {
+        text-align: left;
+        margin: 0 100px;
+        padding: 7px 15px;
+        font-size: 21px;
+        text-decoration: none;
+        color: white;
+        text-transform: capitalize;
+        font-weight: 500;
+        background-color: #FF96A9;
+        border: 2px solid transparent;
+        border-radius: 30px;
+}
+
+.assessment {
+        border-radius: 20px;
+        padding: 20px;
+        background-color: #0030FF;
+        margin-top: 50px;
+        margin-left: 50px;
+        margin-right: 50px;
+}
+
+.assessment h1 {
+        font-size: 50px;
+        font-weight: bold;
+        text-align: center;
+        color: #fff;
+}
+
+.container2 li {
+        font-size: 20px;
+}
+
+.container2 li p {
+        margin-top: 20px;
+}
+
+.container2 h2 {
+        padding-bottom: 20px;
+        color: #000;
+}
+
+.question {
+        margin-bottom: 20px;
+}
+
+button {
+        display: block;
+        margin-top: 20px;
+        font-size: 20px;
+        padding: 5px 10px;
+        background-color: #ddd;
+        color: #000;
+}
+
+#result {
+        margin-top: 20px;
+        font-weight: bold;
+}
+
+.container2 {
+        width: 900px;
+        margin: 50px auto;
+        padding: 10px 50px 10px 50px;
+        border: 5px solid;
+        color: black;
+        border-color: #6051E3;
+}
+
+section .reference-container {
+        padding: 50px;
+}
+
+.publish-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 50px;
+}
+
+.publish:hover {
+        background: #0030ff;
+}
+
+.publish {
+        border-radius: 20px;
+        background: #ff96a9;
+        font-size: 2rem;
+        padding: 10px;
+        color: white;
+        font-weight: 600;
+        letter-spacing: 1.65px;
+}
+
+.resizable-input {
+        resize: both;
+}
+
+@media screen and (max-width: 955px) {
+        h1 {
+                text-align: center;
+        }
+
+        p {
+                text-align: justify;
+        }
+
+        ul {
+                text-align: justify;
+        }
+
+        .container2 {
+                width: 500px;
+        }
+
+        .assessment {
+                align-items: center;
+                margin-left: 50px;
+        }
+}
+
+@media screen and (max-width: 560px) {
+        .container2 {
+                width: 350px;
+        }
+
+}

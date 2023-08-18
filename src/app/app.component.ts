@@ -18,7 +18,7 @@ export class AppComponent {
   hideNavbar = false;
   hideNavbarPages = ['/admin-currentissue', '/admin-cases', '/admin-case-1', 
   '/admin-case-2', '/admin-case-3', '/admin-case-4', 
-  '/adminpanel', '/admin-solution-1', '/admin-solution-2']; // Add all admin pages here
+  '/adminpanel', '/admin-solution-1', '/admin-solution-2', '/admin-solution-3']; // Add all admin pages here
 
   constructor(private router: Router){
     router.events.subscribe(event => {
