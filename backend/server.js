@@ -10,6 +10,7 @@ const OutDatedEngineModel = require('./model/outdated_engine.model');
 const CauseClimateChange = require('./model/cause_climate_change.model');
 const EffectsClimateChange = require('./model/effects_climate_change.model');
 const Solution1 = require('./model/solutions/solution-1.model');
+const Solution2 = require('./model/solutions/solution-2.model');
 
 const { async } = require('rxjs');
 const history = require('connect-history-api-fallback');
@@ -237,6 +238,26 @@ app.get('/admin-solution-1', async(req, res) =>{
     }
 });
 
+// Admin Solution 2 Other Solutions
+app.put('/admin-solution-2/:id', async (req, res) =>{
+    try{
+        const upstream_data = await Solution2.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+        res.send(upstream_data);
+    }catch(err){
+        res.status(500).send(err.message);
+    }
+})
+
+app.get('/admin-solution-2', async(req, res) =>{
+    try{
+        const other_solutions = await Solution2.find();
+        res.json(other_solutions);
+    }catch(err){
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error'});
+    }
+});
 
 
 

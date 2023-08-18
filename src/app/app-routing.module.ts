@@ -30,6 +30,7 @@ import { AdminCase2Component } from './admin-case2/admin-case2.component';
 import { AdminCase3Component } from './admin-case3/admin-case3.component';
 import { AdminCase4Component } from './admin-case4/admin-case4.component';
 import { AdminSolution1Component } from './admin-solution1/admin-solution1.component';
+import { AdminSolution2Component } from './admin-solution2/admin-solution2.component';
 
 const routes: Routes = [
   {component: LandingPageComponent, path: ''},
@@ -64,6 +65,8 @@ const routes: Routes = [
   {component: AdminPanelComponent, path: 'adminpanel'},
   {component: AdminCasesComponent, path: 'admin-cases'},
   {component: AdminSolution1Component, path: 'admin-solution-1'},
+  {component: AdminSolution2Component, path: 'admin-solution-2'},
+
 ];
 
 @NgModule({

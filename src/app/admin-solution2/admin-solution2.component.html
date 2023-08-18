@@ -1,0 +1,418 @@
+<body>
+  <div class="background" style="margin-bottom: 50px">
+    <img
+      src="assets/solutionsimages/solutions.jpg"
+      alt="Act now! image"
+      width="100%"
+    />
+  </div>
+
+  <main style="padding: 0 30px 0 30px">
+    <div class="text">
+      <div *ngIf="!editing_header" (click)="startEditingHeader()">
+        <h1 style="color: #0030ff">{{ header }}</h1>
+      </div>
+
+      <textarea
+        style="font-size: 3rem; color: #0030ff; font-weight: 600"
+        *ngIf="editing_header"
+        (blur)="finishEditingHeader($event)"
+        class="resizable-input"
+        (ngModelChange)="doesChange()"
+        [(ngModel)]="other_solutions[0].header"
+      ></textarea>
+
+      <div *ngIf="!editing_descriptions[0]" (click)="startEditingDesc1()">
+        <h3 style="color: #ff96a9">{{ descriptions[0] }}</h3>
+      </div>
+
+      <textarea
+        style="font-size: 25px; color: #ff96a9; font-weight: 500"
+        *ngIf="editing_descriptions[0]"
+        (blur)="finishEditingDesc1($event)"
+        class="resizable-input"
+        (ngModelChange)="doesChange()"
+        [(ngModel)]="other_solutions[0].descriptions[0]"
+      ></textarea>
+
+      <div *ngIf="!editing_descriptions[1]" (click)="startEditingDesc2()">
+        <p>{{ descriptions[1] }}</p>
+      </div>
+
+      <textarea
+        style="font-size: 20px"
+        *ngIf="editing_descriptions[1]"
+        (blur)="finishEditingDesc2($event)"
+        class="resizable-input"
+        (ngModelChange)="doesChange()"
+        [(ngModel)]="other_solutions[0].descriptions[1]"
+      ></textarea>
+
+      <br />
+      <br />
+      <li>
+        <div *ngIf="!editing_bullet_1[0]" (click)="startEditingBullet1Title()">
+          <b style="font-size: 23px; color: #2082c8">{{ bullet1[0] }}</b>
+        </div>
+
+        <textarea
+          style="font-size: 23px; color: #2082c8; font-weight: 500"
+          *ngIf="editing_bullet_1[0]"
+          (blur)="finishEditingBullet1Title($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="other_solutions[0].bullets.bullet_1[0]"
+        ></textarea>
+
+        <div
+          *ngIf="!editing_bullet_1[1]"
+          (click)="startEditingBullet1Description()"
+        >
+          <p>{{ bullet1[1] }}</p>
+        </div>
+
+        <textarea
+          style="font-size: 1.3rem"
+          *ngIf="editing_bullet_1[1]"
+          (blur)="finishEditingBullet1Description($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="other_solutions[0].bullets.bullet_1[1]"
+        ></textarea>
+      </li>
+
+      <br />
+
+      <li>
+        <div *ngIf="!editing_bullet_2[0]" (click)="startEditingBullet2Title()">
+          <b style="font-size: 23px; color: #2082c8">{{ bullet2[0] }}</b>
+        </div>
+
+        <textarea
+          style="font-size: 23px; color: #2082c8; font-weight: 500"
+          *ngIf="editing_bullet_2[0]"
+          (blur)="finishEditingBullet2Title($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="other_solutions[0].bullets.bullet_2[0]"
+        ></textarea>
+
+        <div
+          *ngIf="!editing_bullet_2[1]"
+          (click)="startEditingBullet2Description()"
+        >
+          <p>{{ bullet2[1] }}</p>
+        </div>
+
+        <textarea
+          style="font-size: 1.3rem"
+          *ngIf="editing_bullet_2[1]"
+          (blur)="finishEditingBullet2Description($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="other_solutions[0].bullets.bullet_2[1]"
+        ></textarea>
+      </li>
+
+      <br />
+
+      <li>
+        <div *ngIf="!editing_bullet_3[0]" (click)="startEditingBullet3Title()">
+          <b style="font-size: 23px; color: #2082c8">{{ bullet3[0] }}</b>
+        </div>
+
+        <textarea
+          style="font-size: 23px; color: #2082c8; font-weight: 500"
+          *ngIf="editing_bullet_3[0]"
+          (blur)="finishEditingBullet3Title($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="other_solutions[0].bullets.bullet_3[0]"
+        ></textarea>
+
+        <div
+          *ngIf="!editing_bullet_3[1]"
+          (click)="startEditingBullet3Description()"
+        >
+          <p>{{ bullet3[1] }}</p>
+        </div>
+
+        <textarea
+          style="font-size: 1.3rem"
+          *ngIf="editing_bullet_3[1]"
+          (blur)="finishEditingBullet3Description($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="other_solutions[0].bullets.bullet_3[1]"
+        ></textarea>
+
+        <div class="viewmore">
+          <br />
+
+          <div *ngIf="!editing_links[0]" (click)="startEditingLinks1()">
+            <p>{{ links[0] }}</p>
+          </div>
+
+          <textarea
+            style="font-size: 1.3rem"
+            *ngIf="editing_links[0]"
+            (blur)="finishEditingLinks1($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="other_solutions[0].links[0]"
+          ></textarea>
+        </div>
+        <p>(Continue Reading)</p>
+      </li>
+
+      <br />
+      <br />
+
+      <div *ngIf="!editing_descriptions[2]" (click)="startEditingDesc3()">
+        <h3 style="color: #ff96a9">{{ descriptions[2] }}</h3>
+      </div>
+
+      <textarea
+        style="font-size: 25px; color: #ff96a9; font-weight: 500"
+        *ngIf="editing_descriptions[2]"
+        (blur)="finishEditingDesc3($event)"
+        class="resizable-input"
+        (ngModelChange)="doesChange()"
+        [(ngModel)]="other_solutions[0].descriptions[2]"
+      ></textarea>
+
+      <div *ngIf="!editing_descriptions[3]" (click)="startEditingDesc4()">
+        <p>{{ descriptions[3] }}</p>
+      </div>
+
+      <textarea
+        style="font-size: 20px"
+        *ngIf="editing_descriptions[3]"
+        (blur)="finishEditingDesc4($event)"
+        class="resizable-input"
+        (ngModelChange)="doesChange()"
+        [(ngModel)]="other_solutions[0].descriptions[3]"
+      ></textarea>
+
+      <br />
+      <br />
+      <li>
+        <div *ngIf="!editing_bullet_4[0]" (click)="startEditingBullet4Title()">
+          <b style="font-size: 23px; color: #2082c8">{{ bullet4[0] }}</b>
+        </div>
+
+        <textarea
+          style="font-size: 23px; color: #2082c8; font-weight: 500"
+          *ngIf="editing_bullet_4[0]"
+          (blur)="finishEditingBullet4Title($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="other_solutions[0].bullets.bullet_4[0]"
+        ></textarea>
+
+        <div
+          *ngIf="!editing_bullet_4[1]"
+          (click)="startEditingBullet4Description()"
+        >
+          <p>{{ bullet4[1] }}</p>
+        </div>
+
+        <textarea
+          style="font-size: 1.3rem"
+          *ngIf="editing_bullet_4[1]"
+          (blur)="finishEditingBullet4Description($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="other_solutions[0].bullets.bullet_4[1]"
+        ></textarea>
+      </li>
+
+      <br />
+
+      <li>
+        <div *ngIf="!editing_bullet_5[0]" (click)="startEditingBullet5Title()">
+          <b style="font-size: 23px; color: #2082c8">{{ bullet5[0] }}</b>
+        </div>
+
+        <textarea
+          style="font-size: 23px; color: #2082c8; font-weight: 500"
+          *ngIf="editing_bullet_5[0]"
+          (blur)="finishEditingBullet5Title($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="other_solutions[0].bullets.bullet_5[0]"
+        ></textarea>
+
+        <div
+          *ngIf="!editing_bullet_5[1]"
+          (click)="startEditingBullet5Description()"
+        >
+          <p>{{ bullet5[1] }}</p>
+        </div>
+
+        <textarea
+          style="font-size: 1.3rem"
+          *ngIf="editing_bullet_5[1]"
+          (blur)="finishEditingBullet5Description($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="other_solutions[0].bullets.bullet_5[1]"
+        ></textarea>
+      </li>
+
+      <br />
+
+      <li>
+        <div *ngIf="!editing_bullet_6[0]" (click)="startEditingBullet6Title()">
+          <b style="font-size: 23px; color: #2082c8">{{ bullet6[0] }}</b>
+        </div>
+
+        <textarea
+          style="font-size: 23px; color: #2082c8; font-weight: 500"
+          *ngIf="editing_bullet_6[0]"
+          (blur)="finishEditingBullet6Title($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="other_solutions[0].bullets.bullet_6[0]"
+        ></textarea>
+
+        <div
+          *ngIf="!editing_bullet_6[1]"
+          (click)="startEditingBullet6Description()"
+        >
+          <p>{{ bullet6[1] }}</p>
+        </div>
+
+        <textarea
+          style="font-size: 1.3rem"
+          *ngIf="editing_bullet_6[1]"
+          (blur)="finishEditingBullet6Description($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="other_solutions[0].bullets.bullet_6[1]"
+        ></textarea>
+      </li>
+
+      <br />
+
+      <li>
+        <div *ngIf="!editing_bullet_7[0]" (click)="startEditingBullet7Title()">
+          <b style="font-size: 23px; color: #2082c8">{{ bullet7[0] }}</b>
+        </div>
+
+        <textarea
+          style="font-size: 23px; color: #2082c8; font-weight: 500"
+          *ngIf="editing_bullet_7[0]"
+          (blur)="finishEditingBullet7Title($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="other_solutions[0].bullets.bullet_7[0]"
+        ></textarea>
+
+        <div
+          *ngIf="!editing_bullet_7[1]"
+          (click)="startEditingBullet7Description()"
+        >
+          <p>{{ bullet7[1] }}</p>
+        </div>
+
+        <textarea
+          style="font-size: 1.3rem"
+          *ngIf="editing_bullet_7[1]"
+          (blur)="finishEditingBullet7Description($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="other_solutions[0].bullets.bullet_7[1]"
+        ></textarea>
+      </li>
+
+      <br />
+
+      <li>
+        <div *ngIf="!editing_bullet_8[0]" (click)="startEditingBullet8Title()">
+          <b style="font-size: 23px; color: #2082c8">{{ bullet8[0] }}</b>
+        </div>
+
+        <textarea
+          style="font-size: 23px; color: #2082c8; font-weight: 500"
+          *ngIf="editing_bullet_8[0]"
+          (blur)="finishEditingBullet8Title($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="other_solutions[0].bullets.bullet_8[0]"
+        ></textarea>
+
+        <div
+          *ngIf="!editing_bullet_8[1]"
+          (click)="startEditingBullet8Description()"
+        >
+          <p>{{ bullet8[1] }}</p>
+        </div>
+
+        <textarea
+          style="font-size: 1.3rem"
+          *ngIf="editing_bullet_8[1]"
+          (blur)="finishEditingBullet8Description($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="other_solutions[0].bullets.bullet_8[1]"
+        ></textarea>
+
+        <div class="viewmore">
+          <br />
+
+          <div *ngIf="!editing_links[1]" (click)="startEditingLinks2()">
+            <p>{{ links[1] }}</p>
+          </div>
+
+          <textarea
+            style="font-size: 1.3rem"
+            *ngIf="editing_links[1]"
+            (blur)="finishEditingLinks2($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="other_solutions[0].links[1]"
+          ></textarea>
+        </div>
+        <p>(Continue Reading)</p>
+      </li>
+    </div>
+
+    <section>
+      <div class="reference-container">
+        <accordion [isAnimated]="true">
+          <accordion-group heading="References">
+            <div *ngIf="!editing_references[0]" (click)="startEditingRef1()">
+              <p>{{ references[0] }}</p>
+            </div>
+
+            <textarea
+              *ngIf="editing_references[0]"
+              (blur)="finishEditingRef1($event)"
+              class="resizable-input"
+              (ngModelChange)="doesChange()"
+              [(ngModel)]="other_solutions[0].references[0]"
+            ></textarea>
+
+            <div *ngIf="!editing_references[1]" (click)="startEditingRef2()">
+              <p>{{ references[1] }}</p>
+            </div>
+
+            <textarea
+              *ngIf="editing_references[1]"
+              (blur)="finishEditingRef2($event)"
+              class="resizable-input"
+              (ngModelChange)="doesChange()"
+              [(ngModel)]="other_solutions[0].references[1]"
+            ></textarea>
+          </accordion-group>
+        </accordion>
+      </div>
+    </section>
+  </main>
+  <div class="publish-container">
+    <button type="button" class="publish" (click)="updateData()">
+      Publish
+    </button>
+  </div>
+</body>
