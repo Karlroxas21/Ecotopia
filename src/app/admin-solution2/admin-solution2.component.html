@@ -23,6 +23,21 @@
         [(ngModel)]="other_solutions[0].header"
       ></textarea>
 
+      <div *ngIf="!editing_header_desc" (click)="startEditingHeaderDescription()">
+        <h2>{{ header_desc }}</h2>
+      </div>
+
+      <textarea
+        style="font-size: 27px; font-weight: 600;"
+        *ngIf="editing_header_desc"
+        (blur)="finishEditingHeaderDescription($event)"
+        class="resizable-input"
+        (ngModelChange)="doesChange()"
+        [(ngModel)]="other_solutions[0].header_description"
+      ></textarea>
+      
+      <br>
+
       <div *ngIf="!editing_descriptions[0]" (click)="startEditingDesc1()">
         <h3 style="color: #ff96a9">{{ descriptions[0] }}</h3>
       </div>

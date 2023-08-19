@@ -20,6 +20,7 @@ export class AdminSolution2Service {
                 const _id = data._id;
                 const json = {
                         header: data.header,
+                        header_description: data.header_description,
                         descriptions: data.descriptions,
                         bullets: data.bullets,
                         link: data.links,
