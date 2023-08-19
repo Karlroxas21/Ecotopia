@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 
 const respondingToClimateChangeSchema = new Schema({
         header: String,
+        header_description: String,
         descriptions: [String],
         bullets:{
                 bullet_1: [String],

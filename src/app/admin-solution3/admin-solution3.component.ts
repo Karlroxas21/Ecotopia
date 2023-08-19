@@ -15,6 +15,7 @@ export class AdminSolution3Component {
   title = "Admin: Solution 3";
 
   header: string = "";
+  header_desc = "";
   descriptions: string [] = [];
   bullet1: string [] = [];
   bullet2: string [] = [];
@@ -52,6 +53,7 @@ export class AdminSolution3Component {
       this.responding_to_climate_change = incoming_data;
 
       this.header = this.responding_to_climate_change[0].header;
+      this.header_desc = this.responding_to_climate_change[0].header_description;
 
       // Descriptions
       this.descriptionsPusher(this.descriptions);
@@ -96,6 +98,7 @@ export class AdminSolution3Component {
   }
 
   editing_header: boolean = false;
+  editing_header_desc: boolean = false;
 
   editing_descriptions: boolean [] = [false, false, false, false, false, false];
 
@@ -116,6 +119,15 @@ export class AdminSolution3Component {
   // Track if there is any changes made in HTML
   doesChange(){
     this.isThereAnyChanges = true;
+  }
+
+  // Header Description
+  startEditingHeaderDescription() {
+    this.editing_header_desc = true;
+  }
+  finishEditingHeaderDescription(event: any) {
+    this.editing_header_desc = false;
+    this.header_desc = event.target.value;
   }
 
   // Description 1

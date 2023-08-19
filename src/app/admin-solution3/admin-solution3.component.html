@@ -7,11 +7,11 @@
   <main style="padding: 0 30px 0 30px">
     <div class="text">
       <div *ngIf="!editing_header" (click)="startEditingHeader()">
-        <h2 style="color: #0030ff">{{ header }}</h2>
+        <h4 style="color: #0030ff">{{ header }}</h4>
       </div>
 
       <textarea
-        style="font-size: 1.8rem; color: #0030ff; font-weight: 600"
+        style="font-size: 1.5rem; color: #0030ff; font-weight: 600"
         *ngIf="editing_header"
         (blur)="finishEditingHeader($event)"
         class="resizable-input"
@@ -21,6 +21,21 @@
 
       <br />
       <br />
+
+      <div *ngIf="!editing_header_desc" (click)="startEditingHeaderDescription()">
+        <p >{{ header_desc }}</p>
+      </div>
+
+      <textarea
+        style="font-size: 1.3rem;"
+        *ngIf="editing_header_desc"
+        (blur)="finishEditingHeaderDescription($event)"
+        class="resizable-input"
+        (ngModelChange)="doesChange()"
+        [(ngModel)]="responding_to_climate_change[0].header_description"
+      ></textarea>
+
+      <br>
 
       <div *ngIf="!editing_descriptions[0]" (click)="startEditingDesc1()">
         <h3 style="color: #fb0280">{{ descriptions[0] }}</h3>
