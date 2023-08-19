@@ -134,6 +134,17 @@ app.get('/admin-cases', async(req, res) =>{
     }
 });
 
+// Why Should We Take Action
+app.get('/whyshouldwetakeactions', async(req, res) =>{
+    try{
+        const y_should_we_take_action = await Solution1.find();
+        res.json(y_should_we_take_action);
+    }catch(err){
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error'});
+    }
+});
+
 // Admin Problem Trash / Case 1
 app.put('/admin-cases-problemtrash/:id', async (req, res) =>{
     try{
