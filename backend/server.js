@@ -12,6 +12,8 @@ const EffectsClimateChange = require('./model/effects_climate_change.model');
 const Solution1 = require('./model/solutions/solution-1.model');
 const Solution2 = require('./model/solutions/solution-2.model');
 const Solution3 = require('./model/solutions/solution-3.model');
+// Solution 4 Here!
+const CurrentIssues = require('./model/current_issues.model');
 
 const { async } = require('rxjs');
 const history = require('connect-history-api-fallback');
@@ -286,6 +288,29 @@ app.get('/admin-solution-3', async(req, res) =>{
     try{
         const responding_to_climate_change = await Solution3.find();
         res.json(responding_to_climate_change);
+    }catch(err){
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error'});
+    }
+});
+
+// Solution 4 here
+
+// Admin Current Issues in PH 
+app.put('/admin-current-issues-ph/:id', async (req, res) =>{
+    try{
+        const upstream_data = await CurrentIssues.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+        res.send(upstream_data);
+    }catch(err){
+        res.status(500).send(err.message);
+    }
+})
+
+app.get('/admin-current-issues-ph', async(req, res) =>{
+    try{
+        const current_issues_ph = await CurrentIssues.find();
+        res.json(current_issues_ph);
     }catch(err){
         console.error(err);
         res.status(500).json({ message: 'Internal server error'});
