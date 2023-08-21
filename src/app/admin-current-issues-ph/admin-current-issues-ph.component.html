@@ -3,6 +3,7 @@
     <h1>Current Issues on Climate Change in the Philippines</h1>
     <div class="climate-change-info">
       <accordion [isAnimated]="true" class="customClass">
+        <!-- sea_level_rise_coastal_erosion -->
         <accordion-group
           class="customClass"
           [isOpen]="isFirstOpen"
@@ -14,7 +15,7 @@
                 *ngIf="!editing_sea_level_rise_coastal_erosion[0]"
                 (click)="startEditingSeaLevelErosion(0)"
               >
-                {{ sea_level_rise_coastal_erosion[0] }}
+                <p>{{ sea_level_rise_coastal_erosion[0] }}</p>
               </div>
 
               <textarea
@@ -30,7 +31,6 @@
             </div>
 
             <div class="ccs-sub-div2">
-              <!-- sea_level_rise_coastal_erosion -->
               <table class="ccs-table" style="margin-bottom: 30px">
                 <tr>
                   <td>
@@ -110,7 +110,7 @@
                 *ngIf="!editing_sea_level_rise_coastal_erosion_2[0]"
                 (click)="startEditingSeaLevelErosion2(0)"
               >
-                {{ sea_level_rise_coastal_erosion_2[0] }}
+                <p>{{ sea_level_rise_coastal_erosion_2[0] }}</p>
               </div>
 
               <textarea
@@ -319,7 +319,7 @@
                 *ngIf="!editing_biodiversity_ecosystem_loss[0]"
                 (click)="startEditingBiodiversityEcosystemLoss(0)"
               >
-                {{ biodiversity_ecosystem_loss[0] }}
+                <p>{{ biodiversity_ecosystem_loss[0] }}</p>
               </div>
 
               <textarea
@@ -570,7 +570,7 @@
                 *ngIf="!editing_agriculture_food_security[0]"
                 (click)="startEditingAgricultureFoodSecurity(0)"
               >
-                {{ agriculture_food_security[0] }}
+                <p>{{ agriculture_food_security[0] }}</p>
               </div>
 
               <textarea
@@ -943,7 +943,7 @@
                 *ngIf="!editing_health_risk[0]"
                 (click)="startEditingHealthRisk(0)"
               >
-                {{ health_risk[0] }}
+                <p>{{ health_risk[0] }}</p>
               </div>
 
               <textarea
@@ -1077,7 +1077,7 @@
                 *ngIf="!editing_water_scarcity[0]"
                 (click)="startEditingWaterScarcity(0)"
               >
-                {{ water_scarcity[0] }}
+                <p>{{ water_scarcity[0] }}</p>
               </div>
 
               <textarea
