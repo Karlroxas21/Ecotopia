@@ -41,6 +41,7 @@ import { AdminSolution1Component } from './admin-solution1/admin-solution1.compo
 import { AdminSolution2Component } from './admin-solution2/admin-solution2.component';
 import { AdminSolution3Component } from './admin-solution3/admin-solution3.component';
 import { AdminCurrentIssuesPhComponent } from './admin-current-issues-ph/admin-current-issues-ph.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -80,6 +81,7 @@ import { AdminCurrentIssuesPhComponent } from './admin-current-issues-ph/admin-c
     AdminSolution2Component,
     AdminSolution3Component,
     AdminCurrentIssuesPhComponent,
+    LoginComponent,
 
     
   ],
