@@ -1,7 +1,7 @@
 <body>
   <section class="climate-change">
     <h1>Current Issues on Climate Change in the Philippines</h1>
-    <div class="climate-change-info">
+    <div class="climate-change-info" *ngFor="let item of current_issues_ph">
       <accordion [isAnimated]="true" class="customClass">
         <accordion-group 
         class="customClass"
@@ -10,12 +10,7 @@
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
-                Due to its geographical positioning, the Philippines is
-                exceptionally susceptible to typhoons and other extreme weather
-                phenomena. The impact of climate change has the potential to
-                magnify the intensity of these occurrences, culminating in
-                heightened frequencies of more severe typhoons, along with
-                increased incidents of flooding and landslides.
+                {{item.sea_level_rise_coastal_erosion[0]}}
               </p>
             </div>
 
@@ -23,25 +18,19 @@
               <table class="ccs-table" style="margin-bottom: 30px">
                 <tr>
                   <td>
-                    The 7,100 islands that make up the Philippine Archipelago
-                    make it more vulnerable to typhoons and storm surges, which
-                    are abrupt elevations in water that affect nearby places
-                    during storms and typhoons.
+                    {{item.sea_level_rise_coastal_erosion[1]}}
                   </td>
                 </tr>
 
                 <tr>
                   <td>
-                    The Asian Disaster Reduction Center (ADRC) estimates that
-                    the Philippines experiences 20 typhoons year, of which five
-                    cause significant damage.
+                    {{item.sea_level_rise_coastal_erosion[2]}}
                   </td>
                 </tr>
 
                 <tr>
                   <td>
-                    Rapid population and economic growth are outpacing the water
-                    supply.
+                    {{item.sea_level_rise_coastal_erosion[3]}}
                   </td>
                 </tr>
               </table>
@@ -52,11 +41,7 @@
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
-                The substantial risk that rising sea levels, driven by climate
-                change, pose to coastal communities in the Philippines is
-                evident. This hazard has the potential to result in coastal
-                erosion, the relocation of communities, and the depletion of
-                valuable land and essential infrastructure.
+                {{item.sea_level_rise_coastal_erosion_2[0]}}
               </p>
             </div>
 
@@ -64,33 +49,23 @@
               <table class="ccs-table">
                 <tr>
                   <th>
-                    Rising sea level threatens stability of boundaries,
-                    Philippine warns.
+                    {{item.sea_level_rise_coastal_erosion_2[1]}}
                   </th>
                 </tr>
                 <tr>
                   <td>
                     <ul>
                       <li>
-                        It is one of the region’s most susceptible to sea level
-                        rise brought on by human climate change because more
-                        than half of its cities and villages are located along
-                        its coasts.
+                        {{item.sea_level_rise_coastal_erosion_2[2]}}
                       </li>
                       <li>
-                        Three times the normal worldwide rate, the Philippines
-                        has seen sea levels rise by 60 cm.
+                        {{item.sea_level_rise_coastal_erosion_2[3]}}
                       </li>
                       <li>
-                        The World Meteorological Organization recently released
-                        statistics showing that the average sea level has risen
-                        more quickly since 1900 than it has in any other century
-                        in the previous 3,000 years.
+                        {{item.sea_level_rise_coastal_erosion_2[4]}}
                       </li>
                       <li>
-                        Even if "miraculously" limiting global warming to 1.5
-                        degrees, the globe will still experience a sizable rise
-                        in sea levels.
+                        {{item.sea_level_rise_coastal_erosion_2[5]}}
                       </li>
                     </ul>
                   </td>
@@ -102,32 +77,17 @@
               <table class="ccs-table">
                 <tr>
                   <th>
-                    Climate risk threaten major industries & marine ecosystems
-                    in the Philippines coastal city.
+                    {{item.sea_level_rise_coastal_erosion_2[6]}}
                   </th>
                 </tr>
                 <tr>
                   <td>
                     <ul>
                       <li>
-                        The area's ecosystems are vulnerable, as seen by coastal
-                        erosion and a lack of natural aquatic safeguards. The
-                        city's coast is susceptible to erosion since it lacks
-                        coral reefs, coastal sand dunes, and seagrass beds.
-                        Mangroves, whose coverage has reduced owing to unlawful
-                        cutting, also support shorelines and marine
-                        environments.
+                        {{item.sea_level_rise_coastal_erosion_2[7]}}
                       </li>
                       <li>
-                        Limited infrastructure for treating garbage from both
-                        industrial and household sources. Given the lack of a
-                        city-wide sewage treatment facility and insufficient
-                        solid waste management, risks to human health and the
-                        economy are posed by debris and water pollution from the
-                        fishing industry and informal river dumping of household
-                        waste through clogged canals, increased flooding, land
-                        subsidence, and contaminated bangus (also known as
-                        milkfish).
+                        {{item.sea_level_rise_coastal_erosion_2[8]}}
                       </li>
                     </ul>
                   </td>
@@ -141,28 +101,20 @@
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
-                Ecosystems can face disturbance from climate change, putting the
-                Philippines' diverse biodiversity in jeopardy. Vital ecosystems
-                such as coral reefs and mangroves are in a state of
-                vulnerability, impacting both marine life and the sustenance of
-                coastal communities.
+                {{item.biodiversity_ecosystem_loss[0]}}
               </p>
             </div>
 
             <div class="ccs-sub-div2">
               <table class="ccs-table">
                 <tr>
-                  <th>Why are we losing species?</th>
+                  <th>{{item.biodiversity_ecosystem_loss[1]}}</th>
                 </tr>
                 <tr>
                   <td>
                     <ul>
                       <li>
-                        Factors including habitat destruction, exploitation, and
-                        climate change, all of which have become extensively
-                        influenced by humans, are among those that have a
-                        considerable impact on biodiversity loss in the modern
-                        world.
+                        {{item.biodiversity_ecosystem_loss[2]}}
                       </li>
                     </ul>
                   </td>
@@ -171,17 +123,10 @@
                   <td>
                     <ul>
                       <li>
-                        Habitat destruction such as poorly managed mining and
-                        logging operations have largely irreparably damaged the
-                        forest cover, which has an impact on the various
-                        assemblages of flora and fauna that live there.
+                        {{item.biodiversity_ecosystem_loss[3]}}
                         <ul style="margin-top: 10px">
                           <li>
-                            hurting the nation's ecosystems and marine habitats.
-                            Examples of this include the use of dynamite and
-                            poison in fishing, which is still done today, as
-                            well as more contemporary changes like the mining of
-                            black sand in the northern Philippines.
+                            {{item.biodiversity_ecosystem_loss[4]}}
                           </li>
                         </ul>
                       </li>
@@ -194,16 +139,11 @@
             <div class="ccs-sub-div2" style="margin-bottom: 25px">
               <table class="ccs-table">
                 <tr>
-                  <th>Exploitation of Natural Resources and Wildlife</th>
+                  <th>{{item.biodiversity_ecosystem_loss[5]}}</th>
                 </tr>
                 <tr>
                   <td>
-                    Mining and forestry – leading contributors to habitat
-                    destruction, as described above – is also an example of
-                    exploitative utilization of resources. Meanwhile, when it
-                    comes to wildlife, the demand for “exotic” plants and
-                    animals, for example, perpetuates the species decline
-                    crisis.
+                    {{item.biodiversity_ecosystem_loss[6]}}
                   </td>
                 </tr>
               </table>
@@ -212,25 +152,16 @@
             <div class="ccs-sub-div2" style="margin-bottom: 30px">
               <table class="ccs-table">
                 <tr>
-                  <th>Waste and Pollution</th>
+                  <th>{{item.biodiversity_ecosystem_loss[7]}}</th>
                 </tr>
                 <tr>
                   <td>
                     <ul style="margin-top: 10px">
                       <li>
-                        Naturally waste materials and pollution also play a
-                        significant role in the decrease in biodiversity.
-                        According to the IUCN, pollution poses serious risks to
-                        the survival of bird (12%), amphibian (29%), and
-                        mammalian (4%) species. This includes pollution in all
-                        its forms, including solid, liquid, and gaseous.
+                        {{item.biodiversity_ecosystem_loss[8]}}
                       </li>
                       <li>
-                        Another significant problem that leads to the loss of
-                        biodiversity in the Philippines is chemical
-                        contamination. The most common form of these is
-                        organochlorines, which are utilized in farming and pest
-                        management.
+                        {{item.biodiversity_ecosystem_loss[9]}}
                       </li>
                     </ul>
                   </td>
@@ -244,11 +175,7 @@
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
-                The balance of ecosystems can be disturbed by climate change,
-                posing a threat to the Philippines' abundant biodiversity. Coral
-                reefs, mangroves, and other crucial ecosystems are in danger,
-                influencing marine life and the means of living for coastal
-                communities.
+                {{item.agriculture_food_security[0]}}
               </p>
             </div>
 
@@ -256,32 +183,20 @@
               <table class="ccs-table">
                 <tr>
                   <th>
-                    Climate Change will impact Philippines ability to feed its
-                    people.
+                    {{item.agriculture_food_security[1]}}
                   </th>
                 </tr>
                 <tr>
                   <td>
                     <ul>
                       <li>
-                        Farmers and their families bear the greatest brunt of
-                        food insecurity and malnutrition in the country as
-                        prolonged droughts and extreme precipitation affect
-                        their crop yields.
+                        {{item.agriculture_food_security[2]}}
                       </li>
                       <li>
-                        In tropical nations like the Philippines, crop yields
-                        are predicted to fall by 25% as a result of climate
-                        change. Catch rates of the major fish species are also
-                        anticipated to drop by 40%.
+                        {{item.agriculture_food_security[3]}}
                       </li>
                       <li>
-                        More than 80,000 hectares of agriculture suffered crop
-                        damage during the eight-month drought, costing more than
-                        PhP2 billion (US$40 million) in damages. Farmers and
-                        their crops in the provinces of Quezon, Camarines Norte,
-                        Samar, Laguna, and Mindoro have also been impacted by
-                        the drought.
+                        {{item.agriculture_food_security[4]}}
                       </li>
                     </ul>
                   </td>
@@ -290,13 +205,10 @@
                   <td>
                     <ul>
                       <li style="list-style-type: lower-roman">
-                        Food security declines
+                        {{item.agriculture_food_security[5]}}
                         <ul>
                           <li>
-                            The global index measured the three core issues of
-                            food security: affordability, availability, and
-                            quality. This year’s index also included the natural
-                            resources and resilience factor of each country.
+                            {{item.agriculture_food_security[6]}}
                           </li>
                         </ul>
                       </li>
@@ -304,31 +216,20 @@
 
                     <ul>
                       <li style="list-style-type: lower-roman">
-                        Malnutrition increase
+                        {{item.agriculture_food_security[7]}}
                         <ul>
                           <li>
-                            In areas directly impacted by droughts and floods
-                            brought on by high temperatures, heavy rainfall, or
-                            typhoons, climate change can induce hunger and
-                            malnutrition in some pockets of our population,
-                            posing a threat to food security.
+                            {{item.agriculture_food_security[8]}}
                           </li>
                           <li>
-                            According to the research, the rate of stunting or
-                            malnutrition among children under the age of five in
-                            the Philippines has risen from just 30.3% in 2013 to
-                            33.4% now.
+                            {{item.agriculture_food_security[9]}}
                           </li>
                         </ul>
                       </li>
                     </ul>
                     <ul style="margin-top: 10px">
                       <li>
-                        hurting the nation's ecosystems and marine habitats.
-                        Examples of this include the use of dynamite and poison
-                        in fishing, which is still done today, as well as more
-                        contemporary changes like the mining of black sand in
-                        the northern Philippines.
+                        {{item.agriculture_food_security[10]}}
                       </li>
                     </ul>
                   </td>
@@ -340,53 +241,31 @@
               <table class="ccs-table">
                 <tr>
                   <td>
-                    If the government does not include mitigation measures in
-                    future legislation, climate change is anticipated to
-                    decrease agricultural output and impair the supply of food.
+                    {{item.agriculture_food_security[11]}}
                   </td>
                 </tr>
 
                 <tr>
                   <td>
-                    Climate change is causing extreme weather events. Floods
-                    caused by torrential rain and powerful typhoons
-                    significantly destroy crops. Since they are happening more
-                    frequently, it is anticipated that they will worsen.
+                    {{item.agriculture_food_security[12]}}
                   </td>
                 </tr>
 
                 <tr>
                   <td>
-                    Climate change's consequences on agriculture include, among
-                    other things, pest damage, crop failure, and crop diseases.
-                    Insects damage more crops when temperatures rise because
-                    they consume food more quickly. As temperatures rise, crops
-                    also become more vulnerable to pests, which has an impact on
-                    their health. If these problems are not properly resolved,
-                    food production will decline, and it would be difficult to
-                    feed everyone.
+                    {{item.agriculture_food_security[13]}}
                   </td>
                 </tr>
 
                 <tr>
                   <td>
-                    Rice farmers in particular are suffering as a result of
-                    severe drought and flooding, to the point where planting is
-                    now viewed as an unsustainable means of subsistence because
-                    farmers cannot harvest and sell their products. In order to
-                    avoid working in agriculture, their children and the young
-                    people in rural communities who are meant to carry on
-                    farming and food production are now preferring to work in
-                    cities as wage workers, thus hurting the future and
-                    continuity of the agricultural sector.
+                    {{item.agriculture_food_security[14]}}
                   </td>
                 </tr>
 
                 <tr>
                   <td>
-                    The World Resources Institute predicts that by 2040, the
-                    Philippines would likely experience severe water shortages,
-                    with agriculture taking the most hit.
+                    {{item.agriculture_food_security[15]}}
                   </td>
                 </tr>
               </table>
@@ -398,10 +277,7 @@
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
-                The effects of climate change can worsen health vulnerabilities,
-                leading to the increased transmission of illnesses such as
-                dengue fever and malaria, attributed to shifting temperature and
-                precipitation patterns.
+                {{item.health_risk[0]}}
               </p>
             </div>
 
@@ -409,27 +285,17 @@
               <table class="ccs-table" style="margin-bottom: 25px">
                 <tr>
                   <th>
-                    Climate Change impact health and Livelihood of Filipinos,
-                    Study says
+                    {{item.health_risk[1]}}
                   </th>
                 </tr>
                 <tr>
                   <td>
                     <ul>
                       <li>
-                        The nation is regarded as one of those most susceptible
-                        to the effects of climate change. The dangers of
-                        vector-borne diseases like dengue and flood-borne
-                        diseases like leptospirosis are also rising as a result
-                        of increasing rainfall, stronger typhoons, and the
-                        resulting floods.
+                        {{item.health_risk[2]}}
                       </li>
                       <li>
-                        Drought-associated health hazards from reduced water
-                        availability and droughts, respiratory issues from air
-                        pollution, possible injuries from extreme weather
-                        events, and disease that spreads in shelters during
-                        catastrophes are all tied to climate change.
+                        {{item.health_risk[3]}}
                       </li>
                     </ul>
                   </td>
@@ -439,19 +305,13 @@
 
               <table class="ccs-table" style="margin-bottom: 30px">
                 <tr>
-                  <th>More public health crises</th>
+                  <th>{{item.health_risk[4]}}</th>
                 </tr>
                 <tr>
                   <td>
                     <ul>
                       <li>
-                        Increases in the prevalence of diseases including
-                        dengue, malaria, cholera, and typhoid are also brought
-                        on by rising temperatures. almost 40,000 dengue cases,
-                        1,200 cholera cases, and almost 1,000 typhoid fever
-                        cases were reported nationally in 1998, the year the
-                        Philippines witnessed the biggest El Nino phenomena to
-                        date.
+                        {{item.health_risk[5]}}
                       </li>
                     </ul>
                   </td>
@@ -466,9 +326,7 @@
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
-                Unpredictable variations in rainfall patterns can result in both
-                droughts and intense rainfall, impacting the accessibility of
-                water for household, agricultural, and industrial purposes.
+                {{item.water_scarcity[0]}}
               </p>
             </div>
 
@@ -476,49 +334,36 @@
               <table class="ccs-table" style="margin-bottom: 25px">
                 <tr>
                   <td>
-                    Water scarcity is a global problem caused by climate change,
-                    fast urbanization, and population expansion.
+                    {{item.water_scarcity[1]}}
                   </td>
                 </tr>
 
                 <tr>
                   <td>
-                    According to a World Resources Institute report, the
-                    Philippines would have a "high" degree of water scarcity by
-                    2040. The nation was placed 57th out of 167 nations in terms
-                    of predicted water stress in 2040. 
+                    {{item.water_scarcity[2]}}
                   </td>
                 </tr>
 
                 <tr>
                   <td>
-                    Agriculture, a significant section of the nation's economy
-                    and a sector that currently employs x% of the labor force,
-                    will be the industry that will be most negatively impacted
-                    by the water crisis by that year.
+                    {{item.water_scarcity[3]}}
                   </td>
                 </tr>
               </table>
               <table class="ccs-table" style="margin-bottom: 25px">
                 <tr>
                   <th>
-                    Climate Change and water: impacts and vulnerabilities in the
-                    Philippines.
+                    {{item.water_scarcity[4]}}
                   </th>
                 </tr>
                 <tr>
                   <td>
                     <ul>
                       <li>
-                        One of the most concerning predicted implications of
-                        climate change on water resources is water shortage.
+                        {{item.water_scarcity[5]}}
                       </li>
                       <li>
-                        Climate change and the associated extreme weather
-                        events, which have brought either too little or too much
-                        water, have led to water shortages that have claimed
-                        thousands of lives and ruined billions of pesos' worth
-                        of assets, including property and agricultural harvests.
+                        {{item.water_scarcity[6]}}
                       </li>
                     </ul>
                   </td>
@@ -529,19 +374,14 @@
               <table class="ccs-table" style="margin-bottom: 25px">
                 <tr>
                   <th>
-                    El Nino in the PH: On top of killer heat, water scarcity
-                    looms.
+                    {{item.water_scarcity[7]}}
                   </th>
                 </tr>
                 <tr>
                   <td>
                     <ul>
                       <li>
-                        El Nio conditions have returned to the Tropical Pacific
-                        for the first time in seven years, according to the UN
-                        World Meteorological Organization (WMO), and there is a
-                        90% chance that they will last into the second half of
-                        2024.
+                        {{item.water_scarcity[8]}}
                       </li>
                     </ul>
                   </td>
@@ -552,28 +392,19 @@
               <table class="ccs-table" style="margin-bottom: 30px">
                 <tr>
                   <td>
-                    The country has long struggled to provide residents with
-                    access to clean water due to a number of factors, including
-                    rapid population growth and poor governance. The country has
-                    long struggled to provide residents with access to clean
-                    water due to a number of factors, including rapid population
-                    growth and poor governance.
+                    {{item.water_scarcity[9]}}
                   </td>
                 </tr>
 
                 <tr>
                   <td>
-                    The National Economic and Development Authority (Neda),
-                    along with the size and characteristics of each island, said
-                    in a report from 2021 that the country's water supply is
-                    unevenly distributed due to rainfall fluctuation.
+                    {{item.water_scarcity[10]}}
                   </td>
                 </tr>
 
                 <tr>
                   <td>
-                    Rapid population and economic growth are outpacing the water
-                    supply.
+                    {{item.water_scarcity[11]}}
                   </td>
                 </tr>
               </table>
@@ -583,89 +414,82 @@
       </accordion>
     </div>
     <section>
-      <div class="reference-container">
+      <div class="reference-container" *ngFor="let item of current_issues_ph">
         <accordion [isAnimated]="true">
           <accordion-group heading="References" style="margin-bottom: 30px;">
             <a
-              href="https://th.boell.org/en/2022/01/21/climate-disasters-philippines"
+              href={{item.references[0]}}
               target="_blank"
-              >https://th.boell.org/en/2022/01/21/climate-disasters-philippines</a
+              >{{item.references[0]}}</a
             >
             <br />
             <br />
             <a
-              href="https://www.philstar.com/headlines/2023/02/20/2246224/rising-sea-level-threatens-stability-boundaries-philippines-warns"
+              href={{item.references[1]}}
               target="_blank"
-              >https://www.philstar.com/headlines/2023/02/20/2246224/rising-sea-level-threatens-stability-boundaries-philippines-warns</a
-            >
-            <br>
-            <br />
-            <a
-              href="https://www.preventionweb.net/news/climate-risks-threaten-major-industries-marine-ecosystems-philippines-coastal-city#:~:text=The%20lack%20of%20seagrass%20beds,coverage%20due%20to%20illegal%20cutting."
-              target="_blank"
-              >https://www.preventionweb.net/news/climate-risks-threaten-major-industries-marine-ecosystems-philippines-coastal-city#:~:text=The%20lack%20of%20seagrass%20beds,coverage%20due%20to%20illegal%20cutting.</a
-            >
-            <br />
-            <br />
-            <a
-              href="https://fpe.ph/biodiversity.html/view/why-are-we-losing-species"
-              target="_blank"
-              >https://fpe.ph/biodiversity.html/view/why-are-we-losing-species</a
-            >
-            <br />
-            <br />
-            <a
-              href="https://www.eco-business.com/news/climate-change-will-impact-philippines-ability-to-feed-its-people/"
-              target="_blank"
-              >https://www.eco-business.com/news/climate-change-will-impact-philippines-ability-to-feed-its-people/</a
-            >
-            <br />
-            <br />
-            <a
-              href="https://www.bworldonline.com/special-reports/2022/07/27/463299/as-govt-scrambles-to-achieve-food-security-it-mustnt-forget-about-climate-change/#:~:text=In%20agriculture%2C%20the%20effects%20of,the%20health%20of%20the%20crops."
-              target="_blank"
-              >https://www.bworldonline.com/special-reports/2022/07/27/463299/as-govt-scrambles-to-achieve-food-security-it-mustnt-forget-about-climate-change/#:~:text=In%20agriculture%2C%20the%20effects%20of,the%20health%20of%20the%20crops.</a
+              >{{item.references[1]}}</a
             >
             <br>
             <br />
             <a
-              href="https://climateadaptationplatform.com/climate-change-impacts-health-and-livelihood-of-filipinos-study-says/#:~:text=The%20country%20is%20considered%20one,leptospirosis%20(Tagupa%2C%202021)."
+              href={{item.references[2]}}
               target="_blank"
-              >https://climateadaptationplatform.com/climate-change-impacts-health-and-livelihood-of-filipinos-study-says/#:~:text=The%20country%20is%20considered%20one,leptospirosis%20(Tagupa%2C%202021).</a
-            >
-            <br />
-            <a
-              href="https://niccdies.climate.gov.ph/climate-change-impacts"
-              target="_blank"
-              >https://niccdies.climate.gov.ph/climate-change-impacts</a
+              >{{item.references[2]}}</a
             >
             <br />
             <br />
             <a
-              href="https://niccdies.climate.gov.ph/climate-change-impacts"
+              href={{item.references[3]}}
               target="_blank"
-              >https://niccdies.climate.gov.ph/climate-change-impacts</a
+              >{{item.references[3]}}</a
             >
             <br />
             <br />
             <a
-              href="https://www.greenpeace.org/philippines/publication/1180/climate-change-and-water-impacts-and-vulnerabilities-in-the-philippines/"
+              href={{item.references[4]}}
               target="_blank"
-              >https://www.greenpeace.org/philippines/publication/1180/climate-change-and-water-impacts-and-vulnerabilities-in-the-philippines/</a
+              >{{item.references[4]}}</a
+            >
+            <br />
+            <br />
+            <a
+              href={{item.references[5]}}
+              target="_blank"
+              >{{item.references[5]}}</a
             >
             <br>
             <br />
             <a
-              href="https://newsinfo.inquirer.net/1798650/el-nino-in-ph-on-top-of-killer-heat-water-scarcity-looms"
+              href={{item.references[6]}}
               target="_blank"
-              >https://newsinfo.inquirer.net/1798650/el-nino-in-ph-on-top-of-killer-heat-water-scarcity-looms</a
+              >{{item.references[6]}}</a
+            >
+            <br />
+            <a
+              href={{item.references[7]}}
+              target="_blank"
+              >{{item.references[7]}}</a
             >
             <br />
             <br />
             <a
-              href="https://www.straitstimes.com/asia/se-asia/11-million-families-facing-water-crisis-in-philippines#:~:text=In%20a%202021%20report%2C%20the,rapid%20population%20and%20economic%20growth."
+              href={{item.references[8]}}
               target="_blank"
-              >https://www.straitstimes.com/asia/se-asia/11-million-families-facing-water-crisis-in-philippines#:~:text=In%20a%202021%20report%2C%20the,rapid%20population%20and%20economic%20growth.</a
+              >h{{item.references[8]}}</a
+            >
+            <br />
+            <br />
+            <a
+              href={{item.references[9]}}
+              target="_blank"
+              >{{item.references[9]}}</a
+            >
+            <br>
+            <br />
+            <a
+              href={{item.references[10]}}
+              target="_blank"
+              >{{item.references[10]}}</a
             >
           </accordion-group>
         </accordion>

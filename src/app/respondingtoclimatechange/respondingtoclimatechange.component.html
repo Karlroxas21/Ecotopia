@@ -1,126 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
-      rel="stylesheet"
-    />
-    <title></title>
-  </head>
-  <body>
-    <div class="background" style="margin-bottom: 50px">
-      <img src="assets/solutionsimages/plants.jpg" alt="Plants" width="100%" />
+<body>
+  <div class="background" style="margin-bottom: 50px">
+    <img src="assets/solutionsimages/plants.jpg" alt="Plants" width="100%" />
+  </div>
+
+  <main style="padding: 0 30px 0 30px">
+    <div class="text" *ngFor="let item of responding_climate_change">
+      <h2 style="color: #0030ff">
+        {{item.header}}
+      </h2>
+      <br />
+      <br />
+
+      <h4>{{item.header_description}}</h4>
+
+      <br>
+
+      <h3 style="color: #fb0280">
+        {{item.descriptions[0]}}
+      </h3>
+      <p>
+        <br />
+        <b style="font-size: 23px; color: #2082c8">1. {{item.bullets.bullet_1[0]}}</b>
+        <br />
+        {{item.bullets.bullet_1[1]}} 
+        <br />
+        <br />
+        <b style="font-size: 23px; color: #2082c8">2. {{item.bullets.bullet_2[0]}}</b>
+        <br />
+        {{item.bullets.bullet_2[1]}}
+      </p>
+      <br />
+      <p>
+        {{item.descriptions[1]}}
+
+        <br />
+        <br />
+
+        {{item.descriptions[2]}}
+
+        <br />
+        <br />
+
+        {{item.descriptions[3]}}
+
+        <br />
+        <br />
+
+        {{item.descriptions[4]}}
+
+        <br />
+        <br />
+
+        {{item.descriptions[5]}}
+        
+        <br />
+      </p>
     </div>
 
-    <main style="padding: 0 30px 0 30px">
-      <div class="text">
-        <h2 style="color: #0030ff">
-          Climate change is a complex global problem with scientific, economic,
-          societal, political, and moral dimensions, and it will persist for
-          thousands of years. Despite halting greenhouse gas emissions, the
-          long-lasting presence of carbon dioxide and the delayed response of
-          the planet mean that future generations will still experience the
-          effects of global warming and climate change. Humanity is therefore
-          bound to a certain level of climate change.
-        </h2>
-        <br />
-        <br />
-        <h3 style="color: #fb0280">
-          There are two approaches to address climate change: mitigation and
-          adaptation.
-        </h3>
-        <p>
-          <br />
-            <b style="font-size: 23px; color: #2082c8">1. Mitigation</b>
-            <br />
-            involves reducing and stabilizing the presence of greenhouse gases
-            in the atmosphere to limit further warming. 
-          <br />
-          <br>
-            <b style="font-size: 23px; color: #2082c8">2. Adaptation</b>
-            <br />
-            focuses on adjusting to the changes that are already occurring due
-            to climate change.
-        </p>
-        <br />
-        <p>
-          <b>Mitigation</b> refers to the actions taken to reduce climate change
-          by decreasing the release of heat-trapping greenhouse gases into the
-          atmosphere. This can be achieved by limiting the sources of these
-          gases, such as the combustion of fossil fuels for energy and
-          transportation, or by enhancing natural sinks like forests, oceans,
-          and soil that absorb and store these gases. The objective of
-          mitigation is to prevent significant human interference with the
-          Earth's climate, stabilize greenhouse gas levels within a timeframe
-          that allows ecosystems to naturally adapt to climate change, safeguard
-          food production, and support sustainable economic development (as
-          outlined in the 2014 report on Mitigation of Climate Change by the
-          United Nations Intergovernmental Panel on Climate Change, page 4).
-          <br />
-          <br />
-          <b>Adaptation</b> refers to the process of adapting to the challenges posed
-          by a changing climate, both present and anticipated. The objective is
-          to minimize the risks associated with the adverse impacts of climate
-          change, such as rising sea levels, intensified extreme weather events,
-          and food scarcity. Additionally, adaptation involves harnessing any
-          potential advantages that may arise from climate change, such as
-          longer growing seasons or improved agricultural yields in certain
-          regions. 
-          <br>
-          <br>
-          Throughout history, societies have dealt with climate changes
-          and extremes to varying degrees of success, with climate-related
-          factors contributing to the rise and fall of civilizations,
-          particularly through droughts. The stability of Earth's climate over
-          the past 10,000 years has allowed for the development of modern
-          civilization and agriculture, which are adapted to this stable climate
-          rather than the warmer conditions anticipated in the future. As our
-          climate continues to change, adaptation becomes crucial, and the speed
-          at which it changes affects the level of difficulty. 
-          <br>
-          <br>
-          Although climate
-          change is a global challenge, its impacts are experienced at the local
-          level, making local governments the forefront of adaptation efforts.
-          Cities and communities worldwide have been addressing their specific
-          climate issues by constructing flood defenses, preparing for heatwaves
-          and higher temperatures, implementing improved drainage systems to
-          handle floods and stormwater, and enhancing water storage and
-          management. 
-          <br>
-          <br>
-          Governments at various levels are increasingly integrating
-          adaptation measures into their development plans, as highlighted in
-          the 2014 report on Climate Change Impacts, Adaptation, and
-          Vulnerability by the United Nations Intergovernmental Panel on Climate
-          Change (page 8). These efforts involve managing extreme disasters,
-          protecting coastlines from sea-level rise, implementing sustainable
-          land and forest management practices, preparing for and mitigating
-          droughts, developing resilient crop varieties, and safeguarding energy
-          and public infrastructure.
-          <br />
-        </p>
+    <section>
+      <div class="reference-container" *ngFor="let item of responding_climate_change">
+        <accordion [isAnimated]="true">
+          <accordion-group heading="References">
+            <a
+              href={{item.references[0]}}
+              target="_blank"
+              >{{item.references[0]}}</a
+            >
+          </accordion-group>
+        </accordion>
       </div>
-
-      <section>
-        <div class="reference-container">
-          <accordion [isAnimated]="true">
-            <accordion-group heading="References">
-              <a
-                href="https://climate.nasa.gov/solutions/adaptation-mitigation/"
-                target="_blank"
-                >https://climate.nasa.gov/solutions/adaptation-mitigation/</a
-              >
-            </accordion-group>
-          </accordion>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <app-footer></app-footer>
-    </footer>
-  </body>
-</html>
+    </section>
+  </main>
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</body>

@@ -33,6 +33,7 @@ import { AdminSolution1Component } from './admin-solution1/admin-solution1.compo
 import { AdminSolution2Component } from './admin-solution2/admin-solution2.component';
 import { AdminSolution3Component } from './admin-solution3/admin-solution3.component';
 // Solution 4
+import { AdminSolutionsComponent } from './admin-solutions/admin-solutions.component';
 import { AdminCurrentIssuesPhComponent } from './admin-current-issues-ph/admin-current-issues-ph.component';
 
 const routes: Routes = [
@@ -71,6 +72,7 @@ const routes: Routes = [
   {component: AdminSolution2Component, path: 'admin-solution-2'},
   {component: AdminSolution3Component, path: 'admin-solution-3'},
   // Solution 4
+  {component: AdminSolutionsComponent, path: 'admin-solutions'},
   {component: AdminCurrentIssuesPhComponent, path: 'admin-current-issues-ph'}
 
 

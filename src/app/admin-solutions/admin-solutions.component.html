@@ -1,0 +1,156 @@
+<body>
+  <div class="background" style="margin-bottom: 50px">
+    <img
+      src="assets/solutionsimages/actnow.jpg"
+      alt="Act now! Image"
+      width="100%"
+    />
+  </div>
+
+  <div class="text">
+    <h1>solutions of climate change</h1>
+  </div>
+
+  <div class="card-container">
+    <div class="card" style="background-color: #77cec1" data-aos="zoom-in">
+      <img
+        src="assets/solutionsimages/action.jpg"
+        alt="People cleaning in the beach Image"
+      />
+      <div class="card-content">
+        <div *ngIf="!editing_solution_1[0]" (click)="startEditingSolution1(0)">
+          <h3>{{ solution_1[0] }}</h3>
+        </div>
+
+        <textarea
+          style="font-size: 1.3rem; font-weight: 500"
+          *ngIf="editing_solution_1[0]"
+          (blur)="finishEditingSolution1(0, $event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="solutions[0].solution_1[0]"
+        ></textarea>
+
+        <div *ngIf="!editing_solution_1[1]" (click)="startEditingSolution1(1)">
+          <p>{{ solution_1[1] }}</p>
+        </div>
+
+        <textarea
+          style="font-size: 1.3rem; font-weight: 500"
+          *ngIf="editing_solution_1[1]"
+          (blur)="finishEditingSolution1(1, $event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="solutions[0].solution_1[1]"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="card" style="background-color: #6051e3" data-aos="zoom-in">
+      <img
+        src="assets/solutionsimages/solutions.jpg"
+        alt="Cleaning City Image"
+      />
+      <div class="card-content">
+        <div *ngIf="!editing_solution_2[0]" (click)="startEditingSolution2(0)">
+          <h3>{{ solution_2[0] }}</h3>
+        </div>
+
+        <textarea
+          style="font-size: 1.3rem; font-weight: 600"
+          *ngIf="editing_solution_2[0]"
+          (blur)="finishEditingSolution2(0, $event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="solutions[0].solution_2[0]"
+        ></textarea>
+
+        <div *ngIf="!editing_solution_2[1]" (click)="startEditingSolution2(1)">
+          <p>{{ solution_2[1] }}</p>
+        </div>
+
+        <textarea
+          style="font-size: 1.3rem"
+          *ngIf="editing_solution_2[1]"
+          (blur)="finishEditingSolution2(1, $event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="solutions[0].solution_2[1]"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-container" style="margin-top: 20px" data-aos="zoom-in">
+    <div class="card" style="background-color: #e89b12">
+      <img src="assets/solutionsimages/plants.jpg" alt="Plants Image" />
+      <div class="card-content">
+        <div *ngIf="!editing_solution_3[0]" (click)="startEditingSolution3(0)">
+          <h3>{{ solution_3[0] }}</h3>
+        </div>
+
+        <textarea
+          style="font-size: 1.3rem; font-weight: 600"
+          *ngIf="editing_solution_3[0]"
+          (blur)="finishEditingSolution3(0, $event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="solutions[0].solution_3[0]"
+        ></textarea>
+
+        <div *ngIf="!editing_solution_3[1]" (click)="startEditingSolution3(1)">
+          <p>{{ solution_3[1] }}</p>
+        </div>
+
+        <textarea
+          style="font-size: 1.3rem"
+          *ngIf="editing_solution_3[1]"
+          (blur)="finishEditingSolution3(1, $event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="solutions[0].solution_3[1]"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="card" style="background-color: #879df8" data-aos="zoom-in">
+      <img src="assets/solutionsimages/city.jpg" alt="Urban Image" />
+      <div class="card-content">
+        <div *ngIf="!editing_solution_4[0]" (click)="startEditingSolution4(0)">
+          <h3>{{ solution_4[0] }}</h3>
+        </div>
+
+        <textarea
+          style="font-size: 1.3rem; font-weight: 600"
+          *ngIf="editing_solution_4[0]"
+          (blur)="finishEditingSolution4(0, $event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="solutions[0].solution_4[0]"
+        ></textarea>
+
+        <div *ngIf="!editing_solution_4[1]" (click)="startEditingSolution4(1)">
+          <p>{{ solution_4[1] }}</p>
+        </div>
+
+        <textarea
+          style="font-size: 1.3rem"
+          *ngIf="editing_solution_4[1]"
+          (blur)="finishEditingSolution4(1, $event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="solutions[0].solution_4[1]"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="publish-container">
+    <button type="button" class="publish" (click)="updateData()">
+      Publish
+    </button>
+  </div>
+</body>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
+import { HttpClient } from '@angular/common/http';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-current-issue',
@@ -12,4 +14,19 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
 export class CurrentIssueComponent {
   isFirstOpen = true;
   oneAtATime = true;
+
+  current_issues_ph: any;
+  title = "Ecotopia: Current Issues in the Philippines";
+
+  constructor(private http: HttpClient,
+    private titleService: Title) { }
+
+  ngOnInit(): void{
+    this.http.get<any[]>('http://localhost:80/currentIssue')
+    .subscribe(incoming_data => {
+      this.current_issues_ph = incoming_data;
+    });
+
+    this.titleService.setTitle(this.title);
+  }
 }
