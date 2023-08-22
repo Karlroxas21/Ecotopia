@@ -3,21 +3,48 @@ const cors = require('cors');
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const News = require('./model/news.models');
-const Cases = require('./model/cases.model');
-const ProblemTrash = require('./model/problem_trash.model');
-const OutDatedEngineModel = require('./model/outdated_engine.model');
-const CauseClimateChange = require('./model/cause_climate_change.model');
-const EffectsClimateChange = require('./model/effects_climate_change.model');
-const Solution1 = require('./model/solutions/solution-1.model');
-const Solution2 = require('./model/solutions/solution-2.model');
-const Solution3 = require('./model/solutions/solution-3.model');
-// Solution 4 Here!
-const Solution = require('./model/solutions/solutions.model');
-const CurrentIssues = require('./model/current_issues.model');
 
-const { async } = require('rxjs');
 const history = require('connect-history-api-fallback');
+
+// Routes
+
+// Admin Cases Routes
+const admin_case_routes = require('./routes/admin/cases/cases-routes');
+const admin_causes_climate_change_routes = require('./routes/admin/cases/causes-climate-change-routes');
+const admin_effects_climate_change_routes = require('./routes/admin/cases/effects-climate-change-routes');
+const admin_outdated_engine_routes = require('./routes/admin/cases/outdated-engine-routes');
+const admin_problem_trash_routes = require('./routes/admin/cases/problem-trash-routes');
+
+// Admin Solutions Routes
+const admin_other_solutions_routes = require('./routes/admin/solutions/other-solutions-routes');
+const admin_responding_climate_change_routes = require('./routes/admin/solutions/responding-climate-change-routes');
+const admin_solutions_routes = require('./routes/admin/solutions/solutions-routes');
+const admin_y_take_actions_routes = require('./routes/admin/solutions/y-take-actions-routes');
+
+// Admin Current Issue
+const admin_current_issues_ph_routes = require('./routes/admin/current-issues-ph-routes');
+
+// Cases
+const cases_routes = require('./routes/cases/cases-routes');
+const causes_climate_change_routes = require('./routes/cases/causes-climate-change-routes');
+const effects_climate_change_routes = require('./routes/cases/effects-climate-change-routes');
+const jeep_outdated_engine_routes = require('./routes/cases/jeep-outdated-engine-routes');
+const problem_trash_routes = require('./routes/cases/problem-trash-routes');
+
+// Solutions
+const other_solutions_routes = require('./routes/solutions/other-solutions-routes');
+const responding_climate_change_routes = require('./routes/solutions/responding-climate-change');
+const solutions_routes = require('./routes/solutions/solutions-routes');
+const y_take_action_routes = require('./routes/solutions/y_take_action-routes');
+
+// Current Issues PH 
+const current_issues_ph_routes = require('./routes/current-issues-ph-routes');
+
+// News & Features
+const news_features_routes = require('./routes/news-features-routes');
+
+// Overview of Climate Change
+const overview_climate_change_routes = require('./routes/overview-climate-change-routes');
 
 const app = express();
 const port = process.env.PORT || 80;
@@ -39,351 +66,43 @@ app.get('/', (req, res) => {
   sendFile(path.join(__dirname, 'dist/ecotopia-capstone/index.html'));
 });
 
-// Overview of Climate Change
-app.get('/overviewOfClimateChange', async(req, res) =>{
-    try{
-        const news = await News.find();
-        res.json(news);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
+// Admin Cases
+app.use('/', admin_case_routes );
+app.use('/', admin_causes_climate_change_routes );
+app.use('/', admin_effects_climate_change_routes );
+app.use('/', admin_outdated_engine_routes );
+app.use('/', admin_problem_trash_routes );
 
-// News & Features
-app.get('/news_features', async(req, res) =>{
-    try{
-        const news = await News.find();
-        res.json(news);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
+// Admin Solutions Routes
+app.use('/', admin_other_solutions_routes );
+app.use('/', admin_responding_climate_change_routes );
+app.use('/', admin_solutions_routes );
+app.use('/', admin_y_take_actions_routes );
 
-// Cases 
-app.get('/problems', async(req, res) =>{
-    try{
-        const cases = await Cases.find();
-        res.json(cases);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
+// Admin Current Issue
+app.use('/', admin_current_issues_ph_routes );
 
-// Problem with Trash
-app.get('/problemtrash', async(req, res) =>{
-    try{
-        const problem_trash = await ProblemTrash.find();
-        res.json(problem_trash);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-// Jeep Outdated Engine
-app.get('/outdatedjeepengine', async(req, res) =>{
-    try{
-        const outdated_engine = await OutDatedEngineModel.find();
-        res.json(outdated_engine);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-// Causes of Climate Change
-app.get('/causesofclimatechange', async(req, res) =>{
-    try{
-        const cause_climate_change = await CauseClimateChange.find();
-        res.json(cause_climate_change);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-// Effects of Climate Change
-app.get('/effectsofclimatechange', async(req, res) =>{
-    try{
-        const effect_climate_change = await EffectsClimateChange.find();
-        res.json(effect_climate_change);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-// Other Solutions
-app.get('/othersolutions', async(req, res) =>{
-    try{
-        const other_solutions = await Solution2.find();
-        res.json(other_solutions);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-// Responding to Climate Change
-app.get('/respondingtoclimatechange', async(req, res) =>{
-    try{
-        const responding_to_climate_change = await Solution3.find();
-        res.json(responding_to_climate_change);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-// Current Issue
-app.get('/currentIssue', async(req, res) =>{
-    try{
-        const current_issues_ph = await CurrentIssues.find();
-        res.json(current_issues_ph);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
+// Cases
+app.use('/', cases_routes );
+app.use('/', causes_climate_change_routes );
+app.use('/', effects_climate_change_routes );
+app.use('/', jeep_outdated_engine_routes );
+app.use('/', problem_trash_routes );
 
 // Solutions
-app.get('/solutions', async(req, res) =>{
-    try{
-        const solutions = await Solution.find();
-        res.json(solutions);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
+app.use('/', other_solutions_routes );
+app.use('/', responding_climate_change_routes );
+app.use('/', solutions_routes );
+app.use('/', y_take_action_routes );
 
-// Admin Cases
-app.put('/admin-cases/:id', async (req, res) =>{
-    try{
-        const cases = await Cases.findByIdAndUpdate(req.params.id, req.body, { new: true });
+// Current Issues PH
+app.use('/', current_issues_ph_routes );
 
-        res.send(cases);
-    }catch(err){
-        res.status(500).send(err.message);
-    }
-})
+// News & Features
+app.use('/', news_features_routes );
 
-app.get('/admin-cases', async(req, res) =>{
-    try{
-        const cases = await Cases.find();
-        res.json(cases);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-// Why Should We Take Action
-app.get('/whyshouldwetakeactions', async(req, res) =>{
-    try{
-        const y_should_we_take_action = await Solution1.find();
-        res.json(y_should_we_take_action);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-// Admin Problem Trash / Case 1
-app.put('/admin-cases-problemtrash/:id', async (req, res) =>{
-    try{
-        const upstream_data = await ProblemTrash.findByIdAndUpdate(req.params.id, req.body, { new: true });
-
-        res.send(upstream_data);
-    }catch(err){
-        res.status(500).send(err.message);
-    }
-})
-
-app.get('/admin-cases-problemtrash', async(req, res) =>{
-    try{
-        const problem_trash = await ProblemTrash.find();
-        res.json(problem_trash);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-// Admin Outdated Engine / Case 2
-app.put('/admin-case-2/:id', async (req, res) =>{
-    try{
-        const upstream_data = await OutDatedEngineModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
-
-        res.send(upstream_data);
-    }catch(err){
-        res.status(500).send(err.message);
-    }
-})
-
-app.get('/admin-case-2', async(req, res) =>{
-    try{
-        const outdated_engine = await OutDatedEngineModel.find();
-        res.json(outdated_engine);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-// Admin Causes of Climate Change / Case 3
-app.put('/admin-case-3/:id', async (req, res) =>{
-    try{
-        const upstream_data = await CauseClimateChange.findByIdAndUpdate(req.params.id, req.body, { new: true });
-
-        res.send(upstream_data);
-    }catch(err){
-        res.status(500).send(err.message);
-    }
-})
-
-app.get('/admin-case-3', async(req, res) =>{
-    try{
-        const causes_climate_change = await CauseClimateChange.find();
-        res.json(causes_climate_change);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-// Admin Effects of Climate Change / Case 4
-app.put('/admin-case-4/:id', async (req, res) =>{
-    try{
-        const upstream_data = await EffectsClimateChange.findByIdAndUpdate(req.params.id, req.body, { new: true });
-
-        res.send(upstream_data);
-    }catch(err){
-        res.status(500).send(err.message);
-    }
-})
-
-app.get('/admin-case-4', async(req, res) =>{
-    try{
-        const effects_climate_change = await EffectsClimateChange.find();
-        res.json(effects_climate_change);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-// Admin Solutions
-app.put('/admin-solutions/:id', async (req, res) =>{
-    try{
-        const upstream_data = await Solution.findByIdAndUpdate(req.params.id, req.body, { new: true });
-
-        res.send(upstream_data);
-    }catch(err){
-        res.status(500).send(err.message);
-    }
-})
-
-app.get('/admin-solutions', async(req, res) =>{
-    try{
-        const solution = await Solution.find();
-        res.json(solution);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-// Admin Solution 1 Why We Should Take Actions
-app.put('/admin-solution-1/:id', async (req, res) =>{
-    try{
-        const upstream_data = await Solution1.findByIdAndUpdate(req.params.id, req.body, { new: true });
-
-        res.send(upstream_data);
-    }catch(err){
-        res.status(500).send(err.message);
-    }
-})
-
-app.get('/admin-solution-1', async(req, res) =>{
-    try{
-        const y_should_we_take_action = await Solution1.find();
-        res.json(y_should_we_take_action);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-// Admin Solution 2 Other Solutions
-app.put('/admin-solution-2/:id', async (req, res) =>{
-    try{
-        const upstream_data = await Solution2.findByIdAndUpdate(req.params.id, req.body, { new: true });
-
-        res.send(upstream_data);
-    }catch(err){
-        res.status(500).send(err.message);
-    }
-})
-
-app.get('/admin-solution-2', async(req, res) =>{
-    try{
-        const other_solutions = await Solution2.find();
-        res.json(other_solutions);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-// Admin Solution 3 Responding to Climate Change
-app.put('/admin-solution-3/:id', async (req, res) =>{
-    try{
-        const upstream_data = await Solution3.findByIdAndUpdate(req.params.id, req.body, { new: true });
-
-        res.send(upstream_data);
-    }catch(err){
-        res.status(500).send(err.message);
-    }
-})
-
-app.get('/admin-solution-3', async(req, res) =>{
-    try{
-        const responding_to_climate_change = await Solution3.find();
-        res.json(responding_to_climate_change);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-// Solution 4 here
-
-// Admin Current Issues in PH 
-app.put('/admin-current-issues-ph/:id', async (req, res) =>{
-    try{
-        const upstream_data = await CurrentIssues.findByIdAndUpdate(req.params.id, req.body, { new: true });
-
-        res.send(upstream_data);
-    }catch(err){
-        res.status(500).send(err.message);
-    }
-})
-
-app.get('/admin-current-issues-ph', async(req, res) =>{
-    try{
-        const current_issues_ph = await CurrentIssues.find();
-        res.json(current_issues_ph);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error'});
-    }
-});
-
-
+// Overview of Climate Change
+app.use('/', overview_climate_change_routes );
 
 app.listen(port, ()=>{
     console.log(`Listening on ${port}`);
