@@ -21,6 +21,7 @@ import { GovernmentresourcesComponent } from './governmentresources/governmentre
 import { ProblemjeepoutdatedengineComponent } from './problemjeepoutdatedengine/problemjeepoutdatedengine.component';
 import { AssessmentComponent } from './assessment/assessment.component';
 import { MaterialComponent } from './material/material.component';
+import { LoginComponent } from './login/login.component';
 
 // Admin components
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
@@ -59,6 +60,7 @@ const routes: Routes = [
   {component: ProblemjeepoutdatedengineComponent, path: 'outdatedjeepengine'},
   {component: AssessmentComponent, path: 'assessment'},
   {component: MaterialComponent, path: 'material'},
+  {component: LoginComponent, path: 'login'},
 
   // Admin Components
   {component: AdminCasesComponent, path: 'admin-cases'},
