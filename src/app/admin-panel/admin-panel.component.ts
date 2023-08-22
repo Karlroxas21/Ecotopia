@@ -49,12 +49,14 @@ export class AdminPanelComponent {
     { text: 'Assessment', icon: 'bx-edit' },
 
     //Cases
+    { text: 'Cases', icon: 'bx-trash', route: '/admin-cases'},
     { text: 'Case 1', icon: 'bx-trash', route: '/admin-case-1'},
     { text: 'Case 2', icon: 'bx-bus', route: '/admin-case-2' },
     { text: 'Case 3', icon: 'bx-question-mark', route: '/admin-case-3' },
     { text: 'Case 4', icon: 'bxs-magic-wand', route: '/admin-case-4' },
 
     //Solutions
+    { text: 'Solutions', icon: 'bx-check-shield', route: '/admin-solutions'},
     { text: 'Solution 1', icon: 'bx-check-shield', route: '/admin-solution-1'},
     { text: 'Solution 2', icon: 'bx-check-shield', route: '/admin-solution-2' },
     { text: 'Solution 3', icon: 'bx-check-shield', route: '/admin-solution-3' }
