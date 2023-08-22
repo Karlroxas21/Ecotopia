@@ -1,49 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin NavBar</title>
-</head>
 <body>
-<div id="sidebar" [ngClass]="{ 'collapsed': isCollapsed }">
-  <button class="toggle-button" (click)="toggleSidebar()">
-    <i *ngIf="isCollapsed" class="bx bx-menu"></i>
-    <i *ngIf="!isCollapsed" class="bx bx-x"></i>
-  </button>
-  <div class="admin-panel" style="margin-left: -17px;">
-    <a href="#">
-    <img src="assets/user.png" alt="Admin Image">
-    <i *ngIf="isCollapsed"></i>
-    <i *ngIf="!isCollapsed"><span>Admin User</span></i>
-    </a>
+  <div id="sidebar" [ngClass]="{ collapsed: isCollapsed }">
+    <button class="toggle-button" (click)="toggleSidebar()">
+      <i *ngIf="isCollapsed" class="bx bx-menu"></i>
+      <i *ngIf="!isCollapsed" class="bx bx-x"></i>
+    </button>
+    <div class="admin-panel" style="margin-left: -17px">
+      <a href="#">
+        <img src="assets/user.png" alt="Admin Image" />
+        <i *ngIf="isCollapsed"></i>
+        <i *ngIf="!isCollapsed"><span>Administrator</span></i>
+      </a>
+    </div>
+    <ul class="nav-list">
+      <ng-container *ngFor="let item of navItems">
+        <li *ngIf="!item.children">
+          <a *ngIf="!isCollapsed" [routerLink]="[item.route]" routerLinkActive="active">{{ item.text }}</a>
+          <a *ngIf="isCollapsed" [routerLink]="[item.route]" routerLinkActive="active" class="collapsed-icon">
+            <i class="bx {{ item.icon }}"></i>
+          </a>
+        </li>
+
+        <li *ngIf="item.children">
+          <a (click)="toggleDropdown(item)" style="cursor: pointer">
+            <span>{{ item.text }}</span>
+            <i
+              class="bx bx-chevron-down"
+              [ngClass]="{ rotate: item.showChildren }"
+            ></i>
+          </a>
+          <ul *ngIf="item.showChildren">
+            <li *ngFor="let childItem of item.children">
+              <a href="#">{{ childItem.text }}</a>
+            </li>
+          </ul>
+        </li>
+      </ng-container>
+      <a href="#" (click)="logout()" style="position: absolute; bottom: 50px">
+        <i *ngIf="isCollapsed" class="bx bx-log-out"></i>
+        <i *ngIf="!isCollapsed" class="bx bxs-log-out"
+          ><span style="font-weight: bold"> Logout</span></i
+        >
+      </a>
+    </ul>
   </div>
-  <ul class="nav-list">
-    <ng-container *ngFor="let item of navItems">
-      <li *ngIf="!item.children">
-        <a *ngIf="!isCollapsed" href="#">{{ item.text }}</a>
-        <a *ngIf="isCollapsed" href="#" class="collapsed-icon">
-          <i class="bx {{ item.icon }}"></i>
-        </a>
-      </li>
-      
-      <li *ngIf="item.children">
-        <a (click)="toggleDropdown(item)" style="cursor: pointer;">
-          <span>{{ item.text }}</span>
-          <i class="bx bx-chevron-down" [ngClass]="{ 'rotate': item.showChildren }"></i>
-        </a>
-        <ul *ngIf="item.showChildren">
-          <li *ngFor="let childItem of item.children">
-            <a href="#">{{ childItem.text }}</a>
-          </li>
-        </ul>
-      </li>
-    </ng-container>
-    <a href="#" (click)="logout()" style="position: absolute; bottom: 50px;">
-      <i *ngIf="isCollapsed" class="bx bx-log-out"></i>
-      <i *ngIf="!isCollapsed" class='bx bxs-log-out'><span style="font-weight: bold;"> Logout</span></i>
-    </a>
-  </ul>
-</div>
 </body>
-</html>
