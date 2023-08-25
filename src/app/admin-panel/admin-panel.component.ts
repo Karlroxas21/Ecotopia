@@ -49,7 +49,7 @@ export class AdminPanelComponent {
     { text: 'Assessment', icon: 'bx-edit' },
 
     //Cases
-    { text: 'Cases', icon: 'bx-trash', route: '/admin-cases'},
+    { text: 'Cases' , icon: 'bx-briefcase-alt', route: '/admin-cases'},
     { text: 'Case 1', icon: 'bx-trash', route: '/admin-case-1'},
     { text: 'Case 2', icon: 'bx-bus', route: '/admin-case-2' },
     { text: 'Case 3', icon: 'bx-question-mark', route: '/admin-case-3' },
