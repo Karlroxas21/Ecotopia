@@ -46,6 +46,9 @@ const news_features_routes = require('./routes/news-features-routes');
 // Overview of Climate Change
 const overview_climate_change_routes = require('./routes/overview-climate-change-routes');
 
+// Assessments
+const assessment_trivia = require('./routes/assessment-routes');
+
 const app = express();
 const port = process.env.PORT || 80;
 mongoose.connect('mongodb+srv://karlmarxroxas1:Mvckf9rVcnZoxP0V@website.h8t2kwr.mongodb.net/ecotopia');
@@ -103,6 +106,9 @@ app.use('/', news_features_routes );
 
 // Overview of Climate Change
 app.use('/', overview_climate_change_routes );
+
+// Assessment
+app.use('/', assessment_trivia);
 
 app.listen(port, ()=>{
     console.log(`Listening on ${port}`);

@@ -10,160 +10,160 @@
       </div>
     
       <div class="assessment2">
-        <div class="container2" style="border-color: #E89B12;">
+        <div class="container2" style="border-color: #E89B12;" *ngFor="let item of assessment; let index = index">
           <h2>Trivia Game</h2>
           <ol type="1">
             <li>
-              <p>What is the primary gas responsible for greenhouse gas emissions?</p>
-              <input type="radio" name="q1" value="paris" /> Carbon dioxide<br />
-              <input type="radio" name="q1" value="london" /> Hydrogen<br />
-              <input type="radio" name="q1" value="rome" /> Nitrous oxide<br />
-              <input type="radio" name="q1" value="berlin" /> Nitrogen<br />
+              <p>{{item.trivia_game[0].question}}</p>
+              <input type="radio" name="q{{index + 1}}" value="q{{index + 1}}_1" [(ngModel)]="selectedAnswersTriviaGame[index]" /> {{item.trivia_game[0].options[0]}}<br />
+              <input type="radio" name="q{{index + 1}}" value="q{{index + 1}}_2" [(ngModel)]="selectedAnswersTriviaGame[index]" /> {{item.trivia_game[0].options[1]}}<br />
+              <input type="radio" name="q{{index + 1}}" value="q{{index + 1}}_3" [(ngModel)]="selectedAnswersTriviaGame[index]" /> {{item.trivia_game[0].options[2]}}<br />
+              <input type="radio" name="q{{index + 1}}" value="q{{index + 1}}_4" [(ngModel)]="selectedAnswersTriviaGame[index]" /> {{item.trivia_game[0].options[3]}}<br />
             </li>
             <li>
-              <p>How many Islands in the Philippines that make it more vulnerable to typhons and storm surge?</p>
-              <input type="radio" name="q2" value="picasso" /> 7,900 Islands<br />
-              <input type="radio" name="q2" value="da-vinci" /> 7,350 Islands<br />
-              <input type="radio" name="q2" value="van-gogh" /> 7,100 Islands<br />
-              <input type="radio" name="q2" value="warhol" /> 7,198 Islands<br />
+              <p>{{item.trivia_game[1].question}}</p>
+              <input type="radio" name="q{{index + 2}}" value="q{{index + 2}}_1" [(ngModel)]="selectedAnswersTriviaGame[index + 1]"  /> {{item.trivia_game[1].options[0]}}<br />
+              <input type="radio" name="q{{index + 2}}" value="q{{index + 2}}_2" [(ngModel)]="selectedAnswersTriviaGame[index + 1]"  /> {{item.trivia_game[1].options[1]}}<br />
+              <input type="radio" name="q{{index + 2}}" value="q{{index + 2}}_3" [(ngModel)]="selectedAnswersTriviaGame[index + 1]"  /> {{item.trivia_game[1].options[2]}}<br />
+              <input type="radio" name="q{{index + 2}}" value="q{{index + 2}}_4" [(ngModel)]="selectedAnswersTriviaGame[index + 1]"  /> {{item.trivia_game[1].options[3]}}<br />
             </li>
             <li>
-              <p>According to the Asian Disaster Reduction Center, what is the annual estimate of typhoons experienced by the Philippines?</p>
-              <input type="radio" name="q3" value="jupiter" /> 13<br />
-              <input type="radio" name="q3" value="venus" /> 24<br />
-              <input type="radio" name="q3" value="mars" /> 26<br />
-              <input type="radio" name="q3" value="saturn" /> 20<br />
+              <p>{{item.trivia_game[2].question}}</p>
+              <input type="radio" name="q{{index + 3}}" value="q{{index + 3}}_1" [(ngModel)]="selectedAnswersTriviaGame[index + 2]"  /> {{item.trivia_game[2].options[0]}}<br />
+              <input type="radio" name="q{{index + 3}}" value="q{{index + 3}}_2" [(ngModel)]="selectedAnswersTriviaGame[index + 2]"  /> {{item.trivia_game[2].options[1]}}<br />
+              <input type="radio" name="q{{index + 3}}" value="q{{index + 3}}_3" [(ngModel)]="selectedAnswersTriviaGame[index + 2]"  /> {{item.trivia_game[2].options[2]}}<br />
+              <input type="radio" name="q{{index + 3}}" value="q{{index + 3}}_4" [(ngModel)]="selectedAnswersTriviaGame[index + 2]"  /> {{item.trivia_game[2].options[3]}}<br />
             </li>
             <li>
-              <p>It involves reducing and stabilizing the presence of greenhouse gases in the atmosphere to limit further warming.</p>
-              <input type="radio" name="q4" value="picasso" /> Mitigation<br />
-              <input type="radio" name="q4" value="da-vinci" /> Adaptation<br />
-              <input type="radio" name="q4" value="van-gogh" /> Climate Change<br />
-              <input type="radio" name="q4" value="warhol" /> Pollution<br />
+              <p>{{item.trivia_game[3].question}}</p>
+              <input type="radio" name="q{{index + 4}}" value="q{{index + 4}}_1" [(ngModel)]="selectedAnswersTriviaGame[index + 3]"  /> {{item.trivia_game[3].options[0]}}<br />
+              <input type="radio" name="q{{index + 4}}" value="q{{index + 4}}_2" [(ngModel)]="selectedAnswersTriviaGame[index + 3]"  /> {{item.trivia_game[3].options[1]}}<br />
+              <input type="radio" name="q{{index + 4}}" value="q{{index + 4}}_3" [(ngModel)]="selectedAnswersTriviaGame[index + 3]"  /> {{item.trivia_game[3].options[2]}}<br />
+              <input type="radio" name="q{{index + 4}}" value="q{{index + 4}}_4" [(ngModel)]="selectedAnswersTriviaGame[index + 3]"  /> {{item.trivia_game[3].options[3]}}<br />
             </li>
             <li>
-              <p>It focuses on adjusting to the changes that are already occurring due to climate change.</p>
-              <input type="radio" name="q5" value="picasso" /> Climate Change<br />
-              <input type="radio" name="q5" value="da-vinci" /> Mitigation<br />
-              <input type="radio" name="q5" value="van-gogh" /> Adaptation<br />
-              <input type="radio" name="q5" value="warhol" /> Pollution<br />
+              <p>{{item.trivia_game[4].question}}</p>
+              <input type="radio" name="q{{index + 5}}" value="q{{index + 5}}_1" [(ngModel)]="selectedAnswersTriviaGame[index + 4]"  /> {{item.trivia_game[4].options[0]}}<br />
+              <input type="radio" name="q{{index + 5}}" value="q{{index + 5}}_2" [(ngModel)]="selectedAnswersTriviaGame[index + 4]"  /> {{item.trivia_game[4].options[1]}}<br />
+              <input type="radio" name="q{{index + 5}}" value="q{{index + 5}}_3" [(ngModel)]="selectedAnswersTriviaGame[index + 4]"  /> {{item.trivia_game[4].options[2]}}<br />
+              <input type="radio" name="q{{index + 5}}" value="q{{index + 5}}_4" [(ngModel)]="selectedAnswersTriviaGame[index + 4]"  /> {{item.trivia_game[4].options[3]}}<br />
             </li>
             <li>
-              <p>What group of people is responsible for a greater share of greenhouse gas emissions compared to others? </p>
-              <input type="radio" name="q6" value="picasso" /> The poorest 50% of the population<br />
-              <input type="radio" name="q6" value="da-vinci" /> The wealthiest 1% of the population<br />
-              <input type="radio" name="q6" value="van-gogh" /> Government officials<br />
-              <input type="radio" name="q6" value="warhol" /> Children and young people<br />
+              <p>{{item.trivia_game[5].question}}</p>
+              <input type="radio" name="q{{index + 6}}" value="q{{index + 6}}_1" [(ngModel)]="selectedAnswersTriviaGame[index + 5]"  /> {{item.trivia_game[5].options[0]}}<br />
+              <input type="radio" name="q{{index + 6}}" value="q{{index + 6}}_2" [(ngModel)]="selectedAnswersTriviaGame[index + 5]"  /> {{item.trivia_game[5].options[1]}}<br />
+              <input type="radio" name="q{{index + 6}}" value="q{{index + 6}}_3" [(ngModel)]="selectedAnswersTriviaGame[index + 5]"  /> {{item.trivia_game[5].options[2]}}<br />
+              <input type="radio" name="q{{index + 6}}" value="q{{index + 6}}_4" [(ngModel)]="selectedAnswersTriviaGame[index + 5]"  /> {{item.trivia_game[5].options[3]}}<br />
             </li>
             <li>
-              <p>Which of the following sectors consumes over half of all global electricity and emits significant greenhouse gas emissions?</p>
-              <input type="radio" name="q7" value="picasso" /> Manufacturing<br />
-              <input type="radio" name="q7" value="da-vinci" /> Transportation<br />
-              <input type="radio" name="q7" value="van-gogh" /> Agriculture<br />
-              <input type="radio" name="q7" value="warhol" /> Residential and Commercial Buildings<br />
+              <p>{{item.trivia_game[6].question}}</p>
+              <input type="radio" name="q{{index + 7}}" value="q{{index + 7}}_1" [(ngModel)]="selectedAnswersTriviaGame[index + 6]"  /> {{item.trivia_game[6].options[0]}}<br />
+              <input type="radio" name="q{{index + 7}}" value="q{{index + 7}}_2" [(ngModel)]="selectedAnswersTriviaGame[index + 6]"  /> {{item.trivia_game[6].options[1]}}<br />
+              <input type="radio" name="q{{index + 7}}" value="q{{index + 7}}_3" [(ngModel)]="selectedAnswersTriviaGame[index + 6]"  /> {{item.trivia_game[6].options[2]}}<br />
+              <input type="radio" name="q{{index + 7}}" value="q{{index + 7}}_4" [(ngModel)]="selectedAnswersTriviaGame[index + 6]"  /> {{item.trivia_game[6].options[3]}}<br />
             </li>
             <li>
-              <p>How does cutting down forests contribute to greenhouse gas emissions?</p>
-              <input type="radio" name="q8" value="picasso" /> It absorbs excess carbon dioxide from the atmosphere.<br />
-              <input type="radio" name="q8" value="da-vinci" /> It releases stored carbon when trees are cut.<br />
-              <input type="radio" name="q8" value="van-gogh" /> It promotes the growth of new trees and plant.<br />
-              <input type="radio" name="q8" value="warhol" /> It doesn’t have any impact on emissions.<br />
+              <p>{{item.trivia_game[7].question}}</p>
+              <input type="radio" name="q{{index + 8}}" value="q{{index + 8}}_1" [(ngModel)]="selectedAnswersTriviaGame[index + 7]"  /> {{item.trivia_game[7].options[0]}}<br />
+              <input type="radio" name="q{{index + 8}}" value="q{{index + 8}}_2" [(ngModel)]="selectedAnswersTriviaGame[index + 7]"  /> {{item.trivia_game[7].options[1]}}<br />
+              <input type="radio" name="q{{index + 8}}" value="q{{index + 8}}_3" [(ngModel)]="selectedAnswersTriviaGame[index + 7]"  /> {{item.trivia_game[7].options[2]}}<br />
+              <input type="radio" name="q{{index + 8}}" value="q{{index + 8}}_4" [(ngModel)]="selectedAnswersTriviaGame[index + 7]"  /> {{item.trivia_game[7].options[3]}}<br />
             </li>
             <li>
-              <p>Which of the following is a clean and renewable energy source that can help reduce the use of fossil fuels?</p>
-              <input type="radio" name="q9" value="picasso" /> Weather variability<br />
-              <input type="radio" name="q9" value="da-vinci" /> Climate variability<br />
-              <input type="radio" name="q9" value="van-gogh" /> Weather change<br />
-              <input type="radio" name="q9" value="warhol" /> Climate change<br />
+              <p>{{item.trivia_game[8].question}}</p>
+              <input type="radio" name="q{{index + 9}}" value="q{{index + 9}}_1" [(ngModel)]="selectedAnswersTriviaGame[index + 8]"  /> {{item.trivia_game[8].options[0]}}<br />
+              <input type="radio" name="q{{index + 9}}" value="q{{index + 9}}_2" [(ngModel)]="selectedAnswersTriviaGame[index + 8]"  /> {{item.trivia_game[8].options[1]}}<br />
+              <input type="radio" name="q{{index + 9}}" value="q{{index + 9}}_3" [(ngModel)]="selectedAnswersTriviaGame[index + 8]"  /> {{item.trivia_game[8].options[2]}}<br />
+              <input type="radio" name="q{{index + 9}}" value="q{{index + 9}}_4" [(ngModel)]="selectedAnswersTriviaGame[index + 8]"  /> {{item.trivia_game[8].options[3]}}<br />
             </li>
             <li>
-              <p>What is one effective way for individuals to contribute to reducing climate change related to food consumption?</p>
-              <input type="radio" name="q10" value="picasso" /> Eating more meat and dairy products<br />
-              <input type="radio" name="q10" value="da-vinci" /> Consuming only plant-based products.<br />
-              <input type="radio" name="q10" value="van-gogh" /> Increasing consumption of seafood.<br />
-              <input type="radio" name="q10" value="warhol" /> Support deep-sea mining.<br />
+              <p>{{item.trivia_game[9].question}}</p>
+              <input type="radio" name="q{{index + 10}}" value="q{{index + 10}}_1"  [(ngModel)]="selectedAnswersTriviaGame[index + 9]"  /> {{item.trivia_game[9].options[0]}}<br />
+              <input type="radio" name="q{{index + 10}}" value="q{{index + 10}}_2"  [(ngModel)]="selectedAnswersTriviaGame[index + 9]"  /> {{item.trivia_game[9].options[1]}}<br />
+              <input type="radio" name="q{{index + 10}}" value="q{{index + 10}}_3"  [(ngModel)]="selectedAnswersTriviaGame[index + 9]"  /> {{item.trivia_game[9].options[2]}}<br />
+              <input type="radio" name="q{{index + 10}}" value="q{{index + 10}}_4"  [(ngModel)]="selectedAnswersTriviaGame[index + 9]"  /> {{item.trivia_game[9].options[3]}}<br />
             </li>
           </ol>
-          <button type="button" onclick="submitQuiz()" style="background-color: #E89B12;">Submit Quiz</button>
+          <button type="button" (click)="submitTriviaGame()" style="background-color: #E89B12;">Submit Quiz</button>
           <div id="result"></div>
-        </div>
+        </div>        
       </div>
     
       <div class="assessment2">
-        <div class="container2" style="border-color: #77CEC1;">
+        <div class="container2" style="border-color: #77CEC1;" *ngFor="let item of assessment; let index = index">
           <h2>Pop Quiz</h2>
           <ol type="1">
             <li>
-              <p>It is a long-term shift of temperature and typical weather pattern in a place.</p>
-              <input type="radio" name="q1" value="paris" /> Climate Change<br />
-              <input type="radio" name="q1" value="london" /> Weather<br />
-              <input type="radio" name="q1" value="rome" /> Temperature<br />
-              <input type="radio" name="q1" value="berlin" /> Biodiversity<br />
+              <p>{{item.pop_quiz[0].question}}</p>
+              <input type="radio" name="p{{index}}" value="p{{index}}_1" [(ngModel)]="selectedAnswersPopQuiz[index]" /> {{item.pop_quiz[0].options[0]}}<br />
+              <input type="radio" name="p{{index}}" value="p{{index}}_2" [(ngModel)]="selectedAnswersPopQuiz[index]"/> {{item.pop_quiz[0].options[1]}}<br />
+              <input type="radio" name="p{{index}}" value="p{{index}}_3" [(ngModel)]="selectedAnswersPopQuiz[index]"/> {{item.pop_quiz[0].options[2]}}<br />
+              <input type="radio" name="p{{index}}" value="p{{index}}_4" [(ngModel)]="selectedAnswersPopQuiz[index]"/> {{item.pop_quiz[0].options[3]}}<br />
             </li>
             <li>
-              <p>Which of the following is not considered as significant issue on climate change in the Philippines?</p>
-              <input type="radio" name="q2" value="picasso" /> Sea level rise<br />
-              <input type="radio" name="q2" value="da-vinci" /> Coastal Erosion<br />
-              <input type="radio" name="q2" value="van-gogh" /> Ecosystem Loss<br />
-              <input type="radio" name="q2" value="warhol" /> Urban Smog<br />
+              <p>{{item.pop_quiz[1].question}}</p>
+              <input type="radio" name="p{{index + 1}}" value="p{{index + 1}}_1" [(ngModel)]="selectedAnswersPopQuiz[index + 1]"/>  {{item.pop_quiz[1].options[0]}}<br />
+              <input type="radio" name="p{{index + 1}}" value="p{{index + 1}}_2" [(ngModel)]="selectedAnswersPopQuiz[index + 1]"/> {{item.pop_quiz[1].options[1]}}<br />
+              <input type="radio" name="p{{index + 1}}" value="p{{index + 1}}_3" [(ngModel)]="selectedAnswersPopQuiz[index + 1]"/> {{item.pop_quiz[1].options[2]}}<br />
+              <input type="radio" name="p{{index + 1}}" value="p{{index + 1}}_4" [(ngModel)]="selectedAnswersPopQuiz[index + 1]"/> {{item.pop_quiz[1].options[3]}}<br />
             </li>
             <li>
-              <p>Which of the following is not considered as significant issue on climate change in the Philippines?</p>
-              <input type="radio" name="q3" value="jupiter" /> Agriculture<br />
-              <input type="radio" name="q3" value="venus" /> Food Security<br />
-              <input type="radio" name="q3" value="mars" /> Health Risk<br />
-              <input type="radio" name="q3" value="saturn" /> None of the above<br />
+              <p>{{item.pop_quiz[2].question}}</p>
+              <input type="radio" name="p{{index + 2}}" value="p{{index + 2}}_0" [(ngModel)]="selectedAnswersPopQuiz[index + 2]" /> {{item.pop_quiz[2].options[0]}}<br />
+              <input type="radio" name="p{{index + 2}}" value="p{{index + 2}}_1" [(ngModel)]="selectedAnswersPopQuiz[index + 2]" /> {{item.pop_quiz[2].options[1]}}<br />
+              <input type="radio" name="p{{index + 2}}" value="p{{index + 2}}_2" [(ngModel)]="selectedAnswersPopQuiz[index + 2]" /> {{item.pop_quiz[2].options[2]}}<br />
+              <input type="radio" name="p{{index + 2}}" value="p{{index + 2}}_3" [(ngModel)]="selectedAnswersPopQuiz[index + 2]" /> {{item.pop_quiz[2].options[3]}}<br />
             </li>
             <li>
-              <p>Who will suffer the most from severe drought and flooding?</p>
-              <input type="radio" name="q4" value="picasso" /> Government<br />
-              <input type="radio" name="q4" value="da-vinci" /> Farmers<br />
-              <input type="radio" name="q4" value="van-gogh" /> Indigenous People<br />
-              <input type="radio" name="q4" value="warhol" /> Students<br />
+              <p>{{item.pop_quiz[3].question}}</p>
+              <input type="radio" name="p{{index + 3}}" value="p{{index + 3}}_0" [(ngModel)]="selectedAnswersPopQuiz[index + 3]" /> {{item.pop_quiz[3].options[0]}}<br />
+              <input type="radio" name="p{{index + 3}}" value="p{{index + 3}}_1" [(ngModel)]="selectedAnswersPopQuiz[index + 3]" /> {{item.pop_quiz[3].options[1]}}<br />
+              <input type="radio" name="p{{index + 3}}" value="p{{index + 3}}_2" [(ngModel)]="selectedAnswersPopQuiz[index + 3]" /> {{item.pop_quiz[3].options[2]}}<br />
+              <input type="radio" name="p{{index + 3}}" value="p{{index + 3}}_3" [(ngModel)]="selectedAnswersPopQuiz[index + 3]" /> {{item.pop_quiz[3].options[3]}}<br />
             </li>
             <li>
-              <p>It is a global problem caused by climate change because of rapid population and economic growth.</p>
-              <input type="radio" name="q5" value="picasso" /> Health risk<br />
-              <input type="radio" name="q5" value="da-vinci" /> Water Scarcity<br />
-              <input type="radio" name="q5" value="van-gogh" /> Biodiversity<br />
-              <input type="radio" name="q5" value="warhol" /> Coastal Erosion<br />
+              <p>{{item.pop_quiz[4].question}}</p>
+              <input type="radio" name="p{{index + 4}}" value="p{{index + 4}}_0" [(ngModel)]="selectedAnswersPopQuiz[index + 4]" /> {{item.pop_quiz[4].options[0]}}<br />
+              <input type="radio" name="p{{index + 4}}" value="p{{index + 4}}_1" [(ngModel)]="selectedAnswersPopQuiz[index + 4]"  /> {{item.pop_quiz[4].options[1]}}<br />
+              <input type="radio" name="p{{index + 4}}" value="p{{index + 4}}_2" [(ngModel)]="selectedAnswersPopQuiz[index + 4]"  /> {{item.pop_quiz[4].options[2]}}<br />
+              <input type="radio" name="p{{index + 4}}" value="p{{index + 4}}_3" [(ngModel)]="selectedAnswersPopQuiz[index + 4]" /> {{item.pop_quiz[4].options[3]}}<br />
             </li>
             <li>
-              <p>Which is not an example of hurting the nation’s ecosystem and marine habitat?</p>
-              <input type="radio" name="q6" value="picasso" /> Dynamite<br />
-              <input type="radio" name="q6" value="da-vinci" /> Fish Poisoning<br />
-              <input type="radio" name="q6" value="van-gogh" /> Drought<br />
-              <input type="radio" name="q6" value="warhol" /> Mining of sands<br />
+              <p>{{item.pop_quiz[5].question}}</p>
+              <input type="radio" name="p{{index + 5}}" value="p{{index + 5}}_0" [(ngModel)]="selectedAnswersPopQuiz[index + 5]" /> {{item.pop_quiz[5].options[0]}}<br />
+              <input type="radio" name="p{{index + 5}}" value="p{{index + 5}}_1" [(ngModel)]="selectedAnswersPopQuiz[index + 5]" /> {{item.pop_quiz[5].options[1]}}<br />
+              <input type="radio" name="p{{index + 5}}" value="p{{index + 5}}_2" [(ngModel)]="selectedAnswersPopQuiz[index + 5]" /> {{item.pop_quiz[5].options[2]}}<br />
+              <input type="radio" name="p{{index + 5}}" value="p{{index + 5}}_3" [(ngModel)]="selectedAnswersPopQuiz[index + 5]" /> {{item.pop_quiz[5].options[3]}}<br />
             </li>
             <li>
-              <p>What pollution is a combination of chemicals and trash?</p>
-              <input type="radio" name="q7" value="picasso" /> Marine Pollution<br />
-              <input type="radio" name="q7" value="da-vinci" /> Water Pollution<br />
-              <input type="radio" name="q7" value="van-gogh" /> Air pollution<br />
+              <p>{{item.pop_quiz[6].question}}</p>
+              <input type="radio" name="p{{index + 6}}" value="p{{index + 6}}_0" [(ngModel)]="selectedAnswersPopQuiz[index + 6]" /> {{item.pop_quiz[6].options[0]}}<br />
+              <input type="radio" name="p{{index + 6}}" value="p{{index + 6}}_1" [(ngModel)]="selectedAnswersPopQuiz[index + 6]" /> {{item.pop_quiz[6].options[1]}}<br />
+              <input type="radio" name="p{{index + 6}}" value="p{{index + 6}}_2" [(ngModel)]="selectedAnswersPopQuiz[index + 6]" /> {{item.pop_quiz[6].options[2]}}<br />
             </li>
             <li>
-              <p>What is the “second most important, but previously overlooked factor in global warming”?</p>
-              <input type="radio" name="q9" value="picasso" /> Black Carbon<br />
-              <input type="radio" name="q9" value="da-vinci" /> Carbon Dioxide<br />
-              <input type="radio" name="q9" value="van-gogh" /> Fossil Fuel<br />
-              <input type="radio" name="q9" value="warhol" /> Oxygen<br />
+              <p>{{item.pop_quiz[7].question}}</p>
+              <input type="radio" name="p{{index + 7}}" value="p{{index + 7}}_0" [(ngModel)]="selectedAnswersPopQuiz[index + 7]" /> {{item.pop_quiz[7].options[0]}}<br />
+              <input type="radio" name="p{{index + 7}}" value="p{{index + 7}}_1" [(ngModel)]="selectedAnswersPopQuiz[index + 7]" /> {{item.pop_quiz[7].options[1]}}<br />
+              <input type="radio" name="p{{index + 7}}" value="p{{index + 7}}_2" [(ngModel)]="selectedAnswersPopQuiz[index + 7]" /> {{item.pop_quiz[7].options[2]}}<br />
+              <input type="radio" name="p{{index + 7}}" value="p{{index + 7}}_3" [(ngModel)]="selectedAnswersPopQuiz[index + 7]" /> {{item.pop_quiz[7].options[3]}}<br />
             </li>
             <li>
-              <p>What is the important cause of sea level rise?</p>
-              <input type="radio" name="q9" value="picasso" /> Black Carbon<br />
-              <input type="radio" name="q9" value="da-vinci" /> Burning of Fossil Fuels<br />
-              <input type="radio" name="q9" value="van-gogh" /> Marine Pollution<br />
-              <input type="radio" name="q9" value="warhol" /> Flooding<br />
+              <p>{{item.pop_quiz[8].question}}</p>
+              <input type="radio" name="p{{index + 8}}" value="p{{index + 8}}_0" [(ngModel)]="selectedAnswersPopQuiz[index + 8]" /> {{item.pop_quiz[8].options[0]}}<br />
+              <input type="radio" name="p{{index + 8}}" value="p{{index + 8}}_1" [(ngModel)]="selectedAnswersPopQuiz[index + 8]" /> {{item.pop_quiz[8].options[1]}}<br />
+              <input type="radio" name="p{{index + 8}}" value="p{{index + 8}}_2" [(ngModel)]="selectedAnswersPopQuiz[index + 8]" /> {{item.pop_quiz[8].options[2]}}<br />
+              <input type="radio" name="p{{index + 8}}" value="p{{index + 8}}_3" [(ngModel)]="selectedAnswersPopQuiz[index + 8]" /> {{item.pop_quiz[8].options[3]}}<br />
             </li>
             <li>
-              <p>Sea Level Rise Model shows the relationships of: </p>
-              <input type="radio" name="q10" value="picasso" /> Causes<br />
-              <input type="radio" name="q10" value="da-vinci" /> Effects  <br />
-              <input type="radio" name="q10" value="van-gogh" /> Both Causes and Effects<br />
-              <input type="radio" name="q10" value="warhol" /> None of the Above<br />
+              <p>{{item.pop_quiz[9].question}}</p>
+              <input type="radio" name="p{{index + 9}}" value="p{{index + 9}}_0" [(ngModel)]="selectedAnswersPopQuiz[index + 9]" /> {{item.pop_quiz[9].options[0]}}<br />
+              <input type="radio" name="p{{index + 9}}" value="p{{index + 9}}_1" [(ngModel)]="selectedAnswersPopQuiz[index + 9]" />   {{item.pop_quiz[9].options[1]}}<br />
+              <input type="radio" name="p{{index + 9}}" value="p{{index + 9}}_2" [(ngModel)]="selectedAnswersPopQuiz[index + 9]" />  {{item.pop_quiz[9].options[2]}}<br />
+              <input type="radio" name="p{{index + 9}}" value="p{{index + 9}}_3" [(ngModel)]="selectedAnswersPopQuiz[index + 9]" />  {{item.pop_quiz[9].options[3]}}<br />
             </li>
           </ol>
-          <button type="button" onclick="submitQuiz()" style="background-color: #77CEC1;">Submit Quiz</button>
+          <button type="button" (click)="submitPopQuiz()" style="background-color: #77CEC1;">Submit Quiz</button>
           <div id="result"></div>
         </div>
       </div>

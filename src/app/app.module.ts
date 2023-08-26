@@ -43,6 +43,7 @@ import { AdminSolution3Component } from './admin-solution3/admin-solution3.compo
 import { AdminCurrentIssuesPhComponent } from './admin-current-issues-ph/admin-current-issues-ph.component';
 import { AdminSolutionsComponent } from './admin-solutions/admin-solutions.component';
 import { LoginComponent } from './login/login.component';
+import { AdminAssessmentComponent } from './admin-assessment/admin-assessment.component';
 
 
 @NgModule({
@@ -84,6 +85,7 @@ import { LoginComponent } from './login/login.component';
     AdminCurrentIssuesPhComponent,
     AdminSolutionsComponent,
     LoginComponent,
+    AdminAssessmentComponent,
 
     
   ],
