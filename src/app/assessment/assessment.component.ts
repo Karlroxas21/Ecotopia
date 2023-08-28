@@ -31,14 +31,60 @@ export class AssessmentComponent {
 
   }
 
+  checkAnswerTriviaGame(){
+    let score_trivia_game = 0;
+    for(const item of this.assessment){
+      for(let i = 0; i < 10; i++){
+        if(item.trivia_game[i].correct_answer === this.selectedAnswersTriviaGame[i]){
+          score_trivia_game += 1;
+        }
+        
+      }
+    }
+    // Insert toaster here that shows your score.
+    console.log(score_trivia_game); // Remove this if deploying
+  }
+
+  checkAnswerPopQuiz(){
+    let score_pop_quiz = 0;
+    for(const item of this.assessment){
+      for(let i = 0; i < 10; i++){
+        if(item.pop_quiz[i].correct_answer === this.selectedAnswersPopQuiz[i]){
+          score_pop_quiz += 1;
+        }
+      }
+    }
+    // Insert toaster here that shows your score.
+    console.log(score_pop_quiz); // Remove this if deploying
+  }
+
   submitTriviaGame(){
     // Add validation if all questions is answered.
-    console.log('selected answers', this.selectedAnswersTriviaGame);
+    console.log('selected answers', this.selectedAnswersTriviaGame); // Remove this if deploying
+
+    this.checkAnswerTriviaGame();
+    
+  }
+
+  resetSelectedAnswersTrivia(){
+    this.selectedAnswersTriviaGame.fill('');
+
+    // Insert toaster here that shows you reset the trivia game.
+    console.log(this.selectedAnswersTriviaGame); // Remove this if deploying
   }
 
   submitPopQuiz(){
     // Add validation if all questions is answered.
-    console.log('selected answers', this.selectedAnswersPopQuiz);
+    console.log('selected answers', this.selectedAnswersPopQuiz); // Remove this if deploying
+
+    this.checkAnswerPopQuiz();
+  }
+
+  resetSelectedAnswersPop(){
+    this.selectedAnswersPopQuiz.fill('');
+
+    // Insert toaster here that shows you reset the pop quiz.
+    console.log(this.selectedAnswersPopQuiz); // Remove this if deploying
   }
 
 }
