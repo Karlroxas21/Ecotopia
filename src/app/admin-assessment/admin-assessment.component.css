@@ -1,0 +1,97 @@
+@import url('https://fonts.cdnfonts.com/css/henry-sans');
+
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Henry Sans', sans-serif;
+}
+
+.assessment {
+        background-color: #0030FF;
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.assessment h1 {
+        font-size: 50px;
+        font-weight: bold;
+        color: #fff;
+}
+
+.container2 li {
+        font-size: 20px;
+}
+
+.container2 li p {
+        margin-top: 20px;
+}
+
+.container2 h2 {
+        padding-bottom: 20px;
+        color: #000;
+}
+
+.question {
+        margin-bottom: 20px;
+}
+
+button {
+        display: block;
+        margin-top: 20px;
+        font-size: 20px;
+        padding: 5px 10px;
+        color: #000;
+}
+
+button:hover {
+        transform: scale(1.1);
+        transition: all .20s ease;
+}
+
+#result {
+        margin-top: 20px;
+        font-weight: bold;
+}
+
+.container2 {
+        width: 900px;
+        margin: 50px auto;
+        padding: 10px 50px 10px 50px;
+        border: 5px solid;
+        color: black;
+}
+
+.publish-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 50px;
+}
+
+.publish:hover {
+        background: #0030ff;
+}
+
+.publish {
+        border-radius: 20px;
+        background: #ff96a9;
+        font-size: 2rem;
+        padding: 10px;
+        color: white;
+        font-weight: 600;
+        letter-spacing: 1.65px;
+}
+
+.resizable-input {
+        resize: both;
+}
+
+@media only screen and (max-width: 920px) {
+        .container2 {
+                width: 100%;
+        }
+}

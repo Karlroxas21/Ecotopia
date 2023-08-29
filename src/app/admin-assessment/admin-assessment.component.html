@@ -1,1 +1,139 @@
-<p>admin-assessment works!</p>
+<body>
+  <app-admin-panel></app-admin-panel>
+  <div class="assessment">
+    <h1>Assessment</h1>
+  </div>
+
+  <!-- <div class="assessment2">
+    <div
+      class="container2"
+      style="border-color: #e89b12">
+
+      <h2>Trivia Game</h2>
+      <ol type="1">
+        <li *ngFor="let item of trivia_game; let i = index">
+         
+
+          <div *ngIf="!editing_question(i)" (click)="startEditingQuestion(i)">
+            <p>{{ item.question }}</p>
+          </div>
+    
+          <textarea
+            style="font-size: 1.2rem;"
+            *ngIf="editing_question(i)"
+            (blur)="finishEditingQuestion($event, i, 'question')"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="trivia_game[i].question"
+          ></textarea>
+
+          <ng-container *ngFor="let option of item.options; let j = index">
+           
+            <div *ngIf="!editing_option(i, j)" (click)="startEditingOption(i, j)">
+              <p>{{ option }}</p>
+            </div>
+      
+            <textarea
+              style="font-size: 1.2rem;"
+              *ngIf="editing_option(i, j)"
+              (blur)="finishEditingOption($event, i, j)"
+              class="resizable-input"
+              (ngModelChange)="doesChange()"
+              [ngModel]="trivia_game[i].options[j]"
+            ></textarea>
+
+          </ng-container>
+          
+          <div *ngIf="!editing_correct_answers(i)" (click)="startEditingCorrectAnswer(i)">
+            <p>Correct Answer: {{ item.correct_answer }}</p>
+            
+          </div>
+          <i>Format: q(number of question)_(choices from 1-4)</i>
+    
+          <textarea
+            style="font-size: 1.2rem;"
+            *ngIf="editing_correct_answers(i)"
+            (blur)="finishEditingCorrectAnswer($event, i)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [ngModel]="trivia_game[i].correct_answer"
+          ></textarea>
+          
+        </li>
+       
+      </ol>
+      <div id="result"></div>
+    </div>
+  </div> -->
+
+  <div class="assessment2">
+    <div
+      class="container2"
+      style="border-color: #77cec1"
+      *ngFor="let item of assessment; let index = index"
+    >
+      <h2>Pop Quiz</h2>
+
+      <ol type="1">
+        <li *ngFor="let item of pop_quiz; let i = index">
+          <div
+            *ngIf="!editing_question_popquiz(i)"
+            (click)="startEditingQuestionPopQuiz(i)"
+          >
+            <p>{{ item.question }}</p>
+          </div>
+
+          <textarea
+            style="font-size: 1.2rem"
+            *ngIf="editing_question_popquiz(i)"
+            (blur)="finishEditingQuestionPopQuiz($event, i, 'question')"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="pop_quiz[i].question"
+          ></textarea>
+
+          <ng-container *ngFor="let option of item.options; let j = index">
+            <div
+              *ngIf="!editing_option_popquiz(i, j)"
+              (click)="startEditingOptionPopQuiz(i, j)"
+            >
+              <p>{{ option }}</p>
+            </div>
+
+            <textarea
+              style="font-size: 1.2rem"
+              *ngIf="editing_option_popquiz(i, j)"
+              (blur)="finishEditingOptionPopQuiz($event, i, j)"
+              class="resizable-input"
+              (ngModelChange)="doesChange()"
+              [ngModel]="pop_quiz[i].options[j]"
+            ></textarea>
+          </ng-container>
+
+          <div
+            *ngIf="!editing_correct_answers_popquiz(i)"
+            (click)="startEditingCorrectAnswerPopQuiz(i)"
+          >
+            <p>Correct Answer: {{ item.correct_answer }}</p>
+          </div>
+          <i>Format: p(number of question)_(choices from 1-4)</i>
+
+          <textarea
+            style="font-size: 1.2rem"
+            *ngIf="editing_correct_answers_popquiz(i)"
+            (blur)="finishEditingCorrectAnswerPopQuiz($event, i)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [ngModel]="pop_quiz[i].correct_answer"
+          ></textarea>
+        </li>
+      </ol>
+      <div id="result"></div>
+    </div>
+  </div>
+  <div class="publish-container">
+    <button type="button" class="publish" (click)="updateData()">
+      Publish
+    </button>
+  </div>
+</body>
