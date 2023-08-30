@@ -9,6 +9,7 @@
       style="border-color: #e89b12"
       *ngFor="let item of assessment; let index = index"
     >
+    <form>
       <h2>Trivia Game</h2>
       <ol type="1">
         <li>
@@ -25,6 +26,7 @@
             name="q{{ index + 1 }}"
             value="q{{ index + 1 }}_2"
             [(ngModel)]="selectedAnswersTriviaGame[index]"
+            required
           />
           {{ item.trivia_game[0].options[1] }}<br />
           <input
@@ -49,6 +51,7 @@
             name="q{{ index + 2 }}"
             value="q{{ index + 2 }}_1"
             [(ngModel)]="selectedAnswersTriviaGame[index + 1]"
+
           />
           {{ item.trivia_game[1].options[0] }}<br />
           <input
@@ -56,6 +59,7 @@
             name="q{{ index + 2 }}"
             value="q{{ index + 2 }}_2"
             [(ngModel)]="selectedAnswersTriviaGame[index + 1]"
+            required
           />
           {{ item.trivia_game[1].options[1] }}<br />
           <input
@@ -87,6 +91,7 @@
             name="q{{ index + 3 }}"
             value="q{{ index + 3 }}_2"
             [(ngModel)]="selectedAnswersTriviaGame[index + 2]"
+            required
           />
           {{ item.trivia_game[2].options[1] }}<br />
           <input
@@ -118,6 +123,7 @@
             name="q{{ index + 4 }}"
             value="q{{ index + 4 }}_2"
             [(ngModel)]="selectedAnswersTriviaGame[index + 3]"
+            required
           />
           {{ item.trivia_game[3].options[1] }}<br />
           <input
@@ -149,6 +155,7 @@
             name="q{{ index + 5 }}"
             value="q{{ index + 5 }}_2"
             [(ngModel)]="selectedAnswersTriviaGame[index + 4]"
+            required
           />
           {{ item.trivia_game[4].options[1] }}<br />
           <input
@@ -180,6 +187,7 @@
             name="q{{ index + 6 }}"
             value="q{{ index + 6 }}_2"
             [(ngModel)]="selectedAnswersTriviaGame[index + 5]"
+            required
           />
           {{ item.trivia_game[5].options[1] }}<br />
           <input
@@ -218,6 +226,7 @@
             name="q{{ index + 7 }}"
             value="q{{ index + 7 }}_3"
             [(ngModel)]="selectedAnswersTriviaGame[index + 6]"
+            required
           />
           {{ item.trivia_game[6].options[2] }}<br />
           <input
@@ -256,6 +265,7 @@
             name="q{{ index + 8 }}"
             value="q{{ index + 8 }}_4"
             [(ngModel)]="selectedAnswersTriviaGame[index + 7]"
+            required
           />
           {{ item.trivia_game[7].options[3] }}<br />
         </li>
@@ -297,6 +307,7 @@
             name="q{{ index + 10 }}"
             value="q{{ index + 10 }}_1"
             [(ngModel)]="selectedAnswersTriviaGame[index + 9]"
+            required
           />
           {{ item.trivia_game[9].options[0] }}<br />
           <input
@@ -327,8 +338,9 @@
         (click)="submitTriviaGame()"
         style="background-color: #e89b12"
       >
-        Submit Quiz
+        Submit
       </button>
+    </form>
       <div id="result"></div>
     </div>
   </div>
@@ -339,6 +351,7 @@
       style="border-color: #77cec1"
       *ngFor="let item of assessment; let index = index"
     >
+    <form>
       <h2>Pop Quiz</h2>
       <ol type="1">
         <li>
@@ -355,6 +368,7 @@
             name="p{{ index }}"
             value="p{{ index }}_2"
             [(ngModel)]="selectedAnswersPopQuiz[index]"
+            required
           />
           {{ item.pop_quiz[0].options[1] }}<br />
           <input
@@ -386,6 +400,7 @@
             name="p{{ index + 1 }}"
             value="p{{ index + 1 }}_2"
             [(ngModel)]="selectedAnswersPopQuiz[index + 1]"
+            required
           />
           {{ item.pop_quiz[1].options[1] }}<br />
           <input
@@ -417,6 +432,7 @@
             name="p{{ index + 2 }}"
             value="p{{ index + 2 }}_1"
             [(ngModel)]="selectedAnswersPopQuiz[index + 2]"
+            required
           />
           {{ item.pop_quiz[2].options[1] }}<br />
           <input
@@ -448,6 +464,7 @@
             name="p{{ index + 3 }}"
             value="p{{ index + 3 }}_1"
             [(ngModel)]="selectedAnswersPopQuiz[index + 3]"
+            required
           />
           {{ item.pop_quiz[3].options[1] }}<br />
           <input
@@ -486,6 +503,7 @@
             name="p{{ index + 4 }}"
             value="p{{ index + 4 }}_2"
             [(ngModel)]="selectedAnswersPopQuiz[index + 4]"
+            required
           />
           {{ item.pop_quiz[4].options[2] }}<br />
           <input
@@ -510,6 +528,7 @@
             name="p{{ index + 5 }}"
             value="p{{ index + 5 }}_1"
             [(ngModel)]="selectedAnswersPopQuiz[index + 5]"
+            required
           />
           {{ item.pop_quiz[5].options[1] }}<br />
           <input
@@ -541,6 +560,7 @@
             name="p{{ index + 6 }}"
             value="p{{ index + 6 }}_1"
             [(ngModel)]="selectedAnswersPopQuiz[index + 6]"
+            required
           />
           {{ item.pop_quiz[6].options[1] }}<br />
           <input
@@ -565,6 +585,7 @@
             name="p{{ index + 7 }}"
             value="p{{ index + 7 }}_1"
             [(ngModel)]="selectedAnswersPopQuiz[index + 7]"
+            required
           />
           {{ item.pop_quiz[7].options[1] }}<br />
           <input
@@ -596,6 +617,7 @@
             name="p{{ index + 8 }}"
             value="p{{ index + 8 }}_1"
             [(ngModel)]="selectedAnswersPopQuiz[index + 8]"
+            required
           />
           {{ item.pop_quiz[8].options[1] }}<br />
           <input
@@ -627,6 +649,7 @@
             name="p{{ index + 9 }}"
             value="p{{ index + 9 }}_1"
             [(ngModel)]="selectedAnswersPopQuiz[index + 9]"
+            required
           />
           {{ item.pop_quiz[9].options[1] }}<br />
           <input
@@ -650,8 +673,15 @@
         (click)="submitPopQuiz()"
         style="background-color: #77cec1"
       >
-        Submit Quiz
+        Submit
       </button>
+    </form>
+      <!-- <div *ngIf="showPrompt2" class="validprompt">
+        Please answer all questions before submitting.
+      </div> -->
+      <!-- <div *ngIf="showPrompt3" class="validprompt2">
+        Submitted!
+      </div> -->
       <div id="result"></div>
     </div>
   </div>

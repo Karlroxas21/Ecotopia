@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { AdminSolution1Service } from './admin-solution1-service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-solution1',
@@ -36,7 +37,8 @@ export class AdminSolution1Component {
   constructor(private http: HttpClient,
     private titleService: Title,
     private AdminSolution1Service: AdminSolution1Service,
-    private router: Router){}
+    private router: Router,
+    private toastr: ToastrService){}
 
   // Main methods and functions here
   bulletPusher(bullet: string[], bulletNumber: string, items: integer){
@@ -93,15 +95,16 @@ export class AdminSolution1Component {
       this.AdminSolution1Service.updateData(this.y_should_we_take_action[0]).subscribe(updatedItem =>{
         this.router.navigate(['/admin-solution-1']);
         console.log(this.y_should_we_take_action[0])
-        // Insert toaster here
-        console.log('Update success', updatedItem);
+        this.toastr.success('Data updated successfully.', 'Success');
+        // console.log('Update success', updatedItem);
       }, (err) => {
-        console.error("Error updating item. ", err);
+        this.toastr.error('Error updating item.', 'Error');
+        // console.error("Error updating item. ", err);
       })
       this.isThereAnyChanges = false;
     }else{
-      // Insert toaster here
-      console.log("You did not make any changes");
+      this.toastr.info('No changes were made.', 'Info');
+        // console.log("You did not make any changes");
     }
   }
 

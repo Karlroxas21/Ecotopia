@@ -7,6 +7,7 @@
       </div>
       <h3>
         <textarea
+          rows="2" cols="25"
           style="color: #0030ff; font-size: 3rem; font-weight: 600"
           *ngIf="editing_header"
           (blur)="finishEditingHeader($event)"
@@ -24,6 +25,7 @@
       </div>
       <p>
         <textarea
+          rows="2" cols="54"
           *ngIf="editing_header_description"
           (blur)="finishEditingHeaderDescription($event)"
           class="resizable-input"
@@ -53,6 +55,7 @@
         <p>{{ header_title }}</p>
       </div>
       <textarea
+        rows="1" cols="73"
         style="color: #0030ff; font-size: 3rem; font-weight: 600"
         *ngIf="editing_header_title"
         (blur)="finishEditingTitle($event)"
@@ -65,7 +68,7 @@
 
   <div class="card-container" data-aos="zoom-in" *ngFor="let item of cases">
     <div class="card" style="border-color: #c15669">
-      <div class="card-content">
+      <div class="card-content" >
         <div *ngIf="!editing_case1_0" (click)="startEditingCase1_0()">
           <h2 style="color: #c15669">
             <i class='bx bx-trash' style="font-size: 40px;"></i>
@@ -73,7 +76,8 @@
           </h2>
         </div>
         <textarea
-          style="color: #c15669; font-size: 2rem; font-weight: 500"
+          rows="2" cols="23"
+          style="color: #c15669; font-size: 2rem; font-weight: 500;"
           *ngIf="editing_case1_0"
           (blur)="finishEditingCase1_0($event)"
           class="resizable-input"
@@ -90,6 +94,11 @@
         </div>
 
         <textarea
+        style="  
+        position: absolute;
+        right: 10px;
+        resize: none;"
+           rows="15" cols="55"
           *ngIf="editing_case1_1"
           (blur)="finishEditingCase1_1($event)"
           class="resizable-input"
@@ -119,6 +128,7 @@
         </div>
 
         <textarea
+          rows="2" cols="23"
           style="color: #5e55db; font-size: 2rem; font-weight: 500"
           *ngIf="editing_case2_0"
           (blur)="finishEditingCase2_0($event)"
@@ -137,6 +147,11 @@
         </div>
 
         <textarea
+        style="  
+        position: absolute;
+        right: 10px;
+        resize: none;"
+           rows="15" cols="55"
           *ngIf="editing_case2_1"
           (blur)="finishEditingCase2_1($event)"
           class="resizable-input"
@@ -161,6 +176,7 @@
         </div>
 
         <textarea
+          rows="2" cols="23"
           style="color: #dd9e3b; font-size: 2rem; font-weight: 500"
           *ngIf="editing_case3_0"
           (blur)="finishEditingCase3_0($event)"
@@ -178,6 +194,11 @@
         </div>
 
         <textarea
+        style="  
+        position: absolute;
+        right: 10px;
+        resize: none;"
+           rows="15" cols="55"
           *ngIf="editing_case3_1"
           (blur)="finishEditingCase3_1($event)"
           class="resizable-input"
@@ -207,6 +228,7 @@
         </div>
 
         <textarea
+          rows="2" cols="23"
           style="color: #246c63; font-size: 2rem; font-weight: 500"
           *ngIf="editing_case4_0"
           (blur)="finishEditingCase4_0($event)"
@@ -225,6 +247,11 @@
         </div>
 
         <textarea
+        style="  
+        position: absolute;
+        right: 10px;
+        resize: none;"
+           rows="15" cols="55"
           *ngIf="editing_case4_1"
           (blur)="finishEditingCase4_1($event)"
           class="resizable-input"

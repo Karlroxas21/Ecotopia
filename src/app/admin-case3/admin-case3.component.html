@@ -12,6 +12,7 @@
       </div>
 
       <textarea
+        rows="2" cols="25"
         style="font-size: 3rem; color: #0030ff; font-weight: 600"
         *ngIf="editing_header"
         (blur)="finishEditingHeader($event)"
@@ -30,6 +31,7 @@
       </div>
 
       <textarea
+        rows="2" cols="54"
         style="font-size: 1.5rem"
         *ngIf="editing_header_desc"
         (blur)="finishEditingHeaderDescription($event)"
@@ -61,11 +63,13 @@
       </div>
   
       <textarea
+        rows="1" cols="40"
         style="
-          font-size: 2rem;
           color: #0030ff;
           text-align: center;
+          font-size: 50px;
           font-weight: bold;
+          margin-left: 100px;
         "
         *ngIf="editing_title"
         (blur)="finishEditingTitle($event)"
@@ -211,7 +215,8 @@
         </div>
 
          <textarea
-                style="font-size: 1.2rem;"
+              rows="6" cols="190"
+              style="font-size: 1.2rem;"
               *ngIf="editing_descriptions[0]"
               (blur)="finishEditingDesc1($event)"
               class="resizable-input"
@@ -230,6 +235,7 @@
         </div>
 
         <textarea
+                rows="3" cols="190"
                 style="font-size: 1.2rem;"
                 *ngIf="editing_descriptions[1]"
                 (blur)="finishEditingDesc2($event)"
@@ -250,6 +256,7 @@
         </div>
 
         <textarea
+                rows="4" cols="190"
                 style="font-size: 1.2rem;"
                 *ngIf="editing_descriptions[2]"
                 (blur)="finishEditingDesc3($event)"
@@ -268,6 +275,7 @@
         </div>
       
         <textarea
+                rows="2" cols="130"
                 style="color: #e89b12; font-size: 27px; font-weight: 600"
                 *ngIf="editing_bullet_1[0]"
                 (blur)="finishEditingBullet1Title($event)"
@@ -283,6 +291,7 @@
         </div>
       
         <textarea
+                rows="4" cols="184"
                 *ngIf="editing_bullet_1[1]"
                 (blur)="finishEditingBullet1Description1($event)"
                 class="resizable-input"
@@ -300,6 +309,7 @@
         </div>
       
         <textarea
+                rows="2" cols="130"
                 style="color: #e89b12; font-size: 27px; font-weight: 600"
                 *ngIf="editing_bullet_2[0]"
                 (blur)="finishEditingBullet2Title($event)"
@@ -315,6 +325,7 @@
         </div>
       
         <textarea
+                rows="4" cols="184"
                 *ngIf="editing_bullet_2[1]"
                 (blur)="finishEditingBullet2Description1($event)"
                 class="resizable-input"
@@ -330,6 +341,7 @@
         </div>
       
         <textarea
+                rows="2" cols="130"
                 style="color: #e89b12; font-size: 27px; font-weight: 600"
                 *ngIf="editing_bullet_3[0]"
                 (blur)="finishEditingBullet3Title($event)"
@@ -345,6 +357,7 @@
         </div>
       
         <textarea
+                rows="4" cols="184"
                 *ngIf="editing_bullet_3[1]"
                 (blur)="finishEditingBullet3Description1($event)"
                 class="resizable-input"
@@ -362,6 +375,7 @@
         </div>
       
         <textarea
+                rows="2" cols="130"
                 style="color: #e89b12; font-size: 27px; font-weight: 600"
                 *ngIf="editing_bullet_4[0]"
                 (blur)="finishEditingBullet4Title($event)"
@@ -377,6 +391,7 @@
         </div>
       
         <textarea
+                rows="4" cols="184"
                 *ngIf="editing_bullet_4[1]"
                 (blur)="finishEditingBullet4Description1($event)"
                 class="resizable-input"
@@ -394,6 +409,7 @@
         </div>
       
         <textarea
+                rows="2" cols="130"
                 style="color: #e89b12; font-size: 27px; font-weight: 600"
                 *ngIf="editing_bullet_5[0]"
                 (blur)="finishEditingBullet5Title($event)"
@@ -409,6 +425,7 @@
         </div>
       
         <textarea
+                rows="4" cols="184"
                 *ngIf="editing_bullet_5[1]"
                 (blur)="finishEditingBullet5Description1($event)"
                 class="resizable-input"
@@ -425,6 +442,7 @@
         </div>
       
         <textarea
+                rows="2" cols="130"
                 style="color: #e89b12; font-size: 27px; font-weight: 600"
                 *ngIf="editing_bullet_6[0]"
                 (blur)="finishEditingBullet6Title($event)"
@@ -440,6 +458,7 @@
         </div>
       
         <textarea
+                rows="4" cols="184"
                 *ngIf="editing_bullet_6[1]"
                 (blur)="finishEditingBullet6Description1($event)"
                 class="resizable-input"
@@ -455,6 +474,7 @@
         </div>
       
         <textarea
+                rows="2" cols="130"
                 style="color: #e89b12; font-size: 27px; font-weight: 600"
                 *ngIf="editing_bullet_7[0]"
                 (blur)="finishEditingBullet7Title($event)"
@@ -470,6 +490,7 @@
         </div>
       
         <textarea
+                rows="4" cols="184"
                 *ngIf="editing_bullet_7[1]"
                 (blur)="finishEditingBullet7Description1($event)"
                 class="resizable-input"
@@ -489,6 +510,7 @@
                       </div>
               
                       <textarea
+                              rows="1" cols="189"
                               *ngIf="editing_reference[0]"
                               (blur)="finishEditingRef1($event)"
                               class="resizable-input"
@@ -501,6 +523,7 @@
                       </div>
               
                       <textarea
+                              rows="1" cols="189"
                               *ngIf="editing_reference[1]"
                               (blur)="finishEditingRef2($event)"
                               class="resizable-input"
