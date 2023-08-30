@@ -11,9 +11,9 @@ import { ToastrService } from 'ngx-toastr';
 export class AssessmentComponent {
   assessment: any;
 
- 
+
   title = "Ecotopia: Assessment";
- 
+
   selectedAnswersTriviaGame: string[] = []; // Selected answer will store here. Index 0 = Question 1, Index 9 = Question 10.
 
   selectedAnswersPopQuiz: string[] = [];
@@ -22,12 +22,12 @@ export class AssessmentComponent {
     private titleService: Title,
     private toastr: ToastrService) { }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.http.get<any[]>('http://localhost:80/assessment_trivia')
-    .subscribe(incoming_data => {
-      this.assessment = incoming_data;
+      .subscribe(incoming_data => {
+        this.assessment = incoming_data;
 
-    });
+      });
 
     this.titleService.setTitle(this.title);
 
@@ -38,25 +38,25 @@ export class AssessmentComponent {
   showPrompt2: boolean = false;
   showPrompt3: boolean = false;
 
-  checkAnswerTriviaGame(){
+  checkAnswerTriviaGame() {
     let score_trivia_game = 0;
-    for(const item of this.assessment){
-      for(let i = 0; i < 10; i++){
-        if(item.trivia_game[i].correct_answer === this.selectedAnswersTriviaGame[i]){
+    for (const item of this.assessment) {
+      for (let i = 0; i < 10; i++) {
+        if (item.trivia_game[i].correct_answer === this.selectedAnswersTriviaGame[i]) {
           score_trivia_game += 1;
         }
-        
+
       }
     }
     // Insert toaster here that shows your score.
     console.log(score_trivia_game); // Remove this if deploying
   }
 
-  checkAnswerPopQuiz(){
+  checkAnswerPopQuiz() {
     let score_pop_quiz = 0;
-    for(const item of this.assessment){
-      for(let i = 0; i < 10; i++){
-        if(item.pop_quiz[i].correct_answer === this.selectedAnswersPopQuiz[i]){
+    for (const item of this.assessment) {
+      for (let i = 0; i < 10; i++) {
+        if (item.pop_quiz[i].correct_answer === this.selectedAnswersPopQuiz[i]) {
           score_pop_quiz += 1;
         }
       }
@@ -65,9 +65,9 @@ export class AssessmentComponent {
     console.log(score_pop_quiz); // Remove this if deploying
   }
 
-  submitTriviaGame(){
+  submitTriviaGame() {
     const unansweredQuestion = this.selectedAnswersTriviaGame.every(answer => answer == undefined || answer == null);
-    
+
     if (unansweredQuestion) {
       this.showPrompt2 = true;
       this.toastr.error('Please answer all questions before submitting.');
@@ -76,25 +76,25 @@ export class AssessmentComponent {
       this.showPrompt3 = false;
       this.toastr.success('Submitted!');
     }
-    
+
     // Add validation if all questions is answered.
     console.log('selected answers', this.selectedAnswersTriviaGame); // Remove this if deploying
 
     this.checkAnswerTriviaGame();
-    
+
   }
 
-  resetSelectedAnswersTrivia(){
+  resetSelectedAnswersTrivia() {
     this.selectedAnswersTriviaGame.fill('');
 
     // Insert toaster here that shows you reset the trivia game.
     console.log(this.selectedAnswersTriviaGame); // Remove this if deploying
   }
 
-  submitPopQuiz(){
+  submitPopQuiz() {
     // Check if any question is unanswered
     const unansweredQuestion = this.selectedAnswersPopQuiz.every(answer => answer == undefined || answer == null);
-    
+
     if (unansweredQuestion) {
       this.showPrompt2 = true;
       this.toastr.error('Please answer all questions before submitting.');
@@ -102,19 +102,21 @@ export class AssessmentComponent {
       // All questions are answered, proceed with submission
       this.showPrompt3 = false;
       this.toastr.success('Submitted!');
-      
-    // Add validation if all questions is answered.
-    console.log('selected answers', this.selectedAnswersPopQuiz); // Remove this if deploying
 
-    this.checkAnswerPopQuiz();
-  }
+      // Add validation if all questions is answered.
+      console.log('selected answers', this.selectedAnswersPopQuiz); // Remove this if deploying
 
-  resetSelectedAnswersPop(){
-    this.selectedAnswersPopQuiz.fill('');
-
-    // Insert toaster here that shows you reset the pop quiz.
-    console.log(this.selectedAnswersPopQuiz); // Remove this if deploying
+      this.checkAnswerPopQuiz();
+    }
 
   }
+    resetSelectedAnswersPop(){
+      this.selectedAnswersPopQuiz.fill('');
+
+      // Insert toaster here that shows you reset the pop quiz.
+      console.log(this.selectedAnswersPopQuiz); // Remove this if deploying
+
+    }
+
+
 }
-
