@@ -38,6 +38,8 @@ import { AdminSolutionsComponent } from './admin-solutions/admin-solutions.compo
 import { AdminCurrentIssuesPhComponent } from './admin-current-issues-ph/admin-current-issues-ph.component';
 import { AdminAssessmentComponent } from './admin-assessment/admin-assessment.component';
 
+// Auth Guard
+import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   {component: LandingPageComponent, path: ''},
   {component: CurrentIssueComponent, path: 'currentIssue'},
@@ -64,20 +66,20 @@ const routes: Routes = [
   {component: LoginComponent, path: 'login'},
 
   // Admin Components
-  {component: AdminCasesComponent, path: 'admin-cases'},
-  {component: AdminCase1Component, path: 'admin-case-1'},
-  {component: AdminCase2Component, path: 'admin-case-2'},
-  {component: AdminCase3Component, path: 'admin-case-3'},
-  {component: AdminCase4Component, path: 'admin-case-4'},
-  {component: AdminPanelComponent, path: 'adminpanel'},
-  {component: AdminCasesComponent, path: 'admin-cases'},
-  {component: AdminSolution1Component, path: 'admin-solution-1'},
-  {component: AdminSolution2Component, path: 'admin-solution-2'},
-  {component: AdminSolution3Component, path: 'admin-solution-3'},
+  {component: AdminCasesComponent, path: 'admin-cases', canActivate: [AuthGuard]},
+  {component: AdminCase1Component, path: 'admin-case-1', canActivate: [AuthGuard]},
+  {component: AdminCase2Component, path: 'admin-case-2', canActivate: [AuthGuard]},
+  {component: AdminCase3Component, path: 'admin-case-3', canActivate: [AuthGuard]},
+  {component: AdminCase4Component, path: 'admin-case-4', canActivate: [AuthGuard]},
+  {component: AdminPanelComponent, path: 'adminpanel', canActivate: [AuthGuard]},
+  {component: AdminCasesComponent, path: 'admin-cases', canActivate: [AuthGuard]},
+  {component: AdminSolution1Component, path: 'admin-solution-1', canActivate: [AuthGuard]},
+  {component: AdminSolution2Component, path: 'admin-solution-2', canActivate: [AuthGuard]},
+  {component: AdminSolution3Component, path: 'admin-solution-3', canActivate: [AuthGuard]},
   // Solution 4
-  {component: AdminSolutionsComponent, path: 'admin-solutions'},
-  {component: AdminCurrentIssuesPhComponent, path: 'admin-current-issues-ph'},
-  {component: AdminAssessmentComponent, path: 'admin-assessment'}
+  {component: AdminSolutionsComponent, path: 'admin-solutions', canActivate: [AuthGuard]},
+  {component: AdminCurrentIssuesPhComponent, path: 'admin-current-issues-ph', canActivate: [AuthGuard]},
+  {component: AdminAssessmentComponent, path: 'admin-assessment', canActivate: [AuthGuard]}
 
 ];
 

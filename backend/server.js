@@ -52,6 +52,9 @@ const overview_climate_change_routes = require('./routes/overview-climate-change
 // Assessments
 const assessment_trivia = require('./routes/assessment-routes');
 
+// Login
+const login_routes = require('./routes/login-routes');
+
 const app = express();
 const port = process.env.PORT || 80;
 mongoose.connect('mongodb+srv://karlmarxroxas1:Mvckf9rVcnZoxP0V@website.h8t2kwr.mongodb.net/ecotopia');
@@ -115,6 +118,9 @@ app.use('/', overview_climate_change_routes );
 
 // Assessment
 app.use('/', assessment_trivia);
+
+// Login
+app.use('/', login_routes);
 
 app.listen(port, ()=>{
     console.log(`Listening on ${port}`);

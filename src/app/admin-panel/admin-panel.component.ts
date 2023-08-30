@@ -10,6 +10,7 @@ import { AdminSolution2Component } from '../admin-solution2/admin-solution2.comp
 import { AdminSolution3Component } from '../admin-solution3/admin-solution3.component';
 import { AdminSolutionsComponent } from '../admin-solutions/admin-solutions.component';
 import { AdminCurrentIssuesPhComponent } from '../admin-current-issues-ph/admin-current-issues-ph.component';
+import { Router } from '@angular/router';
 
 const routes: Routes = [
   {component: AdminCasesComponent, path: 'admin-cases'},
@@ -42,7 +43,7 @@ interface NavItem {
 export class AdminPanelComponent {
   isCollapsed = true;
 
-  
+  constructor(private router: Router){}
   
   navItems: NavItem[] = [
     { text: 'Current Issues', icon: 'bx-file', route: '/admin-current-issues-ph'},
@@ -89,6 +90,8 @@ export class AdminPanelComponent {
     item.showChildren = !item.showChildren;
   }
 
-  logout() {
+  logout(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
 }
