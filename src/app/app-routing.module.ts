@@ -36,6 +36,7 @@ import { AdminSolution3Component } from './admin-solution3/admin-solution3.compo
 // Solution 4
 import { AdminSolutionsComponent } from './admin-solutions/admin-solutions.component';
 import { AdminCurrentIssuesPhComponent } from './admin-current-issues-ph/admin-current-issues-ph.component';
+import { AdminAssessmentComponent } from './admin-assessment/admin-assessment.component';
 
 const routes: Routes = [
   {component: LandingPageComponent, path: ''},
@@ -75,8 +76,8 @@ const routes: Routes = [
   {component: AdminSolution3Component, path: 'admin-solution-3'},
   // Solution 4
   {component: AdminSolutionsComponent, path: 'admin-solutions'},
-  {component: AdminCurrentIssuesPhComponent, path: 'admin-current-issues-ph'}
-
+  {component: AdminCurrentIssuesPhComponent, path: 'admin-current-issues-ph'},
+  {component: AdminAssessmentComponent, path: 'admin-assessment'}
 
 ];
 

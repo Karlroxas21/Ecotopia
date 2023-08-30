@@ -24,6 +24,9 @@ const admin_y_take_actions_routes = require('./routes/admin/solutions/y-take-act
 // Admin Current Issue
 const admin_current_issues_ph_routes = require('./routes/admin/current-issues-ph-routes');
 
+// Admin Assessment
+const admin_assessment_routes = require('./routes/admin/assessment-routes');
+
 // Cases
 const cases_routes = require('./routes/cases/cases-routes');
 const causes_climate_change_routes = require('./routes/cases/causes-climate-change-routes');
@@ -84,6 +87,9 @@ app.use('/', admin_y_take_actions_routes );
 
 // Admin Current Issue
 app.use('/', admin_current_issues_ph_routes );
+
+// Admin Assessment
+app.use('/', admin_assessment_routes);
 
 // Cases
 app.use('/', cases_routes );
