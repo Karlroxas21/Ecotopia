@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { AdminCurrentIssueService } from './admin-current-issues-ph-service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-current-issues-ph',
@@ -33,7 +34,8 @@ export class AdminCurrentIssuesPhComponent {
   constructor(private http: HttpClient,
     private titleService: Title,
     private AdminCurrentIssueService: AdminCurrentIssueService,
-    private router: Router) { }
+    private router: Router,
+    private toastr: ToastrService) { }
 
   // Main method and functions here
   arrayPusher(refArray: string[], size: number, property: string){
@@ -96,15 +98,16 @@ export class AdminCurrentIssuesPhComponent {
       this.AdminCurrentIssueService.updateData(this.current_issue_ph[0]).subscribe(updatedData =>{
         this.router.navigate(['/admin-current-issues-ph']);
 
-        // Insert toaster here
-        console.log('Update success', updatedData);
+        this.toastr.success('Data updated successfully.', 'Success');
+        // console.log('Update success', updatedData);
       }, (err) =>{
-        console.error("Error updating item. ", err);
+        this.toastr.error('Error updating item.', 'Error');
+        // console.error("Error updating item. ", err);
       })
       this.isThereAnyChanges = false;
     }else{
-      // Insert toaster here
-      console.log("You did not make any changes");
+      this.toastr.info('No changes were made.', 'Info');
+       // console.log("You did not make any changes");
     }
   }
 

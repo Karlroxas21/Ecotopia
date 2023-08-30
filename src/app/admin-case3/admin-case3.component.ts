@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AdminCase3Service } from './admin-case3-service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-case3',
@@ -35,7 +36,8 @@ export class AdminCase3Component {
   constructor(private http: HttpClient, 
     private titleService: Title,
     private AdminCase3Service: AdminCase3Service,
-    private router: Router){}
+    private router: Router,
+    private toastr: ToastrService){}
 
   // Main methods and functionshere
   bulletPusher(bullet: string[], bulletNumber: string, items: integer){
@@ -101,15 +103,16 @@ export class AdminCase3Component {
     if(this.isAnyChanges()){
       this.AdminCase3Service.updateData(this.causes_climate_change[0]).subscribe(updatedItem =>{
         this.router.navigate(['/admin-case-3']);
-        // Insert toaster here
-        console.log('Update success', updatedItem);
+        this.toastr.success('Data updated successfully.', 'Success',);
+        // console.log('Update success', updatedItem);
       }, (err) =>{
-        console.error("Error updating item. ", err);
+        this.toastr.error('Error updating item.', 'Error');
+        // console.error("Error updating item. ", err);
       });
       this.isThereAnyChanges = false;
     }else{
-      // Insert toaster here
-      console.log("You did not make any changes");
+      this.toastr.info('No changes were made.', 'Info');
+      // console.log("You did not make any changes");
     }
   }
 

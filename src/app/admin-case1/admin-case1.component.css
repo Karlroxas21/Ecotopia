@@ -74,7 +74,6 @@ html{
     font-weight: 300;
     padding-top: 20px;
 }
-
   /****** NEXT CONTENT ******/
 
 .text{
@@ -160,8 +159,7 @@ section .reference-container{
     font-weight: 600;
     letter-spacing: 1.65px; 
    
-}
-
+}  
 @media screen and (max-width: 1299px){
     .content{
         flex-direction: column;

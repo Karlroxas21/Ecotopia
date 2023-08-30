@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { AdminSolution2Service } from '../admin-solution2/admin-solution2-service';
 import { Router } from '@angular/router';
 import { AdminSolution3Service } from './admin-solution3-service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-solution3',
@@ -26,7 +27,8 @@ export class AdminSolution3Component {
   constructor(private http: HttpClient,
     private titleService: Title,
     private AdminSolution3Service: AdminSolution3Service,
-    private router: Router){ }
+    private router: Router,
+    private toastr: ToastrService){}
 
   // Main method and functions here
   bulletPusher(bullet: string[], bulletNumber: string, items: integer){
@@ -72,15 +74,16 @@ export class AdminSolution3Component {
       this.AdminSolution3Service.updateData(this.responding_to_climate_change[0]).subscribe(updatedData =>{
         this.router.navigate(['/admin-solution-3']);
         
-        // Insert toaster here
-        console.log('Update success', updatedData);
+        this.toastr.success('Data updated successfully.', 'Success');
+        // console.log('Update success', updatedData);
       }, (err) => {
-        console.error("Error updating item. ", err);
+        this.toastr.error('Error updating item.', 'Error');
+        // console.error("Error updating item. ", err);
       })
-      this.isThereAnyChanges = false;
+        this.isThereAnyChanges = false;
     }else{
-      // Insert toaster here
-      console.log("You did not make any changes");
+        this.toastr.info('No changes were made.', 'Info');
+        // console.log("You did not make any changes");
     }
   }
 

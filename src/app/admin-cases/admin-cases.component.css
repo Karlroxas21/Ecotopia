@@ -63,6 +63,9 @@ html{
     padding: 30px;
     border: 3px solid;
     border-radius: 35px;
+    position: relative; 
+    margin-right: auto;
+    width: 300px;
 }
   
   /*.card:hover {
