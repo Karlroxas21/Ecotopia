@@ -65,6 +65,7 @@
               [name]="'p' + (index + i + 1)"
               [value]="'p' + (index + i + 1) + '_' + (j + 1)"
               [(ngModel)]="selectedAnswersPopQuiz[index + i]"
+              required
             />
             {{ option }}<br />
           </ng-container>
@@ -85,12 +86,6 @@
       >
         Reset
       </button>
-        <!-- <div *ngIf="showPrompt2" class="validprompt">
-        Please answer all questions before submitting.
-      </div> -->
-      <!-- <div *ngIf="showPrompt3" class="validprompt2">
-        Submitted!
-      </div> -->
     </form>
  
       <div id="result"></div>
