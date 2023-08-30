@@ -9,6 +9,7 @@
       style="border-color: #e89b12"
       *ngFor="let item of assessment; let index = index"
     >
+    <form>
       <h2>Trivia Game</h2>
       <ol type="1">
         <li *ngFor="let quiz of item.trivia_game let i = index;">
@@ -30,15 +31,18 @@
         (click)="submitTriviaGame()"
         style="background-color: #e89b12"
       >
-        Submit Quiz
+        Submit
       </button>
-      <button
+       <button
         type="button"
         (click)="resetSelectedAnswersTrivia()"
         style="background-color: #cc0808; color: white"
       >
         Reset
       </button>
+
+    </form>
+      
       <div id="result"></div>
     </div>
   </div>
@@ -49,8 +53,10 @@
       style="border-color: #77cec1"
       *ngFor="let item of assessment; let index = index"
     >
+    <form>
       <h2>Pop Quiz</h2>
       <ol type="1">
+
         <li *ngFor="let quiz of item.pop_quiz; let i = index;">
           <p>{{ quiz.question }}</p>
           <ng-container *ngFor="let option of quiz.options; let j = index;">
@@ -63,23 +69,30 @@
             {{ option }}<br />
           </ng-container>
         </li>
-        
+
       </ol>
       <button
         type="button"
         (click)="submitPopQuiz()"
         style="background-color: #77cec1"
       >
-        Submit Quiz
+        Submit
       </button>
-      <button
+        <button
         type="button"
         (click)="resetSelectedAnswersPop()"
         style="background-color: #cc0808; color: white"
       >
         Reset
       </button>
-
+        <!-- <div *ngIf="showPrompt2" class="validprompt">
+        Please answer all questions before submitting.
+      </div> -->
+      <!-- <div *ngIf="showPrompt3" class="validprompt2">
+        Submitted!
+      </div> -->
+    </form>
+ 
       <div id="result"></div>
     </div>
   </div>
