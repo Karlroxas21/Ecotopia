@@ -47,7 +47,7 @@ export class AdminPanelComponent {
   
   navItems: NavItem[] = [
     { text: 'Current Issues', icon: 'bx-file', route: '/admin-current-issues-ph'},
-    { text: 'Assessment', icon: 'bx-edit' },
+    { text: 'Assessment', icon: 'bx-edit', route: '/admin-assessment' },
 
     //Cases
     { text: 'Cases' , icon: 'bx-briefcase-alt', route: '/admin-cases'},
