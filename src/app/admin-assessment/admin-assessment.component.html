@@ -84,6 +84,7 @@
           </div>
 
           <textarea
+            rows="2" cols="80"
             style="font-size: 1.2rem"
             *ngIf="editing_question_popquiz(i)"
             (blur)="finishEditingQuestionPopQuiz($event, i, 'question')"
@@ -101,6 +102,7 @@
             </div>
 
             <textarea
+              rows="1" cols="30"
               style="font-size: 1.2rem"
               *ngIf="editing_option_popquiz(i, j)"
               (blur)="finishEditingOptionPopQuiz($event, i, j)"
@@ -119,6 +121,7 @@
           <i>Format: p(number of question)_(choices from 1-4)</i>
 
           <textarea
+            rows="1" cols="30"
             style="font-size: 1.2rem"
             *ngIf="editing_correct_answers_popquiz(i)"
             (blur)="finishEditingCorrectAnswerPopQuiz($event, i)"

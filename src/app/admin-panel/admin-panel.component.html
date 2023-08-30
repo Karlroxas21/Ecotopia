@@ -35,12 +35,14 @@
           </ul>
         </li>
       </ng-container>
-      <a (click)="logout()" style="position: absolute; bottom: 50px">
+      <div id="logout">
+      <a (click)="logout()">
         <i *ngIf="isCollapsed" class="bx bx-log-out"></i>
         <i *ngIf="!isCollapsed" class="bx bxs-log-out"
           ><span style="font-weight: bold"> Logout</span></i
         >
       </a>
+    </div>
     </ul>
   </div>
 </body>
