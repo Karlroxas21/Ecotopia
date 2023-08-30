@@ -6,7 +6,6 @@
     box-sizing: border-box;
     font-family: 'Henry Sans', sans-serif;
 }
-
 .assessment{
     background-color: #0030FF;
     padding: 20px;
@@ -54,6 +53,14 @@ button:hover{
     padding: 10px 50px 10px 50px;
     border: 5px solid;
     color: black;
+}
+.validprompt{
+    margin-top: 10px;
+    color: red;
+}
+.validprompt2{
+    margin-top: 10px;
+    color: green;
 }
 @media only screen and (max-width: 920px){
     .container2{

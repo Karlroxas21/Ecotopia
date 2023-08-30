@@ -7,6 +7,7 @@
       </div>
 
       <textarea
+        rows="2" cols="25"
         style="font-size: 3rem; color: #0030ff; font-weight: 600"
         *ngIf="editing_header"
         (blur)="finishEditingHeader($event)"
@@ -25,6 +26,7 @@
       </div>
 
       <textarea
+        rows="2" cols="54"
         style="font-size: 1.5rem"
         *ngIf="editing_header_desc"
         (blur)="finishEditingHeaderDescription($event)"
@@ -55,11 +57,13 @@
     </div>
 
     <textarea
+      rows="1" cols="40"
       style="
-        font-size: 2rem;
         color: #0030ff;
         text-align: center;
+        font-size: 50px;
         font-weight: bold;
+        margin-left: 100px;
       "
       *ngIf="editing_title"
       (blur)="finishEditingTitle($event)"
@@ -211,6 +215,7 @@
         </div>
       
         <textarea
+                rows="2" cols="130"
                 style="color: #879df8; font-size: 27px; font-weight: 600"
                 *ngIf="editing_bullet_1[0]"
                 (blur)="finishEditingBullet1Title($event)"
@@ -224,6 +229,7 @@
         </div>
       
         <textarea
+                rows="2" cols="184"
                 *ngIf="editing_bullet_1[1]"
                 (blur)="finishEditingBullet1Description1($event)"
                 class="resizable-input"
@@ -236,6 +242,7 @@
         </div>
       
         <textarea
+                rows="2" cols="184"
                 *ngIf="editing_bullet_1[2]"
                 (blur)="finishEditingBullet1Description2($event)"
                 class="resizable-input"
@@ -248,6 +255,7 @@
         </div>
       
         <textarea
+                rows="2" cols="184"
                 *ngIf="editing_bullet_1[3]"
                 (blur)="finishEditingBullet1Description3($event)"
                 class="resizable-input"
@@ -260,6 +268,7 @@
         </div>
       
         <textarea
+                rows="2" cols="184"
                 *ngIf="editing_bullet_1[4]"
                 (blur)="finishEditingBullet1Description4($event)"
                 class="resizable-input"
@@ -275,6 +284,7 @@
         </div>
 
         <textarea
+                rows="2" cols="130"
                 style="color: #879df8; 
                 font-size: 27px;
                 font-weight: 600;"
@@ -290,6 +300,7 @@
         </div>
 
         <textarea
+                rows="2" cols="184"
                 *ngIf="editing_bullet_2[1]"
                 (blur)="finishEditingBullet2Desc1($event)"
                 class="resizable-input"
@@ -306,6 +317,7 @@
         </div>
 
         <textarea
+                rows="2" cols="130"
                 style="color: #879df8; 
                 font-size: 27px;
                 font-weight: 600"
@@ -322,6 +334,7 @@
         </div>
 
         <textarea
+                rows="2" cols="184"
                 *ngIf="editing_bullet_3[1]"
                 (blur)="finishEditingBullet3Desc1($event)"
                 class="resizable-input"
@@ -334,6 +347,7 @@
         </div>
 
         <textarea
+                rows="2" cols="184"
                 *ngIf="editing_bullet_3[2]"
                 (blur)="finishEditingBullet3Desc2($event)"
                 class="resizable-input"
@@ -346,6 +360,7 @@
         </div>
 
         <textarea
+                rows="2" cols="184"
                 *ngIf="editing_bullet_3[3]"
                 (blur)="finishEditingBullet3Desc3($event)"
                 class="resizable-input"
@@ -366,6 +381,7 @@
           </div>
   
           <textarea
+                  rows="1" cols="189"
                   *ngIf="editing_reference[0]"
                   (blur)="finishEditingRef1($event)"
                   class="resizable-input"
@@ -378,6 +394,7 @@
           </div>
   
           <textarea
+                  rows="1" cols="189"
                   *ngIf="editing_reference[1]"
                   (blur)="finishEditingRef2($event)"
                   class="resizable-input"
@@ -390,6 +407,7 @@
           </div>
   
           <textarea
+                  rows="1" cols="189"
                   *ngIf="editing_reference[2]"
                   (blur)="finishEditingRef3($event)"
                   class="resizable-input"

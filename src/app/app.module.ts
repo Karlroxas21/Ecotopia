@@ -44,6 +44,7 @@ import { AdminCurrentIssuesPhComponent } from './admin-current-issues-ph/admin-c
 import { AdminSolutionsComponent } from './admin-solutions/admin-solutions.component';
 import { LoginComponent } from './login/login.component';
 import { AdminAssessmentComponent } from './admin-assessment/admin-assessment.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -96,6 +97,7 @@ import { AdminAssessmentComponent } from './admin-assessment/admin-assessment.co
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
     AccordionModule.forRoot(),
+    ToastrModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
   ],
