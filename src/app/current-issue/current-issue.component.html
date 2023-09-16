@@ -2,11 +2,8 @@
   <section class="climate-change">
     <h1>Current Issues on Climate Change in the Philippines</h1>
     <div class="climate-change-info" *ngFor="let item of current_issues_ph">
-      <accordion [isAnimated]="true" class="customClass">
-        <accordion-group 
-        class="customClass"
-        [isOpen]="isFirstOpen"
-        heading="Sea Level Rise and Coastal Erosion">
+      <tabset>
+        <tab heading="Sea Level Rise and Coastal Erosion 1" id="tab1">
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
@@ -36,8 +33,9 @@
               </table>
             </div>
           </div>
-        </accordion-group>
-        <accordion-group heading="Sea Level Rise and Coastal Erosion">
+        </tab>
+
+        <tab heading="Sea Level Rise and Coastal Erosion 2">
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
@@ -95,9 +93,9 @@
               </table>
             </div>
           </div>
-        </accordion-group>
+        </tab>
 
-        <accordion-group heading="Biodiversity and Ecosystem Loss">
+        <tab heading="Biodiversity and Ecosystem Loss">
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
@@ -169,9 +167,9 @@
               </table>
             </div>
           </div>
-        </accordion-group>
+        </tab>
 
-        <accordion-group heading="Agriculture and Food Security">
+        <tab heading="Agriculture and Food Security">
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
@@ -271,9 +269,9 @@
               </table>
             </div>
           </div>
-        </accordion-group>
+        </tab>
 
-        <accordion-group heading="Health Risk">
+        <tab heading="Health Risk">
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
@@ -320,9 +318,9 @@
               </table>
             </div>
           </div>
-        </accordion-group>
+        </tab>
 
-        <accordion-group heading="Water Scarcity">
+        <tab heading="Water Scarcity">
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
@@ -410,14 +408,10 @@
               </table>
             </div>
           </div>
-        </accordion-group>
-      </accordion>
-    </div>
-    <section>
-      <div class="reference-container" *ngFor="let item of current_issues_ph">
-        <accordion [isAnimated]="true">
-          <accordion-group heading="References" style="margin-bottom: 30px;">
-            <a
+        </tab>
+
+        <tab heading="References" style="margin: 20px 0 30px 0;">
+          <a
               href={{item.references[0]}}
               target="_blank"
               >{{item.references[0]}}</a
@@ -490,10 +484,10 @@
               target="_blank"
               >{{item.references[10]}}</a
             >
-          </accordion-group>
-        </accordion>
-      </div>
-    </section>
+        </tab>
+
+      </tabset>
+    </div>
   </section>
 </body>
 <footer>

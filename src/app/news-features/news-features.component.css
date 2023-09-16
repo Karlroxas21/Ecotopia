@@ -9,12 +9,12 @@
 }
 
 .header-txt h1{
-  background-color: #FF96A9;
+  background-color: #8EC0DA;
   border-radius: 10px;
   padding: 10px 20px;
   display: inline-block;
   text-transform: capitalize;
-  color: white;
+  color: #000;
   font-weight: bolder;
 }
 
@@ -34,7 +34,7 @@ body, header{
 }
 .item{
   color: rgb(14, 13, 13);
-  border: 5px solid black;
+  border: 5px solid #4E0F17;
   border-radius: 30px;
   padding: 40px;
 }
@@ -91,12 +91,11 @@ body, header{
 
 .item-link {
   margin-top: auto;
-  background-color: #FF96A9;
+  background-color: #D79732;
   border-radius: 5px;
   display: flex;
-  
   justify-content: center;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.1s ease-in-out;
   width: 100px;
   padding: 5px;
 }
@@ -107,7 +106,7 @@ body, header{
 }
 
 .item-link:hover {
-  background-color: #f37088;
+  background-color: rgb(148, 111, 51);
   cursor: pointer;
 }
 
@@ -118,17 +117,18 @@ body, header{
   justify-content: flex-end;
 }
 .button button {
-  background-color: #FF96A9;
+  background-color: #D79732;
   color: rgb(255, 255, 255);
   border: none;
   padding: 12px 24px;
   font-size: 1.5rem;
   cursor: pointer; 
   border-radius: 4px; 
+  transition: background-color 0.1s ease-in-out;
 }
 
 .button button:hover {
-  background-color: #f37088;
+  background-color: #000;
   color: white;
 }
 @media only screen and (max-width: 359px) {

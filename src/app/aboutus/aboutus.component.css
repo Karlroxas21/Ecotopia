@@ -16,8 +16,8 @@
 .about-maafia h1{
     font-size: 50px;
     font-weight: bolder;
-    color: #fff;
-    background-color: #FF96A9;
+    color: #000;
+    background-color: #8EC0DA;
     border-radius: 20px;
     display: inline-block;
     width: 100%;
@@ -71,7 +71,7 @@
     text-transform: uppercase;
     padding: 20px;
     font-size: 2rem;
-    color: #FF96A9;
+    color: #13111E;
     font-family: 'Henry Sans Bold', sans-serif;
     transition: all .45s ease;
 }
@@ -106,7 +106,7 @@
 .partners h2{
     text-transform: uppercase;
     font-size: 2rem;
-    color: #FF96A9;
+    color: #13111E;
     font-family: 'Henry Sans Bold', sans-serif;
     transition: all .45s ease;
 }
@@ -135,7 +135,7 @@
 .the-team-name{
     display: flex;
     justify-content: center;
-    color: #0030FF;
+    color: #13111E;
 }
 
 .the-team-name h1{
@@ -160,31 +160,31 @@
 }
 
 .color1 h1{
-    color: #6051E3;
+    color: #13111E;
 }
 .color1 img{
-    border: 7px solid #6051E3;
+    border: 7px solid #13111E;
 }
 
 .color2 h1{
-    color: #FF96A9;
+    color: #13111E;
 }
 .color2 img{
-    border: 7px solid #FF96A9;
+    border: 7px solid #13111E;
 }
 
 .color3 h1{
-    color: #246C63;
+    color: #13111E;
 }
 .color3 img{
-    border: 7px solid #246C63;
+    border: 7px solid #13111E;
 }
 
 .color4 h1{
-    color: #96AAFF;
+    color: #13111E;
 }
 .color4 img{
-    border: 7px solid #96AAFF;
+    border: 7px solid #13111E;
 }
 @media screen and (max-width: 1299px){
     .parent{

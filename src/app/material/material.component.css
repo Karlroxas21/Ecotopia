@@ -14,12 +14,12 @@ body{
   padding-right: 10%;
 }
 .text h1{
-  background-color: #FF96A9;
+  background-color: #8EC0DA;
   border-radius: 10px;
   padding: 10px 20px;
   display: inline-block;
   text-transform: capitalize;
-  color: white;
+  color: #000;
 }
 
 .card-container, .card-container2, .card-container3{
@@ -32,7 +32,6 @@ body{
 .card{
     width: 600px;
     height: 400px;
-    border: 1px solid;
     border-radius: 40px;
     overflow: hidden;
     color: white;

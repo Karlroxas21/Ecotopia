@@ -11,12 +11,12 @@
   margin-left: 50px;
 }
 .text h1{
-  background-color: #FF96A9;
+  background-color: #8EC0DA;
   border-radius: 10px;
   padding: 10px 20px;
   display: inline-block;
   text-transform: capitalize;
-  color: white;
+  color: #000;
   font-weight: bolder;
   font-size: 40px;
 }

@@ -3,1121 +3,1115 @@
   <section class="climate-change">
     <h1>Current Issues on Climate Change in the Philippines</h1>
     <div class="climate-change-info">
-      <accordion [isAnimated]="true" class="customClass">
-        <!-- sea_level_rise_coastal_erosion -->
-        <accordion-group
-          class="customClass"
-          [isOpen]="isFirstOpen"
-          heading="Sea Level Rise and Coastal Erosion"
-        >
-          <div class="ccs-div1">
-            <div class="ccs-sub-div1">
-              <div
-                *ngIf="!editing_sea_level_rise_coastal_erosion[0]"
-                (click)="startEditingSeaLevelErosion(0)"
-              >
-                <p>{{ sea_level_rise_coastal_erosion[0] }}</p>
+      <div>
+        <tabset>
+          <tab heading="Sea Level Rise and Coastal Erosion 1" id="tab1">
+            <div class="ccs-div1">
+              <div class="left-column">
+              <div class="ccs-sub-div1">
+                <div
+                  *ngIf="!editing_sea_level_rise_coastal_erosion[0]"
+                  (click)="startEditingSeaLevelErosion(0)"
+                >
+                  <p>{{ sea_level_rise_coastal_erosion[0] }}</p>
+                </div>
+  
+                <textarea
+                  style="font-size: 1.3rem"
+                  *ngIf="editing_sea_level_rise_coastal_erosion[0]"
+                  (blur)="finishEditingSeaLevelErosion(0, $event)"
+                  class="resizable-input"
+                  (ngModelChange)="doesChange()"
+                  [(ngModel)]="
+                    current_issue_ph[0].sea_level_rise_coastal_erosion[0]
+                  "
+                ></textarea>
               </div>
-
-              <textarea
-                rows="4" cols="152"
-                style="font-size: 1.3rem"
-                *ngIf="editing_sea_level_rise_coastal_erosion[0]"
-                (blur)="finishEditingSeaLevelErosion(0, $event)"
-                class="resizable-input"
-                (ngModelChange)="doesChange()"
-                [(ngModel)]="
-                  current_issue_ph[0].sea_level_rise_coastal_erosion[0]
-                "
-              ></textarea>
-            </div>
-
-            <div class="ccs-sub-div2">
-              <table class="ccs-table" style="margin-bottom: 30px">
-                <tr>
-                  <td>
-                    <div
-                      *ngIf="!editing_sea_level_rise_coastal_erosion[1]"
-                      (click)="startEditingSeaLevelErosion(1)"
-                    >
-                      {{ sea_level_rise_coastal_erosion[1] }}
-                    </div>
-
-                    <textarea
-                      rows="3" cols="128"
-                      style="font-size: 1.3rem"
-                      *ngIf="editing_sea_level_rise_coastal_erosion[1]"
-                      (blur)="finishEditingSeaLevelErosion(1, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="
-                        current_issue_ph[0].sea_level_rise_coastal_erosion[1]
-                      "
-                    ></textarea>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <div
-                      *ngIf="!editing_sea_level_rise_coastal_erosion[2]"
-                      (click)="startEditingSeaLevelErosion(2)"
-                    >
-                      {{ sea_level_rise_coastal_erosion[2] }}
-                    </div>
-
-                    <textarea
-                      rows="3" cols="128"
-                      style="font-size: 1.3rem"
-                      *ngIf="editing_sea_level_rise_coastal_erosion[2]"
-                      (blur)="finishEditingSeaLevelErosion(2, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="
-                        current_issue_ph[0].sea_level_rise_coastal_erosion[2]
-                      "
-                    ></textarea>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <div
-                      *ngIf="!editing_sea_level_rise_coastal_erosion[3]"
-                      (click)="startEditingSeaLevelErosion(3)"
-                    >
-                      {{ sea_level_rise_coastal_erosion[3] }}
-                    </div>
-
-                    <textarea
-                      rows="3" cols="128"
-                      style="font-size: 1.3rem"
-                      *ngIf="editing_sea_level_rise_coastal_erosion[3]"
-                      (blur)="finishEditingSeaLevelErosion(3, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="
-                        current_issue_ph[0].sea_level_rise_coastal_erosion[3]
-                      "
-                    ></textarea>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </accordion-group>
-
-        <!-- sea_level_rise_coastal_erosion_2 -->
-        <accordion-group heading="Sea Level Rise and Coastal Erosion">
-          <div class="ccs-div1">
-            <div class="ccs-sub-div1">
-              <div
-                *ngIf="!editing_sea_level_rise_coastal_erosion_2[0]"
-                (click)="startEditingSeaLevelErosion2(0)"
-              >
-                <p>{{ sea_level_rise_coastal_erosion_2[0] }}</p>
               </div>
-
-              <textarea
-                rows="4" cols="152"
-                style="font-size: 1.3rem"
-                *ngIf="editing_sea_level_rise_coastal_erosion_2[0]"
-                (blur)="finishEditingSeaLevelErosion2(0, $event)"
-                class="resizable-input"
-                (ngModelChange)="doesChange()"
-                [(ngModel)]="
-                  current_issue_ph[0].sea_level_rise_coastal_erosion_2[0]
-                "
-              ></textarea>
-            </div>
-
-            <div class="ccs-sub-div2">
-              <table class="ccs-table">
-                <tr>
-                  <th>
-                    <div
-                      *ngIf="!editing_sea_level_rise_coastal_erosion_2[1]"
-                      (click)="startEditingSeaLevelErosion2(1)"
-                    >
-                      {{ sea_level_rise_coastal_erosion_2[1] }}
-                    </div>
-
-                    <textarea
-                      rows="2" cols="117"
-                      style="font-size: 1.3rem; font-weight: 600"
-                      *ngIf="editing_sea_level_rise_coastal_erosion_2[1]"
-                      (blur)="finishEditingSeaLevelErosion2(1, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="
-                        current_issue_ph[0].sea_level_rise_coastal_erosion_2[1]
-                      "
-                    ></textarea>
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        <div
-                          *ngIf="!editing_sea_level_rise_coastal_erosion_2[2]"
-                          (click)="startEditingSeaLevelErosion2(2)"
-                        >
-                          {{ sea_level_rise_coastal_erosion_2[2] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_sea_level_rise_coastal_erosion_2[2]"
-                          (blur)="finishEditingSeaLevelErosion2(2, $event)"
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="
-                            current_issue_ph[0]
-                              .sea_level_rise_coastal_erosion_2[2]
-                          "
-                        ></textarea>
-                      </li>
-                      <li>
-                        <div
-                          *ngIf="!editing_sea_level_rise_coastal_erosion_2[3]"
-                          (click)="startEditingSeaLevelErosion2(3)"
-                        >
-                          {{ sea_level_rise_coastal_erosion_2[3] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_sea_level_rise_coastal_erosion_2[3]"
-                          (blur)="finishEditingSeaLevelErosion2(3, $event)"
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="
-                            current_issue_ph[0]
-                              .sea_level_rise_coastal_erosion_2[3]
-                          "
-                        ></textarea>
-                      </li>
-                      <li>
-                        <div
-                          *ngIf="!editing_sea_level_rise_coastal_erosion_2[4]"
-                          (click)="startEditingSeaLevelErosion2(4)"
-                        >
-                          {{ sea_level_rise_coastal_erosion_2[4] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_sea_level_rise_coastal_erosion_2[4]"
-                          (blur)="finishEditingSeaLevelErosion2(4, $event)"
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="
-                            current_issue_ph[0]
-                              .sea_level_rise_coastal_erosion_2[4]
-                          "
-                        ></textarea>
-                      </li>
-                      <li>
-                        <div
-                          *ngIf="!editing_sea_level_rise_coastal_erosion_2[5]"
-                          (click)="startEditingSeaLevelErosion2(5)"
-                        >
-                          {{ sea_level_rise_coastal_erosion_2[5] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_sea_level_rise_coastal_erosion_2[5]"
-                          (blur)="finishEditingSeaLevelErosion2(5, $event)"
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="
-                            current_issue_ph[0]
-                              .sea_level_rise_coastal_erosion_2[5]
-                          "
-                        ></textarea>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <br />
-            <div class="ccs-sub-div2" style="margin-bottom: 30px">
-              <table class="ccs-table">
-                <tr>
-                  <th>
-                    <div
-                      *ngIf="!editing_sea_level_rise_coastal_erosion_2[6]"
-                      (click)="startEditingSeaLevelErosion2(6)"
-                    >
-                      {{ sea_level_rise_coastal_erosion_2[6] }}
-                    </div>
-
-                    <textarea
-                      rows="2" cols="117"
-                      style="font-size: 1.3rem; font-weight: 600"
-                      *ngIf="editing_sea_level_rise_coastal_erosion_2[6]"
-                      (blur)="finishEditingSeaLevelErosion2(6, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="
-                        current_issue_ph[0].sea_level_rise_coastal_erosion_2[6]
-                      "
-                    ></textarea>
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        <div
-                          *ngIf="!editing_sea_level_rise_coastal_erosion_2[7]"
-                          (click)="startEditingSeaLevelErosion2(7)"
-                        >
-                          {{ sea_level_rise_coastal_erosion_2[7] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_sea_level_rise_coastal_erosion_2[7]"
-                          (blur)="finishEditingSeaLevelErosion2(7, $event)"
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="
-                            current_issue_ph[0]
-                              .sea_level_rise_coastal_erosion_2[7]
-                          "
-                        ></textarea>
-                      </li>
-                      <li>
-                        <div
-                          *ngIf="!editing_sea_level_rise_coastal_erosion_2[8]"
-                          (click)="startEditingSeaLevelErosion2(8)"
-                        >
-                          {{ sea_level_rise_coastal_erosion_2[8] }}
-                        </div>
-
-                        <textarea
-                          rows="4" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_sea_level_rise_coastal_erosion_2[8]"
-                          (blur)="finishEditingSeaLevelErosion2(8, $event)"
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="
-                            current_issue_ph[0]
-                              .sea_level_rise_coastal_erosion_2[8]
-                          "
-                        ></textarea>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </accordion-group>
-
-        <!-- biodiversity_ecosystem_loss -->
-        <accordion-group heading="Biodiversity and Ecosystem Loss">
-          <div class="ccs-div1">
-            <div class="ccs-sub-div1">
-              <div
-                *ngIf="!editing_biodiversity_ecosystem_loss[0]"
-                (click)="startEditingBiodiversityEcosystemLoss(0)"
-              >
-                <p>{{ biodiversity_ecosystem_loss[0] }}</p>
+              
+              <div class="ccs-sub-div2">
+                <table class="ccs-table" style="margin-bottom: 30px">
+                  <tr>
+                    <td>
+                      <div
+                        *ngIf="!editing_sea_level_rise_coastal_erosion[1]"
+                        (click)="startEditingSeaLevelErosion(1)"
+                      >
+                        {{ sea_level_rise_coastal_erosion[1] }}
+                      </div>
+  
+                      <textarea
+                        rows="3" cols="128"
+                        style="font-size: 1.3rem"
+                        *ngIf="editing_sea_level_rise_coastal_erosion[1]"
+                        (blur)="finishEditingSeaLevelErosion(1, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="
+                          current_issue_ph[0].sea_level_rise_coastal_erosion[1]
+                        "
+                      ></textarea>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      <div
+                        *ngIf="!editing_sea_level_rise_coastal_erosion[2]"
+                        (click)="startEditingSeaLevelErosion(2)"
+                      >
+                        {{ sea_level_rise_coastal_erosion[2] }}
+                      </div>
+  
+                      <textarea
+                        rows="3" cols="128"
+                        style="font-size: 1.3rem"
+                        *ngIf="editing_sea_level_rise_coastal_erosion[2]"
+                        (blur)="finishEditingSeaLevelErosion(2, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="
+                          current_issue_ph[0].sea_level_rise_coastal_erosion[2]
+                        "
+                      ></textarea>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      <div
+                        *ngIf="!editing_sea_level_rise_coastal_erosion[3]"
+                        (click)="startEditingSeaLevelErosion(3)"
+                      >
+                        {{ sea_level_rise_coastal_erosion[3] }}
+                      </div>
+  
+                      <textarea
+                        rows="3" cols="128"
+                        style="font-size: 1.3rem"
+                        *ngIf="editing_sea_level_rise_coastal_erosion[3]"
+                        (blur)="finishEditingSeaLevelErosion(3, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="
+                          current_issue_ph[0].sea_level_rise_coastal_erosion[3]
+                        "
+                      ></textarea>
+                    </td>
+                  </tr>
+                </table>
               </div>
-
-              <textarea
-                rows="4" cols="152"
-                style="font-size: 1.3rem"
-                *ngIf="editing_biodiversity_ecosystem_loss[0]"
-                (blur)="finishEditingBiodiversityEcosystemLoss(0, $event)"
-                class="resizable-input"
-                (ngModelChange)="doesChange()"
-                [(ngModel)]="current_issue_ph[0].biodiversity_ecosystem_loss[0]"
-              ></textarea>
             </div>
+          </tab>
 
-            <div class="ccs-sub-div2">
-              <table class="ccs-table">
-                <tr>
-                  <th>
-                    <div
-                      *ngIf="!editing_biodiversity_ecosystem_loss[1]"
-                      (click)="startEditingBiodiversityEcosystemLoss(1)"
-                    >
-                      {{ biodiversity_ecosystem_loss[1] }}
-                    </div>
-
-                    <textarea
-                      rows="2" cols="117"
-                      style="font-size: 1.3rem; font-weight: 600"
-                      *ngIf="editing_biodiversity_ecosystem_loss[1]"
-                      (blur)="finishEditingBiodiversityEcosystemLoss(1, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="
-                        current_issue_ph[0].biodiversity_ecosystem_loss[1]
-                      "
-                    ></textarea>
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        <div
-                          *ngIf="!editing_biodiversity_ecosystem_loss[2]"
-                          (click)="startEditingBiodiversityEcosystemLoss(2)"
-                        >
-                          {{ biodiversity_ecosystem_loss[2] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_biodiversity_ecosystem_loss[2]"
-                          (blur)="
-                            finishEditingBiodiversityEcosystemLoss(2, $event)
-                          "
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="
-                            current_issue_ph[0].biodiversity_ecosystem_loss[2]
-                          "
-                        ></textarea>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        <div
-                          *ngIf="!editing_biodiversity_ecosystem_loss[3]"
-                          (click)="startEditingBiodiversityEcosystemLoss(3)"
-                        >
-                          {{ biodiversity_ecosystem_loss[3] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_biodiversity_ecosystem_loss[3]"
-                          (blur)="
-                            finishEditingBiodiversityEcosystemLoss(3, $event)
-                          "
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="
-                            current_issue_ph[0].biodiversity_ecosystem_loss[3]
-                          "
-                        ></textarea>
-                        <ul style="margin-top: 10px">
-                          <li>
-                            <div
-                              *ngIf="!editing_biodiversity_ecosystem_loss[4]"
-                              (click)="startEditingBiodiversityEcosystemLoss(4)"
-                            >
-                              {{ biodiversity_ecosystem_loss[4] }}
-                            </div>
-
-                            <textarea
-                              rows="3" cols="120"
-                              style="font-size: 1.3rem"
-                              *ngIf="editing_biodiversity_ecosystem_loss[4]"
-                              (blur)="
-                                finishEditingBiodiversityEcosystemLoss(
-                                  4,
-                                  $event
-                                )
-                              "
-                              class="resizable-input"
-                              (ngModelChange)="doesChange()"
-                              [(ngModel)]="
-                                current_issue_ph[0]
-                                  .biodiversity_ecosystem_loss[4]
-                              "
-                            ></textarea>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <br />
-            <div class="ccs-sub-div2" style="margin-bottom: 25px">
-              <table class="ccs-table">
-                <tr>
-                  <th>
-                    <div
-                      *ngIf="!editing_biodiversity_ecosystem_loss[5]"
-                      (click)="startEditingBiodiversityEcosystemLoss(5)"
-                    >
-                      {{ biodiversity_ecosystem_loss[5] }}
-                    </div>
-
-                    <textarea
-                      rows="2" cols="117"
-                      style="font-size: 1.3rem; font-weight: 600"
-                      *ngIf="editing_biodiversity_ecosystem_loss[5]"
-                      (blur)="finishEditingBiodiversityEcosystemLoss(5, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="
-                        current_issue_ph[0].biodiversity_ecosystem_loss[5]
-                      "
-                    ></textarea>
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <div
-                      *ngIf="!editing_biodiversity_ecosystem_loss[6]"
-                      (click)="startEditingBiodiversityEcosystemLoss(6)"
-                    >
-                      {{ biodiversity_ecosystem_loss[6] }}
-                    </div>
-
-                    <textarea
-                      rows="3" cols="128"
-                      style="font-size: 1.3rem"
-                      *ngIf="editing_biodiversity_ecosystem_loss[6]"
-                      (blur)="finishEditingBiodiversityEcosystemLoss(6, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="
-                        current_issue_ph[0].biodiversity_ecosystem_loss[6]
-                      "
-                    ></textarea>
-                  </td> 
-                </tr>
-              </table>
-            </div>
-
-            <div class="ccs-sub-div2" style="margin-bottom: 30px">
-              <table class="ccs-table">
-                <tr>
-                  <th>
-                    <div
-                      *ngIf="!editing_biodiversity_ecosystem_loss[7]"
-                      (click)="startEditingBiodiversityEcosystemLoss(7)"
-                    >
-                      {{ biodiversity_ecosystem_loss[7] }}
-                    </div>
-
-                    <textarea
-                      rows="2" cols="117"
-                      style="font-size: 1.3rem; font-weight: 600"
-                      *ngIf="editing_biodiversity_ecosystem_loss[7]"
-                      (blur)="finishEditingBiodiversityEcosystemLoss(7, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="
-                        current_issue_ph[0].biodiversity_ecosystem_loss[7]
-                      "
-                    ></textarea>
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul style="margin-top: 10px">
-                      <li>
-                        <div
-                          *ngIf="!editing_biodiversity_ecosystem_loss[8]"
-                          (click)="startEditingBiodiversityEcosystemLoss(8)"
-                        >
-                          {{ biodiversity_ecosystem_loss[8] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_biodiversity_ecosystem_loss[8]"
-                          (blur)="
-                            finishEditingBiodiversityEcosystemLoss(8, $event)
-                          "
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="
-                            current_issue_ph[0].biodiversity_ecosystem_loss[8]
-                          "
-                        ></textarea>
-                      </li>
-                      <li>
-                        <div
-                          *ngIf="!editing_biodiversity_ecosystem_loss[9]"
-                          (click)="startEditingBiodiversityEcosystemLoss(9)"
-                        >
-                          {{ biodiversity_ecosystem_loss[9] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_biodiversity_ecosystem_loss[9]"
-                          (blur)="
-                            finishEditingBiodiversityEcosystemLoss(9, $event)
-                          "
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="
-                            current_issue_ph[0].biodiversity_ecosystem_loss[9]
-                          "
-                        ></textarea>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </accordion-group>
-
-        <!-- agriculture_food_security -->
-        <accordion-group heading="Agriculture and Food Security">
-          <div class="ccs-div1">
-            <div class="ccs-sub-div1">
-              <div
-                *ngIf="!editing_agriculture_food_security[0]"
-                (click)="startEditingAgricultureFoodSecurity(0)"
-              >
-                <p>{{ agriculture_food_security[0] }}</p>
+          <tab heading="Sea Level Rise and Coastal Erosion 2">
+            <div class="ccs-div1">
+              <div class="ccs-sub-div1">
+                <div
+                  *ngIf="!editing_sea_level_rise_coastal_erosion_2[0]"
+                  (click)="startEditingSeaLevelErosion2(0)"
+                >
+                  <p>{{ sea_level_rise_coastal_erosion_2[0] }}</p>
+                </div>
+  
+                <textarea
+                  rows="4" cols="152"
+                  style="font-size: 1.3rem"
+                  *ngIf="editing_sea_level_rise_coastal_erosion_2[0]"
+                  (blur)="finishEditingSeaLevelErosion2(0, $event)"
+                  class="resizable-input"
+                  (ngModelChange)="doesChange()"
+                  [(ngModel)]="
+                    current_issue_ph[0].sea_level_rise_coastal_erosion_2[0]
+                  "
+                ></textarea>
               </div>
-
-              <textarea
-                rows="4" cols="152"
-                style="font-size: 1.3rem"
-                *ngIf="editing_agriculture_food_security[0]"
-                (blur)="finishEditingAgricultureFoodSecurity(0, $event)"
-                class="resizable-input"
-                (ngModelChange)="doesChange()"
-                [(ngModel)]="current_issue_ph[0].agriculture_food_security[0]"
-              ></textarea>
-            </div>
-
-            <div class="ccs-sub-div2">
-              <table class="ccs-table">
-                <tr>
-                  <th>
-                    <div
-                      *ngIf="!editing_agriculture_food_security[1]"
-                      (click)="startEditingAgricultureFoodSecurity(1)"
-                    >
-                      {{ agriculture_food_security[1] }}
-                    </div>
-
-                    <textarea
-                      rows="2" cols="117"
-                      style="font-size: 1.3rem; font-weight: 600"
-                      *ngIf="editing_agriculture_food_security[1]"
-                      (blur)="finishEditingAgricultureFoodSecurity(1, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="
-                        current_issue_ph[0].agriculture_food_security[1]
-                      "
-                    ></textarea>
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        <div
-                          *ngIf="!editing_agriculture_food_security[2]"
-                          (click)="startEditingAgricultureFoodSecurity(2)"
-                        >
-                          {{ agriculture_food_security[2] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_agriculture_food_security[2]"
-                          (blur)="
-                            finishEditingAgricultureFoodSecurity(2, $event)
-                          "
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="
-                            current_issue_ph[0].agriculture_food_security[2]
-                          "
-                        ></textarea>
-                      </li>
-                      <li>
-                        <div
-                          *ngIf="!editing_agriculture_food_security[3]"
-                          (click)="startEditingAgricultureFoodSecurity(3)"
-                        >
-                          {{ agriculture_food_security[3] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_agriculture_food_security[3]"
-                          (blur)="
-                            finishEditingAgricultureFoodSecurity(3, $event)
-                          "
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="
-                            current_issue_ph[0].agriculture_food_security[3]
-                          "
-                        ></textarea>
-                      </li>
-                      <li>
-                        <div
-                          *ngIf="!editing_agriculture_food_security[4]"
-                          (click)="startEditingAgricultureFoodSecurity(4)"
-                        >
-                          {{ agriculture_food_security[4] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_agriculture_food_security[4]"
-                          (blur)="
-                            finishEditingAgricultureFoodSecurity(4, $event)
-                          "
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="
-                            current_issue_ph[0].agriculture_food_security[4]
-                          "
-                        ></textarea>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li style="list-style-type: lower-roman">
-                        <div
-                          *ngIf="!editing_agriculture_food_security[5]"
-                          (click)="startEditingAgricultureFoodSecurity(5)"
-                        >
-                          {{ agriculture_food_security[5] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_agriculture_food_security[5]"
-                          (blur)="
-                            finishEditingAgricultureFoodSecurity(5, $event)
-                          "
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="
-                            current_issue_ph[0].agriculture_food_security[5]
-                          "
-                        ></textarea>
-                        <ul>
-                          <li>
-                            <div
-                              *ngIf="!editing_agriculture_food_security[6]"
-                              (click)="startEditingAgricultureFoodSecurity(6)"
-                            >
-                              {{ agriculture_food_security[6] }}
-                            </div>
-
-                            <textarea
-                              rows="3" cols="120"
-                              style="font-size: 1.3rem"
-                              *ngIf="editing_agriculture_food_security[6]"
-                              (blur)="
-                                finishEditingAgricultureFoodSecurity(6, $event)
-                              "
-                              class="resizable-input"
-                              (ngModelChange)="doesChange()"
-                              [(ngModel)]="
-                                current_issue_ph[0].agriculture_food_security[6]
-                              "
-                            ></textarea>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-
-                    <ul>
-                      <li style="list-style-type: lower-roman">
-                        <div
-                          *ngIf="!editing_agriculture_food_security[7]"
-                          (click)="startEditingAgricultureFoodSecurity(7)"
-                        >
-                          {{ agriculture_food_security[7] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_agriculture_food_security[7]"
-                          (blur)="
-                            finishEditingAgricultureFoodSecurity(7, $event)
-                          "
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="
-                            current_issue_ph[0].agriculture_food_security[7]
-                          "
-                        ></textarea>
-                        <ul>
-                          <li>
-                            <div
-                              *ngIf="!editing_agriculture_food_security[8]"
-                              (click)="startEditingAgricultureFoodSecurity(8)"
-                            >
-                              {{ agriculture_food_security[8] }}
-                            </div>
-
-                            <textarea
-                              rows="3" cols="120"
-                              style="font-size: 1.3rem"
-                              *ngIf="editing_agriculture_food_security[8]"
-                              (blur)="
-                                finishEditingAgricultureFoodSecurity(8, $event)
-                              "
-                              class="resizable-input"
-                              (ngModelChange)="doesChange()"
-                              [(ngModel)]="
-                                current_issue_ph[0].agriculture_food_security[8]
-                              "
-                            ></textarea>
-                          </li>
-                          <li>
-                            <div
-                              *ngIf="!editing_agriculture_food_security[9]"
-                              (click)="startEditingAgricultureFoodSecurity(9)"
-                            >
-                              {{ agriculture_food_security[9] }}
-                            </div>
-
-                            <textarea
-                              rows="3" cols="120"
-                              style="font-size: 1.3rem"
-                              *ngIf="editing_agriculture_food_security[9]"
-                              (blur)="
-                                finishEditingAgricultureFoodSecurity(9, $event)
-                              "
-                              class="resizable-input"
-                              (ngModelChange)="doesChange()"
-                              [(ngModel)]="
-                                current_issue_ph[0].agriculture_food_security[9]
-                              "
-                            ></textarea>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                    <ul style="margin-top: 10px">
-                      <li>
-                        <div
-                          *ngIf="!editing_agriculture_food_security[10]"
-                          (click)="startEditingAgricultureFoodSecurity(10)"
-                        >
-                          {{ agriculture_food_security[10] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_agriculture_food_security[10]"
-                          (blur)="
-                            finishEditingAgricultureFoodSecurity(10, $event)
-                          "
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="
-                            current_issue_ph[0].agriculture_food_security[10]
-                          "
-                        ></textarea>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <br />
-            <div class="ccs-sub-div2" style="margin-bottom: 25px">
-              <table class="ccs-table">
-                <tr>
-                  <td>
-                    <div
-                      *ngIf="!editing_agriculture_food_security[11]"
-                      (click)="startEditingAgricultureFoodSecurity(11)"
-                    >
-                      {{ agriculture_food_security[11] }}
-                    </div>
-
-                    <textarea
-                      rows="3" cols="128"
-                      style="font-size: 1.3rem"
-                      *ngIf="editing_agriculture_food_security[11]"
-                      (blur)="finishEditingAgricultureFoodSecurity(11, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="
-                        current_issue_ph[0].agriculture_food_security[11]
-                      "
-                    ></textarea>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <div
-                      *ngIf="!editing_agriculture_food_security[12]"
-                      (click)="startEditingAgricultureFoodSecurity(12)"
-                    >
-                      {{ agriculture_food_security[12] }}
-                    </div>
-
-                    <textarea
-                      rows="3" cols="128"
-                      style="font-size: 1.3rem"
-                      *ngIf="editing_agriculture_food_security[12]"
-                      (blur)="finishEditingAgricultureFoodSecurity(12, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="
-                        current_issue_ph[0].agriculture_food_security[12]
-                      "
-                    ></textarea>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <div
-                      *ngIf="!editing_agriculture_food_security[13]"
-                      (click)="startEditingAgricultureFoodSecurity(13)"
-                    >
-                      {{ agriculture_food_security[13] }}
-                    </div>
-
-                    <textarea
-                      rows="3" cols="128"
-                      style="font-size: 1.3rem"
-                      *ngIf="editing_agriculture_food_security[13]"
-                      (blur)="finishEditingAgricultureFoodSecurity(13, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="
-                        current_issue_ph[0].agriculture_food_security[13]
-                      "
-                    ></textarea>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <div
-                      *ngIf="!editing_agriculture_food_security[14]"
-                      (click)="startEditingAgricultureFoodSecurity(14)"
-                    >
-                      {{ agriculture_food_security[14] }}
-                    </div>
-
-                    <textarea
-                      rows="3" cols="128"
-                      style="font-size: 1.3rem"
-                      *ngIf="editing_agriculture_food_security[14]"
-                      (blur)="finishEditingAgricultureFoodSecurity(14, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="
-                        current_issue_ph[0].agriculture_food_security[14]
-                      "
-                    ></textarea>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <div
-                      *ngIf="!editing_agriculture_food_security[15]"
-                      (click)="startEditingAgricultureFoodSecurity(15)"
-                    >
-                      {{ agriculture_food_security[15] }}
-                    </div>
-
-                    <textarea
-                      rows="3" cols="128"
-                      style="font-size: 1.3rem"
-                      *ngIf="editing_agriculture_food_security[15]"
-                      (blur)="finishEditingAgricultureFoodSecurity(15, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="
-                        current_issue_ph[0].agriculture_food_security[15]
-                      "
-                    ></textarea>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </accordion-group>
-
-        <!-- health_risk -->
-        <accordion-group heading="Health Risk">
-          <div class="ccs-div1">
-            <div class="ccs-sub-div1">
-              <div
-                *ngIf="!editing_health_risk[0]"
-                (click)="startEditingHealthRisk(0)"
-              >
-                <p>{{ health_risk[0] }}</p>
+  
+              <div class="ccs-sub-div2">
+                <table class="ccs-table">
+                  <tr>
+                    <th>
+                      <div
+                        *ngIf="!editing_sea_level_rise_coastal_erosion_2[1]"
+                        (click)="startEditingSeaLevelErosion2(1)"
+                      >
+                        {{ sea_level_rise_coastal_erosion_2[1] }}
+                      </div>
+  
+                      <textarea
+                        rows="2" cols="117"
+                        style="font-size: 1.3rem; font-weight: 600"
+                        *ngIf="editing_sea_level_rise_coastal_erosion_2[1]"
+                        (blur)="finishEditingSeaLevelErosion2(1, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="
+                          current_issue_ph[0].sea_level_rise_coastal_erosion_2[1]
+                        "
+                      ></textarea>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          <div
+                            *ngIf="!editing_sea_level_rise_coastal_erosion_2[2]"
+                            (click)="startEditingSeaLevelErosion2(2)"
+                          >
+                            {{ sea_level_rise_coastal_erosion_2[2] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_sea_level_rise_coastal_erosion_2[2]"
+                            (blur)="finishEditingSeaLevelErosion2(2, $event)"
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="
+                              current_issue_ph[0]
+                                .sea_level_rise_coastal_erosion_2[2]
+                            "
+                          ></textarea>
+                        </li>
+                        <li>
+                          <div
+                            *ngIf="!editing_sea_level_rise_coastal_erosion_2[3]"
+                            (click)="startEditingSeaLevelErosion2(3)"
+                          >
+                            {{ sea_level_rise_coastal_erosion_2[3] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_sea_level_rise_coastal_erosion_2[3]"
+                            (blur)="finishEditingSeaLevelErosion2(3, $event)"
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="
+                              current_issue_ph[0]
+                                .sea_level_rise_coastal_erosion_2[3]
+                            "
+                          ></textarea>
+                        </li>
+                        <li>
+                          <div
+                            *ngIf="!editing_sea_level_rise_coastal_erosion_2[4]"
+                            (click)="startEditingSeaLevelErosion2(4)"
+                          >
+                            {{ sea_level_rise_coastal_erosion_2[4] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_sea_level_rise_coastal_erosion_2[4]"
+                            (blur)="finishEditingSeaLevelErosion2(4, $event)"
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="
+                              current_issue_ph[0]
+                                .sea_level_rise_coastal_erosion_2[4]
+                            "
+                          ></textarea>
+                        </li>
+                        <li>
+                          <div
+                            *ngIf="!editing_sea_level_rise_coastal_erosion_2[5]"
+                            (click)="startEditingSeaLevelErosion2(5)"
+                          >
+                            {{ sea_level_rise_coastal_erosion_2[5] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_sea_level_rise_coastal_erosion_2[5]"
+                            (blur)="finishEditingSeaLevelErosion2(5, $event)"
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="
+                              current_issue_ph[0]
+                                .sea_level_rise_coastal_erosion_2[5]
+                            "
+                          ></textarea>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
               </div>
-
-              <textarea
-                rows="4" cols="152"
-                style="font-size: 1.3rem"
-                *ngIf="editing_health_risk[0]"
-                (blur)="finishEditingHealthRisk(0, $event)"
-                class="resizable-input"
-                (ngModelChange)="doesChange()"
-                [(ngModel)]="current_issue_ph[0].health_risk[0]"
-              ></textarea>
+              <br />
+              <div class="ccs-sub-div2" style="margin-bottom: 30px">
+                <table class="ccs-table">
+                  <tr>
+                    <th>
+                      <div
+                        *ngIf="!editing_sea_level_rise_coastal_erosion_2[6]"
+                        (click)="startEditingSeaLevelErosion2(6)"
+                      >
+                        {{ sea_level_rise_coastal_erosion_2[6] }}
+                      </div>
+  
+                      <textarea
+                        rows="2" cols="117"
+                        style="font-size: 1.3rem; font-weight: 600"
+                        *ngIf="editing_sea_level_rise_coastal_erosion_2[6]"
+                        (blur)="finishEditingSeaLevelErosion2(6, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="
+                          current_issue_ph[0].sea_level_rise_coastal_erosion_2[6]
+                        "
+                      ></textarea>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          <div
+                            *ngIf="!editing_sea_level_rise_coastal_erosion_2[7]"
+                            (click)="startEditingSeaLevelErosion2(7)"
+                          >
+                            {{ sea_level_rise_coastal_erosion_2[7] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_sea_level_rise_coastal_erosion_2[7]"
+                            (blur)="finishEditingSeaLevelErosion2(7, $event)"
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="
+                              current_issue_ph[0]
+                                .sea_level_rise_coastal_erosion_2[7]
+                            "
+                          ></textarea>
+                        </li>
+                        <li>
+                          <div
+                            *ngIf="!editing_sea_level_rise_coastal_erosion_2[8]"
+                            (click)="startEditingSeaLevelErosion2(8)"
+                          >
+                            {{ sea_level_rise_coastal_erosion_2[8] }}
+                          </div>
+  
+                          <textarea
+                            rows="4" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_sea_level_rise_coastal_erosion_2[8]"
+                            (blur)="finishEditingSeaLevelErosion2(8, $event)"
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="
+                              current_issue_ph[0]
+                                .sea_level_rise_coastal_erosion_2[8]
+                            "
+                          ></textarea>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
             </div>
+          </tab>
 
-            <div class="ccs-sub-div2">
-              <table class="ccs-table" style="margin-bottom: 25px">
-                <tr>
-                  <th>
-                    <div
-                      *ngIf="!editing_health_risk[1]"
-                      (click)="startEditingHealthRisk(1)"
-                    >
-                      {{ health_risk[1] }}
-                    </div>
-
-                    <textarea
-                      rows="2" cols="117"
-                      style="font-size: 1.3rem; font-weight: 600"
-                      *ngIf="editing_health_risk[1]"
-                      (blur)="finishEditingHealthRisk(1, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="current_issue_ph[0].health_risk[1]"
-                    ></textarea>
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        <div
-                          *ngIf="!editing_health_risk[2]"
-                          (click)="startEditingHealthRisk(2)"
-                        >
-                          {{ health_risk[2] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_health_risk[2]"
-                          (blur)="finishEditingHealthRisk(2, $event)"
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="current_issue_ph[0].health_risk[2]"
-                        ></textarea>
-                      </li>
-                      <li>
-                        <div
-                          *ngIf="!editing_health_risk[3]"
-                          (click)="startEditingHealthRisk(3)"
-                        >
-                          {{ health_risk[3] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_health_risk[3]"
-                          (blur)="finishEditingHealthRisk(3, $event)"
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="current_issue_ph[0].health_risk[3]"
-                        ></textarea>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr></tr>
-              </table>
-
-              <table class="ccs-table" style="margin-bottom: 30px">
-                <tr>
-                  <th>
-                    <div
-                      *ngIf="!editing_health_risk[4]"
-                      (click)="startEditingHealthRisk(4)"
-                    >
-                      {{ health_risk[4] }}
-                    </div>
-
-                    <textarea
-                      rows="2" cols="117"
-                      style="font-size: 1.3rem; font-weight: 600"
-                      *ngIf="editing_health_risk[4]"
-                      (blur)="finishEditingHealthRisk(4, $event)"
-                      class="resizable-input"
-                      (ngModelChange)="doesChange()"
-                      [(ngModel)]="current_issue_ph[0].health_risk[4]"
-                    ></textarea>
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        <div
-                          *ngIf="!editing_health_risk[5]"
-                          (click)="startEditingHealthRisk(5)"
-                        >
-                          {{ health_risk[5] }}
-                        </div>
-
-                        <textarea
-                          rows="3" cols="125"
-                          style="font-size: 1.3rem"
-                          *ngIf="editing_health_risk[5]"
-                          (blur)="finishEditingHealthRisk(5, $event)"
-                          class="resizable-input"
-                          (ngModelChange)="doesChange()"
-                          [(ngModel)]="current_issue_ph[0].health_risk[5]"
-                        ></textarea>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr></tr>
-              </table>
+          <tab heading="Biodiversity and Ecosystem Loss">
+            <div class="ccs-div1">
+              <div class="ccs-sub-div1">
+                <div
+                  *ngIf="!editing_biodiversity_ecosystem_loss[0]"
+                  (click)="startEditingBiodiversityEcosystemLoss(0)"
+                >
+                  <p>{{ biodiversity_ecosystem_loss[0] }}</p>
+                </div>
+  
+                <textarea
+                  rows="4" cols="152"
+                  style="font-size: 1.3rem"
+                  *ngIf="editing_biodiversity_ecosystem_loss[0]"
+                  (blur)="finishEditingBiodiversityEcosystemLoss(0, $event)"
+                  class="resizable-input"
+                  (ngModelChange)="doesChange()"
+                  [(ngModel)]="current_issue_ph[0].biodiversity_ecosystem_loss[0]"
+                ></textarea>
+              </div>
+  
+              <div class="ccs-sub-div2">
+                <table class="ccs-table">
+                  <tr>
+                    <th>
+                      <div
+                        *ngIf="!editing_biodiversity_ecosystem_loss[1]"
+                        (click)="startEditingBiodiversityEcosystemLoss(1)"
+                      >
+                        {{ biodiversity_ecosystem_loss[1] }}
+                      </div>
+  
+                      <textarea
+                        rows="2" cols="117"
+                        style="font-size: 1.3rem; font-weight: 600"
+                        *ngIf="editing_biodiversity_ecosystem_loss[1]"
+                        (blur)="finishEditingBiodiversityEcosystemLoss(1, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="
+                          current_issue_ph[0].biodiversity_ecosystem_loss[1]
+                        "
+                      ></textarea>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          <div
+                            *ngIf="!editing_biodiversity_ecosystem_loss[2]"
+                            (click)="startEditingBiodiversityEcosystemLoss(2)"
+                          >
+                            {{ biodiversity_ecosystem_loss[2] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_biodiversity_ecosystem_loss[2]"
+                            (blur)="
+                              finishEditingBiodiversityEcosystemLoss(2, $event)
+                            "
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="
+                              current_issue_ph[0].biodiversity_ecosystem_loss[2]
+                            "
+                          ></textarea>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          <div
+                            *ngIf="!editing_biodiversity_ecosystem_loss[3]"
+                            (click)="startEditingBiodiversityEcosystemLoss(3)"
+                          >
+                            {{ biodiversity_ecosystem_loss[3] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_biodiversity_ecosystem_loss[3]"
+                            (blur)="
+                              finishEditingBiodiversityEcosystemLoss(3, $event)
+                            "
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="
+                              current_issue_ph[0].biodiversity_ecosystem_loss[3]
+                            "
+                          ></textarea>
+                          <ul style="margin-top: 10px">
+                            <li>
+                              <div
+                                *ngIf="!editing_biodiversity_ecosystem_loss[4]"
+                                (click)="startEditingBiodiversityEcosystemLoss(4)"
+                              >
+                                {{ biodiversity_ecosystem_loss[4] }}
+                              </div>
+  
+                              <textarea
+                                rows="3" cols="120"
+                                style="font-size: 1.3rem"
+                                *ngIf="editing_biodiversity_ecosystem_loss[4]"
+                                (blur)="
+                                  finishEditingBiodiversityEcosystemLoss(
+                                    4,
+                                    $event
+                                  )
+                                "
+                                class="resizable-input"
+                                (ngModelChange)="doesChange()"
+                                [(ngModel)]="
+                                  current_issue_ph[0]
+                                    .biodiversity_ecosystem_loss[4]
+                                "
+                              ></textarea>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <br />
+              <div class="ccs-sub-div2" style="margin-bottom: 25px">
+                <table class="ccs-table">
+                  <tr>
+                    <th>
+                      <div
+                        *ngIf="!editing_biodiversity_ecosystem_loss[5]"
+                        (click)="startEditingBiodiversityEcosystemLoss(5)"
+                      >
+                        {{ biodiversity_ecosystem_loss[5] }}
+                      </div>
+  
+                      <textarea
+                        rows="2" cols="117"
+                        style="font-size: 1.3rem; font-weight: 600"
+                        *ngIf="editing_biodiversity_ecosystem_loss[5]"
+                        (blur)="finishEditingBiodiversityEcosystemLoss(5, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="
+                          current_issue_ph[0].biodiversity_ecosystem_loss[5]
+                        "
+                      ></textarea>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div
+                        *ngIf="!editing_biodiversity_ecosystem_loss[6]"
+                        (click)="startEditingBiodiversityEcosystemLoss(6)"
+                      >
+                        {{ biodiversity_ecosystem_loss[6] }}
+                      </div>
+  
+                      <textarea
+                        rows="3" cols="128"
+                        style="font-size: 1.3rem"
+                        *ngIf="editing_biodiversity_ecosystem_loss[6]"
+                        (blur)="finishEditingBiodiversityEcosystemLoss(6, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="
+                          current_issue_ph[0].biodiversity_ecosystem_loss[6]
+                        "
+                      ></textarea>
+                    </td> 
+                  </tr>
+                </table>
+              </div>
+  
+              <div class="ccs-sub-div2" style="margin-bottom: 30px">
+                <table class="ccs-table">
+                  <tr>
+                    <th>
+                      <div
+                        *ngIf="!editing_biodiversity_ecosystem_loss[7]"
+                        (click)="startEditingBiodiversityEcosystemLoss(7)"
+                      >
+                        {{ biodiversity_ecosystem_loss[7] }}
+                      </div>
+  
+                      <textarea
+                        rows="2" cols="117"
+                        style="font-size: 1.3rem; font-weight: 600"
+                        *ngIf="editing_biodiversity_ecosystem_loss[7]"
+                        (blur)="finishEditingBiodiversityEcosystemLoss(7, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="
+                          current_issue_ph[0].biodiversity_ecosystem_loss[7]
+                        "
+                      ></textarea>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul style="margin-top: 10px">
+                        <li>
+                          <div
+                            *ngIf="!editing_biodiversity_ecosystem_loss[8]"
+                            (click)="startEditingBiodiversityEcosystemLoss(8)"
+                          >
+                            {{ biodiversity_ecosystem_loss[8] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_biodiversity_ecosystem_loss[8]"
+                            (blur)="
+                              finishEditingBiodiversityEcosystemLoss(8, $event)
+                            "
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="
+                              current_issue_ph[0].biodiversity_ecosystem_loss[8]
+                            "
+                          ></textarea>
+                        </li>
+                        <li>
+                          <div
+                            *ngIf="!editing_biodiversity_ecosystem_loss[9]"
+                            (click)="startEditingBiodiversityEcosystemLoss(9)"
+                          >
+                            {{ biodiversity_ecosystem_loss[9] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_biodiversity_ecosystem_loss[9]"
+                            (blur)="
+                              finishEditingBiodiversityEcosystemLoss(9, $event)
+                            "
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="
+                              current_issue_ph[0].biodiversity_ecosystem_loss[9]
+                            "
+                          ></textarea>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
             </div>
-          </div>
-        </accordion-group>
+          </tab>
 
-        <!-- water_scarcity -->
-        <accordion-group heading="Water Scarcity">
-          <div class="ccs-div1">
+          <tab heading="Agriculture and Food Security">
+            <div class="ccs-div1">
+              <div class="ccs-sub-div1">
+                <div
+                  *ngIf="!editing_agriculture_food_security[0]"
+                  (click)="startEditingAgricultureFoodSecurity(0)"
+                >
+                  <p>{{ agriculture_food_security[0] }}</p>
+                </div>
+  
+                <textarea
+                  rows="4" cols="152"
+                  style="font-size: 1.3rem"
+                  *ngIf="editing_agriculture_food_security[0]"
+                  (blur)="finishEditingAgricultureFoodSecurity(0, $event)"
+                  class="resizable-input"
+                  (ngModelChange)="doesChange()"
+                  [(ngModel)]="current_issue_ph[0].agriculture_food_security[0]"
+                ></textarea>
+              </div>
+  
+              <div class="ccs-sub-div2">
+                <table class="ccs-table">
+                  <tr>
+                    <th>
+                      <div
+                        *ngIf="!editing_agriculture_food_security[1]"
+                        (click)="startEditingAgricultureFoodSecurity(1)"
+                      >
+                        {{ agriculture_food_security[1] }}
+                      </div>
+  
+                      <textarea
+                        rows="2" cols="117"
+                        style="font-size: 1.3rem; font-weight: 600"
+                        *ngIf="editing_agriculture_food_security[1]"
+                        (blur)="finishEditingAgricultureFoodSecurity(1, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="
+                          current_issue_ph[0].agriculture_food_security[1]
+                        "
+                      ></textarea>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          <div
+                            *ngIf="!editing_agriculture_food_security[2]"
+                            (click)="startEditingAgricultureFoodSecurity(2)"
+                          >
+                            {{ agriculture_food_security[2] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_agriculture_food_security[2]"
+                            (blur)="
+                              finishEditingAgricultureFoodSecurity(2, $event)
+                            "
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="
+                              current_issue_ph[0].agriculture_food_security[2]
+                            "
+                          ></textarea>
+                        </li>
+                        <li>
+                          <div
+                            *ngIf="!editing_agriculture_food_security[3]"
+                            (click)="startEditingAgricultureFoodSecurity(3)"
+                          >
+                            {{ agriculture_food_security[3] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_agriculture_food_security[3]"
+                            (blur)="
+                              finishEditingAgricultureFoodSecurity(3, $event)
+                            "
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="
+                              current_issue_ph[0].agriculture_food_security[3]
+                            "
+                          ></textarea>
+                        </li>
+                        <li>
+                          <div
+                            *ngIf="!editing_agriculture_food_security[4]"
+                            (click)="startEditingAgricultureFoodSecurity(4)"
+                          >
+                            {{ agriculture_food_security[4] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_agriculture_food_security[4]"
+                            (blur)="
+                              finishEditingAgricultureFoodSecurity(4, $event)
+                            "
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="
+                              current_issue_ph[0].agriculture_food_security[4]
+                            "
+                          ></textarea>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li style="list-style-type: lower-roman">
+                          <div
+                            *ngIf="!editing_agriculture_food_security[5]"
+                            (click)="startEditingAgricultureFoodSecurity(5)"
+                          >
+                            {{ agriculture_food_security[5] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_agriculture_food_security[5]"
+                            (blur)="
+                              finishEditingAgricultureFoodSecurity(5, $event)
+                            "
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="
+                              current_issue_ph[0].agriculture_food_security[5]
+                            "
+                          ></textarea>
+                          <ul>
+                            <li>
+                              <div
+                                *ngIf="!editing_agriculture_food_security[6]"
+                                (click)="startEditingAgricultureFoodSecurity(6)"
+                              >
+                                {{ agriculture_food_security[6] }}
+                              </div>
+  
+                              <textarea
+                                rows="3" cols="120"
+                                style="font-size: 1.3rem"
+                                *ngIf="editing_agriculture_food_security[6]"
+                                (blur)="
+                                  finishEditingAgricultureFoodSecurity(6, $event)
+                                "
+                                class="resizable-input"
+                                (ngModelChange)="doesChange()"
+                                [(ngModel)]="
+                                  current_issue_ph[0].agriculture_food_security[6]
+                                "
+                              ></textarea>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+  
+                      <ul>
+                        <li style="list-style-type: lower-roman">
+                          <div
+                            *ngIf="!editing_agriculture_food_security[7]"
+                            (click)="startEditingAgricultureFoodSecurity(7)"
+                          >
+                            {{ agriculture_food_security[7] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_agriculture_food_security[7]"
+                            (blur)="
+                              finishEditingAgricultureFoodSecurity(7, $event)
+                            "
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="
+                              current_issue_ph[0].agriculture_food_security[7]
+                            "
+                          ></textarea>
+                          <ul>
+                            <li>
+                              <div
+                                *ngIf="!editing_agriculture_food_security[8]"
+                                (click)="startEditingAgricultureFoodSecurity(8)"
+                              >
+                                {{ agriculture_food_security[8] }}
+                              </div>
+  
+                              <textarea
+                                rows="3" cols="120"
+                                style="font-size: 1.3rem"
+                                *ngIf="editing_agriculture_food_security[8]"
+                                (blur)="
+                                  finishEditingAgricultureFoodSecurity(8, $event)
+                                "
+                                class="resizable-input"
+                                (ngModelChange)="doesChange()"
+                                [(ngModel)]="
+                                  current_issue_ph[0].agriculture_food_security[8]
+                                "
+                              ></textarea>
+                            </li>
+                            <li>
+                              <div
+                                *ngIf="!editing_agriculture_food_security[9]"
+                                (click)="startEditingAgricultureFoodSecurity(9)"
+                              >
+                                {{ agriculture_food_security[9] }}
+                              </div>
+  
+                              <textarea
+                                rows="3" cols="120"
+                                style="font-size: 1.3rem"
+                                *ngIf="editing_agriculture_food_security[9]"
+                                (blur)="
+                                  finishEditingAgricultureFoodSecurity(9, $event)
+                                "
+                                class="resizable-input"
+                                (ngModelChange)="doesChange()"
+                                [(ngModel)]="
+                                  current_issue_ph[0].agriculture_food_security[9]
+                                "
+                              ></textarea>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                      <ul style="margin-top: 10px">
+                        <li>
+                          <div
+                            *ngIf="!editing_agriculture_food_security[10]"
+                            (click)="startEditingAgricultureFoodSecurity(10)"
+                          >
+                            {{ agriculture_food_security[10] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_agriculture_food_security[10]"
+                            (blur)="
+                              finishEditingAgricultureFoodSecurity(10, $event)
+                            "
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="
+                              current_issue_ph[0].agriculture_food_security[10]
+                            "
+                          ></textarea>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <br />
+              <div class="ccs-sub-div2" style="margin-bottom: 25px">
+                <table class="ccs-table">
+                  <tr>
+                    <td>
+                      <div
+                        *ngIf="!editing_agriculture_food_security[11]"
+                        (click)="startEditingAgricultureFoodSecurity(11)"
+                      >
+                        {{ agriculture_food_security[11] }}
+                      </div>
+  
+                      <textarea
+                        rows="3" cols="128"
+                        style="font-size: 1.3rem"
+                        *ngIf="editing_agriculture_food_security[11]"
+                        (blur)="finishEditingAgricultureFoodSecurity(11, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="
+                          current_issue_ph[0].agriculture_food_security[11]
+                        "
+                      ></textarea>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      <div
+                        *ngIf="!editing_agriculture_food_security[12]"
+                        (click)="startEditingAgricultureFoodSecurity(12)"
+                      >
+                        {{ agriculture_food_security[12] }}
+                      </div>
+  
+                      <textarea
+                        rows="3" cols="128"
+                        style="font-size: 1.3rem"
+                        *ngIf="editing_agriculture_food_security[12]"
+                        (blur)="finishEditingAgricultureFoodSecurity(12, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="
+                          current_issue_ph[0].agriculture_food_security[12]
+                        "
+                      ></textarea>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      <div
+                        *ngIf="!editing_agriculture_food_security[13]"
+                        (click)="startEditingAgricultureFoodSecurity(13)"
+                      >
+                        {{ agriculture_food_security[13] }}
+                      </div>
+  
+                      <textarea
+                        rows="3" cols="128"
+                        style="font-size: 1.3rem"
+                        *ngIf="editing_agriculture_food_security[13]"
+                        (blur)="finishEditingAgricultureFoodSecurity(13, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="
+                          current_issue_ph[0].agriculture_food_security[13]
+                        "
+                      ></textarea>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      <div
+                        *ngIf="!editing_agriculture_food_security[14]"
+                        (click)="startEditingAgricultureFoodSecurity(14)"
+                      >
+                        {{ agriculture_food_security[14] }}
+                      </div>
+  
+                      <textarea
+                        rows="3" cols="128"
+                        style="font-size: 1.3rem"
+                        *ngIf="editing_agriculture_food_security[14]"
+                        (blur)="finishEditingAgricultureFoodSecurity(14, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="
+                          current_issue_ph[0].agriculture_food_security[14]
+                        "
+                      ></textarea>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      <div
+                        *ngIf="!editing_agriculture_food_security[15]"
+                        (click)="startEditingAgricultureFoodSecurity(15)"
+                      >
+                        {{ agriculture_food_security[15] }}
+                      </div>
+  
+                      <textarea
+                        rows="3" cols="128"
+                        style="font-size: 1.3rem"
+                        *ngIf="editing_agriculture_food_security[15]"
+                        (blur)="finishEditingAgricultureFoodSecurity(15, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="
+                          current_issue_ph[0].agriculture_food_security[15]
+                        "
+                      ></textarea>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </tab>
+          
+          <tab heading="Health Risk">
+            <div class="ccs-div1">
+              <div class="ccs-sub-div1">
+                <div
+                  *ngIf="!editing_health_risk[0]"
+                  (click)="startEditingHealthRisk(0)"
+                >
+                  <p>{{ health_risk[0] }}</p>
+                </div>
+  
+                <textarea
+                  rows="4" cols="152"
+                  style="font-size: 1.3rem"
+                  *ngIf="editing_health_risk[0]"
+                  (blur)="finishEditingHealthRisk(0, $event)"
+                  class="resizable-input"
+                  (ngModelChange)="doesChange()"
+                  [(ngModel)]="current_issue_ph[0].health_risk[0]"
+                ></textarea>
+              </div>
+  
+              <div class="ccs-sub-div2">
+                <table class="ccs-table" style="margin-bottom: 25px">
+                  <tr>
+                    <th>
+                      <div
+                        *ngIf="!editing_health_risk[1]"
+                        (click)="startEditingHealthRisk(1)"
+                      >
+                        {{ health_risk[1] }}
+                      </div>
+  
+                      <textarea
+                        rows="2" cols="117"
+                        style="font-size: 1.3rem; font-weight: 600"
+                        *ngIf="editing_health_risk[1]"
+                        (blur)="finishEditingHealthRisk(1, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="current_issue_ph[0].health_risk[1]"
+                      ></textarea>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          <div
+                            *ngIf="!editing_health_risk[2]"
+                            (click)="startEditingHealthRisk(2)"
+                          >
+                            {{ health_risk[2] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_health_risk[2]"
+                            (blur)="finishEditingHealthRisk(2, $event)"
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="current_issue_ph[0].health_risk[2]"
+                          ></textarea>
+                        </li>
+                        <li>
+                          <div
+                            *ngIf="!editing_health_risk[3]"
+                            (click)="startEditingHealthRisk(3)"
+                          >
+                            {{ health_risk[3] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_health_risk[3]"
+                            (blur)="finishEditingHealthRisk(3, $event)"
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="current_issue_ph[0].health_risk[3]"
+                          ></textarea>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr></tr>
+                </table>
+              </div>
+              
+                <div class="ccs-sub-div2" style="margin-bottom: 25px">
+                <table class="ccs-table" style="margin-bottom: 30px">
+                  <tr>
+                    <th>
+                      <div
+                        *ngIf="!editing_health_risk[4]"
+                        (click)="startEditingHealthRisk(4)"
+                      >
+                        {{ health_risk[4] }}
+                      </div>
+  
+                      <textarea
+                        rows="2" cols="117"
+                        style="font-size: 1.3rem; font-weight: 600"
+                        *ngIf="editing_health_risk[4]"
+                        (blur)="finishEditingHealthRisk(4, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="current_issue_ph[0].health_risk[4]"
+                      ></textarea>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          <div
+                            *ngIf="!editing_health_risk[5]"
+                            (click)="startEditingHealthRisk(5)"
+                          >
+                            {{ health_risk[5] }}
+                          </div>
+  
+                          <textarea
+                            rows="3" cols="125"
+                            style="font-size: 1.3rem"
+                            *ngIf="editing_health_risk[5]"
+                            (blur)="finishEditingHealthRisk(5, $event)"
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="current_issue_ph[0].health_risk[5]"
+                          ></textarea>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr></tr>
+                </table>
+              </div>
+            </div>
+          </tab>
+
+          <tab heading="Water Scarcity">
+            <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <div
                 *ngIf="!editing_water_scarcity[0]"
@@ -1202,6 +1196,9 @@
                   </td>
                 </tr>
               </table>
+              </div>
+
+              <div class="ccs-sub-div2">
               <table class="ccs-table" style="margin-bottom: 25px">
                 <tr>
                   <th>
@@ -1267,7 +1264,9 @@
                 </tr>
                 <tr></tr>
               </table>
+            </div>
 
+            <div class="ccs-sub-div2">
               <table class="ccs-table" style="margin-bottom: 25px">
                 <tr>
                   <th>
@@ -1315,7 +1314,9 @@
                 </tr>
                 <tr></tr>
               </table>
+            </div>
 
+            <div class="ccs-sub-div2">
               <table class="ccs-table" style="margin-bottom: 30px">
                 <tr>
                   <td>
@@ -1382,13 +1383,9 @@
               </table>
             </div>
           </div>
-        </accordion-group>
-      </accordion>
-    </div>
-    <section>
-      <div class="reference-container">
-        <accordion [isAnimated]="true">
-          <accordion-group heading="References" style="margin-bottom: 30px">
+          </tab>
+
+          <tab heading="References" style="margin: 30px 0 0 0;">
             <div
               *ngIf="!editing_references[0]"
               (click)="startEditingReferences(0)"
@@ -1584,10 +1581,10 @@
               (ngModelChange)="doesChange()"
               [(ngModel)]="current_issue_ph[0].references[10]"
             ></textarea>
-          </accordion-group>
-        </accordion>
+          </tab>
+        </tabset>
       </div>
-    </section>
+    </div>
   </section>
   <div class="publish-container">
     <button type="button" class="publish" (click)="updateData()">

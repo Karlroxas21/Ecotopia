@@ -21,7 +21,7 @@ li, a, button{
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.5rem;
-  color: #000;
+  color: #ffffff;
   text-decoration: none;
 }
 header{
@@ -31,7 +31,7 @@ header{
   padding: 10px;
   width: 100%;
   height: 120px;
-  background-color: #EDEDED;
+  background: linear-gradient(0deg, rgba(5,11,46,1) 30%, rgba(5,20,101,1) 100%);
   z-index: 100;
 }
 nav{
@@ -63,7 +63,6 @@ nav ul{
   flex-wrap: nowrap;
 }
 nav ul li{
-  color: #ffffff;
   margin: 0 2px;
   font-weight: 600;
   padding: 25px;
@@ -80,17 +79,10 @@ nav ul li{
   position: absolute;
   right: 1px;
 }
-.lines {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  transition: background-color 0.3s ease;
-}
-
 .bx {
   font-size: 50px;
   transition: transform 0.3s ease;
+  color: #ffffff;
 }
 .bx-x {
   transform: rotate(90deg);
@@ -120,7 +112,7 @@ nav ul li{
   display: flex;
 }
 .active{
-  background-color: #FF96A9;
+  background-color: #919191;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3 ease 0s;
@@ -133,7 +125,7 @@ nav ul li{
 ul li ul.dropdown{
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #051465;
   min-width: 20.5%;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -147,7 +139,7 @@ ul li ul.dropdown a{
   padding: 10px;
 }
 .dropdown a:hover{
-  background-color: #FF96A9;
+  background-color: #919191;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3 ease 0s;
@@ -177,7 +169,7 @@ ul li:hover ul.dropdown{
       z-index: 1;
       width: 100%;
       height: 55vh;
-      background-color: #EDEDED;
+      background-color: #051465;
       transition: 0.2s;
       margin-top: 80px;
   }

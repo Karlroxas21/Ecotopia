@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr'; 
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,9 @@ export class LoginComponent {
   username: string = '';
   password: string = '';  
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, 
+    private router: Router,
+    private toastr: ToastrService) { }
 
   login(){
     const formData = {
@@ -22,11 +25,11 @@ export class LoginComponent {
     this.http.post('http://localhost:80/login', formData).subscribe((response: any) =>{
       localStorage.setItem('token', response.token);
 
-      // Insert toaster here "Success logging in"
+      this.toastr.success('You have successfully logged in', 'Login Success!');
       this.router.navigate(['/admin-current-issues-ph']);
 
     },(error) =>{
-      console.error('Login failed:', error);
+      this.toastr.error('User is not authenticated. Please try again.', 'Login Failed', error);
     })
 
   }
