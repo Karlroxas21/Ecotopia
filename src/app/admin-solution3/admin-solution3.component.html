@@ -7,12 +7,12 @@
   <main style="padding: 0 30px 0 30px">
     <div class="text">
       <div *ngIf="!editing_header" (click)="startEditingHeader()">
-        <h4 style="color: #0030ff">{{ header }}</h4>
+        <h4 style="color: #000">{{ header }}</h4>
       </div>
 
       <textarea
         rows="4" cols="148"
-        style="font-size: 1.5rem; color: #0030ff; font-weight: 600"
+        style="font-size: 1.5rem; color: #000; font-weight: 600"
         *ngIf="editing_header"
         (blur)="finishEditingHeader($event)"
         class="resizable-input"
@@ -40,12 +40,12 @@
       <br>
 
       <div *ngIf="!editing_descriptions[0]" (click)="startEditingDesc1()">
-        <h3 style="color: #fb0280">{{ descriptions[0] }}</h3>
+        <h3 style="color: #B01229">{{ descriptions[0] }}</h3>
       </div>
 
       <textarea
         rows="2" cols="148"
-        style="font-size: 1.5rem; color: #fb0280; font-weight: 600"
+        style="font-size: 1.5rem; color: #B01229; font-weight: 600"
         *ngIf="editing_descriptions[0]"
         (blur)="finishEditingDesc1($event)"
         class="resizable-input"
@@ -56,14 +56,14 @@
       <br />
 
       <div *ngIf="!editing_bullet_1[0]" (click)="startEditingBullet1Title()">
-        <p style="font-size: 1.5rem; color: #2082c8; font-weight: 600">
+        <p style="font-size: 1.5rem; color: #B01229; font-weight: 600">
           1. {{ bullet1[0] }}
         </p>
       </div>
 
       <textarea
         rows="2" cols="148"
-        style="font-size: 1.5rem; color: #2082c8; font-weight: 600"
+        style="font-size: 1.5rem; color: #B01229; font-weight: 600"
         *ngIf="editing_bullet_1[0]"
         (blur)="finishEditingBullet1Title($event)"
         class="resizable-input"
@@ -93,14 +93,14 @@
       <br />
 
       <div *ngIf="!editing_bullet_2[0]" (click)="startEditingBullet2Title()">
-        <p style="font-size: 1.5rem; color: #2082c8; font-weight: 600">
+        <p style="font-size: 1.5rem; color: #B01229; font-weight: 600">
           2. {{ bullet2[0] }}
         </p>
       </div>
 
       <textarea
         rows="2" cols="148"
-        style="font-size: 1.5rem; color: #2082c8; font-weight: 600"
+        style="font-size: 1.5rem; color: #B01229; font-weight: 600"
         *ngIf="editing_bullet_2[0]"
         (blur)="finishEditingBullet2Title($event)"
         class="resizable-input"

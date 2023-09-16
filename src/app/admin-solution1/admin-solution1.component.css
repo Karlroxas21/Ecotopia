@@ -167,18 +167,20 @@ section .reference-container {
 }
 
 .publish:hover {
-    background: #0030ff;
-}
-
-.publish {
+    background: #000;
+  }
+  
+  .publish {
     border-radius: 20px;
-    background: #ff96a9;
+    border: 1px solid ;
+    background-color: #D79732;
+    transition: background-color 0.1s ease-in-out;
     font-size: 2rem;
     padding: 10px;
     color: white;
     font-weight: 600;
     letter-spacing: 1.65px;
-}
+  }
 
 .resizable-input {
     resize: both;

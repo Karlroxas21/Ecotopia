@@ -12,7 +12,7 @@
             <h3>
               <textarea
                 rows="2" cols="25"
-                style="font-size: 3rem; color: #0030ff; font-weight: 600"
+                style="font-size: 3rem; color: #021CD3; font-weight: 600"
                 *ngIf="editing_header"
                 (blur)="finishEditingHeader($event)"
                 class="resizable-input"
@@ -49,7 +49,7 @@
           <div *ngIf="!editing_title" (click)="startEditingTitle()">
             <h1
               style="
-                color: #0030ff;
+                color: #D29A2D;
                 text-align: center;
                 font-size: 50px;
                 font-weight: bold;
@@ -81,13 +81,13 @@
           data-aos="zoom-in"
           *ngFor="let item of problem_trash"
         >
-          <div class="card" style="border-color: #c15669; align-items: center">
+          <div class="card" style="border-color: #4D0E16; align-items: center">
             <div class="card-content">
               <div *ngIf="!editing_case1" (click)="startEditingCase1()">
                 <h2>
                   <a
                     class="learn-more-button"
-                    style="text-decoration: none; color: #c15669"
+                    style="text-decoration: none; color: #4D0E16"
                   >
                   <i class='bx bx-trash' style="font-size: 40px;"></i>
                     {{ case1[0] }}
@@ -97,7 +97,7 @@
       
               <h2>
                 <textarea
-                  style="text-decoration: none; color: #c15669; font-weight: 500"
+                  style="text-decoration: none; color: #4D0E16; font-weight: 500"
                   *ngIf="editing_case1"
                   (blur)="finishEditingCase1($event)"
                   class="resizable-input"
@@ -110,13 +110,13 @@
             </div>
           </div>
       
-          <div class="card" style="border-color: #5e55db; align-items: center">
+          <div class="card" style="border-color: #4D0E16; align-items: center">
             <div class="card-content">
               <h2>
                 <div *ngIf="!editing_case2" (click)="startEditingCase2()">
                   <a
                     class="learn-more-button"
-                    style="text-decoration: none; color: #5e55db"
+                    style="text-decoration: none; color: #4D0E16"
                   >
                   <i class='bx bx-bus' style="font-size: 45px;"></i>
                     {{ case2[0] }}
@@ -124,7 +124,7 @@
                 </div>
       
                 <textarea
-                  style="text-decoration: none; color: #5e55db; font-weight: 500"
+                  style="text-decoration: none; color: #4D0E16; font-weight: 500"
                   *ngIf="editing_case2"
                   (blur)="finishEditingCase2($event)"
                   class="resizable-input"
@@ -137,13 +137,13 @@
             </div>
           </div>
       
-          <div class="card" style="border-color: #dd9e3b; align-items: center">
+          <div class="card" style="border-color: #4D0E16; align-items: center">
             <div class="card-content">
               <h2>
                 <div *ngIf="!editing_case3" (click)="startEditingCase3()">
                   <a
                     class="learn-more-button"
-                    style="text-decoration: none; color: #dd9e3b"
+                    style="text-decoration: none; color: #4D0E16"
                   >
                   <i class='bx bx-question-mark' style="font-size: 45px;"></i>
                     {{ case3[0] }}
@@ -151,7 +151,7 @@
                 </div>
       
                 <textarea
-                  style="text-decoration: none; color: #dd9e3b; font-weight: 500"
+                  style="text-decoration: none; color: #4D0E16; font-weight: 500"
                   *ngIf="editing_case3"
                   (blur)="finishEditingCase3($event)"
                   class="resizable-input"
@@ -164,13 +164,13 @@
             </div>
           </div>
       
-          <div class="card" style="border-color: #396a63; align-items: center">
+          <div class="card" style="border-color: #4D0E16; align-items: center">
             <div class="card-content">
               <h2>
                 <div *ngIf="!editing_case4" (click)="startEditingCase4()">
                   <a
                     class="learn-more-button"
-                    style="text-decoration: none; color: #396a63"
+                    style="text-decoration: none; color: #4D0E16"
                   >
                   <i class='bx bxs-magic-wand' style="font-size: 45px;"></i>
                     {{ case4[0] }}
@@ -178,7 +178,7 @@
                 </div>
       
                 <textarea
-                  style="text-decoration: none; color: #396a63; font-weight: 500"
+                  style="text-decoration: none; color: #4D0E16; font-weight: 500"
                   *ngIf="editing_case4"
                   (blur)="finishEditingCase4($event)"
                   class="resizable-input"
@@ -194,7 +194,7 @@
         <hr style="width: 100%" />
       
         <div class="text" *ngFor="let item of problem_trash">
-          <h1 style="padding-top: 50px; color: #c15669">
+          <h1 style="padding-top: 50px; color: #4D0E16">
             {{ item.cases.case1[0] }}
           </h1>
       
@@ -202,14 +202,14 @@
             <!-- BULLET 1 -->
             <li>
               <div *ngIf="!editing_bullet_1[0]" (click)="startEditingBullet1Title()">
-                <b style="color: #ff96a9; font-size: 27px">
+                <b style="color: #000; font-size: 27px">
                   {{ bullet1[0] }}
                 </b>
               </div>
       
               <textarea
                 rows="2" cols="130"
-                style="color: #ff96a9; font-size: 27px; font-weight: 600"
+                style="color: #000; font-size: 27px; font-weight: 600"
                 *ngIf="editing_bullet_1[0]"
                 (blur)="finishEditingBullet1Title($event)"
                 class="resizable-input"
@@ -252,12 +252,12 @@
             <!-- BULLET 2 -->
             <li>
               <div *ngIf="!editing_bullet_2[0]" (click)="startEditingBullet2Title()">
-                <b style="color: #ff96a9; font-size: 27px"> {{ bullet2[0] }}</b>
+                <b style="color: #000; font-size: 27px"> {{ bullet2[0] }}</b>
               </div>
       
               <textarea
                 rows="2" cols="130"
-                style="color: #ff96a9; font-size: 27px; font-weight: 600"
+                style="color: #000; font-size: 27px; font-weight: 600"
                 *ngIf="editing_bullet_2[0]"
                 (blur)="finishEditingBullet2Title($event)"
                 class="resizable-input"
@@ -319,12 +319,12 @@
             <!-- BULLET 3 -->
             <li>
               <div *ngIf="!editing_bullet_3[0]" (click)="startEditingBullet3Title()">
-                <b style="color: #ff96a9; font-size: 27px"> {{ bullet3[0] }}</b>
+                <b style="color: #000; font-size: 27px"> {{ bullet3[0] }}</b>
               </div>
       
               <textarea
                 rows="2" cols="130"
-                style="color: #ff96a9; font-size: 27px; font-weight: 600"
+                style="color: #000; font-size: 27px; font-weight: 600"
                 *ngIf="editing_bullet_3[0]"
                 (blur)="finishEditingBullet3Title($event)"
                 class="resizable-input"
@@ -388,12 +388,12 @@
             <!-- BULLET 4 -->
             <li>
               <div *ngIf="!editing_bullet_4[0]" (click)="startEditingBullet4Title()">
-                <b style="color: #ff96a9; font-size: 27px"> {{ bullet4[0] }}</b>
+                <b style="color: #000; font-size: 27px"> {{ bullet4[0] }}</b>
               </div>
       
               <textarea
                 rows="2" cols="130"
-                style="color: #ff96a9; font-size: 27px; font-weight: 600"
+                style="color: #000; font-size: 27px; font-weight: 600"
                 *ngIf="editing_bullet_4[0]"
                 (blur)="finishEditingBullet4Title($event)"
                 class="resizable-input"
@@ -470,12 +470,12 @@
             <!-- BULLET 5 -->
             <li>
               <div *ngIf="!editing_bullet_5[0]" (click)="startEditingBullet5Title()">
-                <b style="color: #ff96a9; font-size: 27px"> {{ bullet5[0] }}</b>
+                <b style="color: #000; font-size: 27px"> {{ bullet5[0] }}</b>
               </div>
       
               <textarea
                 rows="2" cols="130"
-                style="color: #ff96a9; font-size: 27px; font-weight: 600"
+                style="color: #000; font-size: 27px; font-weight: 600"
                 *ngIf="editing_bullet_5[0]"
                 (blur)="finishEditingBullet5Title($event)"
                 class="resizable-input"
@@ -513,12 +513,12 @@
             <!-- BULET 6 -->
             <li>
               <div *ngIf="!editing_bullet_6[0]" (click)="startEditingBullet6Title()">
-                <b style="color: #ff96a9; font-size: 27px"> {{ bullet6[0] }}</b>
+                <b style="color: #000; font-size: 27px"> {{ bullet6[0] }}</b>
               </div>
       
               <textarea
                 rows="2" cols="184"
-                style="color: #ff96a9; font-size: 27px; font-weight: 600"
+                style="color: #000; font-size: 27px; font-weight: 600"
                 *ngIf="editing_bullet_6[0]"
                 (blur)="finishEditingBullet6Title($event)"
                 class="resizable-input"

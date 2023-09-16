@@ -11,6 +11,8 @@ import { CurrentIssueComponent } from './current-issue/current-issue.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ToastrModule } from 'ngx-toastr';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { CasesComponent } from './problems/cases.component';
 import { OverviewOfClimateChangeComponent } from './overview-of-climate-change/overview-of-climate-change.component';
@@ -44,7 +46,7 @@ import { AdminCurrentIssuesPhComponent } from './admin-current-issues-ph/admin-c
 import { AdminSolutionsComponent } from './admin-solutions/admin-solutions.component';
 import { LoginComponent } from './login/login.component';
 import { AdminAssessmentComponent } from './admin-assessment/admin-assessment.component';
-import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -97,6 +99,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
     AccordionModule.forRoot(),
+    TabsModule.forRoot(),
     ToastrModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,

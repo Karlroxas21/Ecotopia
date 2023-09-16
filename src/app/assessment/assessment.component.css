@@ -7,7 +7,7 @@
     font-family: 'Henry Sans', sans-serif;
 }
 .assessment{
-    background-color: #0030FF;
+    background-color: #4D0E16;
     padding: 20px;
     text-align: center;
     display: flex;
@@ -54,14 +54,15 @@ button:hover{
     border: 5px solid;
     color: black;
 }
-.validprompt{
-    margin-top: 10px;
+.wrong-answer {
     color: red;
-}
-.validprompt2{
-    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+.correct-answer {
     color: green;
-}
+    font-weight: bold;
+  }
 @media only screen and (max-width: 920px){
     .container2{
         width: 100%;

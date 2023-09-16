@@ -8,7 +8,7 @@
       <h3>
         <textarea
           rows="2" cols="25"
-          style="color: #0030ff; font-size: 3rem; font-weight: 600"
+          style="color: #021CD3; font-size: 3rem; font-weight: 600"
           *ngIf="editing_header"
           (blur)="finishEditingHeader($event)"
           class="resizable-input"
@@ -44,7 +44,7 @@
   <div *ngFor="let item of cases">
     <h1
       style="
-        color: #0030ff;
+        color: #D29A2D;
         padding-bottom: 30px;
         padding-left: 80px;
         font-size: 50px;
@@ -56,7 +56,7 @@
       </div>
       <textarea
         rows="1" cols="73"
-        style="color: #0030ff; font-size: 3rem; font-weight: 600"
+        style="color: #021CD3; font-size: 3rem; font-weight: 600"
         *ngIf="editing_header_title"
         (blur)="finishEditingTitle($event)"
         class="resizable-input"
@@ -67,17 +67,17 @@
   </div>
 
   <div class="card-container" data-aos="zoom-in" *ngFor="let item of cases">
-    <div class="card" style="border-color: #c15669">
+    <div class="card" style="border-color: #4D0E16">
       <div class="card-content" >
         <div *ngIf="!editing_case1_0" (click)="startEditingCase1_0()">
-          <h2 style="color: #c15669">
+          <h2 style="color: #4D0E16">
             <i class='bx bx-trash' style="font-size: 40px;"></i>
             {{ case1[0] }}
           </h2>
         </div>
         <textarea
           rows="2" cols="23"
-          style="color: #c15669; font-size: 2rem; font-weight: 500;"
+          style="color: #4D0E16; font-size: 2rem; font-weight: 500;"
           *ngIf="editing_case1_0"
           (blur)="finishEditingCase1_0($event)"
           class="resizable-input"
@@ -118,10 +118,10 @@
       </div>
     </div>
 
-    <div class="card" style="border-color: #5e55db" *ngFor="let item of cases">
+    <div class="card" style="border-color: #4D0E16" *ngFor="let item of cases">
       <div class="card-content">
         <div *ngIf="!editing_case2_0" (click)="startEditingCase2_0()">
-          <h2 style="color: #5e55db">
+          <h2 style="color: #4D0E16">
            <i class='bx bx-bus' style="font-size: 45px;"></i>
             {{ case2[0] }}
           </h2>
@@ -129,7 +129,7 @@
 
         <textarea
           rows="2" cols="23"
-          style="color: #5e55db; font-size: 2rem; font-weight: 500"
+          style="color: #4D0E16; font-size: 2rem; font-weight: 500"
           *ngIf="editing_case2_0"
           (blur)="finishEditingCase2_0($event)"
           class="resizable-input"
@@ -166,10 +166,10 @@
       </div>
     </div>
 
-    <div class="card" style="border-color: #dd9e3b" *ngFor="let item of cases">
+    <div class="card" style="border-color: #4D0E16" *ngFor="let item of cases">
       <div class="card-content">
         <div *ngIf="!editing_case3_0" (click)="startEditingCase3_0()">
-          <h2 style="color: #dd9e3b">
+          <h2 style="color: #4D0E16">
             <i class='bx bx-question-mark' style="font-size: 45px;"></i>
             {{ case3[0] }}
           </h2>
@@ -177,7 +177,7 @@
 
         <textarea
           rows="2" cols="23"
-          style="color: #dd9e3b; font-size: 2rem; font-weight: 500"
+          style="color: #4D0E16; font-size: 2rem; font-weight: 500"
           *ngIf="editing_case3_0"
           (blur)="finishEditingCase3_0($event)"
           class="resizable-input"
@@ -218,10 +218,10 @@
       </div>
     </div>
 
-    <div class="card" style="border-color: #246c63" *ngFor="let item of cases">
+    <div class="card" style="border-color: #4D0E16" *ngFor="let item of cases">
       <div class="card-content">
         <div *ngIf="!editing_case4_0" (click)="startEditingCase4_0()">
-          <h2 style="color: #246c63">
+          <h2 style="color: #4D0E16">
             <i class='bx bxs-magic-wand' style="font-size: 45px;"></i>
             {{ case4[0] }}
           </h2>
@@ -229,7 +229,7 @@
 
         <textarea
           rows="2" cols="23"
-          style="color: #246c63; font-size: 2rem; font-weight: 500"
+          style="color: #4D0E16; font-size: 2rem; font-weight: 500"
           *ngIf="editing_case4_0"
           (blur)="finishEditingCase4_0($event)"
           class="resizable-input"

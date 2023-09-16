@@ -76,9 +76,14 @@ main{
     color: white;
     text-transform: capitalize;
     font-weight: 500; 
-    background-color: #FF96A9;
+    background-color: #D39A30;
     border: 2px solid transparent;
     border-radius: 30px;
+    transition: background-color 0.1s ease-in-out;
+}
+.viewmore a:hover{
+    background-color: rgb(148, 111, 51);
+    cursor: pointer;
 }
 .assessment{
     border-radius: 20px;

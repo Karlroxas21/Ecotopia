@@ -13,11 +13,11 @@
 
 .climate-change h1 {
         margin-bottom: 40px;
-        background-color: #FF96A9;
+        background-color: #8EC0DA;
         border-radius: 10px;
         display: inline-block;
         padding: 10px 20px;
-        color: white;
+        color: #000;
         font-weight: bolder;
         transition: all .45s ease;
         font-size: 40px;
@@ -115,19 +115,20 @@ th {
 }
 
 .publish:hover {
-        background: #0030ff;
-}
-
-.publish {
+        background: #000;
+      }
+      
+      .publish {
         border-radius: 20px;
-        background: #FF96A9;
+        border: 1px solid ;
+        background-color: #D79732;
+        transition: background-color 0.1s ease-in-out;
         font-size: 2rem;
         padding: 10px;
         color: white;
         font-weight: 600;
         letter-spacing: 1.65px;
-
-}
+      }
 
 .resizable-input {
         resize: both;
