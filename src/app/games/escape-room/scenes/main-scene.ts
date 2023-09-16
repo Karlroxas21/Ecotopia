@@ -157,6 +157,48 @@ export class MainScene extends Phaser.Scene {
     // Pick up basura SFX
     this.load.audio('lvl2PickUpSFX', '../../../../assets/lvl2/clickjeep.mp3');
 
+    // Level 3
+    this.load.image('bg-park', '../../../../assets/lvl3/park.png');
+    
+    // Trash cans
+    this.load.image('biodegradable', '../../../../assets/lvl3/trashcan b.png');
+    this.load.image('non-biodegradable', '../../../../assets/lvl3/trashcan nb.png');
+    this.load.image('recyclable', '../../../../assets/lvl3/trashcan r.png');
+    
+    // Biodegradable trash
+    this.load.image('biodegradable-trash-1', '../../../../assets/lvl3/garbage b1.png');
+    this.load.image('biodegradable-trash-2', '../../../../assets/lvl3/garbage b2.png');
+    this.load.image('biodegradable-trash-3', '../../../../assets/lvl3/garbage b3.png');
+    this.load.image('biodegradable-trash-4', '../../../../assets/lvl3/garbage b4.png');
+    this.load.image('biodegradable-trash-5', '../../../../assets/lvl3/garbage b5.png');
+    
+    // Non-biodegradable trash
+    this.load.image('non-biodegradable-trash-1', '../../../../assets/lvl3/garbage n1.png');
+    this.load.image('non-biodegradable-trash-2', '../../../../assets/lvl3/garbage n2.png');
+    this.load.image('non-biodegradable-trash-3', '../../../../assets/lvl3/garbage n3.png');
+    this.load.image('non-biodegradable-trash-4', '../../../../assets/lvl3/garbage n4.png');
+    this.load.image('non-biodegradable-trash-5', '../../../../assets/lvl3/garbage n5.png');
+    this.load.image('non-biodegradable-trash-6', '../../../../assets/lvl3/garbage n6.png');
+    this.load.image('non-biodegradable-trash-7', '../../../../assets/lvl3/garbage n7.png');
+
+    // Recyclable trash
+    this.load.image('recyclable-trash-1', '../../../../assets/lvl3/garbage r1.png');
+    this.load.image('recyclable-trash-2', '../../../../assets/lvl3/garbage r2.png');
+    this.load.image('recyclable-trash-3', '../../../../assets/lvl3/garbage r3.png');
+    this.load.image('recyclable-trash-4', '../../../../assets/lvl3/garbage r4.png');
+    this.load.image('recyclable-trash-5', '../../../../assets/lvl3/garbage r5.png');
+    this.load.image('recyclable-trash-6', '../../../../assets/lvl3/garbage r6.png');
+   
+    // Trees
+    this.load.image('trees-1', '../../../../assets/lvl3/trees1.png');
+    this.load.image('trees-2', '../../../../assets/lvl3/trees2.png');
+
+    // Fountain Spritesheet
+    this.load.spritesheet('fountain-sprite', '../../../../assets/lvl3/fountain spsh.png', {
+      frameWidth: 196,
+      frameHeight: 200
+    });
+
     // Loading bar
     let loadingBar = this.add.graphics({
       fillStyle: { color: 0xffffff },
@@ -204,6 +246,7 @@ export class MainScene extends Phaser.Scene {
 
     // Uncomment this when done in level 1!
     this.load.on('complete', () => {
+      // default-scene is the original value
       this.scene.start('default-scene', { config: this.game.config });
     });
 
@@ -267,6 +310,9 @@ export class MainScene extends Phaser.Scene {
     
     // Walang usok
     this.walangUsokNaJeep();
+
+    // Fountain Spritesheet
+    this.fountainSpriteSheet();
   }
 
   walangUsokNaJeep(){
@@ -316,6 +362,18 @@ export class MainScene extends Phaser.Scene {
       frames: this.anims.generateFrameNumbers('newJeep5', {
         start: 0,
         end: 3,
+      }),
+      frameRate: 10,
+      repeat: -1,
+    });
+  }
+
+  fountainSpriteSheet(){
+    this.anims.create({
+      key: 'fountain_sprite_anim',
+      frames: this.anims.generateFrameNumbers('fountain-sprite', {
+        start: 0,
+        end: 2,
       }),
       frameRate: 10,
       repeat: -1,
