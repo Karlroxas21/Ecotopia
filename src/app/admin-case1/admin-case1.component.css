@@ -46,14 +46,14 @@ html{
     padding-right: 10px;
 }
 .content .textbox h2{
-    color: #0030FF;
+    color: #021CD3;
     line-height: 120px;
     font-family: 'Roboto', sans-serif;
     font-size: 100px;
     font-weight: 900;
 }
 .content2 .textbox2 h3{
-    color: #0030FF;
+    color: #021CD3;
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
     font-weight: 600;
@@ -144,22 +144,21 @@ section .reference-container{
     padding: 50px;
 }
 
-.publish:hover{
-    background: #0030ff;
-    transition: 0.2s;
-}
-
-.publish{
+.publish:hover {
+    background: #000;
+  }
+  
+  .publish {
     border-radius: 20px;
-    border: 1px solid #dee2e6;
-    background: #FF96A9;
+    border: 1px solid ;
+    background-color: #D79732;
+    transition: background-color 0.1s ease-in-out;
     font-size: 2rem;
     padding: 10px;
     color: white;
     font-weight: 600;
-    letter-spacing: 1.65px; 
-   
-}  
+    letter-spacing: 1.65px;
+  }
 @media screen and (max-width: 1299px){
     .content{
         flex-direction: column;

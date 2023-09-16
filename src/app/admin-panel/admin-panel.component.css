@@ -13,7 +13,7 @@ body {
 #sidebar {
   height: 100vh;
   width: 380px; /*250px*/
-  background-color: #FF96A9;
+  background-color: #011ED4;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   color: #fff;
@@ -36,7 +36,7 @@ body {
   display: flex;
   align-items: center;
   padding: 20px 20px 20px 10px;
-  border-bottom: 1px solid #ce7787;
+  border-bottom: 1px solid #011ED4;
 }
 .admin-panel img {
   width: 40px;
@@ -67,7 +67,7 @@ body {
   font-size: 28px;
 }
 .toggle-button {
-  background-color: #181bad;
+  background-color: #080a7a;
   color: white;
   border: none;
   padding: 8px;
@@ -75,7 +75,7 @@ body {
   cursor: pointer;
 }
 #sidebar a:hover {
-  background-color: #a85a69;
+  background-color: #181bad;
   transition: all .45s ease;
 }
 
@@ -127,9 +127,13 @@ body {
 }
 
 .active{
-  background-color: #181bad;
+  background-color: #080a7a;
 }
-@media screen and (max-width: 1270px) {
+@media screen 
+and (max-width: 1270px)
+and (min-device-width: 1200px) 
+and (max-device-width: 1600px)
+and (-webkit-min-device-pixel-ratio: 1) {
   #sidebar a {
     padding: 5px 16px;
   }

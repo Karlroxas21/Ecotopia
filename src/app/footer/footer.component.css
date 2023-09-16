@@ -4,13 +4,13 @@
 .follow{
 	text-align: center;
 	padding: 5px 15px 0 0;
-	color: #0030FF;
+	color: #fff;
 }
 .social-icons{
     display: flex;
     align-items: center;
     justify-content: center;
-	background-color: #EFF5FF;
+	background-color: #021CD3;
 	padding: 5px 0 5px 0;
 }
 .social-icons a{
@@ -24,8 +24,8 @@
     transition: .4s;
     margin: 5px;
 	text-decoration: none;
-	color: #0030FF;
-	border: 2px solid #0030FF;
+	color: #fff;
+	border: 2px solid #fff;
 	height: 40px;
 	width: 40px;
 }
@@ -38,7 +38,7 @@
 	list-style-type: none;
 }
 .footer-nav ul li a{
-    color: #666666;
+    color: #949494;
     margin: 10px;
     text-decoration: none;
     font-size: 15px;

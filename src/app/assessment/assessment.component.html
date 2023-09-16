@@ -6,28 +6,32 @@
   <div class="assessment2">
     <div
       class="container2"
-      style="border-color: #e89b12"
+      style="border-color: #25232E"
       *ngFor="let item of assessment; let index = index"
     >
     <form>
       <h2>Trivia Game</h2>
       <ol type="1">
-        <li *ngFor="let quiz of item.trivia_game let i = index;">
-          <p>{{ quiz.question }}</p>
+        <li *ngFor="let quiz of item.trivia_game; let i = index;">
+          <p [ngClass]="{'wrong-answer': submittedTriviaGame && selectedAnswersTriviaGame[index * 10 + i] !== quiz.correct_answer}">
+            {{ quiz.question }}
+          </p>
           <ng-container *ngFor="let option of quiz.options; let j = index;">
             <input
               type="radio"
               [name]="'q' + (index + i + 1)"
               [value]="'q' + (index + i + 1) + '_' + (j + 1)"
-              [(ngModel)]="selectedAnswersTriviaGame[index + i]"
+              [(ngModel)]="selectedAnswersTriviaGame[index * 10 + i]"
             />
             {{ option }}<br />
           </ng-container>
+          <p *ngIf="submittedTriviaGame && selectedAnswersTriviaGame[index * 10 + i] !== quiz.correct_answer" class="correct-answer">
+            Correct Answer: {{ quiz.correct_answer }}
+          </p>
         </li>
-        
       </ol>
       <button
-        type="button"
+        type="submit"
         (click)="submitTriviaGame()"
         style="background-color: #e89b12"
       >
@@ -40,42 +44,41 @@
       >
         Reset
       </button>
-
     </form>
-      
-      <div id="result"></div>
     </div>
   </div>
 
   <div class="assessment2">
     <div
       class="container2"
-      style="border-color: #77cec1"
+      style="border-color: #25232E"
       *ngFor="let item of assessment; let index = index"
     >
     <form>
       <h2>Pop Quiz</h2>
       <ol type="1">
-
         <li *ngFor="let quiz of item.pop_quiz; let i = index;">
-          <p>{{ quiz.question }}</p>
+          <p [ngClass]="{'wrong-answer': submittedPopQuiz && selectedAnswersPopQuiz[index * 10 + i] !== quiz.correct_answer}">
+            {{ quiz.question }}
+          </p>
           <ng-container *ngFor="let option of quiz.options; let j = index;">
             <input
               type="radio"
               [name]="'p' + (index + i + 1)"
               [value]="'p' + (index + i + 1) + '_' + (j + 1)"
-              [(ngModel)]="selectedAnswersPopQuiz[index + i]"
-              required
+              [(ngModel)]="selectedAnswersPopQuiz[index * 10 + i]"
             />
             {{ option }}<br />
           </ng-container>
+          <p *ngIf="submittedPopQuiz && selectedAnswersPopQuiz[index * 10 + i] !== quiz.correct_answer" class="correct-answer">
+            Correct Answer: {{ quiz.correct_answer }}
+          </p>
         </li>
-
       </ol>
       <button
-        type="button"
+        type="submit"
         (click)="submitPopQuiz()"
-        style="background-color: #77cec1"
+        style="background-color: #e89b12"
       >
         Submit
       </button>
@@ -87,8 +90,6 @@
         Reset
       </button>
     </form>
- 
-      <div id="result"></div>
     </div>
   </div>
 </body>

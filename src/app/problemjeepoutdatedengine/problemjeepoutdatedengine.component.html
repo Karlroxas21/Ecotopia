@@ -10,38 +10,38 @@
   </div>
 
   <div *ngFor="let item of outdated_engine">
-    <h1 style="color: #0030FF; text-align: center;
+    <h1 style="color: #D29A2D; text-align: center;
       font-size: 50px;
       font-weight: bold;">{{item.title}}</h1>
   </div>
   
   <div class="card-container" data-aos="zoom-in" *ngFor="let item of outdated_engine">
-    <div class="card" style="border-color:#C15669; align-items: center;">
+    <div class="card" style="border-color:#4D0E16; align-items: center;">
       <div class="card-content">
-        <h2><a class="learn-more-button" href={{item.cases.case1[1]}} style="text-decoration: none;color: #C15669;"><i 
+        <h2><a class="learn-more-button" href={{item.cases.case1[1]}} style="text-decoration: none;color: #4D0E16;"><i 
           class='bx bx-trash' style="font-size: 40px;"></i> {{item.cases.case1[0]}}</a></h2>
       </div>
     </div>
 
-    <div class="card" style="border-color:#5E55DB; align-items: center;">
+    <div class="card" style="border-color:#4D0E16; align-items: center;">
       <div class="card-content">
-        <h2><a class="learn-more-button" href={{item.cases.case2[1]}} style="text-decoration: none;color: #5E55DB;"><i 
+        <h2><a class="learn-more-button" href={{item.cases.case2[1]}} style="text-decoration: none;color: #4D0E16;"><i 
           class='bx bx-bus' style="font-size: 45px;"></i> {{item.cases.case2[0]}}</a></h2>
       </div>
     </div>
 
 
-    <div class="card" style="border-color:#DD9E3B; align-items: center;">
+    <div class="card" style="border-color:#4D0E16; align-items: center;">
       <div class="card-content">
-        <h2><a class="learn-more-button" href={{item.cases.case3[1]}} style="text-decoration: none;color: #DD9E3B;"><i 
+        <h2><a class="learn-more-button" href={{item.cases.case3[1]}} style="text-decoration: none;color: #4D0E16;"><i 
           class='bx bx-question-mark' style="font-size: 45px;"></i> {{item.cases.case3[0]}}</a></h2>
       </div>
     </div>
 
 
-    <div class="card" style="border-color:#396A63; align-items: center;">
+    <div class="card" style="border-color:#4D0E16; align-items: center;">
       <div class="card-content">
-        <h2><a class="learn-more-button" href={{item.cases.case4[1]}} style="text-decoration: none;color: #396A63;"><i
+        <h2><a class="learn-more-button" href={{item.cases.case4[1]}} style="text-decoration: none;color: #4D0E16;"><i
           class='bx bxs-magic-wand' style="font-size: 45px;"></i> {{item.cases.case4[0]}}</a></h2>
       </div>
     </div>
@@ -49,13 +49,13 @@
   <hr style="width: 100%" />
 
   <div class="text" *ngFor="let item of outdated_engine">
-    <h1 style="padding-top: 50px; color: #5E55DB">
+    <h1 style="padding-top: 50px; color: #4D0E16">
       {{item.cases.case2[0]}}
     </h1>
 
     <ul style="margin-top: -20px">
       <li>
-        <b style="color: #879DF8; font-size: 27px;"> {{item.bullets.bullet_1[0]}} </b>
+        <b style="color: #000; font-size: 27px;"> {{item.bullets.bullet_1[0]}} </b>
         <br />
         - {{item.bullets.bullet_1[1]}}
         <br />
@@ -66,12 +66,12 @@
         - {{item.bullets.bullet_1[4]}}
       </li>
       <li>
-        <b style="color: #879DF8; font-size: 27px;">{{item.bullets.bullet_2[0]}}</b>
+        <b style="color: #000; font-size: 27px;">{{item.bullets.bullet_2[0]}}</b>
         <br />
         - {{item.bullets.bullet_2[1]}}
       </li>
       <li>
-        <b style="color: #879DF8; font-size: 27px;">{{item.bullets.bullet_3[0]}}
+        <b style="color: #000; font-size: 27px;">{{item.bullets.bullet_3[0]}}
         </b>
         <br />
         - {{item.bullets.bullet_3[1]}}

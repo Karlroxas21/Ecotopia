@@ -12,11 +12,11 @@
 }
 .climate-change h1{
   margin-bottom: 40px;
-  background-color: #FF96A9;
+  background-color: #8EC0DA;
   border-radius: 10px;
   display: inline-block;
   padding: 10px 20px;
-  color: white;
+  color: #000;
   font-weight: bolder;
   transition: all .45s ease;
   font-size: 40px;
