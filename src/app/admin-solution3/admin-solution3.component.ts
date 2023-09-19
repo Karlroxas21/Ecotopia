@@ -69,34 +69,80 @@ export class AdminSolution3Component {
     })
   }
 
-  updateData(): void{
-    if(this.isAnyChanges()){
-      this.AdminSolution3Service.updateData(this.responding_to_climate_change[0]).subscribe(updatedData =>{
-        this.router.navigate(['/admin-solution-3']);
-        
-        this.toastr.success('Data updated successfully.', 'Success');
-        // console.log('Update success', updatedData);
-      }, (err) => {
-        this.toastr.error('Error updating item.', 'Error');
-        // console.error("Error updating item. ", err);
-      })
-        this.isThereAnyChanges = false;
-    }else{
-        this.toastr.info('No changes were made.', 'Info');
-        // console.log("You did not make any changes");
+  updateData(): void {
+    if (this.isAnyChanges()) {
+      // Sanitize input before sending
+      const sanitizedHeader = this.sanitizeInput(this.header);
+      const sanitizedHeaderDesc = this.sanitizeInput(this.header_desc);
+
+      // Sanitize bullet data
+      const sanitizedBullet1 = this.sanitizeInput(this.bullet1[0]);
+      const sanitizedBullet2 = this.sanitizeInput(this.bullet2[0]);
+      const sanitizedDescriptions = this.sanitizeInput(this.descriptions[0]);
+  
+      // Check if any of the inputs failed validation
+      if (
+        sanitizedHeader === null ||
+        sanitizedHeaderDesc === null ||
+        sanitizedBullet1 === null ||
+        sanitizedBullet2 === null ||
+        sanitizedDescriptions === null
+      ) {
+        // Validation failed, do not proceed with the update
+        this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
+        return;
+      }
+  
+      // Create a sanitized copy of the data
+      const sanitizedData = { ...this.responding_to_climate_change[0] };
+      sanitizedData.header = sanitizedHeader;
+      sanitizedData.header_description = sanitizedHeaderDesc;
+  
+      // Update sanitized bullet data
+      this.bullet1[0] = sanitizedBullet1;
+      this.bullet2[0] = sanitizedBullet2;
+      this.descriptions[0] = sanitizedDescriptions;
+  
+      this.AdminSolution3Service.updateData(sanitizedData).subscribe(
+        (updatedItem) => {
+          this.router.navigate(['/admin-solution-3']);
+          console.log(this.responding_to_climate_change[0]);
+          this.toastr.success('Data updated successfully.', 'Success');
+        },
+        (err) => {
+          this.toastr.error('Error updating item.', 'Error');
+          console.error('Error updating item. ', err);
+        }
+      );
+      this.isThereAnyChanges = false;
+    } else {
+      this.toastr.info('No changes were made.', 'Info');
     }
   }
-
+  
   // Track if there is any changes made
   isAnyChanges(){
     return this.isThereAnyChanges;
   }
 
-  // End of main function and method
+  // End of main function and methods
 
-  ngOnInit():void {
+  sanitizeInput(input: string): string | null {
+    const harmfulChars = /[\;\(\)\<\>\'\"\\\/\[\]\{\}\%\=\?\&\+\*\#\@\$\^\|\`\~]/g;
+  
+    // Check if the input contains harmful characters
+    if (harmfulChars.test(input)) {
+      // Show a toastr error notification
+      return null;
+    }
+    // If no harmful characters are found, return the sanitized input
+    return input;
+  }
+
+  ngOnInit(): void{
+
     this.getData();
-    
+
     this.titleService.setTitle(this.title);
   }
 

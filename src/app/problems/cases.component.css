@@ -32,10 +32,10 @@ html{
     max-width: 600px;
 }
 .content .textbox h2{
-    color: #021CD3;
+    color: #1A238D;
     line-height: 120px;
     font-family: 'Roboto', sans-serif;
-    font-size: 100px;
+    font-size: 90px;
     font-weight: 900;
 }
 .content .textbox span{

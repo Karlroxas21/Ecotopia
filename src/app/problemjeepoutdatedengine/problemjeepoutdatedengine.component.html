@@ -1,101 +1,266 @@
 <main>
   <div class="content" *ngFor="let item of outdated_engine">
     <div class="textbox" data-aos="fade-right">
-      <h2>{{item.header}}</h2>
+      <h2>{{ item.header }}</h2>
       <p>
-        {{item.header_description}}
+        {{ item.header_description }}
       </p>
     </div>
-    <img src="/assets/casesimages/cases1.png" alt="sad earth" data-aos="fade-left" />
+    <img
+      src="/assets/casesimages/cases1.png"
+      alt="sad earth"
+      data-aos="fade-left"
+    />
   </div>
 
   <div *ngFor="let item of outdated_engine">
-    <h1 style="color: #D29A2D; text-align: center;
-      font-size: 50px;
-      font-weight: bold;">{{item.title}}</h1>
+    <h1
+      style="
+        color: #001dd3;
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+      "
+    >
+      {{ item.title }}
+    </h1>
   </div>
-  
-  <div class="card-container" data-aos="zoom-in" *ngFor="let item of outdated_engine">
-    <div class="card" style="border-color:#4D0E16; align-items: center;">
+
+  <div
+    class="card-container"
+    data-aos="zoom-in"
+    *ngFor="let item of outdated_engine"
+  >
+    <div class="card" style="border-color: #9ac5d7; align-items: center">
       <div class="card-content">
-        <h2><a class="learn-more-button" href={{item.cases.case1[1]}} style="text-decoration: none;color: #4D0E16;"><i 
-          class='bx bx-trash' style="font-size: 40px;"></i> {{item.cases.case1[0]}}</a></h2>
+        <h2>
+          <a
+            class="learn-more-button"
+            href="{{ item.cases.case1[1] }}"
+            style="text-decoration: none; color: #9ac5d7"
+            ><i class="bx bxs-book-content" style="font-size: 40px"></i>
+            {{ item.cases.case1[0] }}</a
+          >
+        </h2>
       </div>
     </div>
 
-    <div class="card" style="border-color:#4D0E16; align-items: center;">
+    <div class="card" style="border-color: #a6782a; align-items: center">
       <div class="card-content">
-        <h2><a class="learn-more-button" href={{item.cases.case2[1]}} style="text-decoration: none;color: #4D0E16;"><i 
-          class='bx bx-bus' style="font-size: 45px;"></i> {{item.cases.case2[0]}}</a></h2>
+        <h2>
+          <a
+            class="learn-more-button"
+            href="{{ item.cases.case2[1] }}"
+            style="text-decoration: none; color: #a6782a"
+            ><i class="bx bx-target-lock" style="font-size: 45px"></i>
+            {{ item.cases.case2[0] }}</a
+          >
+        </h2>
       </div>
     </div>
 
-
-    <div class="card" style="border-color:#4D0E16; align-items: center;">
+    <div class="card" style="border-color: #a2c3f9; align-items: center">
       <div class="card-content">
-        <h2><a class="learn-more-button" href={{item.cases.case3[1]}} style="text-decoration: none;color: #4D0E16;"><i 
-          class='bx bx-question-mark' style="font-size: 45px;"></i> {{item.cases.case3[0]}}</a></h2>
+        <h2>
+          <a
+            class="learn-more-button"
+            href="{{ item.cases.case3[1] }}"
+            style="text-decoration: none; color: #a2c3f9"
+            ><i class="bx bxs-info-circle" style="font-size: 45px"></i>
+            {{ item.cases.case3[0] }}</a
+          >
+        </h2>
       </div>
     </div>
 
-
-    <div class="card" style="border-color:#4D0E16; align-items: center;">
+    <div class="card" style="border-color: #501118; align-items: center">
       <div class="card-content">
-        <h2><a class="learn-more-button" href={{item.cases.case4[1]}} style="text-decoration: none;color: #4D0E16;"><i
-          class='bx bxs-magic-wand' style="font-size: 45px;"></i> {{item.cases.case4[0]}}</a></h2>
+        <h2>
+          <a
+            class="learn-more-button"
+            href="{{ item.cases.case4[1] }}"
+            style="text-decoration: none; color: #501118"
+            ><i class="bx bxs-notepad" style="font-size: 45px"></i>
+            {{ item.cases.case4[0] }}</a
+          >
+        </h2>
       </div>
     </div>
   </div>
   <hr style="width: 100%" />
 
   <div class="text" *ngFor="let item of outdated_engine">
-    <h1 style="padding-top: 50px; color: #4D0E16">
-      {{item.cases.case2[0]}}
+    <h1 style="padding-top: 50px; color: #a6782a">
+      {{ item.cases.case2[0] }}
     </h1>
 
-    <ul style="margin-top: -20px">
-      <li>
-        <b style="color: #000; font-size: 27px;"> {{item.bullets.bullet_1[0]}} </b>
-        <br />
-        - {{item.bullets.bullet_1[1]}}
-        <br />
-        - {{item.bullets.bullet_1[2]}}
-        <br />
-        - {{item.bullets.bullet_1[3]}}
-        <br />
-        - {{item.bullets.bullet_1[4]}}
-      </li>
-      <li>
-        <b style="color: #000; font-size: 27px;">{{item.bullets.bullet_2[0]}}</b>
-        <br />
-        - {{item.bullets.bullet_2[1]}}
-      </li>
-      <li>
-        <b style="color: #000; font-size: 27px;">{{item.bullets.bullet_3[0]}}
-        </b>
-        <br />
-        - {{item.bullets.bullet_3[1]}}
-        <br />
-        - {{item.bullets.bullet_3[2]}}
-        <br />
-        - {{item.bullets.bullet_3[3]}}
-      </li>
-    </ul>
+    <h2 style="color: #a6782a; font-weight: bold">SDG Goal 13</h2>
+    <div class="container">
+      <div class="single-column"></div>
+      <div class="two-column">
+        <div class="left-column">
+          <h1>Target 13.1</h1>
+        </div>
+
+        <div class="column-space"></div>
+
+        <div class="right-column">
+          <p>
+            Strengthen resilience and adaptive capacity to climate-related
+            hazards and natural disasters in all countries
+          </p>
+          <br />
+          <h2>Indicators:</h2>
+          <ul>
+            <li>
+              13.1.1 - Number of deaths, missing persons and directly affected
+              persons attributed to disasters per 100,000 population
+            </li>
+            <li>
+              13.1.2 - Number of countries that adopt and implement national
+              disaster risk reduction strategies in line with the Sendai
+              Framework for Disaster Risk Reduction 2015–2030
+            </li>
+            <li>
+              13.1.3 - Proportion of local governments that adopt and implement
+              local disaster risk reduction strategies in line with national
+              disaster risk reduction strategies
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="single-column"></div>
+      <div class="two-column">
+        <div class="left-column">
+          <h1>Target 13.2</h1>
+        </div>
+
+        <div class="column-space"></div>
+
+        <div class="right-column">
+          <p>
+            Integrate climate change measures into national policies, strategies
+            and planning Indicators
+          </p>
+          <br>
+          <h2>Indicators:</h2>
+          <ul>
+            <li>
+              13.2.1 Number of countries with nationally determined
+              contributions, long-term strategies, national adaptation plans and
+              adaptation communications, as reported to the secretariat of the
+              United Nations Framework Convention on Climate Change
+            </li>
+            <li>13.2.2 Total greenhouse gas emissions per year</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="single-column">
+      </div>
+      <div class="two-column">
+        <div class="left-column">
+          <h1>Target 13.3</h1>
+        </div>
+
+        <div class="column-space"></div>
+
+        <div class="right-column">
+          <p>
+            Improve education, awareness-raising and human and institutional
+            capacity on climate change mitigation, adaptation, impact reduction
+            and early warning
+          </p>
+          <br>
+          <h2>Indicators:</h2>
+          <ul>
+            <li>
+              13.3.1 Extent to which (i) global citizenship education and (ii)
+              education for sustainable development are mainstreamed in (a)
+              national education policies; (b) curricula; (c) teacher education;
+              and (d) student assessment
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="single-column">
+      </div>
+      <div class="two-column">
+        <div class="left-column">
+          <h1>Target 13.a</h1>
+        </div>
+
+        <div class="column-space"></div>
+
+        <div class="right-column">
+          <p>
+            Implement the commitment undertaken by developed-country parties to
+            the United Nations Framework Convention on Climate Change to a goal
+            of mobilizing jointly $100 billion annually by 2020 from all sources
+            to address the needs of developing countries in the context of
+            meaningful mitigation actions and transparency on implementation and
+            fully operationalize the Green Climate Fund through its
+            capitalization as soon as possible Indicators
+          </p>
+          <br>
+          <h2>Indicators:</h2>
+          <ul>
+            <li>
+              13.a.1 Amounts provided and mobilized in United States dollars per
+              year in relation to the continued existing collective mobilization
+              goal of the $100 billion commitment through to 2025
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="single-column">
+      </div>
+      <div class="two-column">
+        <div class="left-column">
+          <h1>Target 13.b</h1>
+        </div>
+
+        <div class="column-space"></div>
+
+        <div class="right-column">
+          <p>
+            Promote mechanisms for raising capacity for effective climate
+            change-related planning and management in least developed countries
+            and small island developing States, including focusing on women,
+            youth and local and marginalized communities
+          </p>
+          <br>
+          <h2>Indicators:</h2>
+          <ul>
+            <li>
+              13.b.1 Number of least developed countries and small island
+              developing States with nationally determined contributions,
+              long-term strategies, national adaptation plans and adaptation
+              communications, as reported to the secretariat of the United
+              Nations Framework Convention on Climate Change
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
   <section>
     <div class="reference-container" *ngFor="let item of outdated_engine">
       <accordion [isAnimated]="true">
         <accordion-group heading="References">
-          <a href={{item.references[0]}}
-            target="_blank">{{item.references[0]}}
+          <a href="{{ item.references[0] }}" target="_blank"
+            >{{ item.references[0] }}
           </a>
           <br />
-          <a href={{item.references[1]}}
-            target="_blank">{{item.references[1]}}
+          <a href="{{ item.references[1] }}" target="_blank"
+            >{{ item.references[1] }}
           </a>
           <br />
-          <a href={{item.references[2]}}
-            target="_blank">{{item.references[2]}}
+          <a href="{{ item.references[2] }}" target="_blank"
+            >{{ item.references[2] }}
           </a>
         </accordion-group>
       </accordion>

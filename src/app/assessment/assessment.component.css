@@ -7,7 +7,7 @@
     font-family: 'Henry Sans', sans-serif;
 }
 .assessment{
-    background-color: #4D0E16;
+    background-color: #001DD3;
     padding: 20px;
     text-align: center;
     display: flex;
@@ -58,7 +58,10 @@ button:hover{
     color: red;
     font-weight: bold;
   }
-  
+.validation-error{
+    font-weight: 100;
+    color: red;
+}
 .correct-answer {
     color: green;
     font-weight: bold;

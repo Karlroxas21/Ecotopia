@@ -46,7 +46,7 @@ html{
     padding-right: 10px;
 }
 .content .textbox h2{
-    color: #0217D4;
+    color: #1A238D;
     line-height: 120px;
     font-family: 'Roboto', sans-serif;
     font-size: 100px;
@@ -78,8 +78,7 @@ html{
   /****** NEXT CONTENT ******/
 
 .text{
-    padding: 100px 100px 0 100px;
-    margin-top: -100px;
+    padding: 0 100px 0 100px;
     color: #080d14;
     transition: 0.5s;
 }
@@ -172,3 +171,91 @@ section .reference-container{
         flex-direction: column;
     }
 }
+
+/* new */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.single-column {
+    text-align: center;
+}
+
+.two-column {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+.left-column {
+    flex: 1;
+}
+
+.right-column {
+    flex: 2;
+}
+.right-column h2{
+    margin-left: 20px;
+}
+.right-column p {
+    margin-left: 20px;
+}
+.column-space {
+    flex: 0.2;
+}
+h1 {
+    font-size: 24px;
+}
+
+.container h2 {
+    font-size: 20px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+li {
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .two-column {
+      display: block;
+    }
+  
+    .right-column {
+      margin-top: 20px;
+    }
+  }
+  
+  /* Styles for smaller screens */
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 24px;
+    }
+  
+    h2 {
+      font-size: 18px;
+    }
+  
+    p {
+      font-size: 16px;
+    }
+  
+    ul {
+      font-size: 16px;
+    }
+  }

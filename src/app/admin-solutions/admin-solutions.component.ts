@@ -69,30 +69,71 @@ export class AdminSolutionsComponent {
     })
   }
 
-  updateData(): void{
-    if(this.isAnyChanges()){
-      this.AdminSolutionsService.updateData(this.solutions[0]).subscribe(updatedData => {
-        this.router.navigate(['/admin-solutions']);
+  updateData(): void {
+    if (this.isAnyChanges()) {
 
-        this.toastr.success('Data updated successfully.', 'Success');
-        // console.log('Update success', updatedData);
-      }, (err) => {
-        this.toastr.error('Error updating item.', 'Error');
-        // console.error('Error updating item. ', err);
-      })
-      this.isThereAnyChanges = false
-    }else{
+      // Sanitize bullet data
+      const sanitizedBullet1 = this.sanitizeInput(this.solution_1[0]);
+      const sanitizedBullet2 = this.sanitizeInput(this.solution_2[0]);
+      const sanitizedBullet3 = this.sanitizeInput(this.solution_3[0]);
+      const sanitizedBullet4 = this.sanitizeInput(this.solution_4[0]);
+  
+      // Check if any of the inputs failed validation
+      if (
+        sanitizedBullet1 === null ||
+        sanitizedBullet2 === null ||
+        sanitizedBullet3 === null ||
+        sanitizedBullet4 === null 
+      ) {
+        // Validation failed, do not proceed with the update
+        this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
+        return;
+      }
+  
+      // Create a sanitized copy of the data
+      const sanitizedData = { ...this.solutions[0] };
+  
+      // Update sanitized bullet data
+      this.solution_1[0] = sanitizedBullet1;
+      this.solution_2[0] = sanitizedBullet2;
+      this.solution_3[0] = sanitizedBullet3;
+      this.solution_4[0] = sanitizedBullet4;
+  
+      this.AdminSolutionsService.updateData(sanitizedData).subscribe(
+        (updatedItem) => {
+          this.router.navigate(['/admin-solutions']);
+          console.log(this.solutions[0]);
+          this.toastr.success('Data updated successfully.', 'Success');
+        },
+        (err) => {
+          this.toastr.error('Error updating item.', 'Error');
+          console.error('Error updating item. ', err);
+        }
+      );
+      this.isThereAnyChanges = false;
+    } else {
       this.toastr.info('No changes were made.', 'Info');
-        // console.log('You did not make any changes');
     }
   }
-
-  // Track changes
+  
+  // Track if there is any changes made
   isAnyChanges(){
     return this.isThereAnyChanges;
   }
 
-  // End of main methods
+  // End of main function and methods
+
+  sanitizeInput(input: string): string | null {
+    const harmfulChars = /[\;\(\)\<\>\'\"\\\/\[\]\{\}\%\=\?\&\+\-\*\#\@\$\^\|\`\~]/g;
+  
+    // Check if the input contains harmful characters
+    if (harmfulChars.test(input)) {
+      // Show a toastr error notification
+      return null;
+    }
+    // If no harmful characters are found, return the sanitized input
+    return input;
+  }
 
   ngOnInit(): void{
 

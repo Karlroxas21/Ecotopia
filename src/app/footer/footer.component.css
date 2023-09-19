@@ -4,13 +4,13 @@
 .follow{
 	text-align: center;
 	padding: 5px 15px 0 0;
-	color: #fff;
+	color: #001DD3;
 }
 .social-icons{
     display: flex;
     align-items: center;
     justify-content: center;
-	background-color: #021CD3;
+	background-color: #EFF5FF;
 	padding: 5px 0 5px 0;
 }
 .social-icons a{
@@ -24,8 +24,8 @@
     transition: .4s;
     margin: 5px;
 	text-decoration: none;
-	color: #fff;
-	border: 2px solid #fff;
+	color: #001DD3;
+	border: 2px solid #001DD3;
 	height: 40px;
 	width: 40px;
 }

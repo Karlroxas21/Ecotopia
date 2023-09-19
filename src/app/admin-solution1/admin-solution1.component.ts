@@ -90,30 +90,108 @@ export class AdminSolution1Component {
     });
   }
 
-  updateData(): void{
-    if(this.isAnyChanges()){
-      this.AdminSolution1Service.updateData(this.y_should_we_take_action[0]).subscribe(updatedItem =>{
-        this.router.navigate(['/admin-solution-1']);
-        console.log(this.y_should_we_take_action[0])
-        this.toastr.success('Data updated successfully.', 'Success');
-        // console.log('Update success', updatedItem);
-      }, (err) => {
-        this.toastr.error('Error updating item.', 'Error');
-        // console.error("Error updating item. ", err);
-      })
+  updateData(): void {
+    if (this.isAnyChanges()) {
+      // Sanitize input before sending
+      const sanitizedHeader = this.sanitizeInput(this.header);
+      const sanitizedHeaderDesc = this.sanitizeInput(this.header_desc);
+
+      // Sanitize bullet data
+      const sanitizedBullet1 = this.sanitizeInput(this.bullet1[0]);
+      const sanitizedBullet2 = this.sanitizeInput(this.bullet2[0]);
+      const sanitizedBullet3 = this.sanitizeInput(this.bullet3[0]);
+      const sanitizedBullet4 = this.sanitizeInput(this.bullet4[0]);
+      const sanitizedBullet5 = this.sanitizeInput(this.bullet5[0]);
+      const sanitizedBullet6 = this.sanitizeInput(this.bullet6[0]);
+      const sanitizedBullet7 = this.sanitizeInput(this.bullet7[0]);
+      const sanitizedBullet8 = this.sanitizeInput(this.bullet8[0]);
+      const sanitizedBullet9 = this.sanitizeInput(this.bullet9[0]);
+      const sanitizedBullet10 = this.sanitizeInput(this.bullet10[0]);
+      const sanitizedBullet11 = this.sanitizeInput(this.bullet11[0]);
+      const sanitizedBullet12 = this.sanitizeInput(this.bullet12[0]);
+      const sanitizedBullet13 = this.sanitizeInput(this.bullet13[0]);
+      const sanitizedDescriptions = this.sanitizeInput(this.descriptions[0]);
+  
+      // Check if any of the inputs failed validation
+      if (
+        sanitizedHeader === null ||
+        sanitizedHeaderDesc === null ||
+        sanitizedBullet1 === null ||
+        sanitizedBullet2 === null ||
+        sanitizedBullet3 === null ||
+        sanitizedBullet4 === null ||
+        sanitizedBullet5 === null ||
+        sanitizedBullet6 === null ||
+        sanitizedBullet7 === null ||
+        sanitizedBullet8 === null ||
+        sanitizedBullet9 === null ||
+        sanitizedBullet10 === null ||
+        sanitizedBullet11 === null ||
+        sanitizedBullet12 === null ||
+        sanitizedBullet13 === null ||
+        sanitizedDescriptions === null
+      ) {
+        // Validation failed, do not proceed with the update
+        this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
+        return;
+      }
+  
+      // Create a sanitized copy of the data
+      const sanitizedData = { ...this.y_should_we_take_action[0] };
+      sanitizedData.header = sanitizedHeader;
+      sanitizedData.header_description = sanitizedHeaderDesc;
+  
+      // Update sanitized bullet data
+      this.bullet1[0] = sanitizedBullet1;
+      this.bullet2[0] = sanitizedBullet2;
+      this.bullet3[0] = sanitizedBullet3;
+      this.bullet4[0] = sanitizedBullet4;
+      this.bullet5[0] = sanitizedBullet5;
+      this.bullet6[0] = sanitizedBullet6;
+      this.bullet7[0] = sanitizedBullet7;
+      this.bullet8[0] = sanitizedBullet8;
+      this.bullet9[0] = sanitizedBullet9;
+      this.bullet10[0] = sanitizedBullet10;
+      this.bullet11[0] = sanitizedBullet11;
+      this.bullet12[0] = sanitizedBullet12;
+      this.bullet13[0] = sanitizedBullet13;
+      this.descriptions[0] = sanitizedDescriptions;
+  
+      this.AdminSolution1Service.updateData(sanitizedData).subscribe(
+        (updatedItem) => {
+          this.router.navigate(['/admin-cases-1']); //admin-cases-problemtrash
+          console.log(this.y_should_we_take_action[0]);
+          this.toastr.success('Data updated successfully.', 'Success');
+        },
+        (err) => {
+          this.toastr.error('Error updating item.', 'Error');
+          console.error('Error updating item. ', err);
+        }
+      );
       this.isThereAnyChanges = false;
-    }else{
+    } else {
       this.toastr.info('No changes were made.', 'Info');
-        // console.log("You did not make any changes");
     }
   }
-
+  
   // Track if there is any changes made
   isAnyChanges(){
     return this.isThereAnyChanges;
   }
 
-  // End of main function and method
+  // End of main function and methods
+
+  sanitizeInput(input: string): string | null {
+    const harmfulChars = /[\;\(\)\<\>\'\"\\\/\[\]\{\}\%\=\?\&\+\-\*\#\@\$\^\|\`\~]/g;
+  
+    // Check if the input contains harmful characters
+    if (harmfulChars.test(input)) {
+      // Show a toastr error notification
+      return null;
+    }
+    // If no harmful characters are found, return the sanitized input
+    return input;
+  }
 
   ngOnInit(): void{
 

@@ -6,10 +6,10 @@
   <div class="assessment2">
     <div
       class="container2"
-      style="border-color: #25232E"
+      style="border-color: #A6782A"
       *ngFor="let item of assessment; let index = index"
     >
-    <form>
+    <form >
       <h2>Trivia Game</h2>
       <ol type="1">
         <li *ngFor="let quiz of item.trivia_game; let i = index;">
@@ -22,25 +22,29 @@
               [name]="'q' + (index + i + 1)"
               [value]="'q' + (index + i + 1) + '_' + (j + 1)"
               [(ngModel)]="selectedAnswersTriviaGame[index * 10 + i]"
+              required
             />
             {{ option }}<br />
           </ng-container>
           <p *ngIf="submittedTriviaGame && selectedAnswersTriviaGame[index * 10 + i] !== quiz.correct_answer" class="correct-answer">
             Correct Answer: {{ quiz.correct_answer }}
           </p>
+          <p *ngIf="submittedTriviaGame && !selectedAnswersTriviaGame[index * 10 + i]" class="validation-error">
+            This question is required, please answer it.
+          </p>
         </li>
       </ol>
       <button
         type="submit"
         (click)="submitTriviaGame()"
-        style="background-color: #e89b12"
+        style="background-color: #7AE385"
       >
         Submit
       </button>
        <button
         type="button"
         (click)="resetSelectedAnswersTrivia()"
-        style="background-color: #cc0808; color: white"
+        style="background-color: #FF0000; color: white"
       >
         Reset
       </button>
@@ -51,7 +55,7 @@
   <div class="assessment2">
     <div
       class="container2"
-      style="border-color: #25232E"
+      style="border-color: #501118"
       *ngFor="let item of assessment; let index = index"
     >
     <form>
@@ -78,14 +82,14 @@
       <button
         type="submit"
         (click)="submitPopQuiz()"
-        style="background-color: #e89b12"
+        style="background-color: #7AE385"
       >
         Submit
       </button>
         <button
         type="button"
         (click)="resetSelectedAnswersPop()"
-        style="background-color: #cc0808; color: white"
+        style="background-color: #FF0000; color: white"
       >
         Reset
       </button>

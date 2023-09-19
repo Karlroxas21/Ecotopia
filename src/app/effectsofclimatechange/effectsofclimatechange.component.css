@@ -46,7 +46,7 @@ html{
     padding-right: 10px;
 }
 .content .textbox h2{
-    color: #0217D4;
+    color: #1A238D;
     line-height: 120px;
     font-family: 'Roboto', sans-serif;
     font-size: 100px;
@@ -78,8 +78,7 @@ html{
   /****** NEXT CONTENT ******/
 
 .text{
-    padding: 100px 100px 0 100px;
-    margin-top: -100px;
+    padding: 0 100px 0 100px;
     color: #080d14;
     transition: 0.5s;
 }
@@ -92,14 +91,14 @@ html{
     line-height: 30px;
     font-size: 21px;
 }
-.text ul{
-    margin-top: 20px;
+.text ol{
+    /* margin-top: 20px; */
     font-size: 21px;
     padding-left: 20px;
 }
-.text ul li{
+/* .text ul li{
     padding-top: 20px;
-}
+} */
 #next h1{
     margin-top: 60px;
 }
