@@ -70,10 +70,6 @@
       class="center" /> -->
     <!-- <br />
     <br /> -->
-    <h1 style="color: #A2C3F9;">
-      {{item.descriptions[2]}}
-    </h1>
-
     <ul>
       <li>
         <b style="color: #000; font-size: 27px;">{{item.bullets.bullet_1[0]}}</b>
@@ -95,22 +91,36 @@
         <br />
         {{item.bullets.bullet_4[1]}}
       </li>
-      <!-- <li>
-        <b style="color: #000; font-size: 27px;">{{item.bullets.bullet_5[0]}}</b>
+    </ul>
+    <br>
+    <br>
+    <h1 style="color: #A2C3F9;">
+      {{item.descriptions[2]}}
+    </h1>
+    <ul>
+      <!-- <li> -->
+        <p style="color: #000;">{{item.bullets.bullet_5[0]}}</p>
         <br />
         {{item.bullets.bullet_5[1]}}
-      </li>
-      <li>
-        <b style="color: #000; font-size: 27px;">{{item.bullets.bullet_6[0]}}</b>
+      <!-- </li> -->
+      <!-- <li> -->
+        <br>
+        <br>
+        <p style="color: #000;">{{item.bullets.bullet_6[0]}}</p>
         <br />
         {{item.bullets.bullet_6[1]}}
-      </li>
-      <li>
-        <b style="color: #000; font-size: 27px;">{{item.bullets.bullet_7[0]}}</b>
+      <!-- </li> -->
+      <!-- <li> -->
+        <!-- <p style="color: #000; ">{{item.bullets.bullet_7[0]}}</p> -->
         <br />
+        <br>
         {{item.bullets.bullet_7[1]}}
-      </li> -->
-    </ul>
+      <!-- </li> -->
+    </ul> 
+    <div class="button">
+      <a href="https://sdgs.un.org/goals/goal13" 
+      style="text-decoration: none;"><button>Show More</button></a>
+    </div>
   </div>
   <section>
     <div class="reference-container" *ngFor="let item of causes_climate_change">

@@ -6,8 +6,8 @@
 
 /* Content */
 .climate-change {
-        margin-right: 10%;
-        margin-left: 10%;
+        margin-right: 5%;
+        margin-left: 5%;
         padding-top: 2%;
 }
 
@@ -121,7 +121,7 @@ th {
       .publish {
         border-radius: 20px;
         border: 1px solid ;
-        background-color: #D79732;
+        background-color: #001DD3;
         transition: background-color 0.1s ease-in-out;
         font-size: 2rem;
         padding: 10px;

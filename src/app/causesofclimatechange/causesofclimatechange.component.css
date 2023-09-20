@@ -79,6 +79,28 @@ html{
     padding-top: 20px;
 }
 
+.button{
+    padding: 50px 0 50px 50px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .button button {
+    background-color: #A2C3F9;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.5rem;
+    cursor: pointer; 
+    border-radius: 4px; 
+    transition: background-color 0.1s ease-in-out;
+    display: flex;
+  }
+  
+  .button button:hover {
+    background-color: #819dcc;
+    color: white;
+  }
+
   /****** NEXT CONTENT ******/
 
 .text{
