@@ -235,7 +235,7 @@ section h1{
 
 .eec-1 h1{
     font-weight: 900;
-    background-color: #001E55;
+    background-color: #001DD3;
     color: white;
     border-radius: 10px;
     padding-left: 5px;
@@ -287,6 +287,9 @@ section h1{
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 5%;
+}
+.margins h2{
+    font-weight: bold   ;
 }
 
 .related-news-container{

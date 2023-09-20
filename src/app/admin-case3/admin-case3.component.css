@@ -59,7 +59,7 @@ html {
 }
 
 .content .textbox h2 {
-        color: #021CD3;
+        color: #1A238D;
         line-height: 120px;
         font-family: 'Roboto', sans-serif;
         font-size: 100px;
@@ -67,7 +67,7 @@ html {
 }
 
 .content2 .textbox2 h3 {
-        color: #021CD3;
+        color: #1A238D;
         font-family: 'Roboto', sans-serif;
         font-size: 30px;
         font-weight: 600;
@@ -78,9 +78,6 @@ html {
 
 }
 
-.content .textbox span {
-        color: #FF96A9;
-}
 
 .content .textbox p {
         font-size: 25px;
@@ -167,13 +164,13 @@ section .reference-container {
 }
 
 .publish:hover {
-        background: #000;
+        background: #02179c;
       }
       
       .publish {
         border-radius: 20px;
         border: 1px solid ;
-        background-color: #D79732;
+        background-color: #001DD3;
         transition: background-color 0.1s ease-in-out;
         font-size: 2rem;
         padding: 10px;

@@ -2,15 +2,15 @@
   <div id="sidebar" [ngClass]="{ collapsed: isCollapsed }">
     <button class="toggle-button" (click)="toggleSidebar()">
       <i *ngIf="isCollapsed" class="bx bx-menu"></i>
-      <i *ngIf="!isCollapsed" class="bx bx-x"></i>
+      <i *ngIf="!isCollapsed" class="bx bx-horizontal-left"></i>
     </button>
     <div class="admin-panel" style="margin-left: -17px">
       <a href="#">
-        <img src="assets/user.png" alt="Admin Image" />
-        <i *ngIf="isCollapsed"></i>
+        <img src="assets/user.png" alt="Admin Image" style="background-color: white;"/>
         <i *ngIf="!isCollapsed"><span>Administrator</span></i>
       </a>
     </div>
+    <hr>
     <ul class="nav-list">
       <ng-container *ngFor="let item of navItems">
         <li *ngIf="!item.children">
@@ -36,7 +36,7 @@
         </li>
       </ng-container>
       <div id="logout">
-      <a (click)="logout()">
+        <a (click)="logout()">
         <i *ngIf="isCollapsed" class="bx bx-log-out"></i>
         <i *ngIf="!isCollapsed" class="bx bxs-log-out"
           ><span style="font-weight: bold"> Logout</span></i

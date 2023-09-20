@@ -64,12 +64,7 @@ main{
 .flex-box p{
     font-size: 21px
 }
-.viewmore{
-    margin-left: -105px;
-}
 .viewmore a{
-    text-align: left;
-    margin: 0 100px;
     padding: 7px 15px;
     font-size: 21px;
     text-decoration: none;
@@ -157,5 +152,15 @@ section .reference-container{
     .container2{
         width: 350px;
     }
-
+}   
+@media screen and (max-width: 446px){
+    .viewmore a{
+        text-align: center;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 386px){
+    .viewmore a{
+        font-size: 9px;
+    }
 }
