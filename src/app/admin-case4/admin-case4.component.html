@@ -488,6 +488,27 @@
       </accordion>
     </div>
   </section>
+  <section>
+    <div class="reference-container" *ngFor="let item of effects_climate_change" style="margin: 50px;">
+      <accordion [isAnimated]="true">
+        <accordion-group heading="References">
+                <div *ngIf="!editing_reference[0]" (click)="startEditingRef1()">
+                        <p>{{ references[0] }}</p>
+                      </div>
+              
+                      <textarea
+                              rows="1" cols="189"
+                              *ngIf="editing_reference[0]"
+                              (blur)="finishEditingRef1($event)"
+                              class="resizable-input"
+                              (ngModelChange)="doesChange()"
+                              [(ngModel)]="effects_climate_change[0].references[0]"
+                      ></textarea>
+
+        </accordion-group>
+      </accordion>
+    </div>
+  </section>
   <div class="publish-container">
     <button type="button" class="publish" (click)="updateData()">
       Publish
