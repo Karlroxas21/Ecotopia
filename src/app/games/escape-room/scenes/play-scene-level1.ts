@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { heartPointsService } from './heart-service';
 
 export class PlayScene extends Phaser.Scene {
   constructor() {
@@ -11,83 +12,190 @@ export class PlayScene extends Phaser.Scene {
   }
 
   background: any;
-  shark_spritesheet: any;
-  cloud: any;
+
+  cloud1: any;
   cloud2: any;
   cloud3: any;
   cloud4: any;
   cloud5: any;
-  basura1: any;
-  basura11: any;
-  basura111: any;
-  basura2: any;
-  basura22: any;
-  basura3: any;
-  basura33: any;
-  basura4: any;
-  basura44: any;
-  basura5: any;
-  basura55: any;
-  pickUpSFX: any;
+  cloud6: any;
+  cloud7: any;
+  cloud8: any;
+  cloud9: any;
+  cloud0: any;
+
+  clutter1: any;
+  clutter2: any;
+  clutter3: any;
+  clutter4: any;
+  clutter5: any;
+  clutter6: any;
+  clutter7: any;
+  clutter8: any;
+  clutter9: any;
+  clutter10: any;
+  clutter11: any;
+  clutter12: any;
+  clutter13: any;
+  clutter14: any;
+  clutter15: any;
+
+  garbage1: any;
+  garbage2: any;
+  garbage3: any;
+  garbage4: any;
+  garbage5: any;
+  garbage6: any;
+  garbage7: any;
+  garbage8: any;
+  garbage9: any;
+  garbage10: any;
+  garbage11: any;
+  garbage12: any;
+  garbage13: any;
+  garbage14: any;
 
   bgMusic: any;
-  // if all garbage is napulot na
-  garbageCount: number = 11;
 
-  timer: any;
-  timerText: any;
+  textDisplay = "Which item should you prioritize picking up to help \nclean the beach?";
+
+  choice1 = "Plastic bottles and cigarette butts";
+  choice2 = "Seashells and pebbles";
+  isCorrect !: boolean;
+
+  currentHeartPoints = heartPointsService.getHeartPoints();
 
   create() {
     this.background = this.add.image(0, 0, 'level-1-bg');
     this.background.setOrigin(0, 0);
 
     // Clouds
-    this.cloud = this.add.image(0, 200, 'cloud-shits');
-    this.cloud.setScale(0.5);
-    this.cloud2 = this.add.image(100, 100, 'cloud-shits1');
+    this.cloud1 = this.add.image(0, 200, 'cloud-1');
+    this.cloud1.setScale(0.5);
+    this.cloud2 = this.add.image(100, 100, 'cloud-2');
     this.cloud2.setScale(0.3);
-    this.cloud3 = this.add.image(500, 200, 'cloud-shits2');
+    this.cloud3 = this.add.image(500, 200, 'cloud-3');
     this.cloud3.setScale(0.2);
-    this.cloud4 = this.add.image(400, 100, 'cloud-shits3');
+    this.cloud4 = this.add.image(400, 100, 'cloud-4');
     this.cloud4.setScale(0.4);
-    this.cloud5 = this.add.image(600, 200, 'cloud-shits');
+    this.cloud5 = this.add.image(600, 200, 'cloud-5');
     this.cloud5.setScale(0.5);
+    this.cloud6 = this.add.image(600, 200, 'cloud-6');
+    this.cloud6.setScale(0.5);
+    this.cloud7 = this.add.image(650, 300, 'cloud-7');
+    this.cloud8 = this.add.image(400, 300, 'cloud-8');
+    this.cloud9 = this.add.image(300, 150, 'cloud-9');
+    this.cloud0 = this.add.image(100, 200, 'cloud-0');
     
+
+    // Question
+    const centerX = (this.config.width / 2) - 40;
+    const centerY = 100;
+    const graphics = this.add.graphics();
+    graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+    graphics.fillRect(
+      75,
+      centerY - this.config.height / 6 / 2,
+      this.config.width - 150,
+      this.config.height / 6
+    );
+
+    const guide = this.add.text(
+      centerX,
+      centerY,
+      this.textDisplay,
+      { font: '18px monospace', color: '#ffffff' }
+    );
+    guide.setOrigin(0.5);
+    // End of Question
+    
+    // Choice 1
+    const choice1CenterX = 100;
+    const choice1CenterY = centerY + 80;
+    const choice1graphics = this.add.graphics();
+    choice1graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+    choice1graphics.fillRect(
+      75,
+      centerY + 70,
+      this.config.width - 150,
+      40
+    );
+
+    const choice1Guide = this.add.text(
+      choice1CenterX,
+      choice1CenterY,
+      this.choice1,
+      { font: '18px monospace', color: '#ffffff' }
+    );
+
+    choice1Guide.setInteractive()
+    choice1Guide.on('pointerdown', () => {
+      this.isCorrect = true;
+      this.scene.start('play-scene-correct', {config: this.game.config});
+
+    });
+    // End of choice 1
+
+    // Choice 2
+    const choice2CenterX = 100;
+    const choice2CenterY = centerY + 130;
+    const choice2graphics = this.add.graphics();
+    choice2graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+    choice2graphics.fillRect(
+      75,
+      centerY + 120,
+      this.config.width - 150,
+      40
+    );
+    choice2graphics.setInteractive()
+    choice2graphics.on('pointerdown', () => {
+      this.isCorrect = false;
+      console.log(this.isCorrect)
+    })
+
+    const choice2Guide = this.add.text(
+      choice2CenterX,
+      choice2CenterY,
+      this.choice2,
+      { font: '18px monospace', color: '#ffffff' }
+    );
+    choice2Guide.setInteractive()
+    choice2Guide.on('pointerdown', () => {
+      this.isCorrect = false;
+      heartPointsService.decreaseHeartPoints();
+      this.scene.start('play-scene-wrong', {config: this.game.config});
+
+    });
+    // End of choice 2
+
     // BG Music
     this.bgMusic = this.sound.add('seaMusic', {volume: 0.2});
     this.bgMusic.play();
 
-    // SFX
-    this.pickUpSFX = this.sound.add('pickUpSFX');
 
-    this.nakakalatNaBasura();
-    
-    // If win
-    this.events.on('win', this.winGraphics,  this);
+    this.clutters();
 
-    // Timer
-    this.timer = this.time.delayedCall(20000, this.gameOverGraphics, [], this);
-    this.timerText = this.add.text(10, 10, '', {
-       font: '16px monospace', 
-       color: '#ffffff' 
-      });
+    this.garbages();
+  
   }
 
   override update() {
-    // Timer
-    const remainingTime = Math.ceil((this.timer.delay - this.timer.elapsed) / 1000);
-    // Update text
-    this.timerText.setText(`Time remaining: ${remainingTime}`);
+   
     // Update cloud position
-    this.cloud.x += 0.1;
+    this.cloud1.x += 0.1;
     this.cloud2.x += 0.1;
     this.cloud3.x += 0.1;
     this.cloud4.x += 0.1;
     this.cloud5.x += 0.1;
+    this.cloud6.x += 0.1;
+    this.cloud7.x += 0.1;
+    this.cloud8.x += 0.1;
+    this.cloud9.x += 0.1;
+    this.cloud0.x += 0.1;
 
     // Reset cloud position when it goes off screen
-    if (this.cloud.x > this.config.width + this.cloud.displayWidth / 2) {
-      this.cloud.x = -this.cloud.displayWidth / 2;
+    if (this.cloud1.x > this.config.width + this.cloud1.displayWidth / 2) {
+      this.cloud1.x = -this.cloud1.displayWidth / 2;
     }
     if (this.cloud2.x > this.config.width + this.cloud2.displayWidth / 2) {
       this.cloud2.x = -this.cloud2.displayWidth / 2;
@@ -101,132 +209,147 @@ export class PlayScene extends Phaser.Scene {
     if (this.cloud5.x > this.config.width + this.cloud5.displayWidth / 2) {
       this.cloud5.x = -this.cloud5.displayWidth / 2;
     }
-
-    // If napulot ang lahat ng basura
-    if(this.isAllGarbagePickedUp()){
-      this.events.emit('win');
+    if (this.cloud6.x > this.config.width + this.cloud6.displayWidth / 2) {
+      this.cloud6.x = -this.cloud6.displayWidth / 2;
+    }
+    if (this.cloud7.x > this.config.width + this.cloud7.displayWidth / 2) {
+      this.cloud7.x = -this.cloud7.displayWidth / 2;
+    }
+    if (this.cloud8.x > this.config.width + this.cloud8.displayWidth / 2) {
+      this.cloud8.x = -this.cloud8.displayWidth / 2;
+    }
+    if (this.cloud9.x > this.config.width + this.cloud9.displayWidth / 2) {
+      this.cloud9.x = -this.cloud9.displayWidth / 2;
+    }
+    if (this.cloud0.x > this.config.width + this.cloud0.displayWidth / 2) {
+      this.cloud0.x = -this.cloud0.displayWidth / 2;
     }
   }
 
-  nakakalatNaBasura() {
-    // Mga basura
-    const basura1 = this.add
-      .image(this.config.width - 500, this.config.height - 20, 'basura1')
+  garbages() {
+    const clutter1 = this.add
+      .image(this.config.width - 400, this.config.height - 20, 'garbage1')
       .setScale(1.5);
-    basura1.setInteractive();
-    basura1.on('pointerdown', () => {
-      basura1.destroy();
-      this.garbageCount -= 1;
-      // Tutunog yung SFX kapag kinilick na yung basura
-      this.pickUpSFX.play();
-    });
-    const basura11 = this.add
-      .image(this.config.width - 600, this.config.height - 100, 'basura6')
+   
+    const clutter2 = this.add
+      .image(this.config.width - 600, this.config.height - 50, 'garbage2')
       .setScale(1.5);
-    basura11.setInteractive();
-    basura11.on('pointerdown', () => {
-      basura11.destroy();
-      this.garbageCount -= 1;
-      // Tutunog yung SFX kapag kinilick na yung basura
-      this.pickUpSFX.play();
-    });
-    const basura111 = this.add
-      .image(this.config.width - 370, this.config.height - 30, 'basura7')
+    
+    const clutter3 = this.add
+      .image(this.config.width - 350, this.config.height - 30, 'garbage3')
       .setScale(1.5);
-    basura111.setInteractive();
-    basura111.on('pointerdown', () => {
-      basura111.destroy();
-      this.garbageCount -= 1;
-      // Tutunog yung SFX kapag kinilick na yung basura
-      this.pickUpSFX.play();
-    });
-    const basura2 = this.add
-      .image(this.config.width - 20, this.config.height - 80, 'basura2')
+    
+    const clutter4 = this.add
+      .image(this.config.width - 40, this.config.height - 100, 'garbage4')
       .setScale(1.5);
-    basura2.setInteractive();
-    basura2.on('pointerdown', () => {
-      basura2.destroy();
-      this.garbageCount -= 1;
-      // Tutunog yung SFX kapag kinilick na yung basura
-      this.pickUpSFX.play();
-    });
-    const basura22 = this.add
-      .image(this.config.width - 80, this.config.height - 70, 'basura8')
+   
+    const clutter5 = this.add
+      .image(this.config.width - 60, this.config.height - 90, 'garbage5')
       .setScale(1.5); // this will be replace
-    basura22.setInteractive();
-    basura22.on('pointerdown', () => {
-      basura22.destroy();
-      this.garbageCount -= 1;
-      // Tutunog yung SFX kapag kinilick na yung basura
-      this.pickUpSFX.play();
-    });
-    const basura3 = this.add
-      .image(this.config.width - 700, this.config.height - 100, 'basura3')
+    
+    const clutter6 = this.add
+      .image(this.config.width - 720, this.config.height - 115, 'garbage6')
       .setScale(1.5);
-    basura3.setInteractive();
-    basura3.on('pointerdown', () => {
-      basura3.destroy();
-      this.garbageCount -= 1;
-      // Tutunog yung SFX kapag kinilick na yung basura
-      this.pickUpSFX.play();
-    });
-    const basura33 = this.add
-      .image(this.config.width - 550, this.config.height - 100, 'basura9')
+   
+    const clutter7 = this.add
+      .image(this.config.width - 523, this.config.height - 143, 'garbage7')
       .setScale(1.5); // this will be replace
-    basura33.setInteractive();
-    basura33.on('pointerdown', () => {
-      basura33.destroy();
-      this.garbageCount -= 1;
-      // Tutunog yung SFX kapag kinilick na yung basura
-      this.pickUpSFX.play();
-    });
-    const basura4 = this.add
-      .image(this.config.width - 260, this.config.height - 120, 'basura4')
+   
+    const clutter8 = this.add
+      .image(this.config.width - 269, this.config.height - 125, 'garbage8')
       .setScale(1.5);
-    basura4.setInteractive();
-    basura4.on('pointerdown', () => {
-      basura4.destroy();
-      this.garbageCount -= 1;
-      // Tutunog yung SFX kapag kinilick na yung basura
-      this.pickUpSFX.play();
-    });
-    const basura44 = this.add
-      .image(this.config.width - 285, this.config.height - 120, 'basura10')
-      .setScale(1.5); // this will be replace
-    basura44.setInteractive();
-    basura44.on('pointerdown', () => {
-      basura44.destroy();
-      this.garbageCount -= 1;
-      // Tutunog yung SFX kapag kinilick na yung basura
-      this.pickUpSFX.play();
-    });
-    const basura5 = this.add
-      .image(this.config.width - 750, this.config.height - 140, 'basura5')
+    
+    const clutter9 = this.add
+      .image(this.config.width - 666, this.config.height - 143, 'garbage9')
       .setScale(1.5);
-    basura5.setInteractive();
-    basura5.on('pointerdown', () => {
-      basura5.destroy();
-      this.garbageCount -= 1;
-      // Tutunog yung SFX kapag kinilick na yung basura
-      this.pickUpSFX.play();
-    });
-    const basura55 = this.add
-      .image(this.config.width - 770, this.config.height - 110, 'basura5')
-      .setScale(1.5); // this will be replace
-    basura55.setInteractive();
-    basura55.on('pointerdown', () => {
-      basura55.destroy();
-      this.garbageCount -= 1;
-      // Tutunog yung SFX kapag kinilick na yung basura
-      this.pickUpSFX.play();
-    });
+    
+    const clutter10 = this.add
+      .image(this.config.width - 490, this.config.height - 130, 'garbage10')
+      .setScale(1.5);
+    
+    const clutter11 = this.add
+      .image(this.config.width - 700, this.config.height - 112, 'garbage11')
+      .setScale(1.5); 
+
+    const clutter12 = this.add
+      .image(this.config.width - 560, this.config.height - 70, 'garbage12')
+      .setScale(1.5); 
+
+    const clutter13 = this.add
+      .image(this.config.width - 630, this.config.height - 140, 'garbage13')
+      .setScale(1.5); 
+
+    const clutter14 = this.add
+      .image(this.config.width - 620, this.config.height - 99, 'garbage14')
+      .setScale(1.5); 
+      
   }
+
+  clutters() {
+    const clutter1 = this.add
+      .image(this.config.width - 500, this.config.height - 20, 'clutter1')
+      .setScale(1.5);
+   
+    const clutter2 = this.add
+      .image(this.config.width - 600, this.config.height - 100, 'clutter2')
+      .setScale(1.5);
+    
+    const clutter3 = this.add
+      .image(this.config.width - 370, this.config.height - 30, 'clutter3')
+      .setScale(1.5);
+    
+    const clutter4 = this.add
+      .image(this.config.width - 20, this.config.height - 80, 'clutter4')
+      .setScale(1.5);
+   
+    const clutter5 = this.add
+      .image(this.config.width - 80, this.config.height - 70, 'clutter5')
+      .setScale(1.5);
+    
+    const clutter6 = this.add
+      .image(this.config.width - 700, this.config.height - 100, 'clutter6')
+      .setScale(1.5);
+   
+    const clutter7 = this.add
+      .image(this.config.width - 550, this.config.height - 100, 'clutter7')
+      .setScale(1.5); 
+   
+    const clutter8 = this.add
+      .image(this.config.width - 260, this.config.height - 120, 'clutter8')
+      .setScale(1.5);
+    
+    const clutter9 = this.add
+      .image(this.config.width - 285, this.config.height - 120, 'clutter9')
+      .setScale(1.5); 
+
+    const clutter10 = this.add
+      .image(this.config.width - 750, this.config.height - 130, 'clutter10')
+      .setScale(1.5);
+    
+    const clutter11 = this.add
+      .image(this.config.width - 770, this.config.height - 110, 'clutter11')
+      .setScale(1.5); 
+
+    const clutter12 = this.add
+      .image(this.config.width - 570, this.config.height - 80, 'clutter12')
+      .setScale(1.5); 
+
+    const clutter13 = this.add
+      .image(this.config.width - 670, this.config.height - 130, 'clutter13')
+      .setScale(1.5); 
+
+    const clutter14 = this.add
+      .image(this.config.width - 650, this.config.height - 80, 'clutter14')
+      .setScale(1.5); 
+      
+    const clutter15 = this.add
+      .image(this.config.width - 870, this.config.height - 150, 'clutter15')
+      .setScale(1.5); 
+  }
+
 
   winGraphics(){
-    // Cancel timer
-    if(this.timer){
-      this.timer.remove(false);
-    }
+    
     // Succesfully picked up all basuras
     const graphics = this.add.graphics();
     graphics.fillStyle(0x000000, 0.5); // Color and Alpha
@@ -289,22 +412,6 @@ export class PlayScene extends Phaser.Scene {
       )
       .setOrigin(0.5);
 
-    const restartButton = this.add.text(
-      this.config.width - 80,
-      20,
-      'Restart',
-      { font: '18px monospace', color: '#ffffff' }
-    );
-    restartButton.setOrigin(0.5);
-    restartButton.setInteractive();
-    restartButton.on('pointerdown', () => {
-      this.bgMusic.destroy();
-      this.scene.restart();
-      this.garbageCount = 0;
-      this.garbageCount = 11;
-      this.timer.reset();
-    });
-
     // Quit button
     const quitButton = this.add.text(
       this.config.width - 80, 
@@ -319,19 +426,9 @@ export class PlayScene extends Phaser.Scene {
       graphics.destroy();
       quitButton.destroy();
       this.bgMusic.destroy();
-      this.garbageCount = 0;
-      this.garbageCount = 11;
-      this.timer.reset();
       this.scene.start('default-scene', { config: this.game.config });
     });
 
-  }
-
-  isAllGarbagePickedUp(): boolean {
-    if (this.garbageCount === 0) {
-      return true;
-    }
-    return false;
   }
 
   nextLevel(){

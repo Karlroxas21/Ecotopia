@@ -16,25 +16,54 @@ export class MainScene extends Phaser.Scene {
 
     // Level 1 Assets
     // BG
-    this.load.image('level-1-bg', '../../../../assets/lvl1/sea-bg.png');
+    this.load.image('level-1-bg', '../../../../assets/game/scene1/beach.png');
     // Shark
     this.load.image('shark', '../../../../assets/lvl1/shark_spritesheet.png');
     // Cloud
-    this.load.image('cloud-shits', '../../../../assets/lvl1/cloud.png');
-    this.load.image('cloud-shits1', '../../../../assets/lvl1/clouds1.1.png');
-    this.load.image('cloud-shits2', '../../../../assets/lvl1/clouds1.2.png');
-    this.load.image('cloud-shits3', '../../../../assets/lvl1/clouds1.3.png');
-    // Mga basura ng mga dugyot
-    this.load.image('basura1', '../../../../assets/lvl1/basura1.png');
-    this.load.image('basura2', '../../../../assets/lvl1/basura2.png');
-    this.load.image('basura3', '../../../../assets/lvl1/basura3.png');
-    this.load.image('basura4', '../../../../assets/lvl1/basura4.png');
-    this.load.image('basura5', '../../../../assets/lvl1/basura5.png');
-    this.load.image('basura6', '../../../../assets/lvl1/basura6.png');
-    this.load.image('basura7', '../../../../assets/lvl1/basura7.png');
-    this.load.image('basura8', '../../../../assets/lvl1/basura8.png');
-    this.load.image('basura9', '../../../../assets/lvl1/basura9.png');
-    this.load.image('basura10', '../../../../assets/lvl1/basura10.png');
+    this.load.image('cloud-1', '../../../../assets/game/scene1/cloud1.png');
+    this.load.image('cloud-2', '../../../../assets/game/scene1/cloud2.png');
+    this.load.image('cloud-3', '../../../../assets/game/scene1/cloud3.png');
+    this.load.image('cloud-4', '../../../../assets/game/scene1/cloud4.png');
+    this.load.image('cloud-5', '../../../../assets/game/scene1/cloud5.png');
+    this.load.image('cloud-6', '../../../../assets/game/scene1/cloud6.png');
+    this.load.image('cloud-7', '../../../../assets/game/scene1/cloud7.png');
+    this.load.image('cloud-8', '../../../../assets/game/scene1/cloud8.png');
+    this.load.image('cloud-9', '../../../../assets/game/scene1/cloud9.png');
+    this.load.image('cloud-0', '../../../../assets/game/scene1/cloud0.png');
+
+    // Sea shells and pebbles
+    this.load.image('clutter1', '../../../../assets/game/scene1/clutter1.png');
+    this.load.image('clutter2', '../../../../assets/game/scene1/clutter2.png');
+    this.load.image('clutter3', '../../../../assets/game/scene1/clutter3.png');
+    this.load.image('clutter4', '../../../../assets/game/scene1/clutter4.png');
+    this.load.image('clutter5', '../../../../assets/game/scene1/clutter5.png');
+    this.load.image('clutter6', '../../../../assets/game/scene1/clutter6.png');
+    this.load.image('clutter7', '../../../../assets/game/scene1/clutter7.png');
+    this.load.image('clutter8', '../../../../assets/game/scene1/clutter8.png');
+    this.load.image('clutter9', '../../../../assets/game/scene1/clutter9.png');
+    this.load.image('clutter10', '../../../../assets/game/scene1/clutter10.png');
+    this.load.image('clutter11', '../../../../assets/game/scene1/clutter11.png');
+    this.load.image('clutter12', '../../../../assets/game/scene1/clutter12.png');
+    this.load.image('clutter13', '../../../../assets/game/scene1/clutter13.png');
+    this.load.image('clutter14', '../../../../assets/game/scene1/clutter14.png');
+    this.load.image('clutter15', '../../../../assets/game/scene1/clutter15.png');
+
+    // Garbages
+    this.load.image('garbage1', '../../../../assets/game/scene1/garbage1.png');
+    this.load.image('garbage2', '../../../../assets/game/scene1/garbage2.png');
+    this.load.image('garbage3', '../../../../assets/game/scene1/garbage3.png');
+    this.load.image('garbage4', '../../../../assets/game/scene1/garbage4.png');
+    this.load.image('garbage5', '../../../../assets/game/scene1/garbage5.png');
+    this.load.image('garbage6', '../../../../assets/game/scene1/garbage6.png');
+    this.load.image('garbage7', '../../../../assets/game/scene1/garbage7.png');
+    this.load.image('garbage8', '../../../../assets/game/scene1/garbage8.png');
+    this.load.image('garbage9', '../../../../assets/game/scene1/garbage9.png');
+    this.load.image('garbage10', '../../../../assets/game/scene1/garbage10.png');
+    this.load.image('garbage11', '../../../../assets/game/scene1/garbage11.png');
+    this.load.image('garbage12', '../../../../assets/game/scene1/garbage12.png');
+    this.load.image('garbage13', '../../../../assets/game/scene1/garbage13.png');
+    this.load.image('garbage14', '../../../../assets/game/scene1/garbage14.png');
+
     // Background Image for some Trivia
     this.load.image('trivia1', '../../../../assets/bg-popup.png');
     // Audio for Level 1 Sea Scene
@@ -247,7 +276,7 @@ export class MainScene extends Phaser.Scene {
     // Uncomment this when done in level 1!
     this.load.on('complete', () => {
       // default-scene is the original value
-      this.scene.start('default-scene', { config: this.game.config });
+      this.scene.start('play-scene', { config: this.game.config });
     });
 
     // Temporary to see Level 2 Scene Fast.

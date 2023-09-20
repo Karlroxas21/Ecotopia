@@ -4,10 +4,9 @@ import { DefaultScene } from './scenes/default-scene';
 import { PrePlayScene } from './scenes/pre-play-scene';
 import { MainScene } from './scenes/main-scene';
 import { PlayScene } from './scenes/play-scene-level1';
-import { PlayLevel2Scene } from './scenes/level2/play-scene-level2';
-import { PrePlayLevel2Scene } from './scenes/level2/pre-play-scene.level2';
-import { PlayLevel3Scene } from './scenes/level3/play-scene-level3';
-import { PrePlayLevel3Scene } from './scenes/level3/pre-play-scene.level3';
+import { PlaySceneWrong } from './scenes/play-scene-wrong';
+import { PlaySceneCorrect } from './scenes/play-scene-correct';
+
 @Component({
   selector: 'app-escape-room',
   templateUrl: './escape-room.component.html',
@@ -24,11 +23,9 @@ export class EscapeRoomComponent implements OnInit{
       scene: [ MainScene, 
         DefaultScene, 
         PrePlayScene, 
-        PlayScene, 
-        PlayLevel2Scene, 
-        PrePlayLevel2Scene, 
-        PrePlayLevel3Scene,
-        PlayLevel3Scene,],
+        PlayScene,
+        PlaySceneWrong,
+        PlaySceneCorrect],
       parent: 'gameContainer',
       physics: {
         default: 'arcade',

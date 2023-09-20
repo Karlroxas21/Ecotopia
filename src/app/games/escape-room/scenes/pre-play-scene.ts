@@ -27,6 +27,11 @@ export class PrePlayScene extends Phaser.Scene {
 
   bgMusic: any;
 
+  guide: any;
+  timer: any;
+
+  private textDisplay = 'You need to pick the right answers to complete the game';
+
   create() {
     this.background = this.add.image(0, 0, 'level-1-bg');
     this.background.setOrigin(0, 0);
@@ -50,7 +55,7 @@ export class PrePlayScene extends Phaser.Scene {
     const guide = this.add.text(
       centerX,
       centerY,
-      'You need to click the garbages you see to clean the sea',
+      this.textDisplay,
       { font: '18px monospace', color: '#ffffff' }
     );
     guide.setOrigin(0.5);
@@ -77,8 +82,7 @@ export class PrePlayScene extends Phaser.Scene {
     this.bgMusic = this.sound.add('seaMusic', {loop: true, volume: 0.2});
     this.bgMusic.play();
 
-    this.nakakalatNaBasura();
-
+  
   }
 
   override update() {
@@ -135,4 +139,7 @@ export class PrePlayScene extends Phaser.Scene {
       .image(this.config.width - 770, this.config.height - 110, 'basura5')
       .setScale(1.5); 
   }
+
+  
+
 }
