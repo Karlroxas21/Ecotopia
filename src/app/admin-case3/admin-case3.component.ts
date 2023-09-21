@@ -182,7 +182,7 @@ export class AdminCase3Component {
     }
 
   sanitizeInput(input: string): string | null {
-    const harmfulChars = /[\;\(\)\<\>\'\"\\\/\[\]\{\}\%\=\?\&\+\-\*\#\@\$\^\|\`\~]/g;
+    const harmfulChars = /[\;\<\>\'\"\\\/\[\]\{\}\%\=\?\&\+\*\#\@\$\^\|\`\~]/g;
   
     // Check if the input contains harmful characters
     if (harmfulChars.test(input)) {
