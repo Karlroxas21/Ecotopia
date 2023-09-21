@@ -72,8 +72,8 @@ export class PlaySceneCorrect extends Phaser.Scene {
                 graphics.fillRect(
                         75,
                         centerY - this.cameras.main.height / 6 / 2,
-                        this.cameras.main.width - 150,
-                        this.cameras.main.height / 6
+                        this.config.width - 150,
+                        this.config.height / 6
                 );
 
                 const closeButton = this.add.text(
@@ -85,7 +85,7 @@ export class PlaySceneCorrect extends Phaser.Scene {
                 closeButton.setOrigin(0.5);
                 closeButton.setInteractive();
                 closeButton.on('pointerdown', () => {
-                        this.scene.start('scene2', { config: this.game.config });
+                        this.scene.start('play-scene2', { config: this.game.config });
                 })
 
                 const guide = this.add.text(

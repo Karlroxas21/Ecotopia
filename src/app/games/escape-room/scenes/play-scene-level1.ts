@@ -13,6 +13,8 @@ export class PlayScene extends Phaser.Scene {
 
   background: any;
 
+  heart_icon:any;
+
   cloud1: any;
   cloud2: any;
   cloud3: any;
@@ -61,9 +63,6 @@ export class PlayScene extends Phaser.Scene {
 
   choice1 = "Plastic bottles and cigarette butts";
   choice2 = "Seashells and pebbles";
-  isCorrect !: boolean;
-
-  currentHeartPoints = heartPointsService.getHeartPoints();
 
   create() {
     this.background = this.add.image(0, 0, 'level-1-bg');
@@ -87,7 +86,9 @@ export class PlayScene extends Phaser.Scene {
     this.cloud9 = this.add.image(300, 150, 'cloud-9');
     this.cloud0 = this.add.image(100, 200, 'cloud-0');
     
-
+    for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
+      this.heart_icon = this.add.image(770, 30 + i * 30, 'heart-icon');
+    }
     // Question
     const centerX = (this.config.width / 2) - 40;
     const centerY = 100;
@@ -130,7 +131,6 @@ export class PlayScene extends Phaser.Scene {
 
     choice1Guide.setInteractive()
     choice1Guide.on('pointerdown', () => {
-      this.isCorrect = true;
       this.scene.start('play-scene-correct', {config: this.game.config});
 
     });
@@ -147,11 +147,6 @@ export class PlayScene extends Phaser.Scene {
       this.config.width - 150,
       40
     );
-    choice2graphics.setInteractive()
-    choice2graphics.on('pointerdown', () => {
-      this.isCorrect = false;
-      console.log(this.isCorrect)
-    })
 
     const choice2Guide = this.add.text(
       choice2CenterX,
@@ -161,7 +156,6 @@ export class PlayScene extends Phaser.Scene {
     );
     choice2Guide.setInteractive()
     choice2Guide.on('pointerdown', () => {
-      this.isCorrect = false;
       heartPointsService.decreaseHeartPoints();
       this.scene.start('play-scene-wrong', {config: this.game.config});
 

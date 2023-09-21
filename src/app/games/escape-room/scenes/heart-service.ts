@@ -7,7 +7,7 @@ export class HeartPointsService{
         }
 
         decreaseHeartPoints(){
-                this.heartPoints -= 1;
+                this.heartPoints --;
         }
 }
 

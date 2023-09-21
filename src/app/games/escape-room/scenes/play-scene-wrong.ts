@@ -107,7 +107,7 @@ export class PlaySceneWrong extends Phaser.Scene {
                       closeButton.setOrigin(0.5);
                       closeButton.setInteractive();
                       closeButton.on('pointerdown', () =>{
-                        this.scene.start('scene2', { config: this.game.config});
+                        this.scene.start('play-scene2', { config: this.game.config});
                       })
 
                 const guide = this.add.text(
