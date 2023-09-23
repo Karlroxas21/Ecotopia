@@ -58,6 +58,7 @@ export class PlayScene extends Phaser.Scene {
   garbage14: any;
 
   bgMusic: any;
+  choiceButtonSFX: any;
 
   textDisplay = "Which item should you prioritize picking up to help \nclean the beach?";
 
@@ -89,6 +90,9 @@ export class PlayScene extends Phaser.Scene {
     for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
       this.heart_icon = this.add.image(770, 30 + i * 30, 'heart-icon');
     }
+
+    this.choiceButtonSFX = this.sound.add('choice');
+
     // Question
     const centerX = (this.config.width / 2) - 40;
     const centerY = 100;
@@ -132,6 +136,8 @@ export class PlayScene extends Phaser.Scene {
     choice1Guide.setInteractive()
     choice1Guide.on('pointerdown', () => {
       this.scene.start('play-scene-correct', {config: this.game.config});
+      
+      this.choiceButtonSFX.play();
 
     });
     // End of choice 1
@@ -159,13 +165,10 @@ export class PlayScene extends Phaser.Scene {
       heartPointsService.decreaseHeartPoints();
       this.scene.start('play-scene-wrong', {config: this.game.config});
 
+      this.choiceButtonSFX.play();
+
     });
     // End of choice 2
-
-    // BG Music
-    this.bgMusic = this.sound.add('seaMusic', {volume: 0.2});
-    this.bgMusic.play();
-
 
     this.clutters();
 
@@ -341,103 +344,6 @@ export class PlayScene extends Phaser.Scene {
       .setScale(1.5); 
   }
 
-
-  winGraphics(){
-    
-    // Succesfully picked up all basuras
-    const graphics = this.add.graphics();
-    graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-    graphics.fillRect(
-      this.config.width - 660,
-      this.config.height / 2 - this.config.height / 6 / 2,
-      this.config.width - 300,
-      this.config.height / 4
-    );
-
-    const fact =
-      'Did you know that in 2019 over 9.2 million \ngarbage per day produce in Metro Manila, \nsome end up in Manila Bay.';
-    const congrats = this.add
-      .text(
-        this.config.width / 2,
-        this.config.height / 2 + 10,
-        'Congratulations, you clean the sea! \n\n' + fact,
-        { font: '18px monospace', color: '#ffffff' }
-      )
-      .setOrigin(0.5);
-
-    // Close button
-    const closeButton = this.add.text(
-      this.config.width - 180,
-      this.config.height / 2 - this.config.height / 6 / 2 + 15,
-      'X',
-      { font: '18px monospace', color: '#ffffff' }
-    );
-    closeButton.setOrigin(0.5);
-    closeButton.setInteractive();
-    closeButton.on('pointerdown', () => {
-      congrats.destroy();
-      graphics.destroy();
-      closeButton.destroy();
-      this.bgMusic.destroy();
-      this.scene.start('play-level2-scene', { config: this.game.config });
-    });
-
-    this.nextLevel();
-    
-  }
-
-  gameOverGraphics(){
-    // Game Over
-    const graphics = this.add.graphics();
-    graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-    graphics.fillRect(
-      this.config.width - 660,
-      this.config.height / 2 - this.config.height / 6 / 2,
-      this.config.width - 300,
-      this.config.height / 5
-    );
-
-    const congrats = this.add
-      .text(
-        this.config.width / 2,
-        this.config.height / 2 + 10,
-        'Game over!',
-        { font: '18px monospace', color: '#ffffff' }
-      )
-      .setOrigin(0.5);
-
-    // Quit button
-    const quitButton = this.add.text(
-      this.config.width - 80, 
-      60,
-      'Quit',
-      { font: '18px monospace', color: '#ffffff' }
-    );
-    quitButton.setOrigin(0.5);
-    quitButton.setInteractive();
-    quitButton.on('pointerdown', () => {
-      congrats.destroy();
-      graphics.destroy();
-      quitButton.destroy();
-      this.bgMusic.destroy();
-      this.scene.start('default-scene', { config: this.game.config });
-    });
-
-  }
-
-  nextLevel(){
-    const nextLevelTxt = this.add.text(
-      this.config.width - 170, 
-      this.config.height - 210, 
-      'Next Level', 
-      { font: '20px monospace', color: '#ffffff' });
-
-      nextLevelTxt.setOrigin(1, 1);
-      nextLevelTxt.setInteractive();
-      nextLevelTxt.on('pointerdown', ()=>{
-        nextLevelTxt.destroy();
-        this.bgMusic.destroy();
-        this.scene.start('pre-play-level2-scene', { config: this.game.config });
-      })
-  }
 }
+
+

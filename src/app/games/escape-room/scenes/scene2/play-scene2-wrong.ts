@@ -13,9 +13,13 @@ export class PlayScene2Wrong extends Phaser.Scene {
 
         background: any;
 
-        bgMusic: any;
+        heart_icon: any;
 
-        textDisplay = "Wrong!\nOil drums and plastic bags can contaminate the water \nand harm aquatic life";
+        bgMusic: any;
+        xButtonSFX: any;
+        failedSFX: any;
+
+        textDisplay = "Wrong!\nLeaves and branches are natural river debris \nand do not contribute to pollution";
 
         currentHeartPoints = heartPointsService.getHeartPoints();
 
@@ -23,6 +27,13 @@ export class PlayScene2Wrong extends Phaser.Scene {
                 this.background = this.add.image(0, 0, 'scene2-bg-wrong');
                 this.background.setOrigin(0, 0);
 
+                this.xButtonSFX = this.sound.add('x-button');
+
+                this.failedSFX = this.sound.add('failed');
+                this.failedSFX.play();
+                for(let i = 0; i < heartPointsService.getHeartPoints(); i++){
+                        this.heart_icon = this.add.image(770, 30 + i * 30, 'heart-icon');
+                }
                 // Text
                 const centerX = this.config.width / 2;
                 const centerY = this.config.height / 2;
@@ -46,6 +57,7 @@ export class PlayScene2Wrong extends Phaser.Scene {
                 closeButton.setInteractive();
                 closeButton.on('pointerdown', () => {
                         this.scene.start('play-scene3', { config: this.game.config });
+                        this.xButtonSFX.play();
                 })
 
                 const guide = this.add.text(

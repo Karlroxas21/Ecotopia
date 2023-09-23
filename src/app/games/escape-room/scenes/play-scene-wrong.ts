@@ -13,6 +13,8 @@ export class PlaySceneWrong extends Phaser.Scene {
 
         background: any;
 
+        heart_icon: any;
+        
         cloud1: any;
         cloud2: any;
         cloud3: any;
@@ -55,6 +57,9 @@ export class PlaySceneWrong extends Phaser.Scene {
         garbage13: any;
         garbage14: any;
 
+        failedSFX: any;
+        xButtonSFX: any;
+
         textDisplay = "Wrong! \n Seashells and pebbles are natural beach elements \nand do not pose a pollution threat";
 
         choice1 = "Plastic bottles and cigarette butts";
@@ -67,6 +72,14 @@ export class PlaySceneWrong extends Phaser.Scene {
                 this.background = this.add.image(0, 0, 'level-1-bg');
                 this.background.setOrigin(0, 0);
 
+                this.failedSFX = this.sound.add('failed');
+                this.failedSFX.play();
+                
+                this.xButtonSFX = this.sound.add('x-button');
+                
+                for(let i = 0; i < heartPointsService.getHeartPoints(); i++){
+                        this.heart_icon = this.add.image(770, 30 + i * 30, 'heart-icon');
+                }
                 // Clouds
                 this.cloud1 = this.add.image(0, 200, 'cloud-1');
                 this.cloud1.setScale(0.5);
@@ -107,6 +120,7 @@ export class PlaySceneWrong extends Phaser.Scene {
                       closeButton.setOrigin(0.5);
                       closeButton.setInteractive();
                       closeButton.on('pointerdown', () =>{
+                        this.xButtonSFX.play();
                         this.scene.start('play-scene2', { config: this.game.config});
                       })
 

@@ -1,9 +1,8 @@
 import Phaser from 'phaser';
-import { heartPointsService } from '../heart-service';
 
-export class PlayScene2Correct extends Phaser.Scene {
+export class Milestone extends Phaser.Scene {
         constructor() {
-                super({ key: 'play-scene2-correct' });
+                super({ key: 'milestone-scene' });
         }
 
         config: Phaser.Types.Core.GameConfig | any;
@@ -11,33 +10,13 @@ export class PlayScene2Correct extends Phaser.Scene {
                 this.config = data.config;
         }
 
-        background: any;
 
-        heart_icon: any;
-        
-        bgMusic: any;
-        levelPassed: any;
-        xButtonSFX: any;
+        textDisplay = "Congratulation's!\n You've escape the challenge and you make a positive impact \non the environment";
 
-        textDisplay = "Correct! \nOil drums and plastic bags can contaminate the water \nand harm aquatic life";
-
-        choice1 = "Oil drums and plastic bags";
-        choice2 = "Leaves and branches";
-        currentHeartPoints = heartPointsService.getHeartPoints();
 
         create() {
-                this.background = this.add.image(0, 0, 'scene2-bg-correct');
-                this.background.setOrigin(0, 0);
 
-                this.xButtonSFX = this.sound.add('x-button');
-
-                this.levelPassed = this.sound.add('level-passed');
-                this.levelPassed.play();
-
-                for(let i = 0; i < heartPointsService.getHeartPoints(); i++){
-                        this.heart_icon = this.add.image(770, 30 + i * 30, 'heart-icon');
-                }
-
+                this.sound.stopAll();
                 // Text
                 const centerX = this.config.width / 2;
                 const centerY = this.config.height / 2;
@@ -60,8 +39,7 @@ export class PlayScene2Correct extends Phaser.Scene {
                 closeButton.setOrigin(0.5);
                 closeButton.setInteractive();
                 closeButton.on('pointerdown', () => {
-                        this.scene.start('play-scene3', { config: this.game.config });
-                        this.xButtonSFX.play();
+                        this.scene.start('pre-play-scene', { config: this.game.config });
                 })
 
                 const guide = this.add.text(

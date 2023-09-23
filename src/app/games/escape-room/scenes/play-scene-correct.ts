@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { heartPointsService } from './heart-service';
 
 export class PlaySceneCorrect extends Phaser.Scene {
         constructor() {
@@ -12,6 +13,8 @@ export class PlaySceneCorrect extends Phaser.Scene {
 
         background: any;
 
+        heart_icon: any;
+        
         cloud1: any;
         cloud2: any;
         cloud3: any;
@@ -39,11 +42,23 @@ export class PlaySceneCorrect extends Phaser.Scene {
         clutter14: any;
         clutter15: any;
 
+        levelPassedSFX: any;
+        xButtonSFX: any;
+
         textDisplay = "Correct! \n These items are common pollutants on beaches and can harm \nmarine life and the environment";
 
         create() {
                 this.background = this.add.image(0, 0, 'level-1-bg');
                 this.background.setOrigin(0, 0);
+
+                this.levelPassedSFX = this.sound.add('level-passed');
+                this.levelPassedSFX.play();
+
+                this.xButtonSFX = this.sound.add('x-button');
+
+                for(let i = 0; i < heartPointsService.getHeartPoints(); i++){
+                        this.heart_icon = this.add.image(770, 30 + i * 30, 'heart-icon');
+                }
 
                 // Clouds
                 this.cloud1 = this.add.image(0, 200, 'cloud-1');
@@ -85,6 +100,7 @@ export class PlaySceneCorrect extends Phaser.Scene {
                 closeButton.setOrigin(0.5);
                 closeButton.setInteractive();
                 closeButton.on('pointerdown', () => {
+                        this.xButtonSFX.play();
                         this.scene.start('play-scene2', { config: this.game.config });
                 })
 
@@ -207,101 +223,5 @@ export class PlaySceneCorrect extends Phaser.Scene {
                 const clutter15 = this.add
                         .image(this.config.width - 870, this.config.height - 150, 'clutter15')
                         .setScale(1.5);
-        }
-
-        winGraphics() {
-
-                // Succesfully picked up all basuras
-                const graphics = this.add.graphics();
-                graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-                graphics.fillRect(
-                        this.config.width - 660,
-                        this.config.height / 2 - this.config.height / 6 / 2,
-                        this.config.width - 300,
-                        this.config.height / 4
-                );
-
-                const fact =
-                        'Did you know that in 2019 over 9.2 million \ngarbage per day produce in Metro Manila, \nsome end up in Manila Bay.';
-                const congrats = this.add
-                        .text(
-                                this.config.width / 2,
-                                this.config.height / 2 + 10,
-                                'Congratulations, you clean the sea! \n\n' + fact,
-                                { font: '18px monospace', color: '#ffffff' }
-                        )
-                        .setOrigin(0.5);
-
-                // Close button
-                const closeButton = this.add.text(
-                        this.config.width - 180,
-                        this.config.height / 2 - this.config.height / 6 / 2 + 15,
-                        'X',
-                        { font: '18px monospace', color: '#ffffff' }
-                );
-                closeButton.setOrigin(0.5);
-                closeButton.setInteractive();
-                closeButton.on('pointerdown', () => {
-                        congrats.destroy();
-                        graphics.destroy();
-                        closeButton.destroy();
-                        this.scene.start('play-level2-scene', { config: this.game.config });
-                });
-
-                this.nextLevel();
-
-        }
-
-        gameOverGraphics() {
-                // Game Over
-                const graphics = this.add.graphics();
-                graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-                graphics.fillRect(
-                        this.config.width - 660,
-                        this.config.height / 2 - this.config.height / 6 / 2,
-                        this.config.width - 300,
-                        this.config.height / 5
-                );
-
-                const congrats = this.add
-                        .text(
-                                this.config.width / 2,
-                                this.config.height / 2 + 10,
-                                'Game over!',
-                                { font: '18px monospace', color: '#ffffff' }
-                        )
-                        .setOrigin(0.5);
-
-                // Quit button
-                const quitButton = this.add.text(
-                        this.config.width - 80,
-                        60,
-                        'Quit',
-                        { font: '18px monospace', color: '#ffffff' }
-                );
-                quitButton.setOrigin(0.5);
-                quitButton.setInteractive();
-                quitButton.on('pointerdown', () => {
-                        congrats.destroy();
-                        graphics.destroy();
-                        quitButton.destroy();
-                        this.scene.start('default-scene', { config: this.game.config });
-                });
-
-        }
-
-        nextLevel() {
-                const nextLevelTxt = this.add.text(
-                        this.config.width - 170,
-                        this.config.height - 210,
-                        'Next Level',
-                        { font: '20px monospace', color: '#ffffff' });
-
-                nextLevelTxt.setOrigin(1, 1);
-                nextLevelTxt.setInteractive();
-                nextLevelTxt.on('pointerdown', () => {
-                        nextLevelTxt.destroy();
-                        this.scene.start('pre-play-level2-scene', { config: this.game.config });
-                })
         }
 }

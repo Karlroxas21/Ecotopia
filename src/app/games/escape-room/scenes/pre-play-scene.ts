@@ -26,6 +26,7 @@ export class PrePlayScene extends Phaser.Scene {
   basura55: any;
 
   bgMusic: any;
+  xButtonSFX: any;
 
   guide: any;
   timer: any;
@@ -37,7 +38,7 @@ export class PrePlayScene extends Phaser.Scene {
     this.background.setOrigin(0, 0);
 
     // Clouds
-    this.cloud = this.add.image(100, 100, 'cloud-shits');
+    this.cloud = this.add.image(100, 100, 'cloud-1');
     this.cloud.setScale(0.5);
 
     //Guide
@@ -73,16 +74,16 @@ export class PrePlayScene extends Phaser.Scene {
       graphics.destroy();
       guide.destroy();
       closeButton.destroy();
-      this.bgMusic.destroy();
       this.scene.start('play-scene', { config: this.game.config });
+      this.xButtonSFX = this.sound.add('x-button');
+      this.xButtonSFX.play();
     });
     // End of Guide
 
     // Background music
-    this.bgMusic = this.sound.add('seaMusic', {loop: true, volume: 0.2});
+    this.bgMusic = this.sound.add('bg-music', {loop: true, volume: 0.3});
     this.bgMusic.play();
-
-  
+      
   }
 
   override update() {

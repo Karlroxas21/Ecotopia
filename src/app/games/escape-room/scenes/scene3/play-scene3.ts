@@ -1,9 +1,9 @@
 import Phaser from 'phaser';
 import { heartPointsService } from '../heart-service';
 
-export class PlayScene2 extends Phaser.Scene {
+export class PlayScene3 extends Phaser.Scene {
   constructor() {
-    super({ key: 'play-scene2' });
+    super({ key: 'play-scene3' });
   }
 
   config: Phaser.Types.Core.GameConfig | any;
@@ -18,13 +18,13 @@ export class PlayScene2 extends Phaser.Scene {
   bgMusic: any;
   choiceButton: any;
 
-  textDisplay = "Which waste should you focus on removing to protect \nthe river ecosystem?";
+  textDisplay = "What should you collect to help the park pond regain \nits natural beauty?";
 
-  choice1 = "Oil drums and plastic bags";
-  choice2 = "Leaves and branches";
+  choice1 = "Lily Pads and Duck Feathers";
+  choice2 = "Plastic Cups and Food Wrappers";
 
   create() {
-    this.background = this.add.image(0, 0, 'scene2-bg');
+    this.background = this.add.image(0, 0, 'scene3-bg');
     this.background.setOrigin(0, 0);
 
     this.choiceButton = this.sound.add('choice');
@@ -75,7 +75,8 @@ export class PlayScene2 extends Phaser.Scene {
 
     choice1Guide.setInteractive()
     choice1Guide.on('pointerdown', () => {
-      this.scene.start('play-scene2-correct', {config: this.game.config});
+      heartPointsService.decreaseHeartPoints();
+      this.scene.start('play-scene3-wrong', {config: this.game.config});
       this.choiceButton.play();
     });
     // End of choice 1
@@ -100,8 +101,7 @@ export class PlayScene2 extends Phaser.Scene {
     );
     choice2Guide.setInteractive()
     choice2Guide.on('pointerdown', () => {
-      heartPointsService.decreaseHeartPoints();
-      this.scene.start('play-scene2-wrong', {config: this.game.config});
+      this.scene.start('play-scene3-correct', {config: this.game.config});
       this.choiceButton.play();
     });
     // End of choice 2

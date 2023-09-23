@@ -17,6 +17,15 @@ export class MainScene extends Phaser.Scene {
     // Heart icon
     this.load.image('heart-icon', '../../../../assets/game/heart_icon.png');
 
+    // SFX
+    this.load.audio('x-button', '../../../../assets/game/x-button.mp3');
+    this.load.audio('level-passed', '../../../../assets/game/level-passed.mp3');
+    this.load.audio('game-over', '../../../../assets/game/game-over.mp3');
+    this.load.audio('failed', '../../../../assets/game/failed.mp3');
+    this.load.audio('choice', '../../../../assets/game/choice-button.mp3');
+    this.load.audio('bg-music', '../../../../assets/game/bg-music.mp3');
+    this.load.audio('game-over', '../../../../assets/game/game-over.mp3');
+
     // Level 1 Assets
     // BG
     this.load.image('level-1-bg', '../../../../assets/game/scene1/beach.png');
@@ -71,21 +80,21 @@ export class MainScene extends Phaser.Scene {
     this.load.image('scene2-bg', '../../../../assets/game/scene2/riverbank(both).png');
     this.load.image('scene2-bg-correct', '../../../../assets/game/scene2/riverbank(lvs).png');
     this.load.image('scene2-bg-wrong', '../../../../assets/game/scene2/riverbank(od).png');
+        
+    // Scene 3
+    this.load.image('scene3-bg', '../../../../assets/game/scene3/park(both).png');
+    this.load.image('scene3-bg-correct', '../../../../assets/game/scene3/park(lpd).png');
+    this.load.image('scene3-bg-wrong', '../../../../assets/game/scene3/park(cups).png');
 
-    // Background Image for some Trivia
-    this.load.image('trivia1', '../../../../assets/bg-popup.png');
-    // Audio for Level 1 Sea Scene
-    this.load.audio(
-      'seaMusic',
-      '../../../../assets/music/Tropical 8-bit Chiptune ｜ Background Music.mp3'
-    );
-    // Pick up basura SFX
-    this.load.audio('pickUpSFX', '../../../../assets/music/pick-upsuccess.mp3');
-    // BG Music sa main scene
-    this.load.audio(
-      'mainSceneSFX',
-      '../../../../assets/music/kawai-kitsune.mp3'
-    );
+    // Scene 4
+    this.load.image('scene4-bg', '../../../../assets/game/scene4/harbor(both).png');
+    this.load.image('scene4-bg-wrong', '../../../../assets/game/scene4/harbor(nets).png');
+    this.load.image('scene4-bg-correct', '../../../../assets/game/scene4/harbor(swd).png');
+
+    // Scene 5
+    this.load.image('scene5-bg', '../../../../assets/game/scene5/lake(both).png');
+    this.load.image('scene5-bg-wrong', '../../../../assets/game/scene5/lake(soda).png');
+    this.load.image('scene5-bg-correct', '../../../../assets/game/scene5/lake(wli).png');
 
     // Loading bar
     let loadingBar = this.add.graphics({
@@ -135,7 +144,7 @@ export class MainScene extends Phaser.Scene {
     // Uncomment this when done in level 1!
     this.load.on('complete', () => {
       // default-scene is the original value
-      this.scene.start('play-scene', { config: this.game.config });
+      this.scene.start('default-scene', { config: this.game.config });
     });
 
     // Temporary to see Level 2 Scene Fast.
