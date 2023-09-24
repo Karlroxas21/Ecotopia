@@ -46,6 +46,10 @@ import { AdminCurrentIssuesPhComponent } from './admin-current-issues-ph/admin-c
 import { AdminSolutionsComponent } from './admin-solutions/admin-solutions.component';
 import { LoginComponent } from './login/login.component';
 import { AdminAssessmentComponent } from './admin-assessment/admin-assessment.component';
+import { Case1Component } from './case1/case1.component';
+import { Case2Component } from './case2/case2.component';
+import { Case3Component } from './case3/case3.component';
+import { Case4Component } from './case4/case4.component';
 
 
 
@@ -89,6 +93,10 @@ import { AdminAssessmentComponent } from './admin-assessment/admin-assessment.co
     AdminSolutionsComponent,
     LoginComponent,
     AdminAssessmentComponent,
+    Case1Component,
+    Case2Component,
+    Case3Component,
+    Case4Component,
 
     
   ],

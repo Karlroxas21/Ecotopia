@@ -23,6 +23,12 @@ import { AssessmentComponent } from './assessment/assessment.component';
 import { MaterialComponent } from './material/material.component';
 import { LoginComponent } from './login/login.component';
 
+// Cases
+import { Case1Component } from './case1/case1.component';
+import { Case2Component } from './case2/case2.component';
+import { Case3Component } from './case3/case3.component';
+import { Case4Component } from './case4/case4.component';
+
 // Admin components
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AdminCasesComponent } from './admin-cases/admin-cases.component';
@@ -38,9 +44,9 @@ import { AdminSolutionsComponent } from './admin-solutions/admin-solutions.compo
 import { AdminCurrentIssuesPhComponent } from './admin-current-issues-ph/admin-current-issues-ph.component';
 import { AdminAssessmentComponent } from './admin-assessment/admin-assessment.component';
 
-
 // Auth Guard
 import { AuthGuard } from './auth.guard';
+
 const routes: Routes = [
   {component: LandingPageComponent, path: ''},
   {component: CurrentIssueComponent, path: 'currentIssue'},
@@ -66,6 +72,11 @@ const routes: Routes = [
   {component: MaterialComponent, path: 'material'},
   {component: LoginComponent, path: 'login'},
 
+  // Cases
+  {component: Case1Component, path: 'case1'},
+  {component: Case2Component, path: 'case2'},
+  {component: Case3Component, path: 'case3'},
+  {component: Case4Component, path: 'case4'},
   // Admin Components
   {component: AdminCasesComponent, path: 'admin-cases', canActivate: [AuthGuard]},
   {component: AdminCase1Component, path: 'admin-case-1', canActivate: [AuthGuard]},
