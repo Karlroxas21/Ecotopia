@@ -1,6 +1,9 @@
 
 export class HeartPointsService{
-        private heartPoints = 3;
+
+        private initialHeartPoints = 3;
+        
+        private heartPoints = this.initialHeartPoints;
 
         getHeartPoints(): number{
                 return this.heartPoints;
@@ -8,6 +11,10 @@ export class HeartPointsService{
 
         decreaseHeartPoints(){
                 this.heartPoints --;
+        } 
+        
+        resetHeartPoints() {
+                this.heartPoints = this.initialHeartPoints;
         }
 }
 

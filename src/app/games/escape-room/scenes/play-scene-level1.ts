@@ -90,7 +90,7 @@ export class PlayScene extends Phaser.Scene {
     for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
       this.heart_icon = this.add.image(770, 30 + i * 30, 'heart-icon');
     }
-
+    
     this.choiceButtonSFX = this.sound.add('choice');
 
     // Question

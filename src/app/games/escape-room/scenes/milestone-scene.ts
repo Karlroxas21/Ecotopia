@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { heartPointsService } from './heart-service';
 
 export class Milestone extends Phaser.Scene {
         constructor() {
@@ -40,6 +41,7 @@ export class Milestone extends Phaser.Scene {
                 closeButton.setInteractive();
                 closeButton.on('pointerdown', () => {
                         this.scene.start('pre-play-scene', { config: this.game.config });
+                        heartPointsService.resetHeartPoints();
                 })
 
                 const guide = this.add.text(
