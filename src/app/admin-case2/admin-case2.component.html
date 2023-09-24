@@ -7,8 +7,9 @@
       </div>
 
       <textarea
-        rows="2" cols="25"
-        style="font-size: 3rem; color: #1A238D; font-weight: 600"
+        rows="2"
+        cols="25"
+        style="font-size: 3rem; color: #1a238d; font-weight: 600"
         *ngIf="editing_header"
         (blur)="finishEditingHeader($event)"
         class="resizable-input"
@@ -26,7 +27,8 @@
       </div>
 
       <textarea
-        rows="2" cols="54"
+        rows="2"
+        cols="54"
         style="font-size: 1.5rem"
         *ngIf="editing_header_desc"
         (blur)="finishEditingHeaderDescription($event)"
@@ -46,7 +48,7 @@
     <div *ngIf="!editing_title" (click)="startEditingTitle()">
       <h1
         style="
-          color: #001DD3;
+          color: #001dd3;
           text-align: center;
           font-size: 50px;
           font-weight: bold;
@@ -57,9 +59,10 @@
     </div>
 
     <textarea
-      rows="1" cols="40"
+      rows="1"
+      cols="40"
       style="
-        color: #001DD3;
+        color: #001dd3;
         text-align: center;
         font-size: 50px;
         font-weight: bold;
@@ -78,15 +81,14 @@
     data-aos="zoom-in"
     *ngFor="let item of outdated_engine"
   >
-    <div class="card" style="border-color: #9AC5D7; align-items: center">
+    <div class="card" style="border-color: #9ac5d7; align-items: center">
       <div class="card-content">
-        
         <div *ngIf="!editing_case1" (click)="startEditingCase1()">
           <h1
             class="learn-more-button"
-            style="text-decoration: none; color: #9AC5D7"
+            style="text-decoration: none; color: #9ac5d7"
           >
-          <i class='bx bxs-book-content' style="font-size: 40px;"></i>
+            <i class="bx bxs-book-content" style="font-size: 40px"></i>
             {{ case1[0] }}
           </h1>
         </div>
@@ -95,7 +97,7 @@
           style="
             font-size: 2rem;
             text-decoration: none;
-            color: #9AC5D7;
+            color: #9ac5d7;
             font-weight: bold;
           "
           *ngIf="editing_case1"
@@ -109,61 +111,60 @@
       </div>
     </div>
 
-    <div class="card" style="border-color: #A6782A; align-items: center">
+    <div class="card" style="border-color: #a6782a; align-items: center">
       <div class="card-content">
-        
         <div *ngIf="!editing_case2" (click)="startEditingCase2()">
-                <h2
-                  class="learn-more-button"
-                  style="text-decoration: none; color: #A6782A">
-                  <i class='bx bx-target-lock' style="font-size: 45px;"></i>
-                  {{ case2[0] }}
-                </h2>
-              </div>
-      
-              <textarea
-                style="
-                  font-size: 2rem;
-                  text-decoration: none;
-                  color: #A6782A;
-                  font-weight: bold;
-                "
-                *ngIf="editing_case2"
-                (blur)="finishEditingCase2($event)"
-                class="resizable-input"
-                (ngModelChange)="doesChange()"
-                [(ngModel)]="outdated_engine[0].cases.case2[0]"
-              ></textarea>
-      
+          <h2
+            class="learn-more-button"
+            style="text-decoration: none; color: #a6782a"
+          >
+            <i class="bx bx-target-lock" style="font-size: 45px"></i>
+            {{ case2[0] }}
+          </h2>
+        </div>
+
+        <textarea
+          style="
+            font-size: 2rem;
+            text-decoration: none;
+            color: #a6782a;
+            font-weight: bold;
+          "
+          *ngIf="editing_case2"
+          (blur)="finishEditingCase2($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="outdated_engine[0].cases.case2[0]"
+        ></textarea>
       </div>
       <p><i>(linked to Case 2)</i></p>
     </div>
 
-    <div class="card" style="border-color: #A2C3F9; align-items: center">
+    <div class="card" style="border-color: #a2c3f9; align-items: center">
       <div class="card-content">
-        
         <div *ngIf="!editing_case3" (click)="startEditingCase3()">
-                <h2
-                  class="learn-more-button"
-                  style="text-decoration: none; color: #A2C3F9">
-                  <i class='bx bxs-info-circle' style="font-size: 45px;"></i>
-                  {{ case3[0] }}
-                </h2>
+          <h2
+            class="learn-more-button"
+            style="text-decoration: none; color: #a2c3f9"
+          >
+            <i class="bx bxs-info-circle" style="font-size: 45px"></i>
+            {{ case3[0] }}
+          </h2>
         </div>
-      
+
         <textarea
-        style="
-        font-size: 2rem;
-        text-decoration: none;
-        color: #A2C3F9;
-        font-weight: bold;"
-        *ngIf="editing_case3"
-        (blur)="finishEditingCase3($event)"
-        class="resizable-input"
-        (ngModelChange)="doesChange()"
-        [(ngModel)]="outdated_engine[0].cases.case3[0]"
+          style="
+            font-size: 2rem;
+            text-decoration: none;
+            color: #a2c3f9;
+            font-weight: bold;
+          "
+          *ngIf="editing_case3"
+          (blur)="finishEditingCase3($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="outdated_engine[0].cases.case3[0]"
         ></textarea>
-     
       </div>
       <p><i>(linked to Case 3)</i></p>
     </div>
@@ -172,27 +173,28 @@
       <div class="card-content">
         <!-- START -->
         <div *ngIf="!editing_case4" (click)="startEditingCase4()">
-                <h2
-                  class="learn-more-button"
-                  style="text-decoration: none; color: #501118">
-                  <i class='bx bxs-notepad' style="font-size: 45px;"></i>
-                  {{ case4[0] }}
-                </h2>
-              </div>
-      
-              <textarea
-                style="
-                  font-size: 2rem;
-                  text-decoration: none;
-                  color: #501118;
-                  font-weight: bold;
-                "
-                *ngIf="editing_case4"
-                (blur)="finishEditingCase4($event)"
-                class="resizable-input"
-                (ngModelChange)="doesChange()"
-                [(ngModel)]="outdated_engine[0].cases.case4[0]"
-              ></textarea>
+          <h2
+            class="learn-more-button"
+            style="text-decoration: none; color: #501118"
+          >
+            <i class="bx bxs-notepad" style="font-size: 45px"></i>
+            {{ case4[0] }}
+          </h2>
+        </div>
+
+        <textarea
+          style="
+            font-size: 2rem;
+            text-decoration: none;
+            color: #501118;
+            font-weight: bold;
+          "
+          *ngIf="editing_case4"
+          (blur)="finishEditingCase4($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="outdated_engine[0].cases.case4[0]"
+        ></textarea>
         <!-- END -->
       </div>
       <p><i>(linked to Case 4)</i></p>
@@ -201,220 +203,515 @@
   <hr style="width: 100%" />
 
   <div class="text" *ngFor="let item of outdated_engine">
-    <h1 style="padding-top: 50px; color: #001DD3">
+    <h1 style="padding-top: 50px; color: #a6782a">
       {{ item.cases.case2[0] }}
     </h1>
 
-    <ul style="margin-top: -20px">      
-        <!-- BULLET 1 -->
-      <li>
-        <div *ngIf="!editing_bullet_1[0]" (click)="startEditingBullet1Title()">
-                <b style="color: #000; font-size: 27px">
-                  {{ bullet1[0] }}
-                </b>
-        </div>
+    <h2 style="color: #a6782a; font-weight: bold; text-align: center">
+      SDG Goal 13
+    </h2>
+    <div class="container">
+      <div class="single-column"></div>
+      <div class="two-column">
+        <div class="left-column" *ngFor="let item of outdated_engine">
+          <div *ngIf="!editing_indicator_1[0]" (click)="startEditingIndicator1()">
+            <h1
+              style="
+                font-weight: bold;
+              "
+            >
+              {{ indicator_1[0] }}
+            </h1>
+          </div>
       
-        <textarea
-                rows="2" cols="130"
-                style="color: #000; font-size: 27px; font-weight: 600"
-                *ngIf="editing_bullet_1[0]"
-                (blur)="finishEditingBullet1Title($event)"
-                class="resizable-input"
-                (ngModelChange)="doesChange()"
-                [(ngModel)]="outdated_engine[0].bullets.bullet_1[0]"
-        ></textarea>
-        
-        <div *ngIf="!editing_bullet_1[1]" (click)="startEditingBullet1Description1()">
-                <p>- {{ bullet1[1] }}</p>
+          <textarea
+            rows="2" cols="5"
+            style="
+              font-size: 50px;
+              font-weight: bold;
+              margin-left: 100px;
+            "
+            *ngIf="editing_indicator_1[0]"
+            (blur)="finishEditingIndicator1($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="outdated_engine[0].indicator_1[0]"
+          ></textarea>
         </div>
+
+        <div class="column-space"></div>
+
+        <div class="right-column">
+          <div *ngIf="!editing_indicator_1[1]" (click)="startEditingIndicator1_2()">
+            <p>{{ indicator_1[1] }}</p>
+          </div>
       
-        <textarea
-                rows="2" cols="184"
-                *ngIf="editing_bullet_1[1]"
-                (blur)="finishEditingBullet1Description1($event)"
-                class="resizable-input"
-                (ngModelChange)="doesChange()"
-                [(ngModel)]="outdated_engine[0].bullets.bullet_1[1]"
-        ></textarea>
-        
-        <div *ngIf="!editing_bullet_1[2]" (click)="startEditingBullet1Description2()">
-                <p>- {{ bullet1[2] }}</p>
-        </div>
+          <textarea
+            rows="2" cols="30"
+            style="
+              font-size: 1.3rem;
+            "
+            *ngIf="editing_indicator_1[1]"
+            (blur)="finishEditingIndicator1_2($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="outdated_engine[0].indicator_1[1]"
+          ></textarea>
+          <br />
+          <div *ngIf="!editing_indicator_1[2]" (click)="startEditingIndicator1_3()">
+            <h2>{{ indicator_1[2] }}</h2>
+          </div>
       
-        <textarea
-                rows="2" cols="184"
-                *ngIf="editing_bullet_1[2]"
-                (blur)="finishEditingBullet1Description2($event)"
+          <textarea
+            rows="2" cols="20"
+            style="
+              font-size: 1.5rem;
+              font-weight: bold;
+            "
+            *ngIf="editing_indicator_1[2]"
+            (blur)="finishEditingIndicator1_3($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="outdated_engine[0].indicator_1[2]"
+          ></textarea>
+          <ul>
+            <li>
+              <div *ngIf="!editing_indicator_1[3]" (click)="startEditingIndicator1_4()">
+                <p>{{ indicator_1[3] }}</p>
+              </div>
+          
+              <textarea
+                rows="2" cols="30"
+                style="
+                  font-size: 1.3rem;
+                "
+                *ngIf="editing_indicator_1[3]"
+                (blur)="finishEditingIndicator1_4($event)"
                 class="resizable-input"
                 (ngModelChange)="doesChange()"
-                [(ngModel)]="outdated_engine[0].bullets.bullet_1[2]"
-        ></textarea>
-        
-        <div *ngIf="!editing_bullet_1[3]" (click)="startEditingBullet1Description3()">
-                <p>- {{ bullet1[3] }}</p>
+                [(ngModel)]="outdated_engine[0].indicator_1[3]"
+              ></textarea>
+            </li>
+            <li>
+              <div *ngIf="!editing_indicator_1[4]" (click)="startEditingIndicator1_5()">
+                <p>{{ indicator_1[4] }}</p>
+              </div>
+          
+              <textarea
+                rows="2" cols="30"
+                style="
+                  font-size: 1.3rem;
+                "
+                *ngIf="editing_indicator_1[4]"
+                (blur)="finishEditingIndicator1_5($event)"
+                class="resizable-input"
+                (ngModelChange)="doesChange()"
+                [(ngModel)]="outdated_engine[0].indicator_1[4]"
+              ></textarea>
+            </li>
+            <li>
+              <div *ngIf="!editing_indicator_1[5]" (click)="startEditingIndicator1_6()">
+                <p>{{ indicator_1[5] }}</p>
+              </div>
+          
+              <textarea
+                rows="2" cols="30"
+                style="
+                  font-size: 1.3rem;
+                "
+                *ngIf="editing_indicator_1[5]"
+                (blur)="finishEditingIndicator1_6($event)"
+                class="resizable-input"
+                (ngModelChange)="doesChange()"
+                [(ngModel)]="outdated_engine[0].indicator_1[5]"
+              ></textarea>
+            </li>
+          </ul>
         </div>
+      </div>
+
+      <div class="single-column"></div>
+      <div class="two-column">
+        <div class="left-column">
+          <div *ngIf="!editing_indicator_2[0]" (click)="startEditingIndicator2()">
+            <h1
+              style="
+                font-weight: bold;
+              "
+            >
+              {{ indicator_2[0] }}
+            </h1>
+          </div>
       
-        <textarea
-                rows="2" cols="184"
-                *ngIf="editing_bullet_1[3]"
-                (blur)="finishEditingBullet1Description3($event)"
-                class="resizable-input"
-                (ngModelChange)="doesChange()"
-                [(ngModel)]="outdated_engine[0].bullets.bullet_1[3]"
-        ></textarea>
-        
-        <div *ngIf="!editing_bullet_1[4]" (click)="startEditingBullet1Description4()">
-                <p>- {{ bullet1[4] }}</p>
+          <textarea
+            rows="2" cols="5"
+            style="
+              font-size: 50px;
+              font-weight: bold;
+              margin-left: 100px;
+            "
+            *ngIf="editing_indicator_2[0]"
+            (blur)="finishEditingIndicator2($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="outdated_engine[0].indicator_2[0]"
+          ></textarea>
         </div>
+
+        <div class="column-space"></div>
+
+        <div class="right-column">
+          <div *ngIf="!editing_indicator_2[1]" (click)="startEditingIndicator2_2()">
+            <p>{{ indicator_2[1] }}</p>
+          </div>
       
-        <textarea
-                rows="2" cols="184"
-                *ngIf="editing_bullet_1[4]"
-                (blur)="finishEditingBullet1Description4($event)"
+          <textarea
+            rows="2" cols="30"
+            style="
+              font-size: 1.3rem;
+            "
+            *ngIf="editing_indicator_2[1]"
+            (blur)="finishEditingIndicator2_2($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="outdated_engine[0].indicator_2[1]"
+          ></textarea>
+          <br />
+          <div *ngIf="!editing_indicator_2[2]" (click)="startEditingIndicator2_3()">
+            <h2>{{ indicator_2[2] }}</h2>
+          </div>
+      
+          <textarea
+            rows="2" cols="30"
+            style="
+              font-weight: bold;
+              font-size: 1.5rem;
+            "
+            *ngIf="editing_indicator_2[2]"
+            (blur)="finishEditingIndicator2_3($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="outdated_engine[0].indicator_2[2]"
+          ></textarea>
+          <ul>
+            <li>
+              <div *ngIf="!editing_indicator_2[3]" (click)="startEditingIndicator2_4()">
+                <p>{{ indicator_2[3] }}</p>
+              </div>
+          
+              <textarea
+                rows="2" cols="30"
+                style="
+                  font-size: 1.3rem;
+                "
+                *ngIf="editing_indicator_2[3]"
+                (blur)="finishEditingIndicator2_4($event)"
                 class="resizable-input"
                 (ngModelChange)="doesChange()"
-                [(ngModel)]="outdated_engine[0].bullets.bullet_1[4]"
-        ></textarea>
-      </li>
-      <!-- BULLET 2 -->
-      <li>
-        
-        <div *ngIf="!editing_bullet_2[0]" (click)="startEditingBullet2Title()">
-          <b style="color: #000; font-size: 27px">{{ bullet2[0] }}</b>
+                [(ngModel)]="outdated_engine[0].indicator_2[3]"
+              ></textarea>
+            </li>
+            <li>
+              <div *ngIf="!editing_indicator_2[4]" (click)="startEditingIndicator2_5()">
+                <p>{{ indicator_2[4] }}</p>
+              </div>
+          
+              <textarea
+                rows="2" cols="30"
+                style="
+                  font-size: 1.3rem;
+                "
+                *ngIf="editing_indicator_2[4]"
+                (blur)="finishEditingIndicator2_5($event)"
+                class="resizable-input"
+                (ngModelChange)="doesChange()"
+                [(ngModel)]="outdated_engine[0].indicator_2[4]"
+              ></textarea>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="single-column"></div>
+      <div class="two-column">
+        <div class="left-column">
+          <div *ngIf="!editing_indicator_3[0]" (click)="startEditingIndicator3()">
+            <h1
+              style="
+                font-weight: bold;
+              "
+            >
+              {{ indicator_3[0] }}
+            </h1>
+          </div>
+      
+          <textarea
+            rows="2" cols="5"
+            style="
+              font-size: 50px;
+              font-weight: bold;
+              margin-left: 100px;
+            "
+            *ngIf="editing_indicator_3[0]"
+            (blur)="finishEditingIndicator3($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="outdated_engine[0].indicator_3[0]"
+          ></textarea>
         </div>
 
-        <textarea
-                rows="2" cols="130"
-                style="color: #000; 
-                font-size: 27px;
-                font-weight: 600;"
-                *ngIf="editing_bullet_2[0]"
-                (blur)="finishEditingBullet2Title($event)"
+        <div class="column-space"></div>
+
+        <div class="right-column">
+          <div *ngIf="!editing_indicator_3[1]" (click)="startEditingIndicator3_2()">
+            <p>{{ indicator_3[1] }}</p>
+          </div>
+      
+          <textarea
+            rows="2" cols="30"
+            style="
+              font-size: 1.3rem;
+            "
+            *ngIf="editing_indicator_3[1]"
+            (blur)="finishEditingIndicator3_2($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="outdated_engine[0].indicator_3[1]"
+          ></textarea>
+          <br />
+           <div *ngIf="!editing_indicator_3[2]" (click)="startEditingIndicator3_3()">
+            <h2>{{ indicator_3[2] }}</h2>
+          </div>
+      
+          <textarea
+            rows="2" cols="30"
+            style="
+              font-weight: bold;
+              font-size: 1.5rem;
+            "
+            *ngIf="editing_indicator_3[2]"
+            (blur)="finishEditingIndicator3_3($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="outdated_engine[0].indicator_3[2]"
+          ></textarea>
+          <ul>
+            <li>
+              <div *ngIf="!editing_indicator_3[3]" (click)="startEditingIndicator3_4()">
+                <p>{{ indicator_3[3] }}</p>
+              </div>
+          
+              <textarea
+                rows="2" cols="30"
+                style="
+                  font-size: 1.3rem;
+                "
+                *ngIf="editing_indicator_3[3]"
+                (blur)="finishEditingIndicator3_4($event)"
                 class="resizable-input"
                 (ngModelChange)="doesChange()"
-                [(ngModel)]="outdated_engine[0].bullets.bullet_2[0]"
-        ></textarea>
-        
-        <div *ngIf="!editing_bullet_2[1]" (click)="startEditingBullet2Desc1()">
-          <p>- {{ bullet2[1] }}</p>
+                [(ngModel)]="outdated_engine[0].indicator_3[3]"
+              ></textarea>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="single-column"></div>
+      <div class="two-column">
+        <div class="left-column">
+          <div *ngIf="!editing_indicator_4[0]" (click)="startEditingIndicator4()">
+            <h1
+              style="
+                font-weight: bold;
+              "
+            >
+              {{ indicator_4[0] }}
+            </h1>
+          </div>
+      
+          <textarea
+            rows="2" cols="5"
+            style="
+              font-size: 50px;
+              font-weight: bold;
+              margin-left: 100px;
+            "
+            *ngIf="editing_indicator_4[0]"
+            (blur)="finishEditingIndicator4($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="outdated_engine[0].indicator_4[0]"
+          ></textarea>
         </div>
 
-        <textarea
-                rows="2" cols="184"
-                *ngIf="editing_bullet_2[1]"
-                (blur)="finishEditingBullet2Desc1($event)"
+        <div class="column-space"></div>
+
+        <div class="right-column">
+          <div *ngIf="!editing_indicator_4[1]" (click)="startEditingIndicator4_2()">
+            <p>{{ indicator_4[1] }}</p>
+          </div>
+      
+          <textarea
+            rows="2" cols="30"
+            style="
+              font-size: 1.3rem;
+            "
+            *ngIf="editing_indicator_4[1]"
+            (blur)="finishEditingIndicator4_2($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="outdated_engine[0].indicator_4[1]"
+          ></textarea>
+          <br />
+          <div *ngIf="!editing_indicator_4[2]" (click)="startEditingIndicator4_3()">
+            <p>{{ indicator_4[2] }}</p>
+          </div>
+      
+          <textarea
+            rows="2" cols="30"
+            style="
+              font-weight: bold;
+              font-size: 1.5rem;
+            "
+            *ngIf="editing_indicator_4[2]"
+            (blur)="finishEditingIndicator4_3($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="outdated_engine[0].indicator_4[2]"
+          ></textarea>
+          <ul>
+            <li>
+              <div *ngIf="!editing_indicator_4[3]" (click)="startEditingIndicator4_4()">
+                <p>{{ indicator_4[3] }}</p>
+              </div>
+          
+              <textarea
+                rows="2" cols="30"
+                style="
+                  font-size: 1.3rem;
+                "
+                *ngIf="editing_indicator_4[3]"
+                (blur)="finishEditingIndicator4_4($event)"
                 class="resizable-input"
                 (ngModelChange)="doesChange()"
-                [(ngModel)]="outdated_engine[0].bullets.bullet_2[1]"
-        ></textarea>
+                [(ngModel)]="outdated_engine[0].indicator_4[3]"
+              ></textarea>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="single-column"></div>
+      <div class="two-column">
+        <div class="left-column">
+          <!-- <START -->
+            <div *ngIf="!editing_indicator_5[0]" (click)="startEditingIndicator5()">
+              <h1
+                style="
+                  font-weight: bold;
+                "
+              >
+                {{ indicator_5[0] }}
+              </h1>
+            </div>
         
-      </li>
-      <!-- BULLET 3 -->
-      <li>
-        
-        <div *ngIf="!editing_bullet_3[0]" (click)="startEditingBullet3Title()">
-          <b style="color: #000; font-size: 27px">{{ bullet3[0] }}</b>
+            <textarea
+              rows="2" cols="5"
+              style="
+                font-size: 50px;
+                font-weight: bold;
+                margin-left: 100px;
+              "
+              *ngIf="editing_indicator_5[0]"
+              (blur)="finishEditingIndicator5($event)"
+              class="resizable-input"
+              (ngModelChange)="doesChange()"
+              [(ngModel)]="outdated_engine[0].indicator_5[0]"
+            ></textarea>
+            <!-- END -->
         </div>
 
-        <textarea
-                rows="2" cols="130"
-                style="color: #000; 
-                font-size: 27px;
-                font-weight: 600"
-                *ngIf="editing_bullet_3[0]"
-                (blur)="finishEditingBullet3Title($event)"
+        <div class="column-space"></div>
+
+        <div class="right-column">
+          <div *ngIf="!editing_indicator_5[1]" (click)="startEditingIndicator5_2()">
+            <p>{{ indicator_5[1] }}</p>
+          </div>
+      
+          <textarea
+            rows="2" cols="30"
+            style="
+              font-size: 1.3rem;
+            "
+            *ngIf="editing_indicator_5[1]"
+            (blur)="finishEditingIndicator5_2($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="outdated_engine[0].indicator_5[1]"
+          ></textarea>
+          <br />
+          <div *ngIf="!editing_indicator_5[2]" (click)="startEditingIndicator5_3()">
+            <p>{{ indicator_5[2] }}</p>
+          </div>
+      
+          <textarea
+            rows="2" cols="30"
+            style="
+              font-weight: bold;
+              font-size: 1.5rem;
+            "
+            *ngIf="editing_indicator_5[2]"
+            (blur)="finishEditingIndicator5_3($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="outdated_engine[0].indicator_5[2]"
+          ></textarea>
+          <ul>
+            <li>
+              <div *ngIf="!editing_indicator_5[3]" (click)="startEditingIndicator5_4()">
+                <p>{{ indicator_5[3] }}</p>
+              </div>
+          
+              <textarea
+                rows="2" cols="30"
+                style="
+                  font-size: 1.3rem;
+                "
+                *ngIf="editing_indicator_5[3]"
+                (blur)="finishEditingIndicator5_4($event)"
                 class="resizable-input"
                 (ngModelChange)="doesChange()"
-                [(ngModel)]="outdated_engine[0].bullets.bullet_3[0]"
-        ></textarea>
-        
-         <!-- START -->
-         <div *ngIf="!editing_bullet_3[1]" (click)="startEditingBullet3Desc1()">
-          <p>-{{ bullet3[1] }}</p>
+                [(ngModel)]="outdated_engine[0].indicator_5[3]"
+              ></textarea>
+            </li>
+          </ul>
         </div>
-
-        <textarea
-                rows="2" cols="184"
-                *ngIf="editing_bullet_3[1]"
-                (blur)="finishEditingBullet3Desc1($event)"
-                class="resizable-input"
-                (ngModelChange)="doesChange()"
-                [(ngModel)]="outdated_engine[0].bullets.bullet_3[1]"
-        ></textarea>
-        
-        <div *ngIf="!editing_bullet_3[2]" (click)="startEditingBullet3Desc2()">
-          <p>-{{ bullet3[2] }}</p>
-        </div>
-
-        <textarea
-                rows="2" cols="184"
-                *ngIf="editing_bullet_3[2]"
-                (blur)="finishEditingBullet3Desc2($event)"
-                class="resizable-input"
-                (ngModelChange)="doesChange()"
-                [(ngModel)]="outdated_engine[0].bullets.bullet_3[2]"
-        ></textarea>
-
-        <div *ngIf="!editing_bullet_3[3]" (click)="startEditingBullet3Desc3()">
-          <p>-{{ bullet3[3] }}</p>
-        </div>
-
-        <textarea
-                rows="2" cols="184"
-                *ngIf="editing_bullet_3[3]"
-                (blur)="finishEditingBullet3Desc3($event)"
-                class="resizable-input"
-                (ngModelChange)="doesChange()"
-                [(ngModel)]="outdated_engine[0].bullets.bullet_3[3]"
-        ></textarea>
-        
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
   <section>
-    <div class="reference-container" *ngFor="let item of outdated_engine" style="margin: 50px">
+    <div
+      class="reference-container"
+      *ngFor="let item of outdated_engine"
+      style="margin: 50px"
+    >
       <accordion [isAnimated]="true">
         <accordion-group heading="References">
-          
           <div *ngIf="!editing_reference[0]" (click)="startEditingRef1()">
             <p>{{ references[0] }}</p>
           </div>
-  
+
           <textarea
-                  rows="1" cols="189"
-                  *ngIf="editing_reference[0]"
-                  (blur)="finishEditingRef1($event)"
-                  class="resizable-input"
-                  (ngModelChange)="doesChange()"
-                  [(ngModel)]="outdated_engine[0].references[0]"
+            rows="1"
+            cols="189"
+            style="font-size: 1.2rem;"
+            *ngIf="editing_reference[0]"
+            (blur)="finishEditingRef1($event)"
+            class="resizable-input"
+            (ngModelChange)="doesChange()"
+            [(ngModel)]="outdated_engine[0].references[0]"
           ></textarea>
-           
-          <div *ngIf="!editing_reference[1]" (click)="startEditingRef2()">
-            <p>{{ references[1] }}</p>
-          </div>
-  
-          <textarea
-                  rows="1" cols="189"
-                  *ngIf="editing_reference[1]"
-                  (blur)="finishEditingRef2($event)"
-                  class="resizable-input"
-                  (ngModelChange)="doesChange()"
-                  [(ngModel)]="outdated_engine[0].references[1]"
-          ></textarea>
-          
-          <div *ngIf="!editing_reference[2]" (click)="startEditingRef3()">
-            <p>{{ references[2] }}</p>
-          </div>
-  
-          <textarea
-                  rows="1" cols="189"
-                  *ngIf="editing_reference[2]"
-                  (blur)="finishEditingRef3($event)"
-                  class="resizable-input"
-                  (ngModelChange)="doesChange()"
-                  [(ngModel)]="outdated_engine[0].references[2]"
-          ></textarea>
-         
         </accordion-group>
       </accordion>
     </div>

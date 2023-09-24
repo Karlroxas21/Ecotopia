@@ -21,13 +21,11 @@
     case2: string [] = [];
     case3: string [] = [];
     case4: string [] = [];
-    bullet1: string [] = [];
-    bullet2: string [] = [];
-    bullet3: string [] = [];
-    bullet4: string [] = [];
-    bullet5: string [] = [];
-    bullet6: string [] = [];
-    bullet7: string [] = [];
+    indicator_1: string [] = [];
+    indicator_2: string [] = [];
+    indicator_3: string [] = [];
+    indicator_4: string [] = [];
+    indicator_5: string [] = [];
     references: string [] = [];
 
     isThereAnyChanges: boolean = false;
@@ -39,10 +37,10 @@
       private toastr: ToastrService){}
 
     // Main Methods and functions here
-    bulletPusher(bullet: string[], bulletNumber: string, items: integer){
+    indicatorPusher(bullet: string[], bulletNumber: string, items: integer){
       for(let i = 0; i < items; i++){
-        const propertyName = `bullet_${bulletNumber}`;
-        bullet.push(this.outdated_engine[0].bullets[propertyName][i]);
+        const propertyName = `indicator_${bulletNumber}`;
+        bullet.push(this.outdated_engine[0][propertyName][i]);
       }
     }
 
@@ -53,14 +51,8 @@
       }
     }
 
-    descriptionPusher(descArray: string[]){
-      for(let i = 0; i < 1; i++){
-        descArray.push(this.outdated_engine[0].descriptions[i]);
-      }
-    }
-
     referencePusher(refArray: string[]){
-      for(let i = 0; i < 3; i++){
+      for(let i = 0; i < 1; i++){
         refArray.push(this.outdated_engine[0].references[i]);
       }
     }
@@ -79,12 +71,14 @@
         this.casePusher(this.case3, "3");
         this.casePusher(this.case4, "4");
 
-        
+        // Indicators
+        this.indicatorPusher(this.indicator_1, "1", 6);
+        this.indicatorPusher(this.indicator_2, "2", 5);
+        this.indicatorPusher(this.indicator_3, "3", 4);
+        this.indicatorPusher(this.indicator_4, "4", 4);
+        this.indicatorPusher(this.indicator_5, "5", 4);
 
-        // Bullets
-        this.bulletPusher(this.bullet1, "1", 5);
-        this.bulletPusher(this.bullet2, "2", 2);
-        this.bulletPusher(this.bullet3, "3", 4);
+        console.log(this.indicator_2);
 
         // Reference
         this.referencePusher(this.references);
@@ -104,10 +98,6 @@
         const sanitizedCase3 = this.sanitizeInput(this.case3[0]);
         const sanitizedCase4 = this.sanitizeInput(this.case4[0]);
     
-        // Sanitize bullet data
-        const sanitizedBullet1 = this.sanitizeInput(this.bullet1[0]);
-        const sanitizedBullet2 = this.sanitizeInput(this.bullet2[0]);
-        const sanitizedBullet3 = this.sanitizeInput(this.bullet3[0]);
     
         // Check if any of the inputs failed validation
         if (
@@ -117,10 +107,7 @@
           sanitizedCase1 === null ||
           sanitizedCase2 === null ||
           sanitizedCase3 === null ||
-          sanitizedCase4 === null ||
-          sanitizedBullet1 === null ||
-          sanitizedBullet2 === null ||
-          sanitizedBullet3 === null 
+          sanitizedCase4 === null 
 
         ) {
           // Validation failed, do not proceed with the update
@@ -139,11 +126,6 @@
         this.case2[0] = sanitizedCase2;
         this.case3[0] = sanitizedCase3;
         this.case4[0] = sanitizedCase4;
-    
-        // Update sanitized bullet data
-        this.bullet1[0] = sanitizedBullet1;
-        this.bullet2[0] = sanitizedBullet2;
-        this.bullet3[0] = sanitizedBullet3;
     
         this.AdminCase2Service.updateData(sanitizedData).subscribe(
           (updatedItem) => {
@@ -197,13 +179,11 @@
     editing_case3: boolean = false;
     editing_case4: boolean = false;
 
-    editing_bullet_1: boolean[] = [false, false, false, false, false];
-
-    editing_bullet_2: boolean [] = 
-    [false, false];
-
-    editing_bullet_3: boolean [] = 
-    [false, false, false, false];
+    editing_indicator_1: boolean[] = [false, false, false, false, false, false];
+    editing_indicator_2: boolean[] = [false, false, false, false, false];
+    editing_indicator_3: boolean[] = [false, false, false, false];
+    editing_indicator_4: boolean[] = [false, false, false, false];
+    editing_indicator_5: boolean[] = [false, false, false, false];
 
     editing_reference: boolean [] =
     [false, false, false];
@@ -274,113 +254,177 @@
       this.case4[0] = (event.target.value);
     }
 
-    // Bullet 1 Title
-    startEditingBullet1Title() {
-      this.editing_bullet_1[0] = true;
+    // Indicator 1
+    startEditingIndicator1() {
+      this.editing_indicator_1[0] = true;
     }
-    finishEditingBullet1Title(event: any) {
-      this.editing_bullet_1[0] = false;
-      this.bullet1[0] = (event.target.value);
+    finishEditingIndicator1(event: any) {
+      this.editing_indicator_1[0] = false;
+      this.indicator_1[0] = (event.target.value);
     }
-
-    // Bullet 1 Description 1
-    startEditingBullet1Description1() {
-      this.editing_bullet_1[1] = true;
+    startEditingIndicator1_2() {
+      this.editing_indicator_1[1] = true;
     }
-    finishEditingBullet1Description1(event: any) {
-      this.editing_bullet_1[1] = false;
-      this.bullet1[1] = (event.target.value);
+    finishEditingIndicator1_2(event: any) {
+      this.editing_indicator_1[1] = false;
+      this.indicator_1[1] = (event.target.value);
     }
-
-    // Bullet 1 Description 2
-    startEditingBullet1Description2() {
-      this.editing_bullet_1[2] = true;
+    startEditingIndicator1_3() {
+      this.editing_indicator_1[2] = true;
     }
-    finishEditingBullet1Description2(event: any) {
-      this.editing_bullet_1[2] = false;
-      this.bullet1[2] = (event.target.value);
+    finishEditingIndicator1_3(event: any) {
+      this.editing_indicator_1[2] = false;
+      this.indicator_1[2] = (event.target.value);
     }
-
-    // Bullet 1 Description 3
-    startEditingBullet1Description3() {
-      this.editing_bullet_1[3] = true;
+    startEditingIndicator1_4() {
+      this.editing_indicator_1[3] = true;
     }
-    finishEditingBullet1Description3(event: any) {
-      this.editing_bullet_1[3] = false;
-      this.bullet1[3] = (event.target.value);
+    finishEditingIndicator1_4(event: any) {
+      this.editing_indicator_1[3] = false;
+      this.indicator_1[3] = (event.target.value);
     }
-
-    // Bullet 1 Description 4
-    startEditingBullet1Description4() {
-      this.editing_bullet_1[4] = true;
+    startEditingIndicator1_5() {
+      this.editing_indicator_1[4] = true;
     }
-    finishEditingBullet1Description4(event: any) {
-      this.editing_bullet_1[4] = false;
-      this.bullet1[4] = (event.target.value);
+    finishEditingIndicator1_5(event: any) {
+      this.editing_indicator_1[4] = false;
+      this.indicator_1[4] = (event.target.value);
     }
-
-    // Bullet 2 Title
-    startEditingBullet2Title() {
-      this.editing_bullet_2[0] = true;
+    startEditingIndicator1_6() {
+      this.editing_indicator_1[5] = true;
     }
-    finishEditingBullet2Title(event: any) {
-      this.editing_bullet_2[0] = false;
-      this.bullet2[0] = (event.target.value);
+    finishEditingIndicator1_6(event: any) {
+      this.editing_indicator_1[5] = false;
+      this.indicator_1[5] = (event.target.value);
     }
 
-    // Bullet 2 Description 1
-    startEditingBullet2Desc1() {
-      this.editing_bullet_2[1] = true;
+    // Indicator 2
+    startEditingIndicator2() {
+      this.editing_indicator_2[0] = true;
     }
-    finishEditingBullet2Desc1(event: any) {
-      this.editing_bullet_2[1] = false;
-      this.bullet2[1] = (event.target.value);
+    finishEditingIndicator2(event: any) {
+      this.editing_indicator_2[0] = false;
+      this.indicator_2[0] = (event.target.value);
     }
-
-    // Bullet 3 Title
-    startEditingBullet3Title() {
-      this.editing_bullet_3[0] = true;
+    startEditingIndicator2_2() {
+      this.editing_indicator_2[1] = true;
     }
-    finishEditingBullet3Title(event: any) {
-      this.editing_bullet_3[0] = false;
-      this.bullet3[0] = (event.target.value);
+    finishEditingIndicator2_2(event: any) {
+      this.editing_indicator_2[1] = false;
+      this.indicator_2[1] = (event.target.value);
     }
-
-    // Bullet 3 Description 1
-    startEditingBullet3Desc1() {
-      this.editing_bullet_3[1] = true;
+    startEditingIndicator2_3() {
+      this.editing_indicator_2[2] = true;
     }
-    finishEditingBullet3Desc1(event: any) {
-      this.editing_bullet_3[1] = false;
-      this.bullet3[1] = (event.target.value);
+    finishEditingIndicator2_3(event: any) {
+      this.editing_indicator_2[2] = false;
+      this.indicator_2[2] = (event.target.value);
     }
-
-    // Bullet 3 Description 2
-    startEditingBullet3Desc2() {
-      this.editing_bullet_3[2] = true;
+    startEditingIndicator2_4() {
+      this.editing_indicator_2[3] = true;
     }
-    finishEditingBullet3Desc2(event: any) {
-      this.editing_bullet_3[2] = false;
-      this.bullet3[2] = (event.target.value);
+    finishEditingIndicator2_4(event: any) {
+      this.editing_indicator_2[3] = false;
+      this.indicator_2[3] = (event.target.value);
     }
-
-    // Bullet 3 Description 3
-    startEditingBullet3Desc3() {
-      this.editing_bullet_3[3] = true;
+    startEditingIndicator2_5() {
+      this.editing_indicator_2[4] = true;
     }
-    finishEditingBullet3Desc3(event: any) {
-      this.editing_bullet_3[3] = false;
-      this.bullet3[3] = (event.target.value);
+    finishEditingIndicator2_5(event: any) {
+      this.editing_indicator_2[4] = false;
+      this.indicator_2[4] = (event.target.value);
     }
 
-    // Bullet 3 Description 4
-    startEditingBullet3Desc4() {
-      this.editing_bullet_3[4] = true;
+    // Indicator 3
+    startEditingIndicator3() {
+      this.editing_indicator_3[0] = true;
     }
-    finishEditingBullet3Desc4(event: any) {
-      this.editing_bullet_3[4] = false;
-      this.bullet3[4] = (event.target.value);
+    finishEditingIndicator3(event: any) {
+      this.editing_indicator_3[0] = false;
+      this.indicator_3[0] = (event.target.value);
     }
+    startEditingIndicator3_2() {
+      this.editing_indicator_3[1] = true;
+    }
+    finishEditingIndicator3_2(event: any) {
+      this.editing_indicator_3[1] = false;
+      this.indicator_3[1] = (event.target.value);
+    }
+    startEditingIndicator3_3() {
+      this.editing_indicator_3[2] = true;
+    }
+    finishEditingIndicator3_3(event: any) {
+      this.editing_indicator_3[2] = false;
+      this.indicator_3[2] = (event.target.value);
+    }
+    startEditingIndicator3_4() {
+      this.editing_indicator_3[3] = true;
+    }
+    finishEditingIndicator3_4(event: any) {
+      this.editing_indicator_3[3] = false;
+      this.indicator_3[3] = (event.target.value);
+    }
+
+    // Indicator 4
+    startEditingIndicator4() {
+      this.editing_indicator_4[0] = true;
+    }
+    finishEditingIndicator4(event: any) {
+      this.editing_indicator_4[0] = false;
+      this.indicator_4[0] = (event.target.value);
+    }
+    startEditingIndicator4_2() {
+      this.editing_indicator_4[1] = true;
+    }
+    finishEditingIndicator4_2(event: any) {
+      this.editing_indicator_4[1] = false;
+      this.indicator_4[1] = (event.target.value);
+    }
+    startEditingIndicator4_3() {
+      this.editing_indicator_4[2] = true;
+    }
+    finishEditingIndicator4_3(event: any) {
+      this.editing_indicator_4[2] = false;
+      this.indicator_4[2] = (event.target.value);
+    }
+    startEditingIndicator4_4() {
+      this.editing_indicator_4[3] = true;
+    }
+    finishEditingIndicator4_4(event: any) {
+      this.editing_indicator_4[3] = false;
+      this.indicator_4[3] = (event.target.value);
+    }
+
+    // Indicator 5
+    startEditingIndicator5() {
+      this.editing_indicator_5[0] = true;
+    }
+    finishEditingIndicator5(event: any) {
+      this.editing_indicator_5[0] = false;
+      this.indicator_5[0] = (event.target.value);
+    }
+    startEditingIndicator5_2() {
+      this.editing_indicator_5[1] = true;
+    }
+    finishEditingIndicator5_2(event: any) {
+      this.editing_indicator_5[1] = false;
+      this.indicator_5[1] = (event.target.value);
+    }
+    startEditingIndicator5_3() {
+      this.editing_indicator_5[2] = true;
+    }
+    finishEditingIndicator5_3(event: any) {
+      this.editing_indicator_5[2] = false;
+      this.indicator_5[2] = (event.target.value);
+    }
+    startEditingIndicator5_4() {
+      this.editing_indicator_5[3] = true;
+    }
+    finishEditingIndicator5_4(event: any) {
+      this.editing_indicator_5[3] = false;
+      this.indicator_5[3] = (event.target.value);
+    }
+    
 
     // Reference 1
     startEditingRef1() {
@@ -391,21 +435,4 @@
       this.references[0] = (event.target.value);
     }
 
-    // Reference 2
-    startEditingRef2() {
-      this.editing_reference[1] = true;
-    }
-    finishEditingRef2(event: any) {
-      this.editing_reference[1] = false;
-      this.references[1] = (event.target.value);
-    }
-
-    // Reference 3
-    startEditingRef3() {
-      this.editing_reference[2] = true;
-    }
-    finishEditingRef3(event: any) {
-      this.editing_reference[2] = false;
-      this.references[2] = (event.target.value);
-    }
   }

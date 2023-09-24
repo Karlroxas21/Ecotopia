@@ -23,7 +23,11 @@ export class AdminCase2Service{
                         header_description: data.header_description,
                         title: data.title,
                         cases: data.cases,
-                        bullets: data.bullets,
+                        indicator_1: data.indicator_1,
+                        indicator_2: data.indicator_2,
+                        indicator_3: data.indicator_3,
+                        indicator_4: data.indicator_4,
+                        indicator_5: data.indicator_5,
                         references: data.references,
                 }
                 return this.http.put<any>(`${this.urlAPI}/${_id}`, json)

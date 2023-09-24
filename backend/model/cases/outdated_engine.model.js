@@ -12,11 +12,11 @@ const outDatedEngineSchema = new Schema({
                 case3: [String],
                 case4: [String]
         },
-        bullets: {
-                bullet_1: [String],
-                bullet_2: [String],
-                bullet_3: [String]
-        },
+        indicator_1: [String],
+        indicator_2: [String],
+        indicator_3: [String],
+        indicator_4: [String],
+        indicator_5: [String],
         references: [String]
         
 },
