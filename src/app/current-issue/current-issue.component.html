@@ -3,7 +3,7 @@
     <h1>Current Issues on Climate Change in the Philippines</h1>
     <div class="climate-change-info" *ngFor="let item of current_issues_ph">
       <tabset>
-        <tab heading="Sea Level Rise and Coastal Erosion 1" id="tab1">
+        <tab heading="Typhoon and Extreme Weather Events" id="tab1">
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
@@ -35,7 +35,7 @@
           </div>
         </tab>
 
-        <tab heading="Sea Level Rise and Coastal Erosion 2">
+        <tab heading="Sea Level Rise and Coastal Erosion">
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
@@ -91,6 +91,85 @@
                   </td>
                 </tr>
               </table>
+            </div>
+          </div>
+        </tab>
+
+        
+        <tab heading="Ocean Acidification">
+          <div class="ccs-div1">
+            <div class="ccs-sub-div1">
+              <h2 style="font-weight: bold;">{{item.ocean_acidification[0]}}</h2>
+              <br>
+              <p>
+                {{item.ocean_acidification[1]}}
+              </p>
+            </div>
+
+            <div class="ccs-sub-div2">
+              <table class="ccs-table" style="margin-bottom: 25px">
+                <tr>
+                  <th>{{item.ocean_acidification[2]}}</th>
+                </tr>
+                <tr>
+                  <td>
+                    <ul>
+                      <li>
+                        {{item.ocean_acidification[3]}}
+                      </li>
+                      <li>
+                        {{item.ocean_acidification[4]}}
+                      </li>
+                      <li>
+                        {{item.ocean_acidification[5]}}
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr></tr>
+              </table>
+
+              <table class="ccs-table" style="margin-bottom: 25px">
+                <tr>
+                  <th>{{item.ocean_acidification[6]}}</th>
+                </tr>
+                <tr>
+                  <td>
+                    <ul>
+                      <li>
+                        {{item.ocean_acidification[7]}}
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr></tr>
+              </table>
+
+              <table class="ccs-table" style="margin-bottom: 30px">
+                <tr>
+                  <th>{{item.ocean_acidification[8]}}</th>
+                </tr>
+                <tr>
+                  <td>
+                    <ul>
+                      <li>
+                        {{item.ocean_acidification[9]}}
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <ul>
+                      <li>
+                        {{item.ocean_acidification[10]}}
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+              
             </div>
           </div>
         </tab>
@@ -406,84 +485,6 @@
                   </td>
                 </tr>
               </table>
-            </div>
-          </div>
-        </tab>
-
-        <tab heading="Ocean Acidification">
-          <div class="ccs-div1">
-            <div class="ccs-sub-div1">
-              <h2 style="font-weight: bold;">{{item.ocean_acidification[0]}}</h2>
-              <br>
-              <p>
-                {{item.ocean_acidification[1]}}
-              </p>
-            </div>
-
-            <div class="ccs-sub-div2">
-              <table class="ccs-table" style="margin-bottom: 25px">
-                <tr>
-                  <th>{{item.ocean_acidification[2]}}</th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{item.ocean_acidification[3]}}
-                      </li>
-                      <li>
-                        {{item.ocean_acidification[4]}}
-                      </li>
-                      <li>
-                        {{item.ocean_acidification[5]}}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr></tr>
-              </table>
-
-              <table class="ccs-table" style="margin-bottom: 25px">
-                <tr>
-                  <th>{{item.ocean_acidification[6]}}</th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{item.ocean_acidification[7]}}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr></tr>
-              </table>
-
-              <table class="ccs-table" style="margin-bottom: 30px">
-                <tr>
-                  <th>{{item.ocean_acidification[8]}}</th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{item.ocean_acidification[9]}}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{item.ocean_acidification[10]}}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-              
             </div>
           </div>
         </tab>
