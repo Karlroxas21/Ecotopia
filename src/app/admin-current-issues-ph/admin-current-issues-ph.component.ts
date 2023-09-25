@@ -27,6 +27,7 @@ export class AdminCurrentIssuesPhComponent {
   agriculture_food_security: string [] = [];
   health_risk: string [] = [];
   water_scarcity: string [] = [];
+  ocean_acidification: string[] = [];
   references: string [] = [];
 
   isThereAnyChanges: boolean = false;
@@ -85,6 +86,12 @@ export class AdminCurrentIssuesPhComponent {
         12,
         'water_scarcity');
 
+      // ocean acidification
+      this.arrayPusher(
+        this.ocean_acidification,
+        11,
+        'ocean_acidification'
+      )
       // references
       this.arrayPusher(
         this.references,
@@ -136,6 +143,8 @@ export class AdminCurrentIssuesPhComponent {
   editing_health_risk: boolean [] = [false, false, false, false, false, false];
 
   editing_water_scarcity: boolean [] = [false, false, false, false, false, false, false, false, false, false, false, false];
+
+  editing_ocean_acidification: boolean [] = [false, false, false, false, false, false, false, false, false, false, false];
 
   editing_references: boolean [] = [false, false, false, false, false, false, false, false, false, false, false]
 
@@ -197,6 +206,16 @@ export class AdminCurrentIssuesPhComponent {
   finishEditingWaterScarcity(index: number, event: any) {
     this.editing_water_scarcity[index] = false;
     this.water_scarcity[index] = event.target.value;
+  }
+
+  // Ocean Acidification Dynamic
+  startEditingOceanAcidification(index: number){
+    this.editing_ocean_acidification[index] = true;
+  }
+
+  finishEditingOceanAcidification(index: number, event: any) {
+    this.editing_ocean_acidification[index] = false;
+    this.ocean_acidification[index] = event.target.value;
   }
 
   // References Dynamic  

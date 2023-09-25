@@ -1385,6 +1385,252 @@
           </div>
           </tab>
 
+          <tab heading="Ocean Acidification">
+            <div class="ccs-div1">
+              <div class="ccs-sub-div1">
+                <div
+                *ngIf="!editing_ocean_acidification[0]"
+                (click)="startEditingOceanAcidification(0)"
+                >
+                  <h2 style="font-weight: bold;">{{ ocean_acidification[0] }}</h2>
+                </div>
+
+                <textarea
+                  rows="2" cols="25"
+                  style="font-size: 2rem;
+                  font-weight: bold;"
+                  *ngIf="editing_ocean_acidification[0]"
+                  (blur)="finishEditingOceanAcidification(0, $event)"
+                  class="resizable-input"
+                  (ngModelChange)="doesChange()"
+                  [(ngModel)]="current_issue_ph[0].ocean_acidification[0]"
+                ></textarea>
+                <br>
+
+                <div
+                *ngIf="!editing_ocean_acidification[1]"
+                (click)="startEditingOceanAcidification(1)"
+                >
+                  <p >{{ ocean_acidification[1] }}</p>
+                </div>
+
+                <textarea
+                  rows="3" cols="50"
+                  style="font-size: 1.3rem;"
+                  *ngIf="editing_ocean_acidification[1]"
+                  (blur)="finishEditingOceanAcidification(1, $event)"
+                  class="resizable-input"
+                  (ngModelChange)="doesChange()"
+                  [(ngModel)]="current_issue_ph[0].ocean_acidification[1]"
+                ></textarea>
+              </div>
+  
+              <div class="ccs-sub-div2">
+                <table class="ccs-table" style="margin-bottom: 25px">
+                  <tr>
+                    <th>
+                      <div
+                      *ngIf="!editing_ocean_acidification[2]"
+                      (click)="startEditingOceanAcidification(2)"
+                      >
+                        <p >{{ ocean_acidification[2] }}</p>
+                      </div>
+      
+                      <textarea
+                        rows="3" cols="50"
+                        style="font-size: 1.3rem; font-weight: bold;"
+                        *ngIf="editing_ocean_acidification[2]"
+                        (blur)="finishEditingOceanAcidification(2, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="current_issue_ph[0].ocean_acidification[2]"
+                      ></textarea>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          <div
+                          *ngIf="!editing_ocean_acidification[3]"
+                          (click)="startEditingOceanAcidification(3)"
+                          >
+                            <p >{{ ocean_acidification[3] }}</p>
+                          </div>
+          
+                          <textarea
+                            rows="3" cols="50"
+                            style="font-size: 1.3rem;"
+                            *ngIf="editing_ocean_acidification[3]"
+                            (blur)="finishEditingOceanAcidification(3, $event)"
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="current_issue_ph[0].ocean_acidification[3]"
+                          ></textarea>
+                        </li>
+                        <li>
+                          <div
+                          *ngIf="!editing_ocean_acidification[4]"
+                          (click)="startEditingOceanAcidification(4)"
+                          >
+                            <p >{{ ocean_acidification[4] }}</p>
+                          </div>
+          
+                          <textarea
+                            rows="3" cols="50"
+                            style="font-size: 1.3rem;"
+                            *ngIf="editing_ocean_acidification[4]"
+                            (blur)="finishEditingOceanAcidification(4, $event)"
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="current_issue_ph[0].ocean_acidification[4]"
+                          ></textarea>
+                        </li>
+                        <li>
+                          <div
+                          *ngIf="!editing_ocean_acidification[5]"
+                          (click)="startEditingOceanAcidification(5)"
+                          >
+                            <p >{{ ocean_acidification[5] }}</p>
+                          </div>
+          
+                          <textarea
+                            rows="3" cols="50"
+                            style="font-size: 1.3rem;"
+                            *ngIf="editing_ocean_acidification[5]"
+                            (blur)="finishEditingOceanAcidification(5, $event)"
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="current_issue_ph[0].ocean_acidification[5]"
+                          ></textarea>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr></tr>
+                </table>
+  
+                <table class="ccs-table" style="margin-bottom: 25px">
+                  <tr>
+                    <th>
+                      <div
+                      *ngIf="!editing_ocean_acidification[6]"
+                      (click)="startEditingOceanAcidification(6)"
+                      >
+                        <p >{{ ocean_acidification[6] }}</p>
+                      </div>
+      
+                      <textarea
+                        rows="3" cols="50"
+                        style="font-size: 1.3rem; font-weight: bold;"
+                        *ngIf="editing_ocean_acidification[6]"
+                        (blur)="finishEditingOceanAcidification(6, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="current_issue_ph[0].ocean_acidification[6]"
+                      ></textarea>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          <div
+                          *ngIf="!editing_ocean_acidification[7]"
+                          (click)="startEditingOceanAcidification(7)"
+                          >
+                            <p >{{ ocean_acidification[7] }}</p>
+                          </div>
+          
+                          <textarea
+                            rows="3" cols="50"
+                            style="font-size: 1.3rem;"
+                            *ngIf="editing_ocean_acidification[7]"
+                            (blur)="finishEditingOceanAcidification(7, $event)"
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="current_issue_ph[0].ocean_acidification[7]"
+                          ></textarea>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr></tr>
+                </table>
+  
+                <table class="ccs-table" style="margin-bottom: 30px">
+                  <tr>
+                    <th> <div
+                      *ngIf="!editing_ocean_acidification[8]"
+                      (click)="startEditingOceanAcidification(8)"
+                      >
+                        <p >{{ ocean_acidification[8] }}</p>
+                      </div>
+      
+                      <textarea
+                        rows="3" cols="50"
+                        style="font-size: 1.3rem; font-weight: bold"
+                        *ngIf="editing_ocean_acidification[8]"
+                        (blur)="finishEditingOceanAcidification(8, $event)"
+                        class="resizable-input"
+                        (ngModelChange)="doesChange()"
+                        [(ngModel)]="current_issue_ph[0].ocean_acidification[8]"
+                      ></textarea></th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          <div
+                          *ngIf="!editing_ocean_acidification[9]"
+                          (click)="startEditingOceanAcidification(9)"
+                          >
+                            <p >{{ ocean_acidification[9] }}</p>
+                          </div>
+          
+                          <textarea
+                            rows="3" cols="50"
+                            style="font-size: 1.3rem;"
+                            *ngIf="editing_ocean_acidification[9]"
+                            (blur)="finishEditingOceanAcidification(9, $event)"
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="current_issue_ph[0].ocean_acidification[9]"
+                          ></textarea>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          <div
+                          *ngIf="!editing_ocean_acidification[10]"
+                          (click)="startEditingOceanAcidification(10)"
+                          >
+                            <p >{{ ocean_acidification[10] }}</p>
+                          </div>
+          
+                          <textarea
+                            rows="3" cols="50"
+                            style="font-size: 1.3rem;"
+                            *ngIf="editing_ocean_acidification[10]"
+                            (blur)="finishEditingOceanAcidification(10, $event)"
+                            class="resizable-input"
+                            (ngModelChange)="doesChange()"
+                            [(ngModel)]="current_issue_ph[0].ocean_acidification[10]"
+                          ></textarea>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+                
+              </div>
+            </div>
+          </tab>
           <tab heading="References" style="margin: 30px 0 0 0;">
             <div
               *ngIf="!editing_references[0]"
