@@ -23,14 +23,10 @@ import { HistoryComponent } from './history/history.component';
 import { WebtoonComponent } from './webtoon/webtoon.component';
 import { InteractivevideoComponent } from './interactivevideo/interactivevideo.component';
 import { MaterialComponent } from './material/material.component';
-import { ProblemtrashComponent } from './problemtrash/problemtrash.component';
-import { CausesofclimatechangeComponent } from './causesofclimatechange/causesofclimatechange.component';
-import { EffectsofclimatechangeComponent } from './effectsofclimatechange/effectsofclimatechange.component';
 import { WhyshouldwetakeactionComponent } from './whyshouldwetakeaction/whyshouldwetakeaction.component';
 import { OthersolutionsComponent } from './othersolutions/othersolutions.component';
 import { RespondingtoclimatechangeComponent } from './respondingtoclimatechange/respondingtoclimatechange.component';
 import { GovernmentresourcesComponent } from './governmentresources/governmentresources.component';
-import { ProblemjeepoutdatedengineComponent } from './problemjeepoutdatedengine/problemjeepoutdatedengine.component';
 import { AssessmentComponent } from './assessment/assessment.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminCase2Component } from './admin-case2/admin-case2.component';
@@ -71,14 +67,10 @@ import { Case4Component } from './case4/case4.component';
     WebtoonComponent,
     InteractivevideoComponent,
     MaterialComponent,
-    ProblemtrashComponent,
-    CausesofclimatechangeComponent,
-    EffectsofclimatechangeComponent,
     WhyshouldwetakeactionComponent,
     OthersolutionsComponent,
     RespondingtoclimatechangeComponent,
     GovernmentresourcesComponent,
-    ProblemjeepoutdatedengineComponent,
     AssessmentComponent,
     AdminCase2Component,
     AdminCase1Component,

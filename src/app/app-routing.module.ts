@@ -10,15 +10,11 @@ import { ExploreComponent } from './explore/explore.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { OverviewOfClimateChangeComponent } from './overview-of-climate-change/overview-of-climate-change.component';
 import { WebtoonComponent } from './webtoon/webtoon.component';
-import { InteractivevideoComponent } from './interactivevideo/interactivevideo.component';
-import { ProblemtrashComponent } from './problemtrash/problemtrash.component';
-import { CausesofclimatechangeComponent } from './causesofclimatechange/causesofclimatechange.component';
-import { EffectsofclimatechangeComponent } from './effectsofclimatechange/effectsofclimatechange.component';
+import { InteractivevideoComponent } from './interactivevideo/interactivevideo.component';;
 import { WhyshouldwetakeactionComponent } from './whyshouldwetakeaction/whyshouldwetakeaction.component';
 import { OthersolutionsComponent } from './othersolutions/othersolutions.component';
 import { RespondingtoclimatechangeComponent } from './respondingtoclimatechange/respondingtoclimatechange.component';
-import { GovernmentresourcesComponent } from './governmentresources/governmentresources.component';
-import { ProblemjeepoutdatedengineComponent } from './problemjeepoutdatedengine/problemjeepoutdatedengine.component';
+import { GovernmentresourcesComponent } from './governmentresources/governmentresources.component';;
 import { AssessmentComponent } from './assessment/assessment.component';
 import { MaterialComponent } from './material/material.component';
 import { LoginComponent } from './login/login.component';
@@ -60,14 +56,10 @@ const routes: Routes = [
   {component: OverviewOfClimateChangeComponent, path: 'overviewOfClimateChange'},
   {component: WebtoonComponent, path: 'webtoon'},
   {component: InteractivevideoComponent, path: 'interactivevideo'},
-  {component: ProblemtrashComponent, path: 'problemtrash'},
-  {component: CausesofclimatechangeComponent, path: 'causesofclimatechange'},
-  {component: EffectsofclimatechangeComponent, path: 'effectsofclimatechange'},
   {component: WhyshouldwetakeactionComponent, path: 'whyshouldwetakeactions'},
   {component: RespondingtoclimatechangeComponent, path: 'respondingtoclimatechange'},
   {component: OthersolutionsComponent, path: 'othersolutions'},
   {component: GovernmentresourcesComponent, path: 'governmentresources'},
-  {component: ProblemjeepoutdatedengineComponent, path: 'outdatedjeepengine'},
   {component: AssessmentComponent, path: 'assessment'},
   {component: MaterialComponent, path: 'material'},
   {component: LoginComponent, path: 'login'},
