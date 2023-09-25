@@ -22,6 +22,7 @@ import { ProblemjeepoutdatedengineComponent } from './problemjeepoutdatedengine/
 import { AssessmentComponent } from './assessment/assessment.component';
 import { MaterialComponent } from './material/material.component';
 import { LoginComponent } from './login/login.component';
+import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 
 // Admin components
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
@@ -65,6 +66,7 @@ const routes: Routes = [
   {component: AssessmentComponent, path: 'assessment'},
   {component: MaterialComponent, path: 'material'},
   {component: LoginComponent, path: 'login'},
+  {component: PrivacypolicyComponent, path: 'privacypolicy'},
 
   // Admin Components
   {component: AdminCasesComponent, path: 'admin-cases', canActivate: [AuthGuard]},

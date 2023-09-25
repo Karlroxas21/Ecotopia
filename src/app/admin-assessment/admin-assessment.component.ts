@@ -46,29 +46,64 @@ export class AdminAssessmentComponent {
     })
   }
 
-  updateData(): void{
-    if(this.isAnyChanges()){
-      this.AdminAssessmentService.updateData(this.assessment[0]).subscribe(updatedItem =>{
-        this.router.navigate(['/admin-assessment']);
-        this.toastr.success('Data updated successfully.', 'Success');
-        console.log('Update success', updatedItem);
-      }, (err) =>{
-        this.toastr.error('Error updating item.', 'Error');
-        // console.error("Error updating item. ", err);
-      });
+  updateData(): void {
+    if (this.isAnyChanges()) {
+      // Sanitize input before sending
+      const sanitizedCase1 = this.sanitizeInput(this.assessment[0]);
+
+      // Check if any of the inputs failed validation
+      if (
+        sanitizedCase1 === null 
+
+      ) {
+        // Validation failed, do not proceed with the update
+        this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
+        return;
+      }
+  
+      // Create a sanitized copy of the data
+      const sanitizedData = { ...this.assessment[0] };
+      this.assessment[0] = sanitizedCase1;
+  
+  
+      this.AdminAssessmentService.updateData(sanitizedData).subscribe(
+        (updatedItem) => {
+          this.router.navigate(['/admin-assessment']);
+          console.log(this.assessment[0]);
+          this.toastr.success('Data updated successfully.', 'Success');
+        },
+        (err) => {
+          this.toastr.error('Error updating item.', 'Error');
+          console.error('Error updating item. ', err);
+        }
+      );
       this.isThereAnyChanges = false;
-    }else{
+    } else {
       this.toastr.info('No changes were made.', 'Info');
-      // console.log("You did not make any changes");
     }
   }
-
-  // Track if there is any change
+  
+  // Track if there is any changes made
   isAnyChanges(){
     return this.isThereAnyChanges;
   }
 
-  ngOnInit(){
+  // End of main function and methods
+
+  sanitizeInput(input: string): string | null {
+    const harmfulChars = /[\;\<\>\'\"\\\/\[\]\{\}\%\=\&\+\*\#\@\$\^\|\`\~]/g;
+  
+    // Check if the input contains harmful characters
+    if (harmfulChars.test(input)) {
+      // Show a toastr error notification
+      return null;
+    }
+    // If no harmful characters are found, return the sanitized input
+    return input;
+  }
+
+  ngOnInit(): void{
+
     this.getData();
 
     this.titleService.setTitle(this.title);

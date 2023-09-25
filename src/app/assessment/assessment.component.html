@@ -6,49 +6,79 @@
   <div class="assessment2">
     <div
       class="container2"
-      style="border-color: #A6782A"
+      style="border-color: #a6782a"
       *ngFor="let item of assessment; let index = index"
     >
-    <form >
-      <h2>Trivia Game</h2>
-      <ol type="1">
-        <li *ngFor="let quiz of item.trivia_game; let i = index;">
-          <p [ngClass]="{'wrong-answer': submittedTriviaGame && selectedAnswersTriviaGame[index * 10 + i] !== quiz.correct_answer}">
-            {{ quiz.question }}
-          </p>
-          <ng-container *ngFor="let option of quiz.options; let j = index;">
-            <input
-              type="radio"
-              [name]="'q' + (index + i + 1)"
-              [value]="'q' + (index + i + 1) + '_' + (j + 1)"
-              [(ngModel)]="selectedAnswersTriviaGame[index * 10 + i]"
-              required
-            />
-            {{ option }}<br />
-          </ng-container>
-          <p *ngIf="submittedTriviaGame && selectedAnswersTriviaGame[index * 10 + i] !== quiz.correct_answer" class="correct-answer">
-            Correct Answer: {{ quiz.correct_answer }}
-          </p>
-          <p *ngIf="submittedTriviaGame && !selectedAnswersTriviaGame[index * 10 + i]" class="validation-error">
-            This question is required, please answer it.
-          </p>
-        </li>
-      </ol>
+      <form>
+        <h2>Trivia Game</h2>
+        <ol type="1">
+          <li *ngFor="let quiz of item.trivia_game; let i = index">
+            <p
+              [ngClass]="{
+                'wrong-answer':
+                  submittedTriviaGame &&
+                  selectedAnswersTriviaGame[index * 10 + i] !==
+                    quiz.correct_answer
+              }"
+            >
+              {{ quiz.question }}
+            </p>
+            <!-- <p>{{ quiz.question }}</p> -->
+            <ng-container *ngFor="let option of quiz.options; let j = index">
+              <input
+                type="radio"
+                [name]="'q' + (index + i + 1)"
+                [value]="'q' + (index + i + 1) + '_' + (j + 1)"
+                [(ngModel)]="selectedAnswersTriviaGame[index * 10 + i]"
+                required
+              />
+              {{ option }}<br />
+            </ng-container>
+            <p
+              *ngIf="
+                submittedTriviaGame &&
+                selectedAnswersTriviaGame[index * 10 + i] !==
+                  quiz.correct_answer
+              "
+              class="correct-answer"
+            >
+              Correct Answer: {{ quiz.correct_answer }}
+            </p>
+            <p
+              *ngIf="
+                showUnansweredQuestionMessage &&
+                !selectedAnswersTriviaGame[index * 10 + i]
+              "
+              class="validation-error"
+            >
+              This is a required question
+            </p>
+          </li>
+        </ol>
+        <button
+          type="submit"
+          (click)="submitTriviaGame()"
+          style="background-color: #7ae385"
+        >
+          Submit
+        </button>
+        <button
+          type="button"
+          (click)="resetSelectedAnswersTrivia()"
+          style="background-color: #ff0000; color: white"
+          *ngIf="!showPlayAgainButton"
+        >
+          Reset
+        </button>
+      </form>
       <button
-        type="submit"
-        (click)="submitTriviaGame()"
-        style="background-color: #7AE385"
-      >
-        Submit
-      </button>
-       <button
-        type="button"
-        (click)="resetSelectedAnswersTrivia()"
-        style="background-color: #FF0000; color: white"
-      >
-        Reset
-      </button>
-    </form>
+          type="button"
+          (click)="playAgain()"
+          style="background-color: #007bff; color: white"
+          *ngIf="showPlayAgainButton"
+        >
+          Play Again
+        </button>
     </div>
   </div>
 
@@ -58,42 +88,114 @@
       style="border-color: #501118"
       *ngFor="let item of assessment; let index = index"
     >
-    <form>
-      <h2>Pop Quiz</h2>
-      <ol type="1">
-        <li *ngFor="let quiz of item.pop_quiz; let i = index;">
-          <p [ngClass]="{'wrong-answer': submittedPopQuiz && selectedAnswersPopQuiz[index * 10 + i] !== quiz.correct_answer}">
-            {{ quiz.question }}
+      <form>
+        <h2>Pop Quiz</h2>
+        <ol type="1">
+          <li *ngFor="let quiz of item.pop_quiz; let i = index">
+            <p
+              [ngClass]="{
+                'wrong-answer':
+                  submittedPopQuiz &&
+                  selectedAnswersPopQuiz[index * 10 + i] !== quiz.correct_answer
+              }"
+            >
+              {{ quiz.question }}
+            </p>
+            <!-- <p>{{ quiz.question }}</p> -->
+            <ng-container *ngFor="let option of quiz.options; let j = index">
+              <input
+                type="radio"
+                [name]="'p' + (index + i + 1)"
+                [value]="'p' + (index + i + 1) + '_' + (j + 1)"
+                [(ngModel)]="selectedAnswersPopQuiz[index * 10 + i]"
+              />
+              {{ option }}<br />
+            </ng-container>
+            <p
+              *ngIf="
+                submittedPopQuiz &&
+                selectedAnswersPopQuiz[index * 10 + i] !== quiz.correct_answer
+              "
+              class="correct-answer"
+            >
+              Correct Answer: {{ quiz.correct_answer }}
+            </p>
+            <p
+            *ngIf="
+              showUnansweredQuestionMessage &&
+              !selectedAnswersPopQuiz[index * 10 + i]
+            "
+            class="validation-error"
+          >
+            This is a required question
           </p>
-          <ng-container *ngFor="let option of quiz.options; let j = index;">
-            <input
-              type="radio"
-              [name]="'p' + (index + i + 1)"
-              [value]="'p' + (index + i + 1) + '_' + (j + 1)"
-              [(ngModel)]="selectedAnswersPopQuiz[index * 10 + i]"
-            />
-            {{ option }}<br />
-          </ng-container>
-          <p *ngIf="submittedPopQuiz && selectedAnswersPopQuiz[index * 10 + i] !== quiz.correct_answer" class="correct-answer">
-            Correct Answer: {{ quiz.correct_answer }}
-          </p>
-        </li>
-      </ol>
-      <button
-        type="submit"
-        (click)="submitPopQuiz()"
-        style="background-color: #7AE385"
-      >
-        Submit
-      </button>
+          </li>
+        </ol>
         <button
-        type="button"
-        (click)="resetSelectedAnswersPop()"
-        style="background-color: #FF0000; color: white"
-      >
-        Reset
-      </button>
-    </form>
+          type="submit"
+          (click)="submitPopQuiz()"
+          style="background-color: #7ae385"
+        >
+          Submit
+        </button>
+        <button
+          type="button"
+          (click)="resetSelectedAnswersPop()"
+          style="background-color: #FF0000; color: white"
+          *ngIf="!showPlayAgainButtonPop"
+        >
+          Reset
+        </button>
+        <!-- Play Again Button -->
+        <button
+          type="button"
+          (click)="playAgainPop()"
+          style="background-color: #007bff; color: white"
+          *ngIf="showPlayAgainButtonPop"
+        >
+          Play Again
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="score-box" *ngIf="showScoreBox">
+    <div class="score-content">
+      <h3>Your Score</h3>
+      <p class="score">{{ scoreTriviaGame }}</p>
+      <button class="close-button" (click)="closeScoreBox()">Review the form</button>
+    </div>
+
+    <div *ngIf="showAnswers" class="answers-section">
+      <h3>My Answers</h3>
+      <ul>
+        <li *ngFor="let answer of selectedAnswersTriviaGame; let i = index">
+          Question {{ i + 1 }}: {{ answer }}
+          <span *ngIf="answer === correctAnswersTriviaGame[i]" class="correct-answer"> (Correct)</span>
+          <span *ngIf="answer !== correctAnswersTriviaGame[i]" class="wrong-answer"> (Incorrect)</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="score-box" *ngIf="showScoreBox2">
+    <div class="score-content">
+      <h3>Your Score</h3>
+      <p class="score">{{ scorePopQuiz }}</p>
+      <button class="close-button" (click)="closeScoreBox()">Review the form</button>
+    </div>
+
+
+
+    <div *ngIf="showAnswers2" class="answers-section2">
+      <h3>My Answers</h3>
+      <ul>
+        <li *ngFor="let answer of selectedAnswersPopQuiz; let i = index">
+          Question {{ i + 1 }}: {{ answer }}
+          <span *ngIf="answer === correctAnswersPopQuiz[i]" class="correct-answer"> (Correct)</span>
+          <span *ngIf="answer !== correctAnswersPopQuiz[i]" class="wrong-answer"> (Incorrect)</span>
+        </li>
+      </ul>
     </div>
   </div>
 </body>

@@ -55,35 +55,89 @@ export class AdminCasesComponent implements OnInit {
     })
   }
 
-  updateData():void{
-    if(this.isAnyChanges()){
-      this.AdminCase.updateData(this.cases[0]).subscribe(updatedItem =>{
-        this.router.navigate(['/admin-cases']);
-        this.toastr.success('Data updated successfully.', 'Success');
-        // console.log('Update success', updatedItem);
-      },(err) =>{
-        this.toastr.error('Error updating item.', 'Error');
-        // console.error("Error updating item. ", err);
-      });
+  updateData(): void {
+    if (this.isAnyChanges()) {
+      // Sanitize input before sending
+      const sanitizedHeader = this.sanitizeInput(this.header);
+      const sanitizedHeaderDesc = this.sanitizeInput(this.header_desc);
+      const sanitizedHeaderTitle = this.sanitizeInput(this.header_title);
+  
+      // Sanitize cases data
+      const sanitizedCase1 = this.sanitizeInput(this.case1[0]);
+      const sanitizedCase2 = this.sanitizeInput(this.case2[0]);
+      const sanitizedCase3 = this.sanitizeInput(this.case3[0]);
+      const sanitizedCase4 = this.sanitizeInput(this.case4[0]);
+  
+      // Check if any of the inputs failed validation
+      if (
+        sanitizedHeader === null ||
+        sanitizedHeaderDesc === null ||
+        sanitizedHeaderTitle === null ||
+        sanitizedCase1 === null ||
+        sanitizedCase2 === null ||
+        sanitizedCase3 === null ||
+        sanitizedCase4 === null 
+      ) {
+        // Validation failed, do not proceed with the update
+        this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
+        return;
+      }
+  
+      // Create a sanitized copy of the data
+      const sanitizedData = { ...this.cases[0] };
+      sanitizedData.header = sanitizedHeader;
+      sanitizedData.header_description = sanitizedHeaderDesc;
+      sanitizedData.title = sanitizedHeaderTitle;
+  
+      // Update sanitized cases data
+      this.case1[0] = sanitizedCase1;
+      this.case2[0] = sanitizedCase2;
+      this.case3[0] = sanitizedCase3;
+      this.case4[0] = sanitizedCase4;
+  
+  
+      this.AdminCase.updateData(sanitizedData).subscribe(
+        (updatedItem) => {
+          this.router.navigate(['/admin-cases']);
+          console.log(this.cases[0]);
+          this.toastr.success('Data updated successfully.', 'Success');
+        },
+        (err) => {
+          this.toastr.error('Error updating item.', 'Error');
+          console.error('Error updating item. ', err);
+        }
+      );
       this.isThereAnyChanges = false;
-    }else{
+    } else {
       this.toastr.info('No changes were made.', 'Info');
-      // console.log("You did not make any changes");
     }
   }
-
+  
   // Track if there is any changes made
   isAnyChanges(){
     return this.isThereAnyChanges;
   }
 
+  // End of main function and methods
+
+  sanitizeInput(input: string): string | null {
+    const harmfulChars = /[\;\(\)\<\>\'\"\\\/\[\]\{\}\%\=\?\&\+\-\*\#\@\$\^\|\`\~]/g;
+  
+    // Check if the input contains harmful characters
+    if (harmfulChars.test(input)) {
+      // Show a toastr error notification
+      return null;
+    }
+    // If no harmful characters are found, return the sanitized input
+    return input;
+  }
+
   ngOnInit(): void{
-    
+
     this.getData();
 
     this.titleService.setTitle(this.title);
   }
-
   // Inline-edit
   editing_header: boolean = false;
   editing_header_description: boolean = false;

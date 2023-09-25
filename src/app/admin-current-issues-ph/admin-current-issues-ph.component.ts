@@ -93,30 +93,79 @@ export class AdminCurrentIssuesPhComponent {
     })
   }
 
-  updateData(): void{
-    if(this.isAnyChanges()){
-      this.AdminCurrentIssueService.updateData(this.current_issue_ph[0]).subscribe(updatedData =>{
-        this.router.navigate(['/admin-current-issues-ph']);
+  updateData(): void {
+    if (this.isAnyChanges()) {
 
-        this.toastr.success('Data updated successfully.', 'Success');
-        // console.log('Update success', updatedData);
-      }, (err) =>{
-        this.toastr.error('Error updating item.', 'Error');
-        // console.error("Error updating item. ", err);
-      })
+      // Sanitize current issues data
+      const sanitizedSeaLevel = this.sanitizeInput(this.sea_level_rise_coastal_erosion[0]);
+      const sanitizedSeaLevel2 = this.sanitizeInput(this.sea_level_rise_coastal_erosion_2[0]);
+      const sanitizedBiodiversity = this.sanitizeInput(this.biodiversity_ecosystem_loss[0]);
+      const sanitizedAgriculture = this.sanitizeInput(this.agriculture_food_security[0]);
+      const sanitizedHealth = this.sanitizeInput(this.health_risk[0]);
+      const sanitizedWater = this.sanitizeInput(this.water_scarcity[0]);
+   
+
+      // Check if any of the inputs failed validation
+      if (
+
+        sanitizedSeaLevel === null ||
+        sanitizedSeaLevel2 === null ||
+        sanitizedBiodiversity === null ||
+        sanitizedAgriculture === null ||
+        sanitizedHealth === null ||
+        sanitizedWater === null 
+      ) {
+        // Validation failed, do not proceed with the update
+        this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
+        return;
+      }
+  
+      // Create a sanitized copy of the data
+      const sanitizedData = { ...this.current_issue_ph[0] };
+  
+      // Update sanitized current issues data
+      this.sea_level_rise_coastal_erosion[0] = sanitizedSeaLevel;
+      this.sea_level_rise_coastal_erosion_2[0] = sanitizedSeaLevel2;
+      this.biodiversity_ecosystem_loss[0] = sanitizedBiodiversity;
+      this.agriculture_food_security[0] = sanitizedAgriculture;
+      this.health_risk[0] = sanitizedHealth;
+      this.water_scarcity[0] = sanitizedWater;
+  
+      this.AdminCurrentIssueService.updateData(sanitizedData).subscribe(
+        (updatedItem) => {
+          this.router.navigate(['/admin-current-issues-ph']); //default: admin-case-problem-trash
+          console.log(this.current_issue_ph[0]);
+          this.toastr.success('Data updated successfully.', 'Success');
+        },
+        (err) => {
+          this.toastr.error('Error updating item.', 'Error');
+          console.error('Error updating item. ', err);
+        }
+      );
       this.isThereAnyChanges = false;
-    }else{
+    } else {
       this.toastr.info('No changes were made.', 'Info');
-       // console.log("You did not make any changes");
     }
   }
-
+  
   // Track if there is any changes made
   isAnyChanges(){
     return this.isThereAnyChanges;
   }
 
-  // End of main function and method
+  // End of main function and methods
+
+  sanitizeInput(input: string): string | null {
+    const harmfulChars = /[]/g;
+  
+    // Check if the input contains harmful characters
+    if (harmfulChars.test(input)) {
+      // Show a toastr error notification
+      return null;
+    }
+    // If no harmful characters are found, return the sanitized input
+    return input;
+  }
 
   ngOnInit(): void{
 
