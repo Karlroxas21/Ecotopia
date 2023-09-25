@@ -17,57 +17,42 @@ export class AdminCase3Component {
   header: string = "";
   header_desc: string = "";
   header_title: string = "";
-  case1: string [] = [];
-  case2: string [] = [];
-  case3: string [] = [];
-  case4: string [] = [];
-  descriptions: string [] = [];
-  bullet1: string [] = [];
-  bullet2: string [] = [];
-  bullet3: string [] = [];
-  bullet4: string [] = [];
-  bullet5: string [] = [];
-  bullet6: string [] = [];
-  bullet7: string [] = [];
-  references: string [] = [];
+  case1: string[] = [];
+  case2: string[] = [];
+  case3: string[] = [];
+  case4: string[] = [];
+  case3_content: string[] = [];
+  references: string[] = [];
 
   isThereAnyChanges: boolean = false;
 
-  constructor(private http: HttpClient, 
+  constructor(private http: HttpClient,
     private titleService: Title,
     private AdminCase3Service: AdminCase3Service,
     private router: Router,
-    private toastr: ToastrService){}
+    private toastr: ToastrService) { }
 
   // Main methods and functionshere
-  bulletPusher(bullet: string[], bulletNumber: string, items: integer){
-    for(let i = 0; i < items; i++){
-      const propertyName = `bullet_${bulletNumber}`;
-      bullet.push(this.causes_climate_change[0].bullets[propertyName][i]);
-    }
-  }
-
-  casePusher(caseArray: string[], caseNumber: string){
-    for(let i = 0; i < 4; i++){
+  casePusher(caseArray: string[], caseNumber: string) {
+    for (let i = 0; i < 4; i++) {
       const propertyName = `case${caseNumber}`;
       caseArray.push(this.causes_climate_change[0].cases[propertyName][i]);
     }
   }
 
-  descriptionPusher(descArray: string[]){
-    for(let i = 0; i < 3; i++){
-      descArray.push(this.causes_climate_change[0].descriptions[i]);
+  caseContentPusher(refArray: string[]) {
+    for (let i = 0; i < 16; i++) {
+      refArray.push(this.causes_climate_change[0].case3_content[i]);
     }
   }
-
-  referencePusher(refArray: string[]){
-    for(let i = 0; i < 2; i++){
+  referencePusher(refArray: string[]) {
+    for (let i = 0; i < 2; i++) {
       refArray.push(this.causes_climate_change[0].references[i]);
     }
   }
 
-  getData(): void{
-    this.AdminCase3Service.getData().subscribe(incoming_data =>{
+  getData(): void {
+    this.AdminCase3Service.getData().subscribe(incoming_data => {
       this.causes_climate_change = incoming_data;
 
       this.header = this.causes_climate_change[0].header;
@@ -81,16 +66,7 @@ export class AdminCase3Component {
       this.casePusher(this.case4, "4");
 
       // Desriptions
-      this.descriptionPusher(this.descriptions);
-
-      // Bullets
-      this.bulletPusher(this.bullet1, "1", 2);
-      this.bulletPusher(this.bullet2, "2", 2);
-      this.bulletPusher(this.bullet3, "3", 2);
-      this.bulletPusher(this.bullet4, "4", 2);
-      this.bulletPusher(this.bullet5, "5", 2);
-      this.bulletPusher(this.bullet6, "6", 2);
-      this.bulletPusher(this.bullet7, "7", 2);
+      this.caseContentPusher(this.case3_content);
 
       // Reference
       this.referencePusher(this.references);
@@ -99,8 +75,8 @@ export class AdminCase3Component {
     })
   }
 
-  updateData(): void{
-    if(this.isAnyChanges()){
+  updateData(): void {
+    if (this.isAnyChanges()) {
       const sanitizedHeader = this.sanitizeInput(this.header);
       const sanitizedHeaderDesc = this.sanitizeInput(this.header_desc);
       const sanitizedHeaderTitle = this.sanitizeInput(this.header_title);
@@ -111,14 +87,6 @@ export class AdminCase3Component {
       const sanitizedCase3 = this.sanitizeInput(this.case3[0]);
       const sanitizedCase4 = this.sanitizeInput(this.case4[0]);
 
-      // Sanitize bullet data
-      const sanitizedBullet1 = this.sanitizeInput(this.bullet1[0]);
-      const sanitizedBullet2 = this.sanitizeInput(this.bullet2[0]);
-      const sanitizedBullet3 = this.sanitizeInput(this.bullet3[0]);
-      const sanitizedBullet4 = this.sanitizeInput(this.bullet4[0]);
-      const sanitizedBullet5 = this.sanitizeInput(this.bullet5[0]);
-      const sanitizedBullet6 = this.sanitizeInput(this.bullet6[0]);
-      const sanitizedBullet7 = this.sanitizeInput(this.bullet7[0]);
 
       // Check if any of the inputs failed validation
       if (
@@ -128,15 +96,8 @@ export class AdminCase3Component {
         sanitizedCase1 === null ||
         sanitizedCase2 === null ||
         sanitizedCase3 === null ||
-        sanitizedCase4 === null ||
-        sanitizedBullet1 === null ||
-        sanitizedBullet2 === null ||
-        sanitizedBullet3 === null ||
-        sanitizedBullet4 === null ||
-        sanitizedBullet5 === null ||
-        sanitizedBullet6 === null ||
-        sanitizedBullet7 === null
-        
+        sanitizedCase4 === null
+
       ) {
         // Validation failed, do not proceed with the update
         this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
@@ -149,22 +110,13 @@ export class AdminCase3Component {
       sanitizedData.header_description = sanitizedHeaderDesc;
       sanitizedData.title = sanitizedHeaderTitle;
 
-       // Update sanitized case data
-       this.case1[0] = sanitizedCase1;
-       this.case2[0] = sanitizedCase2;
-       this.case3[0] = sanitizedCase3;
-       this.case4[0] = sanitizedCase4; 
+      // Update sanitized case data
+      this.case1[0] = sanitizedCase1;
+      this.case2[0] = sanitizedCase2;
+      this.case3[0] = sanitizedCase3;
+      this.case4[0] = sanitizedCase4;
 
-       // Update sanitized bullet data
-      this.bullet1[0] = sanitizedBullet1;
-      this.bullet2[0] = sanitizedBullet2;
-      this.bullet3[0] = sanitizedBullet3;
-      this.bullet4[0] = sanitizedBullet4;
-      this.bullet5[0] = sanitizedBullet5;
-      this.bullet6[0] = sanitizedBullet6;
-      this.bullet7[0] = sanitizedBullet7;
-
-       this.AdminCase3Service.updateData(sanitizedData).subscribe(
+      this.AdminCase3Service.updateData(sanitizedData).subscribe(
         (updatedItem) => {
           this.router.navigate(['/admin-case-3']);
           console.log(this.causes_climate_change[0]);
@@ -174,16 +126,16 @@ export class AdminCase3Component {
           this.toastr.error('Error updating item.', 'Error');
           console.error('Error updating item. ', err);
         }
-        );
-        this.isThereAnyChanges = false;
-      } else {
-        this.toastr.info('No changes were made.', 'Info');
-      }
+      );
+      this.isThereAnyChanges = false;
+    } else {
+      this.toastr.info('No changes were made.', 'Info');
     }
+  }
 
   sanitizeInput(input: string): string | null {
     const harmfulChars = /[\;\<\>\'\"\\\/\[\]\{\}\%\=\?\&\+\*\#\@\$\^\|\`\~]/g;
-  
+
     // Check if the input contains harmful characters
     if (harmfulChars.test(input)) {
       // Show a toastr error notification
@@ -194,15 +146,15 @@ export class AdminCase3Component {
   }
 
   // Track if there is any change
-  isAnyChanges(){
+  isAnyChanges() {
     return this.isThereAnyChanges;
   }
 
   ngOnInit(): void {
 
-      this.getData();
+    this.getData();
 
-      this.titleService.setTitle(this.title);
+    this.titleService.setTitle(this.title);
   }
 
   editing_header: boolean = false;
@@ -214,25 +166,14 @@ export class AdminCase3Component {
   editing_case3: boolean = false;
   editing_case4: boolean = false;
 
-  editing_descriptions: boolean [] =
-  [false, false, false];
+  editing_case_content: boolean[] =
+    [false, false, false, false, false,
+      false, false, false, false, false,
+      false, false, false, false, false,
+      false];
 
-  editing_bullet_1: boolean [] = [false, false];
-
-  editing_bullet_2: boolean [] = [false, false];
-
-  editing_bullet_3: boolean [] = [false, false];
-
-  editing_bullet_4: boolean [] = [false, false];
-
-  editing_bullet_5: boolean [] = [false, false];
-
-  editing_bullet_6: boolean [] = [false, false];
-
-  editing_bullet_7: boolean [] = [false, false];
-
-  editing_reference: boolean [] =
-  [false, false];
+  editing_reference: boolean[] =
+    [false];
 
   // Header
   startEditingHeader() {
@@ -242,7 +183,7 @@ export class AdminCase3Component {
     this.editing_header = false;
     this.header = event.target.value;
   }
-  doesChange(){
+  doesChange() {
     this.isThereAnyChanges = true;
   }
 
@@ -300,157 +241,148 @@ export class AdminCase3Component {
     this.case4[0] = (event.target.value);
   }
 
-  // Description 1
-  startEditingDesc1() {
-    this.editing_descriptions[0] = true;
+  // Case Content 1
+  startEditingCaseContent1() {
+    this.editing_case_content[0] = true;
   }
-  finishEditingDesc1(event: any) {
-    this.editing_descriptions[0] = false;
-    this.descriptions[0] = (event.target.value);
-  }
-
-  // Description 2
-  startEditingDesc2() {
-    this.editing_descriptions[1] = true;
-  }
-  finishEditingDesc2(event: any) {
-    this.editing_descriptions[1] = false;
-    this.descriptions[1] = (event.target.value);
+  finishEditingCaseContent1(event: any) {
+    this.editing_case_content[0] = false;
+    this.case3_content[0] = event.target.value;
   }
 
-  // Description 3
-  startEditingDesc3() {
-    this.editing_descriptions[2] = true;
+  // Case Content 2
+  startEditingCaseContent2() {
+    this.editing_case_content[1] = true;
   }
-  finishEditingDesc3(event: any) {
-    this.editing_descriptions[2] = false;
-    this.descriptions[2] = (event.target.value);
-  }
-
-  // Bullet 1 Title
-  startEditingBullet1Title() {
-    this.editing_bullet_1[0] = true;
-  }
-  finishEditingBullet1Title(event: any) {
-    this.editing_bullet_1[0] = false;
-    this.bullet1[0] = (event.target.value);
+  finishEditingCaseContent2(event: any) {
+    this.editing_case_content[1] = false;
+    this.case3_content[1] = event.target.value;
   }
 
-  // Bullet 1 Description 1
-  startEditingBullet1Description1() {
-    this.editing_bullet_1[1] = true;
+  // Case Content 3
+  startEditingCaseContent3() {
+    this.editing_case_content[2] = true;
   }
-  finishEditingBullet1Description1(event: any) {
-    this.editing_bullet_1[1] = false;
-    this.bullet1[1] = (event.target.value);
-  }
-
-  // Bullet 2 Title
-  startEditingBullet2Title() {
-    this.editing_bullet_2[0] = true;
-  }
-  finishEditingBullet2Title(event: any) {
-    this.editing_bullet_2[0] = false;
-    this.bullet2[0] = (event.target.value);
+  finishEditingCaseContent3(event: any) {
+    this.editing_case_content[2] = false;
+    this.case3_content[2] = event.target.value;
   }
 
-  // Bullet 2 Description 1
-  startEditingBullet2Description1() {
-    this.editing_bullet_2[1] = true;
+  // Case Content 4
+  startEditingCaseContent4() {
+    this.editing_case_content[3] = true;
   }
-  finishEditingBullet2Description1(event: any) {
-    this.editing_bullet_2[1] = false;
-    this.bullet2[1] = (event.target.value);
-  }
-
-  // Bullet 3 Title
-  startEditingBullet3Title() {
-    this.editing_bullet_3[0] = true;
-  }
-  finishEditingBullet3Title(event: any) {
-    this.editing_bullet_3[0] = false;
-    this.bullet3[0] = (event.target.value);
+  finishEditingCaseContent4(event: any) {
+    this.editing_case_content[3] = false;
+    this.case3_content[3] = event.target.value;
   }
 
-  // Bullet 3 Description 1
-  startEditingBullet3Description1() {
-    this.editing_bullet_3[1] = true;
+  // Case Content 5
+  startEditingCaseContent5() {
+    this.editing_case_content[4] = true;
   }
-  finishEditingBullet3Description1(event: any) {
-    this.editing_bullet_3[1] = false;
-    this.bullet3[1] = (event.target.value);
-  }
-
-  // Bullet 4 Title
-  startEditingBullet4Title() {
-    this.editing_bullet_4[0] = true;
-  }
-  finishEditingBullet4Title(event: any) {
-    this.editing_bullet_4[0] = false;
-    this.bullet4[0] = (event.target.value);
+  finishEditingCaseContent5(event: any) {
+    this.editing_case_content[4] = false;
+    this.case3_content[4] = event.target.value;
   }
 
-  // Bullet 4 Description 1
-  startEditingBullet4Description1() {
-    this.editing_bullet_4[1] = true;
+  // Case Content 6
+  startEditingCaseContent6() {
+    this.editing_case_content[5] = true;
   }
-  finishEditingBullet4Description1(event: any) {
-    this.editing_bullet_4[1] = false;
-    this.bullet4[1] = (event.target.value);
-  }
-
-  // Bullet 5 Title
-  startEditingBullet5Title() {
-    this.editing_bullet_5[0] = true;
-  }
-  finishEditingBullet5Title(event: any) {
-    this.editing_bullet_5[0] = false;
-    this.bullet5[0] = (event.target.value);
+  finishEditingCaseContent6(event: any) {
+    this.editing_case_content[5] = false;
+    this.case3_content[5] = event.target.value;
   }
 
-  // Bullet 5 Description 1
-  startEditingBullet5Description1() {
-    this.editing_bullet_5[1] = true;
+  // Case Content 7
+  startEditingCaseContent7() {
+    this.editing_case_content[6] = true;
   }
-  finishEditingBullet5Description1(event: any) {
-    this.editing_bullet_5[1] = false;
-    this.bullet5[1] = (event.target.value);
-  }
-
-  // Bullet 6 Title
-  startEditingBullet6Title() {
-    this.editing_bullet_6[0] = true;
-  }
-  finishEditingBullet6Title(event: any) {
-    this.editing_bullet_6[0] = false;
-    this.bullet6[0] = (event.target.value);
+  finishEditingCaseContent7(event: any) {
+    this.editing_case_content[6] = false;
+    this.case3_content[6] = event.target.value;
   }
 
-  // Bullet 6 Description 1
-  startEditingBullet6Description1() {
-    this.editing_bullet_6[1] = true;
+  // Case Content 8
+  startEditingCaseContent8() {
+    this.editing_case_content[7] = true;
   }
-  finishEditingBullet6Description1(event: any) {
-    this.editing_bullet_6[1] = false;
-    this.bullet6[1] = (event.target.value);
-  }
-
-  // Bullet 7 Title
-  startEditingBullet7Title() {
-    this.editing_bullet_7[0] = true;
-  }
-  finishEditingBullet7Title(event: any) {
-    this.editing_bullet_7[0] = false;
-    this.bullet7[0] = (event.target.value);
+  finishEditingCaseContent8(event: any) {
+    this.editing_case_content[7] = false;
+    this.case3_content[7] = event.target.value;
   }
 
-  // Bullet 7 Description 1
-  startEditingBullet7Description1() {
-    this.editing_bullet_7[1] = true;
+  // Case Content 9
+  startEditingCaseContent9() {
+    this.editing_case_content[8] = true;
   }
-  finishEditingBullet7Description1(event: any) {
-    this.editing_bullet_7[1] = false;
-    this.bullet7[1] = (event.target.value);
+  finishEditingCaseContent9(event: any) {
+    this.editing_case_content[8] = false;
+    this.case3_content[8] = event.target.value;
+  }
+
+  // Case Content 10
+  startEditingCaseContent10() {
+    this.editing_case_content[9] = true;
+  }
+  finishEditingCaseContent10(event: any) {
+    this.editing_case_content[9] = false;
+    this.case3_content[9] = event.target.value;
+  }
+
+  // Case Content 11
+  startEditingCaseContent11() {
+    this.editing_case_content[10] = true;
+  }
+  finishEditingCaseContent11(event: any) {
+    this.editing_case_content[10] = false;
+    this.case3_content[10] = event.target.value;
+  }
+
+  // Case Content 12
+  startEditingCaseContent12() {
+    this.editing_case_content[11] = true;
+  }
+  finishEditingCaseContent12(event: any) {
+    this.editing_case_content[11] = false;
+    this.case3_content[11] = event.target.value;
+  }
+
+  // Case Content 13
+  startEditingCaseContent13() {
+    this.editing_case_content[12] = true;
+  }
+  finishEditingCaseContent13(event: any) {
+    this.editing_case_content[12] = false;
+    this.case3_content[12] = event.target.value;
+  }
+
+  // Case Content 14
+  startEditingCaseContent14() {
+    this.editing_case_content[13] = true;
+  }
+  finishEditingCaseContent14(event: any) {
+    this.editing_case_content[13] = false;
+    this.case3_content[13] = event.target.value;
+  }
+
+  // Case Content 15
+  startEditingCaseContent15() {
+    this.editing_case_content[14] = true;
+  }
+  finishEditingCaseContent15(event: any) {
+    this.editing_case_content[14] = false;
+    this.case3_content[14] = event.target.value;
+  }
+
+  // Case Content 16
+  startEditingCaseContent16() {
+    this.editing_case_content[15] = true;
+  }
+  finishEditingCaseContent16(event: any) {
+    this.editing_case_content[15] = false;
+    this.case3_content[15] = event.target.value;
   }
 
   // Reference 1
