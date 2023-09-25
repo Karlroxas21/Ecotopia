@@ -12,16 +12,7 @@ const effectsClimateChangeSchema = new Schema({
                 case3: [String],
                 case4: [String]
         },
-        descriptions: [String],
-        bullets: {
-                bullet_1: [String],
-                bullet_2: [String],
-                bullet_3: [String],
-                bullet_4: [String],
-                bullet_5: [String],
-                bullet_6: [String],
-                bullet_7: [String]
-        },
+        case4_content: [String],
         references: [String]
         
 },

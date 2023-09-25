@@ -23,8 +23,7 @@ export class AdminCase4Service{
                         header_description: data.header_description,
                         title: data.title,
                         cases: data.cases,
-                        descriptions: data.descriptions,
-                        bullets: data.bullets,
+                        case4_content: data.case4_content,
                         references: data.references, 
                 }
                 return this.http.put<any>(`${this.urlAPI}/${_id}`, json);
