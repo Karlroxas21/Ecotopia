@@ -24,6 +24,7 @@ export class AdminCurrentIssueService {
                         agriculture_food_security: data.agriculture_food_security,
                         health_risk: data.health_risk,
                         water_scarcity: data.water_scarcity,
+                        ocean_acidification: data.ocean_acidification,
                         references: data.references
                 }
                 return this.http.put<any>(`${this.urlAPI}/${_id}`, json);

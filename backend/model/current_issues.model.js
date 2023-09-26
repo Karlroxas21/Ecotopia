@@ -9,6 +9,7 @@ const currentIssuesSchema = new Schema({
         argriculture_food_security: [String],
         health_risk: [String],
         water_scarcity: [String],
+        ocean_acidification: [String],
         references: [String]
 },
 {collection: 'current_issues_ph'}

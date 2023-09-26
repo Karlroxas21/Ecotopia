@@ -7,17 +7,22 @@
       <div class="tab-headers">
         <div class="tab-header" [class.active]="selectedTab === 'tab1'" (click)="selectTab('tab1')">Typhoon and Extreme Weather Events</div>
         <div class="tab-header" [class.active]="selectedTab === 'tab2'" (click)="selectTab('tab2')">Sea Level Rise and Coastal Erosion 2</div>
+        <div class="tab-header" [class.active]="selectedTab === 'tab7'" (click)="selectTab('tab7')">Ocean Acidification</div>
         <div class="tab-header" [class.active]="selectedTab === 'tab3'" (click)="selectTab('tab3')">Biodiversity and Ecosystem Loss</div>
         <div class="tab-header" [class.active]="selectedTab === 'tab4'" (click)="selectTab('tab4')">Agriculture and Food Security</div>
         <div class="tab-header" [class.active]="selectedTab === 'tab5'" (click)="selectTab('tab5')">Health Risk</div>
         <div class="tab-header" [class.active]="selectedTab === 'tab6'" (click)="selectTab('tab6')">Water Scarcity</div>
-        <div class="tab-header" [class.active]="selectedTab === 'tab7'" (click)="selectTab('tab7')">Ocean Acidification</div>
         <div class="tab-header" [class.active]="selectedTab === 'tab8'" (click)="selectTab('tab8')">References</div>
       </div>
       
       <!-- Tab Content -->
       <div class="tab-content">
         <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab1' }">
+
+    <div class="climate-change-info" *ngFor="let item of current_issues_ph">
+      <tabset>
+        <tab heading="Typhoon and Extreme Weather Events" id="tab1">
+
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
@@ -50,6 +55,9 @@
         </div>
 
         <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab2' }">
+
+        <tab heading="Sea Level Rise and Coastal Erosion">
+
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
@@ -110,6 +118,86 @@
         </div>
 
         <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab3' }">
+        
+        <tab heading="Ocean Acidification">
+          <div class="ccs-div1">
+            <div class="ccs-sub-div1">
+              <h2 style="font-weight: bold;">{{item.ocean_acidification[0]}}</h2>
+              <br>
+              <p>
+                {{item.ocean_acidification[1]}}
+              </p>
+            </div>
+
+            <div class="ccs-sub-div2">
+              <table class="ccs-table" style="margin-bottom: 25px">
+                <tr>
+                  <th>{{item.ocean_acidification[2]}}</th>
+                </tr>
+                <tr>
+                  <td>
+                    <ul>
+                      <li>
+                        {{item.ocean_acidification[3]}}
+                      </li>
+                      <li>
+                        {{item.ocean_acidification[4]}}
+                      </li>
+                      <li>
+                        {{item.ocean_acidification[5]}}
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr></tr>
+              </table>
+
+              <table class="ccs-table" style="margin-bottom: 25px">
+                <tr>
+                  <th>{{item.ocean_acidification[6]}}</th>
+                </tr>
+                <tr>
+                  <td>
+                    <ul>
+                      <li>
+                        {{item.ocean_acidification[7]}}
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr></tr>
+              </table>
+
+              <table class="ccs-table" style="margin-bottom: 30px">
+                <tr>
+                  <th>{{item.ocean_acidification[8]}}</th>
+                </tr>
+                <tr>
+                  <td>
+                    <ul>
+                      <li>
+                        {{item.ocean_acidification[9]}}
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <ul>
+                      <li>
+                        {{item.ocean_acidification[10]}}
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+              
+            </div>
+          </div>
+        </tab>
+
+        <tab heading="Biodiversity and Ecosystem Loss">
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
@@ -423,121 +511,9 @@
             </div>
           </div>
         </div>
+        
+        <tab heading="References" style="margin: 20px 0 30px 0">
 
-        <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab7' }">
-          <div class="ccs-div1">
-            <div class="ccs-sub-div1">
-              <h2 style="font-weight: bold">What is Ocean Acidification?</h2>
-              <br />
-              <p>
-                It is the phenomena in which the pH levels (acidity levels) of
-                the ocean water begins to change as a result of the increase of
-                the presence of carbon dioxide in the atmosphere. When CO2 is
-                absorbed by the ocean waters, it sets of a series of chemical
-                reactions that results in the water becoming a lot more acidic
-                and the decrease of carbonate ions present in the water. Note:
-                The ocean is slight basic in acidity levels (8.2), however upon
-                the rise of the Industrial Revolution from the 18th and 19th
-                centuries, the oceans average pH now is 8.1. Since the late
-                1980s, about 95% of the ocean’s surface has now become more
-                acidic, since the ocean absorb about 30% of the carbon dioxide
-                produced and carried to the atmosphere.
-              </p>
-            </div>
-
-            <div class="ccs-sub-div2">
-              <table class="ccs-table" style="margin-bottom: 25px">
-                <tr>
-                  <th>Why is it a problem?</th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        This phenomenon affects organisms like oysters, clams,
-                        sea urchins, deep sea corals and so on, as they rely on
-                        carbonate ions to maintain shells and structures.
-                      </li>
-                      <li>
-                        Apart from that, this also negatively impacts important
-                        marine species such as planktons, as they are the basis
-                        of marine food chains. Without plankton, a lot of
-                        species would struggle to survive, and eventually the
-                        human species as well. Acidification also causes thermal
-                        stress in oceans, resulting in coral bleaching (it is
-                        when living corals turn white, weaken and eventually
-                        die), which will affect a lot of marine life directly.
-                      </li>
-                      <li>
-                        It is not just an issue about marine biodiversity, it is
-                        also an issue of food security and economy.
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr></tr>
-              </table>
-
-              <table class="ccs-table" style="margin-bottom: 25px">
-                <tr>
-                  <th>What is the Causes:</th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        One of the causes of acidification in the ocean is the
-                        use and extraction of fossil fuels, as well as the
-                        emissions from factories, boats and cars. Basically,
-                        anything that uses combustion to generate energy, which
-                        creates carbon that goes into the atmosphere and comes
-                        down to the ocean that exacerbates the problem.
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr></tr>
-              </table>
-
-              <table class="ccs-table" style="margin-bottom: 30px">
-                <tr>
-                  <th>What is pH and acidity?</th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        pH is the measure of the acidity or basicity of a liquid
-                        solution. This is measured by determining the
-                        concentration of Hydrogen ions(H+) and Hydroxyl ions
-                        (OH-) on a scale from 0 to 14. Pure water has a pH of 7
-                        and it is considered the bar for neutral, meaning it is
-                        neither basic nor acidic. A solution that has a pH lower
-                        than 7 is considered acidic, and a solution greater than
-                        7 is considered basic.
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        The scale is logarithmic, so a decrease of one pH unit
-                        is a tenfold increase in acidity. (That’s why 8.2 to 8.1
-                        is a concerning change.)
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab8' }">
-          <br>
           <a href="{{ item.references[0] }}" target="_blank">{{
             item.references[0]
           }}</a>
@@ -588,6 +564,26 @@
           <br />
           <a href="{{ item.references[10] }}" target="_blank">{{
             item.references[10]
+          }}</a>
+          <br />
+          <a href="{{ item.references[11] }}" target="_blank">{{
+            item.references[11]
+          }}</a>
+          <br />
+          <a href="{{ item.references[12] }}" target="_blank">{{
+            item.references[12]
+          }}</a>
+          <br />
+          <a href="{{ item.references[13] }}" target="_blank">{{
+            item.references[13]
+          }}</a>
+          <br />
+          <a href="{{ item.references[14] }}" target="_blank">{{
+            item.references[14]
+          }}</a>
+          <br />
+          <a href="{{ item.references[15] }}" target="_blank">{{
+            item.references[15]
           }}</a>
 
           <!--references for ocean acidification-->
