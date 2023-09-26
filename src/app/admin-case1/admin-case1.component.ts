@@ -88,6 +88,13 @@ export class AdminCase1Component {
       const sanitizedCase2 = this.sanitizeInput(this.case2[0]);
       const sanitizedCase3 = this.sanitizeInput(this.case3[0]);
       const sanitizedCase4 = this.sanitizeInput(this.case4[0]);
+
+      //Sanitize paragraphs
+      const sanitizedParagraphs = this.sanitizeParagraphs(this.paragraphs);
+
+      //Sanitize references
+      const sanitizedReferences = this.sanitizeReferences(this.references);
+  
   
       // Check if any of the inputs failed validation
       if (
@@ -97,7 +104,9 @@ export class AdminCase1Component {
         sanitizedCase1 === null ||
         sanitizedCase2 === null ||
         sanitizedCase3 === null ||
-        sanitizedCase4 === null 
+        sanitizedCase4 === null ||
+        sanitizedParagraphs.some((paragraph) => paragraph === '') || 
+        sanitizedReferences.some((reference) => reference === '') 
       ) {
         // Validation failed, do not proceed with the update
         this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
@@ -115,10 +124,16 @@ export class AdminCase1Component {
       this.case2[0] = sanitizedCase2;
       this.case3[0] = sanitizedCase3;
       this.case4[0] = sanitizedCase4;
+
+      //Update sanitized paragrahps
+      this.paragraphs = sanitizedParagraphs;
+
+      //Update sanizited References
+      this.references = sanitizedReferences;
   
       this.AdminCasesService.updateData(sanitizedData).subscribe(
         (updatedItem) => {
-          this.router.navigate(['/admin-cases-1']); //default: admin-case-problem-trash
+          this.router.navigate(['/admin-cases-1']);
           console.log(this.problem_trash[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
@@ -141,7 +156,7 @@ export class AdminCase1Component {
   // End of main function and methods
 
   sanitizeInput(input: string): string | null {
-    const harmfulChars = /[\;\(\)\<\>\'\"\\\/\[\]\{\}\%\=\?\&\+\-\*\#\@\$\^\|\`\~]/g;
+    const harmfulChars = /[\;\(\)\<\>\'\"\\\[\]\{\}\%\=\?\&\+\-\*\#\@\$\^\|\`\~]/g;
   
     // Check if the input contains harmful characters
     if (harmfulChars.test(input)) {
@@ -150,6 +165,22 @@ export class AdminCase1Component {
     }
     // If no harmful characters are found, return the sanitized input
     return input;
+  }
+  
+  //Paragraph sanitization function
+  sanitizeParagraphs(paragraphs: string[]): string[] {
+    return paragraphs.map((paragraph) => {
+      const sanitizedParagraph = this.sanitizeInput(paragraph);
+      return sanitizedParagraph !== null ? sanitizedParagraph : '';
+    });
+  }
+  
+  //Reference sanitization function
+  sanitizeReferences(references: string[]): string[] {
+    return references.map((reference) => {
+      const sanitizedReference = this.sanitizeInput(reference);
+      return sanitizedReference !== null ? sanitizedReference : '';
+    });
   }
 
   ngOnInit(): void{
