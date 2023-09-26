@@ -110,7 +110,12 @@ export class AdminSolution1Component {
       const sanitizedBullet11 = this.sanitizeInput(this.bullet11[0]);
       const sanitizedBullet12 = this.sanitizeInput(this.bullet12[0]);
       const sanitizedBullet13 = this.sanitizeInput(this.bullet13[0]);
-      const sanitizedDescriptions = this.sanitizeInput(this.descriptions[0]);
+
+      // Sanitize descriptions
+      const sanitizedDescription = this.sanitizeCaseContent(this.descriptions);
+      
+      // Sanitize references
+      const sanitizedReferences = this.sanitizeReferences(this.references);
   
       // Check if any of the inputs failed validation
       if (
@@ -129,7 +134,8 @@ export class AdminSolution1Component {
         sanitizedBullet11 === null ||
         sanitizedBullet12 === null ||
         sanitizedBullet13 === null ||
-        sanitizedDescriptions === null
+        sanitizedDescription.some((Description) => Description === '') ||
+        sanitizedReferences.some((reference) => reference === '')
       ) {
         // Validation failed, do not proceed with the update
         this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
@@ -155,7 +161,12 @@ export class AdminSolution1Component {
       this.bullet11[0] = sanitizedBullet11;
       this.bullet12[0] = sanitizedBullet12;
       this.bullet13[0] = sanitizedBullet13;
-      this.descriptions[0] = sanitizedDescriptions;
+
+       //Update sanitized Case Content
+       this.descriptions = sanitizedDescription;
+      
+       // Update sanitized references
+       this.references = sanitizedReferences;
   
       this.AdminSolution1Service.updateData(sanitizedData).subscribe(
         (updatedItem) => {
@@ -182,7 +193,7 @@ export class AdminSolution1Component {
   // End of main function and methods
 
   sanitizeInput(input: string): string | null {
-    const harmfulChars = /[\;\(\)\<\>\'\"\\\/\[\]\{\}\%\=\?\&\+\-\*\#\@\$\^\|\`\~]/g;
+    const harmfulChars = /[\<\>]/g;
   
     // Check if the input contains harmful characters
     if (harmfulChars.test(input)) {
@@ -191,6 +202,22 @@ export class AdminSolution1Component {
     }
     // If no harmful characters are found, return the sanitized input
     return input;
+  }
+
+     // Descriptions sanitization function
+ sanitizeCaseContent(Description: string[]): string[] {
+  return Description.map((Description) => {
+    const sanitizedDescription = this.sanitizeInput(Description);
+    return sanitizedDescription !== null ? sanitizedDescription : '';
+  });
+}
+
+ // Reference sanitization function
+  sanitizeReferences(references: string[]): string[] {
+    return references.map((reference) => {
+      const sanitizedReference = this.sanitizeInput(reference);
+      return sanitizedReference !== null ? sanitizedReference : '';
+    });
   }
 
   ngOnInit(): void{
