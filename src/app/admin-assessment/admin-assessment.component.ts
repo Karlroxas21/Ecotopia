@@ -46,29 +46,131 @@ export class AdminAssessmentComponent {
     })
   }
 
-  updateData(): void{
-    if(this.isAnyChanges()){
-      this.AdminAssessmentService.updateData(this.assessment[0]).subscribe(updatedItem =>{
-        this.router.navigate(['/admin-assessment']);
-        this.toastr.success('Data updated successfully.', 'Success');
-        console.log('Update success', updatedItem);
-      }, (err) =>{
-        this.toastr.error('Error updating item.', 'Error');
-        // console.error("Error updating item. ", err);
-      });
+  updateData(): void {
+    if (this.isAnyChanges()) {
+      // Sanitize trivia game and pop quiz data
+      const sanitizedTriviaGame = this.sanitizeTriviaGame(this.trivia_game);
+      const sanitizedPopQuiz = this.sanitizePopQuiz(this.pop_quiz);
+  
+  
+      // Check if any of the inputs failed validation
+      if (
+        sanitizedTriviaGame === null ||
+        sanitizedPopQuiz === null
+      ) {
+        // Validation failed, do not proceed with the update
+        this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
+        return;
+      }
+  
+      // Create a sanitized copy of the data
+      const sanitizedData = { ...this.assessment[0] };
+      this.trivia_game = sanitizedTriviaGame;
+      this.pop_quiz = sanitizedPopQuiz;
+  
+      this.AdminAssessmentService.updateData(sanitizedData).subscribe(
+        (updatedItem) => {
+          this.router.navigate(['/admin-assessment']);
+          console.log(this.assessment[0]);
+          this.toastr.success('Data updated successfully.', 'Success');
+        },
+        (err) => {
+          this.toastr.error('Error updating item.', 'Error');
+          console.error('Error updating item. ', err);
+        }
+      );
       this.isThereAnyChanges = false;
-    }else{
+    } else {
       this.toastr.info('No changes were made.', 'Info');
-      // console.log("You did not make any changes");
     }
   }
-
-  // Track if there is any change
+  
+  // Track if there is any changes made
   isAnyChanges(){
     return this.isThereAnyChanges;
   }
 
-  ngOnInit(){
+  // End of main function and methods
+
+  sanitizeInput(input: string): string | null {
+    const harmfulChars = /[\;\<\>\\\[\]\{\}\=\&\+\*\#\@\$\^\|\~]/g;
+  
+    // Check if the input contains harmful characters
+    if (harmfulChars.test(input)) {
+      // Show a toastr error notification
+      return null;
+    }
+    // If no harmful characters are found, return the sanitized input
+    return input;
+  }
+
+  // Trivia Game Question
+  sanitizeTriviaGame(triviaGame: any): any {
+    const sanitizedTriviaGame = JSON.parse(JSON.stringify(triviaGame));
+
+    for (let i = 0; i < sanitizedTriviaGame.length; i++) {
+      sanitizedTriviaGame[i].property = this.sanitizeInput(sanitizedTriviaGame[i].property);
+
+      if (sanitizedTriviaGame[i].property === null) {
+        return null; // Validation failed
+      }
+
+      for (let j = 0; j < sanitizedTriviaGame[i].options.length; j++) {
+        sanitizedTriviaGame[i].options[j] = this.sanitizeInput(sanitizedTriviaGame[i].options[j]);
+
+        if (sanitizedTriviaGame[i].options[j] === null) {
+          return null; // Validation failed
+        }
+      }
+
+      sanitizedTriviaGame[i].correct_answer = this.sanitizeInput(sanitizedTriviaGame[i].correct_answer);
+
+      if (sanitizedTriviaGame[i].correct_answer === null) {
+        return null; // Validation failed
+      }
+    }
+
+    return sanitizedTriviaGame;
+  }
+
+  // Pop Quiz Question
+  sanitizePopQuiz(popQuiz: any): any {
+    const sanitizedPopQuiz = JSON.parse(JSON.stringify(popQuiz));
+
+    for (let i = 0; i < sanitizedPopQuiz.length; i++) {
+      sanitizedPopQuiz[i].property = this.sanitizeInput(sanitizedPopQuiz[i].property);
+
+      if (sanitizedPopQuiz[i].property === null) {
+        return null; // Validation failed
+      }
+
+      for (let j = 0; j < sanitizedPopQuiz[i].options.length; j++) {
+        sanitizedPopQuiz[i].options[j] = this.sanitizeInput(sanitizedPopQuiz[i].options[j]);
+
+        if (sanitizedPopQuiz[i].options[j] === null) {
+          return null; // Validation failed
+        }
+      }
+
+      sanitizedPopQuiz[i].correct_answer = this.sanitizeInput(sanitizedPopQuiz[i].correct_answer);
+
+      if (sanitizedPopQuiz[i].correct_answer === null) {
+        return null; // Validation failed
+      }
+    }
+
+    return sanitizedPopQuiz;
+  }
+
+  sanitizeArray(array: string[]): string[] {
+    return array.map((item) => {
+      const sanitizedItem = this.sanitizeInput(item);
+      return sanitizedItem !== null ? sanitizedItem : '';
+    });
+  }
+
+  ngOnInit(): void{
+
     this.getData();
 
     this.titleService.setTitle(this.title);

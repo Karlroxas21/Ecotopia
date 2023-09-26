@@ -87,6 +87,11 @@ export class AdminCase3Component {
       const sanitizedCase3 = this.sanitizeInput(this.case3[0]);
       const sanitizedCase4 = this.sanitizeInput(this.case4[0]);
 
+      // Sanitize Case Content
+      const sanitizedCaseContent = this.sanitizeCaseContent(this.case3_content);
+      
+      // Sanitize references
+      const sanitizedReferences = this.sanitizeReferences(this.references);
 
       // Check if any of the inputs failed validation
       if (
@@ -96,7 +101,9 @@ export class AdminCase3Component {
         sanitizedCase1 === null ||
         sanitizedCase2 === null ||
         sanitizedCase3 === null ||
-        sanitizedCase4 === null
+        sanitizedCase4 === null ||
+        sanitizedCaseContent.some((CaseContent) => CaseContent === '') ||
+        sanitizedReferences.some((reference) => reference === '')
 
       ) {
         // Validation failed, do not proceed with the update
@@ -116,6 +123,12 @@ export class AdminCase3Component {
       this.case3[0] = sanitizedCase3;
       this.case4[0] = sanitizedCase4;
 
+      //Update sanitized Case Content
+      this.case3_content = sanitizedCaseContent;
+      
+      // Update sanitized references
+      this.references = sanitizedReferences;
+
       this.AdminCase3Service.updateData(sanitizedData).subscribe(
         (updatedItem) => {
           this.router.navigate(['/admin-case-3']);
@@ -134,7 +147,7 @@ export class AdminCase3Component {
   }
 
   sanitizeInput(input: string): string | null {
-    const harmfulChars = /[\;\<\>\'\"\\\/\[\]\{\}\%\=\?\&\+\*\#\@\$\^\|\`\~]/g;
+    const harmfulChars = /[\<\'\"\\\[\]\{\}\=\?\&\+\#\@\^\|\`\~]/g;
 
     // Check if the input contains harmful characters
     if (harmfulChars.test(input)) {
@@ -148,6 +161,22 @@ export class AdminCase3Component {
   // Track if there is any change
   isAnyChanges() {
     return this.isThereAnyChanges;
+  }
+  
+ // Case Content sanitization function
+ sanitizeCaseContent(CaseContent: string[]): string[] {
+  return CaseContent.map((casecontent) => {
+    const sanitizedCaseContent = this.sanitizeInput(casecontent);
+    return sanitizedCaseContent !== null ? sanitizedCaseContent : '';
+  });
+}
+
+ // Reference sanitization function
+  sanitizeReferences(references: string[]): string[] {
+    return references.map((reference) => {
+      const sanitizedReference = this.sanitizeInput(reference);
+      return sanitizedReference !== null ? sanitizedReference : '';
+    });
   }
 
   ngOnInit(): void {
