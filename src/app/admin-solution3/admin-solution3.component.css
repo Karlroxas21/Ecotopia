@@ -158,13 +158,13 @@ section .reference-container {
 }
 
 .publish:hover {
-        background: #02179c;
+        background: #000;
       }
       
       .publish {
         border-radius: 20px;
         border: 1px solid ;
-        background-color: #001DD3;
+        background-color: #D79732;
         transition: background-color 0.1s ease-in-out;
         font-size: 2rem;
         padding: 10px;

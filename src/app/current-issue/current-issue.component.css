@@ -1,6 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/henry-sans');
 
-
 *{
     font-family: 'Henry Sans', sans-serif;
 }
@@ -98,44 +97,12 @@ table, td, th{
     padding-top:30px;
 }
 
-.tab-headers {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
-}
+/* :host >>> .panel.customClass .panel-body {
+    background-color: #1b3a8a;
+} */
 
-.tab-header {
-    cursor: pointer;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #001DD3; 
-    margin-right: 10px; 
-    user-select: none;
-    transition: background-color 0.2s ease;
-    border-radius: 20px; 
-    width: 200px; 
-    text-align: center; 
-    color: #001DD3; 
-}
+/* End of Content */
 
-.tab-header.active {
-  background-color: #001DD3; 
-  color: #fff; 
-}
-
-  
-  /* Style the tab content */
-  .tab-content {
-    margin-top: 10px;
-  }
-  
-  .tab-pane {
-    display: none;
-  }
-  
-  .tab-pane.active {
-    display: block;
-  }
 @media (max-width: 768px){
     .images{
         width: 80%;
@@ -160,16 +127,3 @@ table, td, th{
       margin-top: 20px;
     }
 }
-
-  @media screen and (max-width: 768px) {
-    .tab-header {
-      width: 100%;
-      margin-top: 10px; 
-    }
-  }
-
-  @media screen and (max-width: 1863px) {
-    .tab-header {
-      margin-top: 10px; 
-    }
-  }
