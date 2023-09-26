@@ -73,10 +73,10 @@ export class AdminSolutionsComponent {
     if (this.isAnyChanges()) {
 
       // Sanitize bullet data
-      const sanitizedBullet1 = this.sanitizeInput(this.solution_1[0]);
-      const sanitizedBullet2 = this.sanitizeInput(this.solution_2[0]);
-      const sanitizedBullet3 = this.sanitizeInput(this.solution_3[0]);
-      const sanitizedBullet4 = this.sanitizeInput(this.solution_4[0]);
+      const sanitizedBullet1 = this.sanitizeInput(this.solution_1);
+      const sanitizedBullet2 = this.sanitizeInput(this.solution_2);
+      const sanitizedBullet3 = this.sanitizeInput(this.solution_3);
+      const sanitizedBullet4 = this.sanitizeInput(this.solution_4);
   
       // Check if any of the inputs failed validation
       if (
@@ -94,10 +94,10 @@ export class AdminSolutionsComponent {
       const sanitizedData = { ...this.solutions[0] };
   
       // Update sanitized bullet data
-      this.solution_1[0] = sanitizedBullet1;
-      this.solution_2[0] = sanitizedBullet2;
-      this.solution_3[0] = sanitizedBullet3;
-      this.solution_4[0] = sanitizedBullet4;
+      this.solution_1 = sanitizedBullet1;
+      this.solution_2 = sanitizedBullet2;
+      this.solution_3 = sanitizedBullet3;
+      this.solution_4 = sanitizedBullet4;
   
       this.AdminSolutionsService.updateData(sanitizedData).subscribe(
         (updatedItem) => {
@@ -123,16 +123,22 @@ export class AdminSolutionsComponent {
 
   // End of main function and methods
 
-  sanitizeInput(input: string): string | null {
+  sanitizeInput(input: string[]): string[] | null {
     const harmfulChars = /[\;\(\)\<\>\'\"\\\/\[\]\{\}\%\=\?\&\+\-\*\#\@\$\^\|\`\~]/g;
-  
-    // Check if the input contains harmful characters
-    if (harmfulChars.test(input)) {
-      // Show a toastr error notification
-      return null;
-    }
+    const sanitizeInput: string[] = [];
+    
+    for(const str of input){
+      // Check if the input contains harmful characters
+      if (harmfulChars.test(str)) {
+        // Show a toastr error notification
+        return null;
+      }
+      
     // If no harmful characters are found, return the sanitized input
-    return input;
+    sanitizeInput.push(str);
+    }
+
+    return sanitizeInput;
   }
 
   ngOnInit(): void{
