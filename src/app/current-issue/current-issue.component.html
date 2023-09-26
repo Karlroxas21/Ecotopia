@@ -1,28 +1,9 @@
 <body>
   <section class="climate-change">
     <h1>Current Issues on Climate Change in the Philippines</h1>
-
-    <div class="climate-change-info">
-      <!-- Tab Headers -->
-      <div class="tab-headers">
-        <div class="tab-header" [class.active]="selectedTab === 'tab1'" (click)="selectTab('tab1')">Typhoon and Extreme Weather Events</div>
-        <div class="tab-header" [class.active]="selectedTab === 'tab2'" (click)="selectTab('tab2')">Sea Level Rise and Coastal Erosion 2</div>
-        <div class="tab-header" [class.active]="selectedTab === 'tab7'" (click)="selectTab('tab7')">Ocean Acidification</div>
-        <div class="tab-header" [class.active]="selectedTab === 'tab3'" (click)="selectTab('tab3')">Biodiversity and Ecosystem Loss</div>
-        <div class="tab-header" [class.active]="selectedTab === 'tab4'" (click)="selectTab('tab4')">Agriculture and Food Security</div>
-        <div class="tab-header" [class.active]="selectedTab === 'tab5'" (click)="selectTab('tab5')">Health Risk</div>
-        <div class="tab-header" [class.active]="selectedTab === 'tab6'" (click)="selectTab('tab6')">Water Scarcity</div>
-        <div class="tab-header" [class.active]="selectedTab === 'tab8'" (click)="selectTab('tab8')">References</div>
-      </div>
-      
-      <!-- Tab Content -->
-      <div class="tab-content">
-        <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab1' }">
-
     <div class="climate-change-info" *ngFor="let item of current_issues_ph">
       <tabset>
         <tab heading="Typhoon and Extreme Weather Events" id="tab1">
-
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
@@ -44,20 +25,17 @@
                   </td>
                 </tr>
 
-                <!-- <tr>
+                <tr>
                   <td>
                     {{ item.sea_level_rise_coastal_erosion[3] }}
                   </td>
-                </tr> -->
+                </tr>
               </table>
             </div>
           </div>
-        </div>
-
-        <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab2' }">
+        </tab>
 
         <tab heading="Sea Level Rise and Coastal Erosion">
-
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
@@ -115,9 +93,8 @@
               </table>
             </div>
           </div>
-        </div>
+        </tab>
 
-        <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab3' }">
         
         <tab heading="Ocean Acidification">
           <div class="ccs-div1">
@@ -269,9 +246,9 @@
               </table>
             </div>
           </div>
-        </div>
+        </tab>
 
-        <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab4' }">
+        <tab heading="Agriculture and Food Security">
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
@@ -371,9 +348,9 @@
               </table>
             </div>
           </div>
-        </div>
+        </tab>
 
-        <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab5' }">
+        <tab heading="Health Risk">
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
@@ -420,9 +397,9 @@
               </table>
             </div>
           </div>
-        </div>
+        </tab>
 
-        <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab6' }">
+        <tab heading="Water Scarcity">
           <div class="ccs-div1">
             <div class="ccs-sub-div1">
               <p>
@@ -510,10 +487,9 @@
               </table>
             </div>
           </div>
-        </div>
-        
-        <tab heading="References" style="margin: 20px 0 30px 0">
+        </tab>
 
+        <tab heading="References" style="margin: 20px 0 30px 0">
           <a href="{{ item.references[0] }}" target="_blank">{{
             item.references[0]
           }}</a>
@@ -586,40 +562,28 @@
             item.references[15]
           }}</a>
 
+
           <!--references for ocean acidification-->
 
           <br />
-          <a
-            href="https://oceanservice.noaa.gov/facts/acidification.html"
-            target="_blank"
-          ></a>
+          <a href="https://oceanservice.noaa.gov/facts/acidification.html" target="_blank"></a>
 
           <br />
-          <a
-            href="https://ispweb.pcaarrd.dost.gov.ph/understanding-coastal-acidification-effects-to-corals-and-marine-organisms/"
-            target="_blank"
-          >
+          <a href="https://ispweb.pcaarrd.dost.gov.ph/understanding-coastal-acidification-effects-to-corals-and-marine-organisms/" target="_blank">
           </a>
           <br />
-          <a
-            href="https://www.greenpeace.org/philippines/press/1364/climate-change-to-devastate-philippine-seas-greenpeace-proposes-roadmap-to-recovery/"
-            target="_blank"
-          >
+          <a href="https://www.greenpeace.org/philippines/press/1364/climate-change-to-devastate-philippine-seas-greenpeace-proposes-roadmap-to-recovery/" target="_blank">
           </a>
 
           <br />
-          <a
-            href="https://infogram.com/ocean-acidification-of-philippines-1gyj725q4rk621l"
-            target="_blank"
-          ></a>
+          <a href="https://infogram.com/ocean-acidification-of-philippines-1gyj725q4rk621l" target="_blank"
+            ></a
+          >
 
           <br />
-          <a
-            href="https://www.iaea.org/newscenter/news/what-is-ocean-acidification"
-            target="_blank"
-          ></a>
-        </div>
-      </div>
+          <a href="https://www.iaea.org/newscenter/news/what-is-ocean-acidification" target="_blank"></a>
+        </tab>
+      </tabset>
     </div>
   </section>
 </body>

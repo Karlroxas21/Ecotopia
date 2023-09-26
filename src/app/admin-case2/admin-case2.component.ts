@@ -97,17 +97,6 @@
         const sanitizedCase2 = this.sanitizeInput(this.case2[0]);
         const sanitizedCase3 = this.sanitizeInput(this.case3[0]);
         const sanitizedCase4 = this.sanitizeInput(this.case4[0]);
-
-       // Sanitize indicators
-       const sanitizedIndicators1 = this.sanitizeIndicator(this.indicator_1);
-       const sanitizedIndicators2 = this.sanitizeIndicator(this.indicator_2);
-       const sanitizedIndicators3 = this.sanitizeIndicator(this.indicator_3);
-       const sanitizedIndicators4 = this.sanitizeIndicator(this.indicator_4);
-       const sanitizedIndicators5 = this.sanitizeIndicator(this.indicator_5);
- 
-       // Sanitize references
-       const sanitizedReferences = this.sanitizeReferences(this.references);
- 
     
     
         // Check if any of the inputs failed validation
@@ -118,13 +107,7 @@
           sanitizedCase1 === null ||
           sanitizedCase2 === null ||
           sanitizedCase3 === null ||
-          sanitizedCase4 === null ||
-          sanitizedIndicators1.some((indicator) => indicator === '') ||
-          sanitizedIndicators2.some((indicator) => indicator === '') ||
-          sanitizedIndicators3.some((indicator) => indicator === '') ||
-          sanitizedIndicators4.some((indicator) => indicator === '') ||
-          sanitizedIndicators5.some((indicator) => indicator === '') ||
-          sanitizedReferences.some((reference) => reference === '')
+          sanitizedCase4 === null 
 
         ) {
           // Validation failed, do not proceed with the update
@@ -143,16 +126,6 @@
         this.case2[0] = sanitizedCase2;
         this.case3[0] = sanitizedCase3;
         this.case4[0] = sanitizedCase4;
-
-       // Update sanitized indicators
-       this.indicator_1 = sanitizedIndicators1;
-       this.indicator_2 = sanitizedIndicators2;
-       this.indicator_3 = sanitizedIndicators3;
-       this.indicator_4 = sanitizedIndicators4;
-       this.indicator_5 = sanitizedIndicators5;
- 
-       // Update sanitized references
-       this.references = sanitizedReferences;
     
         this.AdminCase2Service.updateData(sanitizedData).subscribe(
           (updatedItem) => {
@@ -179,7 +152,7 @@
     // End of main function and methods
 
     sanitizeInput(input: string): string | null {
-      const harmfulChars = /[\<\>\"\\\[\]\{\}\%\=\&\+\*\#\@\^\|\~]/g;
+      const harmfulChars = /[\;\(\)\<\>\"\\\[\]\{\}\%\=\&\+\*\#\@\$\^\|\`\~]/g;
     
       // Check if the input contains harmful characters
       if (harmfulChars.test(input)) {
@@ -188,22 +161,6 @@
       }
       // If no harmful characters are found, return the sanitized input
       return input;
-    }
-
-    // Indicator sanitization function
-    sanitizeIndicator(indicator: string[]): string[] {
-      return indicator.map((item) => {
-        const sanitizedItem = this.sanitizeInput(item);
-        return sanitizedItem !== null ? sanitizedItem : '';
-      });
-    }
-  
-    // Reference sanitization function
-    sanitizeReferences(references: string[]): string[] {
-      return references.map((reference) => {
-        const sanitizedReference = this.sanitizeInput(reference);
-        return sanitizedReference !== null ? sanitizedReference : '';
-      });
     }
 
     ngOnInit(): void{
