@@ -93,29 +93,29 @@ export class AdminSolution1Component {
   updateData(): void {
     if (this.isAnyChanges()) {
       // Sanitize input before sending
-      const sanitizedHeader = this.sanitizeInput(this.header);
-      const sanitizedHeaderDesc = this.sanitizeInput(this.header_desc);
+      const sanitizedHeader = this.sanitizeInputString(this.header);
+      const sanitizedHeaderDesc = this.sanitizeInputString(this.header_desc);
 
       // Sanitize bullet data
-      const sanitizedBullet1 = this.sanitizeInput(this.bullet1[0]);
-      const sanitizedBullet2 = this.sanitizeInput(this.bullet2[0]);
-      const sanitizedBullet3 = this.sanitizeInput(this.bullet3[0]);
-      const sanitizedBullet4 = this.sanitizeInput(this.bullet4[0]);
-      const sanitizedBullet5 = this.sanitizeInput(this.bullet5[0]);
-      const sanitizedBullet6 = this.sanitizeInput(this.bullet6[0]);
-      const sanitizedBullet7 = this.sanitizeInput(this.bullet7[0]);
-      const sanitizedBullet8 = this.sanitizeInput(this.bullet8[0]);
-      const sanitizedBullet9 = this.sanitizeInput(this.bullet9[0]);
-      const sanitizedBullet10 = this.sanitizeInput(this.bullet10[0]);
-      const sanitizedBullet11 = this.sanitizeInput(this.bullet11[0]);
-      const sanitizedBullet12 = this.sanitizeInput(this.bullet12[0]);
-      const sanitizedBullet13 = this.sanitizeInput(this.bullet13[0]);
+      const sanitizedBullet1 = this.sanitizeInputArray(this.bullet1);
+      const sanitizedBullet2 = this.sanitizeInputArray(this.bullet2);
+      const sanitizedBullet3 = this.sanitizeInputArray(this.bullet3);
+      const sanitizedBullet4 = this.sanitizeInputArray(this.bullet4);
+      const sanitizedBullet5 = this.sanitizeInputArray(this.bullet5);
+      const sanitizedBullet6 = this.sanitizeInputArray(this.bullet6);
+      const sanitizedBullet7 = this.sanitizeInputArray(this.bullet7);
+      const sanitizedBullet8 = this.sanitizeInputArray(this.bullet8);
+      const sanitizedBullet9 = this.sanitizeInputArray(this.bullet9);
+      const sanitizedBullet10 = this.sanitizeInputArray(this.bullet10);
+      const sanitizedBullet11 = this.sanitizeInputArray(this.bullet11);
+      const sanitizedBullet12 = this.sanitizeInputArray(this.bullet12);
+      const sanitizedBullet13 = this.sanitizeInputArray(this.bullet13);
 
       // Sanitize descriptions
-      const sanitizedDescription = this.sanitizeCaseContent(this.descriptions);
+      const sanitizedDescription = this.sanitizeInputArray(this.descriptions);
       
       // Sanitize references
-      const sanitizedReferences = this.sanitizeReferences(this.references);
+      const sanitizedReferences = this.sanitizeInputArray(this.references);
   
       // Check if any of the inputs failed validation
       if (
@@ -134,9 +134,28 @@ export class AdminSolution1Component {
         sanitizedBullet11 === null ||
         sanitizedBullet12 === null ||
         sanitizedBullet13 === null ||
-        sanitizedDescription.some((Description) => Description === '') ||
-        sanitizedReferences.some((reference) => reference === '')
-      ) {
+        sanitizedDescription === null ||
+        sanitizedReferences === null)
+       {
+        // console.log('sanitizedHeader', sanitizedHeader);
+        // console.log('sanitizedHeaderDesc', sanitizedHeaderDesc);
+        // console.log('sanitizedBullet1', sanitizedBullet1);
+        // console.log('sanitizedBullet2', sanitizedBullet2);
+        // console.log('sanitizedBullet3', sanitizedBullet3);
+        // console.log('sanitizedBullet4', sanitizedBullet4);
+        // console.log('sanitizedBullet5', sanitizedBullet5);
+        // console.log('sanitizedBullet6', sanitizedBullet6);
+        // console.log('sanitizedBullet7', sanitizedBullet7);
+        // console.log('sanitizedBullet8', sanitizedBullet8);
+        // console.log('sanitizedBullet9', sanitizedBullet9);
+        // console.log('sanitizedBullet10', sanitizedBullet10);
+        // console.log('sanitizedBullet11', sanitizedBullet11);
+        // console.log('sanitizedBullet12', sanitizedBullet12);
+        // console.log('sanitizedBullet13', sanitizedBullet13);
+        // console.log('sanitizedDescription', sanitizedDescription);
+        // console.log('sanitizedReferences', sanitizedReferences);
+
+
         // Validation failed, do not proceed with the update
         this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
         return;
@@ -148,29 +167,29 @@ export class AdminSolution1Component {
       sanitizedData.header_description = sanitizedHeaderDesc;
   
       // Update sanitized bullet data
-      this.bullet1[0] = sanitizedBullet1;
-      this.bullet2[0] = sanitizedBullet2;
-      this.bullet3[0] = sanitizedBullet3;
-      this.bullet4[0] = sanitizedBullet4;
-      this.bullet5[0] = sanitizedBullet5;
-      this.bullet6[0] = sanitizedBullet6;
-      this.bullet7[0] = sanitizedBullet7;
-      this.bullet8[0] = sanitizedBullet8;
-      this.bullet9[0] = sanitizedBullet9;
-      this.bullet10[0] = sanitizedBullet10;
-      this.bullet11[0] = sanitizedBullet11;
-      this.bullet12[0] = sanitizedBullet12;
-      this.bullet13[0] = sanitizedBullet13;
+      sanitizedData.bullet1 = sanitizedBullet1;
+      sanitizedData.bullet2 = sanitizedBullet2;
+      sanitizedData.bullet3 = sanitizedBullet3;
+      sanitizedData.bullet4 = sanitizedBullet4;
+      sanitizedData.bullet5 = sanitizedBullet5;
+      sanitizedData.bullet6 = sanitizedBullet6;
+      sanitizedData.bullet7 = sanitizedBullet7;
+      sanitizedData.bullet8 = sanitizedBullet8;
+      sanitizedData.bullet9 = sanitizedBullet9;
+      sanitizedData.bullet10 = sanitizedBullet10;
+      sanitizedData.bullet11 = sanitizedBullet11;
+      sanitizedData.bullet12 = sanitizedBullet12;
+      sanitizedData.bullet13 = sanitizedBullet13;
 
-       //Update sanitized Case Content
-       this.descriptions = sanitizedDescription;
+      //Update sanitized Case Content
+      sanitizedData.descriptions = sanitizedDescription;
       
-       // Update sanitized references
-       this.references = sanitizedReferences;
+      // Update sanitized references
+      sanitizedData.references = sanitizedReferences;
   
       this.AdminSolution1Service.updateData(sanitizedData).subscribe(
         (updatedItem) => {
-          this.router.navigate(['/admin-cases-1']); //admin-cases-problemtrash
+          this.router.navigate(['/admin-case-1']); //admin-cases-problemtrash
           console.log(this.y_should_we_take_action[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
@@ -192,8 +211,8 @@ export class AdminSolution1Component {
 
   // End of main function and methods
 
-  sanitizeInput(input: string): string | null {
-    const harmfulChars = /[\<\>]/g;
+  sanitizeInputString(input: string): string | null {
+    const harmfulChars = /[\;\(\)\<\>\'\"\\\/\[\]\{\}\%\=\?\&\+\*\#\@\$\^\|\`\~]/g;
   
     // Check if the input contains harmful characters
     if (harmfulChars.test(input)) {
@@ -203,21 +222,24 @@ export class AdminSolution1Component {
     // If no harmful characters are found, return the sanitized input
     return input;
   }
+  
+  sanitizeInputArray(input: string[]): string[] | null{
+    const harmfulChars = /[\\<\>\'\"\\\[\]\{\}\=\?\&\+\*\@\$\^\|\`\~]/g;
+    const sanitizedInput: string[] = [];
 
-     // Descriptions sanitization function
- sanitizeCaseContent(Description: string[]): string[] {
-  return Description.map((Description) => {
-    const sanitizedDescription = this.sanitizeInput(Description);
-    return sanitizedDescription !== null ? sanitizedDescription : '';
-  });
-}
+    for(const str of input){
+      // Check if the string array contains harmful chars
+      if(harmfulChars.test(str)){
 
- // Reference sanitization function
-  sanitizeReferences(references: string[]): string[] {
-    return references.map((reference) => {
-      const sanitizedReference = this.sanitizeInput(reference);
-      return sanitizedReference !== null ? sanitizedReference : '';
-    });
+        console.log(`Harmful character detected in string: ${str}`);
+        console.log(`Harmful character: ${str.match(harmfulChars)}`);
+        return null;
+      }
+
+      sanitizedInput.push(str);
+    }
+
+    return sanitizedInput;
   }
 
   ngOnInit(): void{
