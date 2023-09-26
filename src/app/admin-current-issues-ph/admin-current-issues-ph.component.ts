@@ -95,7 +95,7 @@ export class AdminCurrentIssuesPhComponent {
       // references
       this.arrayPusher(
         this.references,
-        11,
+        16,
         'references'); 
     })
   }
@@ -146,7 +146,7 @@ export class AdminCurrentIssuesPhComponent {
 
   editing_ocean_acidification: boolean [] = [false, false, false, false, false, false, false, false, false, false, false];
 
-  editing_references: boolean [] = [false, false, false, false, false, false, false, false, false, false, false]
+  editing_references: boolean [] = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
 
   // Sea Level Erosion Dynamic 
   startEditingSeaLevelErosion(index: number){

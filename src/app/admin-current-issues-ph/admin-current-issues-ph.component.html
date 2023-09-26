@@ -1805,6 +1805,95 @@
               (ngModelChange)="doesChange()"
               [(ngModel)]="current_issue_ph[0].references[10]"
             ></textarea>
+            
+            <br />
+
+            <div
+              *ngIf="!editing_references[11]"
+              (click)="startEditingReferences(11)"
+            >
+              {{ references[11] }}
+            </div>
+
+            <textarea
+              rows="1" cols="189"
+              *ngIf="editing_references[11]"
+              (blur)="finishEditingReferences(11, $event)"
+              class="resizable-input"
+              (ngModelChange)="doesChange()"
+              [(ngModel)]="current_issue_ph[0].references[11]"
+            ></textarea> 
+            <br />
+
+            <div
+              *ngIf="!editing_references[12]"
+              (click)="startEditingReferences(12)"
+            >
+              {{ references[12] }}
+            </div>
+
+            <textarea
+              rows="1" cols="189"
+              *ngIf="editing_references[12]"
+              (blur)="finishEditingReferences(12, $event)"
+              class="resizable-input"
+              (ngModelChange)="doesChange()"
+              [(ngModel)]="current_issue_ph[0].references[12]"
+            ></textarea>
+            
+            <br />
+
+            <div
+              *ngIf="!editing_references[13]"
+              (click)="startEditingReferences(13)"
+            >
+              {{ references[13] }}
+            </div>
+
+            <textarea
+              rows="1" cols="189"
+              *ngIf="editing_references[13]"
+              (blur)="finishEditingReferences(13, $event)"
+              class="resizable-input"
+              (ngModelChange)="doesChange()"
+              [(ngModel)]="current_issue_ph[0].references[13]"
+            ></textarea>
+            
+            <br />
+
+            <div
+              *ngIf="!editing_references[14]"
+              (click)="startEditingReferences(14)"
+            >
+              {{ references[14] }}
+            </div>
+
+            <textarea
+              rows="1" cols="189"
+              *ngIf="editing_references[14]"
+              (blur)="finishEditingReferences(14, $event)"
+              class="resizable-input"
+              (ngModelChange)="doesChange()"
+              [(ngModel)]="current_issue_ph[0].references[14]"
+            ></textarea>
+            <br />
+
+            <div
+              *ngIf="!editing_references[15]"
+              (click)="startEditingReferences(15)"
+            >
+              {{ references[15] }}
+            </div>
+
+            <textarea
+              rows="1" cols="189"
+              *ngIf="editing_references[15]"
+              (blur)="finishEditingReferences(15, $event)"
+              class="resizable-input"
+              (ngModelChange)="doesChange()"
+              [(ngModel)]="current_issue_ph[0].references[15]"
+            ></textarea>
+
           </tab>
         </tabset>
       </div>
