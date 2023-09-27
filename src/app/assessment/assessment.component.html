@@ -46,8 +46,8 @@
             </p>
             <p
               *ngIf="
-                showUnansweredQuestionMessage &&
-                !selectedAnswersTriviaGame[index * 10 + i]
+                showUnansweredQuestionMessageTrivia &&
+                !selectedAnswersTriviaGame[index * 10 + i] 
               "
               class="validation-error"
             >
@@ -59,6 +59,7 @@
           type="submit"
           (click)="submitTriviaGame()"
           style="background-color: #7ae385"
+          *ngIf="showSubmitButtonTrivia"
         >
           Submit
         </button>
@@ -122,7 +123,7 @@
             </p>
             <p
             *ngIf="
-              showUnansweredQuestionMessage &&
+              showUnansweredQuestionMessagePop &&
               !selectedAnswersPopQuiz[index * 10 + i]
             "
             class="validation-error"
@@ -135,6 +136,7 @@
           type="submit"
           (click)="submitPopQuiz()"
           style="background-color: #7ae385"
+          *ngIf="showSubmitButtonPop"
         >
           Submit
         </button>
@@ -182,12 +184,12 @@
     <div class="score-content">
       <h3>Your Score</h3>
       <p class="score">{{ scorePopQuiz }}</p>
-      <button class="close-button" (click)="closeScoreBox()">Review the form</button>
+      <button class="close-button" (click)="closeScoreBox2()">Review the form</button>
     </div>
 
 
 
-    <div *ngIf="showAnswers2" class="answers-section2">
+    <div *ngIf="showAnswers2" class="answers-section">
       <h3>My Answers</h3>
       <ul>
         <li *ngFor="let answer of selectedAnswersPopQuiz; let i = index">

@@ -72,16 +72,16 @@ body, header{
 }
 
 .item-date{
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-style: italic;
 }
 
 .item-title{
-  font-size: 1rem;
+  font-size: 2rem;
 }
 
 .item-desc{
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 /* .item-link{

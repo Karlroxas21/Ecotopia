@@ -46,6 +46,7 @@ import { Case1Component } from './case1/case1.component';
 import { Case2Component } from './case2/case2.component';
 import { Case3Component } from './case3/case3.component';
 import { Case4Component } from './case4/case4.component';
+import { PolicyComponent } from './policy/policy.component';
 
 
 
@@ -89,6 +90,7 @@ import { Case4Component } from './case4/case4.component';
     Case2Component,
     Case3Component,
     Case4Component,
+    PolicyComponent,
 
     
   ],

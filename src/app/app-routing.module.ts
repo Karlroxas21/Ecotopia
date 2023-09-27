@@ -18,6 +18,7 @@ import { GovernmentresourcesComponent } from './governmentresources/governmentre
 import { AssessmentComponent } from './assessment/assessment.component';
 import { MaterialComponent } from './material/material.component';
 import { LoginComponent } from './login/login.component';
+import { PolicyComponent } from './policy/policy.component';
 
 // Cases
 import { Case1Component } from './case1/case1.component';
@@ -63,6 +64,7 @@ const routes: Routes = [
   {component: AssessmentComponent, path: 'assessment'},
   {component: MaterialComponent, path: 'material'},
   {component: LoginComponent, path: 'login'},
+  {component: PolicyComponent, path: 'privacypolicy'},
 
   // Cases
   {component: Case1Component, path: 'case1'},

@@ -38,11 +38,20 @@ export class AssessmentComponent implements OnInit {
 
   showPlayAgainButton: boolean = false; //For Trivia Game
   showPlayAgainButtonPop: boolean = false; // For Pop Quiz
-  showUnansweredQuestionMessage: boolean = false;
+
+  showUnansweredQuestionMessageTrivia: boolean = false;
+  showUnansweredQuestionMessagePop: boolean = false;
+
+  showSubmitButtonTrivia: boolean = true;
+  showSubmitButtonPop: boolean = true;
+  
 
   constructor(private http: HttpClient,
     private titleService: Title,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService) {
+      this.selectedAnswersTriviaGame = Array(10).fill(null);
+      this.selectedAnswersPopQuiz = Array(10).fill(null);
+    }
 
   ngOnInit(): void {
     this.http.get<any[]>('http://localhost:80/assessment_trivia')
@@ -106,11 +115,23 @@ checkAnswerTriviaGame() {
   closeScoreBox() {
     // Close the score box
     this.showScoreBox = false;
-    this.showScoreBox2 = false;
 
     // Show the "Play Again" button
     this.showPlayAgainButton = true;
+    
+    //Hide the submit button
+    this.showSubmitButtonTrivia = false;
+  }
+
+  closeScoreBox2() {
+    // Close the score box
+    this.showScoreBox2 = false;
+
+    // Show the "Play Again" button
     this.showPlayAgainButtonPop = true;
+
+    //Hide the submit button
+    this.showSubmitButtonPop = false;
   }
 
   playAgain() {
@@ -123,10 +144,9 @@ checkAnswerTriviaGame() {
   playAgainPop() {
     // Reset the Pop Quiz, hide the score box, and hide the "Play Again" button in the Pop Quiz form
     this.resetSelectedAnswersPop();
-    this.showScoreBox = false;
+    this.showScoreBox2 = false;
     this.showPlayAgainButtonPop = false;
   }
-  
 
   checkAnswerPopQuiz() {
   // Calculate the score, incorrect answers, and correct answers for Pop Quiz
@@ -175,74 +195,71 @@ checkAnswerTriviaGame() {
     //   this.activeToasts.push(toast);
     // }, 3000);
   }
-
-  playAgain2() {
-    // Reset the quiz
-    this.resetSelectedAnswersPop();
-    this.showScoreBox2 = false;
-    this.showAnswers2 = false;
-  
-    // Additional logic to clear the incorrect/correct answers if needed
-    this.incorrectAnswersPopQuiz = [];
-    this.correctAnswersPopQuiz= [];
-  }
   
 submitTriviaGame() {
   // Check if any question is unanswered
-  const unansweredQuestion = this.selectedAnswersTriviaGame.every(answer => answer == undefined || answer == null);
+  const unansweredQuestion = this.selectedAnswersTriviaGame.some(answer => answer === null);
+
 
   if (unansweredQuestion) {
-    this.showUnansweredQuestionMessage = true;
+    this.showUnansweredQuestionMessageTrivia = true;
     this.toastr.error('Please answer all questions before submitting.');
   } else {
-    this.showUnansweredQuestionMessage = false;
+    this.showUnansweredQuestionMessageTrivia = false;
     this.toastr.success('Submitted!');
     this.checkAnswerTriviaGame();
   }
 }
 
-  resetSelectedAnswersTrivia() {
-    this.selectedAnswersTriviaGame = Array(10).fill('');
-    this.showUnansweredQuestionMessage = false;
+resetSelectedAnswersTrivia() {
+  this.selectedAnswersTriviaGame = Array(10).fill(null); // Reset selected answers
 
-    this.scoreTriviaGame = 0;
-    this.incorrectAnswersTriviaGame = [];
-    this.correctAnswersTriviaGame = [];
-    this.submittedTriviaGame = false;
+  // Clear the "This is a required question" error message
+  this.showUnansweredQuestionMessageTrivia = false;
 
-    this.selectedAnswersTriviaGame = []; // Reset selected answers
-    this.selectedAnswersPopQuiz = []; // Reset selected answers
-    this.activeToasts.forEach(toast => this.toastr.clear(toast.toastId)); // Clear active toasts
-    this.correctAnswersTriviaGame = [];
+  this.scoreTriviaGame = 0;
+  this.incorrectAnswersTriviaGame = [];
+  this.correctAnswersTriviaGame = [];
+  this.submittedTriviaGame = false;
 
-    this.toastr.info('Your responses have been reset.', '');
-  }
+  this.activeToasts.forEach(toast => this.toastr.clear(toast.toastId)); // Clear active toasts
+  this.correctAnswersTriviaGame = [];
+
+  this.showSubmitButtonTrivia = true; // Show the submit button again for Trivia
+
+  this.toastr.info('Your responses have been reset.', '');
+}
 
   submitPopQuiz() {
     // Check if any question is unanswered
-    const unansweredQuestion = this.selectedAnswersPopQuiz.every(answer => answer == undefined || answer == null);
+    const unansweredQuestion2 = this.selectedAnswersPopQuiz.some(answer => answer === null);
 
-    if (unansweredQuestion) {
-      this.showUnansweredQuestionMessage = true;
+    if (unansweredQuestion2) {
+      this.showUnansweredQuestionMessagePop = true;
       this.toastr.error('Please answer all questions before submitting.');
     } else {
-      this.showUnansweredQuestionMessage = false;
+      this.showUnansweredQuestionMessagePop = false;
       this.toastr.success('Submitted!');
       this.checkAnswerPopQuiz();
     }
   }
 
-    resetSelectedAnswersPop(){
-      this.selectedAnswersPopQuiz = Array(10).fill('');
-
-      this.scorePopQuiz = 0;
-      this.incorrectAnswersPopQuiz = [];
-      this.correctAnswersPopQuiz = [];
-      this.submittedPopQuiz = false;
-
-      this.selectedAnswersPopQuiz = []; // Reset selected answers
-      this.activeToasts.forEach(toast => this.toastr.clear(toast.toastId)); // Clear active toasts
-
-      this.toastr.info('Your responses have been reset.', '');
-    }
+  resetSelectedAnswersPop() {
+    this.selectedAnswersPopQuiz = Array(10).fill(null); // Reset selected answers
+  
+    // Clear the "This is a required question" error message for Pop Quiz
+    this.showUnansweredQuestionMessagePop = false;
+  
+    this.scorePopQuiz = 0;
+    this.incorrectAnswersPopQuiz = [];
+    this.correctAnswersPopQuiz = [];
+    this.submittedPopQuiz = false;
+    
+    this.activeToasts.forEach(toast => this.toastr.clear(toast.toastId)); // Clear active toasts
+    this.correctAnswersPopQuiz = [];
+  
+    this.showSubmitButtonPop = true; // Show the submit button again for Pop Quiz
+  
+    this.toastr.info('Your responses have been reset.', '');
+  }  
 }
