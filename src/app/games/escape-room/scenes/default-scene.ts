@@ -49,7 +49,7 @@ export class DefaultScene extends Phaser.Scene{
         });
 
         // BG Music
-        this.bgMusic = this.sound.add('bg-music', {loop: true});
+        this.bgMusic = this.sound.add('bg-music', {loop: true, volume: 0.3});
         this.bgMusic.play();
 
     }

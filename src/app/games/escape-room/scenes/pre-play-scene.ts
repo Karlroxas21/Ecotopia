@@ -81,7 +81,7 @@ export class PrePlayScene extends Phaser.Scene {
     // End of Guide
 
     // Background music
-    this.bgMusic = this.sound.add('bg-music', {loop: true, volume: 0.3});
+    this.bgMusic = this.sound.add('bg-music', {loop: true, volume: 0.2});
     this.bgMusic.play();
       
   }
