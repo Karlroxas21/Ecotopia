@@ -18,6 +18,7 @@
   }
   .parralax-div1{
     height: 600px;
+    transition: all .45s ease;
   }
 
   header img{
@@ -25,6 +26,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 80%;
+    transition: all .45s ease;
   }
   /* .parallax-div1 img {
     padding-top: 50px;
@@ -42,6 +44,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: all .45s ease;
   }
   section .div-parallax-3{
     padding-top: 50px;
@@ -102,6 +105,7 @@
     margin-right: 10%;
     margin-top: 50px;
     gap: 90px;
+    transition: all .45s ease;
   }
 
   .wcyd-sub-div-1 {
@@ -110,6 +114,7 @@
     flex-direction: column;
     align-items: center;
     gap: 40px;
+    transition: all .45s ease;
   }
 
   .wcyd-sub-div-1 p {
@@ -118,12 +123,14 @@
     line-height: .8;
     font-family: 'Henry Sans Bold', sans-serif;
     color: #141955;
+    transition: all .45s ease;
   }
   .wcyd-sub-div-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-gap: 20px;
+    transition: all .45s ease;
   }
   .wcyd-sub-div-2 p{
     font-family: 'Henry Sans Regular', sans-serif;
@@ -138,9 +145,12 @@
   .tile2,
   .tile3,
   .tile4 {
+    width: 100%;
+    margin: 10px;
     padding: 20px;
-    display: grid;
-    grid-template-rows: .5fr 1fr;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    transition: all .45s ease;
   }
 
   .tile1{
@@ -160,8 +170,19 @@
 
   .tile4{
     border: 5px solid #A6782A;
-    border-radius: 20px;
+    border-radius: 20px
   }
+  
+  .tile-image img{
+    width: 100%;
+    height: 200px;
+    margin: 20px 0 20px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all .45s ease;
+  }
+
+
   /* End of tiles */
 
   .div-parallax-3 {
@@ -237,7 +258,7 @@
   overflow: hidden;
 }
 
-  @media (max-width: 858px) {
+  @media (max-width: 1158px) {
     .wcyd-sub-div-1{
       display: flex;
     }
@@ -250,7 +271,7 @@
       flex-direction: column;
     }
     .parallax-div2-text p {
-      font-size: 1.5rem;
+      font-size: 2.0rem;
     }
     .tile1,
     .tile2,

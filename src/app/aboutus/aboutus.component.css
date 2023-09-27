@@ -1,3 +1,4 @@
+
 .parent{
     display: flex;
     flex-direction: row;
@@ -84,7 +85,7 @@
 .objective-1{
     padding: 15px;
 }
-.objective-1 p{
+.objective-1 figcaption{
     font-weight: 500;
     margin-left: 10px;
 }
