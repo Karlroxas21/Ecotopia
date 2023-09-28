@@ -80,13 +80,34 @@ export class AdminCase2Component {
 
       console.log(this.indicator_2);
 
-      // Reference
+      // References
       this.referencePusher(this.references);
     })
   }
 
   updateData(): void {
     if (this.isAnyChanges()) {
+    // Validate input fields
+    if (
+      !this.isValidInput(this.header) ||
+      !this.isValidInput(this.header_desc) ||
+      !this.isValidInput(this.header_title) ||
+      !this.isValidInput(this.case1[0]) ||
+      !this.isValidInput(this.case2[0]) ||
+      !this.isValidInput(this.case3[0]) ||
+      !this.isValidInput(this.case4[0]) ||
+      this.indicator_1.some(indicator => !this.isValidInput(indicator)) ||
+      this.indicator_2.some(indicator => !this.isValidInput(indicator)) ||
+      this.indicator_3.some(indicator => !this.isValidInput(indicator)) ||
+      this.indicator_4.some(indicator => !this.isValidInput(indicator)) ||
+      this.indicator_5.some(indicator => !this.isValidInput(indicator)) ||
+      this.references.some(reference => !this.isValidInput(reference))
+    ) {
+      // Validation failed, do not proceed with the update
+      this.toastr.error('One or more input fields are empty or contain only blank spaces. Please fill them out and try again.', 'Validation Error');
+      return;
+    }
+
       // Sanitize input before sending
       const sanitizedHeader = this.sanitizeInput(this.header);
       const sanitizedHeaderDesc = this.sanitizeInput(this.header_desc);
@@ -169,6 +190,11 @@ export class AdminCase2Component {
     } else {
       this.toastr.info('No changes were made.', 'Info');
     }
+  }
+
+  // Helper function to validate a single input
+  isValidInput(input: string): boolean {
+    return input.trim() !== ''; // Check if the input is not empty or contains only space
   }
   
   // Track if there is any changes made

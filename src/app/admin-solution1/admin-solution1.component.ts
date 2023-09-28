@@ -92,6 +92,30 @@ export class AdminSolution1Component {
 
   updateData(): void {
     if (this.isAnyChanges()) {
+    // Validate input fields
+    if (
+      !this.isValidInput(this.header) ||
+      !this.isValidInput(this.header_desc) ||
+      !this.isValidInputArray(this.bullet1) ||
+      !this.isValidInputArray(this.bullet2) ||
+      !this.isValidInputArray(this.bullet3) ||
+      !this.isValidInputArray(this.bullet4) ||
+      !this.isValidInputArray(this.bullet5) ||
+      !this.isValidInputArray(this.bullet6) ||
+      !this.isValidInputArray(this.bullet7) ||
+      !this.isValidInputArray(this.bullet8) ||
+      !this.isValidInputArray(this.bullet9) ||
+      !this.isValidInputArray(this.bullet10) ||
+      !this.isValidInputArray(this.bullet11) ||
+      !this.isValidInputArray(this.bullet12) ||
+      !this.isValidInputArray(this.bullet13) ||
+      !this.isValidInputArray(this.descriptions) ||
+      !this.isValidInputArray(this.references)
+    ) {
+      // Validation failed, do not proceed with the update
+      this.toastr.error('One or more input fields are empty or contain invalid characters. Please fill them out correctly and try again.', 'Validation Error');
+      return;
+    }
       // Sanitize input before sending
       const sanitizedHeader = this.sanitizeInputString(this.header);
       const sanitizedHeaderDesc = this.sanitizeInputString(this.header_desc);
@@ -181,7 +205,7 @@ export class AdminSolution1Component {
       sanitizedData.bullet12 = sanitizedBullet12;
       sanitizedData.bullet13 = sanitizedBullet13;
 
-      //Update sanitized Case Content
+      //Update sanitized Solution Content
       sanitizedData.descriptions = sanitizedDescription;
       
       // Update sanitized references
@@ -189,7 +213,7 @@ export class AdminSolution1Component {
   
       this.AdminSolution1Service.updateData(sanitizedData).subscribe(
         (updatedItem) => {
-          this.router.navigate(['/admin-case-1']); //admin-cases-problemtrash
+          this.router.navigate(['/admin-solution1']);
           console.log(this.y_should_we_take_action[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
@@ -202,6 +226,16 @@ export class AdminSolution1Component {
     } else {
       this.toastr.info('No changes were made.', 'Info');
     }
+  }
+
+  // Helper function to validate a single input
+  isValidInput(input: string): boolean {
+    return input.trim() !== ''; // Check if the input is not empty or contains only space
+  }
+  
+  // Helper function to validate an array of inputs
+  isValidInputArray(inputArray: string[]): boolean {
+    return inputArray.every(input => this.isValidInput(input));
   }
   
   // Track if there is any changes made
@@ -224,7 +258,7 @@ export class AdminSolution1Component {
   }
   
   sanitizeInputArray(input: string[]): string[] | null{
-    const harmfulChars = /[\\<\>\'\"\\\[\]\{\}\=\?\&\+\*\@\$\^\|\`\~]/g;
+    const harmfulChars = /[\<\>\'\"\\\[\]\{\}\=\?\&\+\*\@\$\^\|\`\~]/g;
     const sanitizedInput: string[] = [];
 
     for(const str of input){

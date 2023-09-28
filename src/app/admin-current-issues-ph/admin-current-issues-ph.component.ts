@@ -100,28 +100,93 @@ export class AdminCurrentIssuesPhComponent {
     })
   }
 
-  updateData(): void{
-    if(this.isAnyChanges()){
-      this.AdminCurrentIssueService.updateData(this.current_issue_ph[0]).subscribe(updatedData =>{
-        this.router.navigate(['/admin-current-issues-ph']);
+  updateData(): void {
+    if (this.isAnyChanges()) {
+      
+      // Sanitize input before sending
+      const sanitizedSeaLevelErosion = this.sanitizeArray(this.sea_level_rise_coastal_erosion);
+      const sanitizedSeaLevelErosion2 = this.sanitizeArray(this.sea_level_rise_coastal_erosion_2);
+      const sanitizedBiodiversityLoss = this.sanitizeArray(this.biodiversity_ecosystem_loss);
+      const sanitizedFoodSecurity = this.sanitizeArray(this.agriculture_food_security);
+      const sanitizedHealthRisk = this.sanitizeArray(this.health_risk);
+      const sanitizedWaterScarcity = this.sanitizeArray(this.water_scarcity);
+      const sanitizedOceanAcidification = this.sanitizeArray(this.ocean_acidification);
+      const sanitizedReferences = this.sanitizeArray(this.references);
 
-        this.toastr.success('Data updated successfully.', 'Success');
-        // console.log('Update success', updatedData);
-      }, (err) =>{
-        this.toastr.error('Error updating item.', 'Error');
-        // console.error("Error updating item. ", err);
-      })
+  
+      // Check if any of the inputs failed validation
+      if (
+        sanitizedSeaLevelErosion === null ||
+        sanitizedSeaLevelErosion2 === null ||
+        sanitizedBiodiversityLoss === null ||
+        sanitizedFoodSecurity === null ||
+        sanitizedHealthRisk === null ||
+        sanitizedWaterScarcity === null ||
+        sanitizedOceanAcidification === null ||
+        sanitizedReferences === null
+
+      ) {
+        // Validation failed, do not proceed with the update
+        this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
+        return;
+      }
+  
+      // Create a sanitized copy of the data
+      const sanitizedData = { ...this.current_issue_ph[0] };
+       this.sea_level_rise_coastal_erosion = sanitizedSeaLevelErosion;
+      this.sea_level_rise_coastal_erosion_2 = sanitizedSeaLevelErosion2;
+      this.biodiversity_ecosystem_loss = sanitizedBiodiversityLoss;
+      this.agriculture_food_security = sanitizedFoodSecurity;
+      this.health_risk = sanitizedHealthRisk;
+      this.water_scarcity = sanitizedWaterScarcity;
+      this.ocean_acidification = sanitizedOceanAcidification;
+      this.references = sanitizedReferences;
+
+     // Update sanitized references
+     this.references = sanitizedReferences;
+  
+      this.AdminCurrentIssueService.updateData(sanitizedData).subscribe(
+        (updatedItem) => {
+          this.router.navigate(['/admin-cases-2']);
+          console.log(this.current_issue_ph[0]);
+          this.toastr.success('Data updated successfully.', 'Success');
+        },
+        (err) => {
+          this.toastr.error('Error updating item.', 'Error');
+          console.error('Error updating item. ', err);
+        }
+      );
       this.isThereAnyChanges = false;
-    }else{
+    } else {
       this.toastr.info('No changes were made.', 'Info');
-       // console.log("You did not make any changes");
     }
+  }
+
+  sanitizeArray(input: string[]): string[] | null{
+    const harmfulChars = /[\<\>\'\"\\\[\]\{\}\=\?\&\+\*\@\$\^\|\`\~]/g;
+    const sanitizedInput: string[] = [];
+
+    for(const str of input){
+      // Check if the string array contains harmful chars
+      if(harmfulChars.test(str)){
+
+        console.log(`Harmful character detected in string: ${str}`);
+        console.log(`Harmful character: ${str.match(harmfulChars)}`);
+        return null;
+      }
+
+      sanitizedInput.push(str);
+    }
+
+    return sanitizedInput;
   }
 
   // Track if there is any changes made
   isAnyChanges(){
     return this.isThereAnyChanges;
   }
+
+  // End of main function and methods
 
   // End of main function and method
 

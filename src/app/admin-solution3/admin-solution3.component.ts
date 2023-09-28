@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
-import { AdminSolution2Service } from '../admin-solution2/admin-solution2-service';
 import { Router } from '@angular/router';
 import { AdminSolution3Service } from './admin-solution3-service';
 import { ToastrService } from 'ngx-toastr';
@@ -71,14 +70,33 @@ export class AdminSolution3Component {
 
   updateData(): void {
     if (this.isAnyChanges()) {
+    // Validate input fields
+    if (
+      !this.isValidInput(this.header) ||
+      !this.isValidInput(this.header_desc) ||
+      !this.isValidInputArray(this.descriptions) ||
+      !this.isValidInputArray(this.bullet1) ||
+      !this.isValidInputArray(this.bullet2) ||
+      !this.isValidInputArray(this.references)
+    ) {
+      // Validation failed, do not proceed with the update
+      this.toastr.error('One or more input fields are empty or contain only blank spaces. Please fill them out and try again.', 'Validation Error');
+      return;
+    }
+
       // Sanitize input before sending
-      const sanitizedHeader = this.sanitizeInput(this.header);
-      const sanitizedHeaderDesc = this.sanitizeInput(this.header_desc);
+      const sanitizedHeader = this.sanitizeInputString(this.header);
+      const sanitizedHeaderDesc = this.sanitizeInputString(this.header_desc);
 
       // Sanitize bullet data
-      const sanitizedBullet1 = this.sanitizeInput(this.bullet1[0]);
-      const sanitizedBullet2 = this.sanitizeInput(this.bullet2[0]);
-      const sanitizedDescriptions = this.sanitizeInput(this.descriptions[0]);
+      const sanitizedBullet1 = this.sanitizeInputArray(this.bullet1);
+      const sanitizedBullet2 = this.sanitizeInputArray(this.bullet2);
+
+      // Sanitize descriptions
+      const sanitizedDescription = this.sanitizeInputArray(this.descriptions);
+      
+      // Sanitize references
+      const sanitizedReferences = this.sanitizeInputArray(this.references);
   
       // Check if any of the inputs failed validation
       if (
@@ -86,8 +104,10 @@ export class AdminSolution3Component {
         sanitizedHeaderDesc === null ||
         sanitizedBullet1 === null ||
         sanitizedBullet2 === null ||
-        sanitizedDescriptions === null
-      ) {
+        sanitizedDescription === null ||
+        sanitizedReferences === null)
+       {
+
         // Validation failed, do not proceed with the update
         this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
         return;
@@ -99,13 +119,18 @@ export class AdminSolution3Component {
       sanitizedData.header_description = sanitizedHeaderDesc;
   
       // Update sanitized bullet data
-      this.bullet1[0] = sanitizedBullet1;
-      this.bullet2[0] = sanitizedBullet2;
-      this.descriptions[0] = sanitizedDescriptions;
+      sanitizedData.bullet1 = sanitizedBullet1;
+      sanitizedData.bullet2 = sanitizedBullet2;
+
+      //Update sanitized Solution Content
+      sanitizedData.descriptions = sanitizedDescription;
+      
+      // Update sanitized references
+      sanitizedData.references = sanitizedReferences;
   
       this.AdminSolution3Service.updateData(sanitizedData).subscribe(
         (updatedItem) => {
-          this.router.navigate(['/admin-solution-3']);
+          this.router.navigate(['/admin-solution3']);
           console.log(this.responding_to_climate_change[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
@@ -119,6 +144,16 @@ export class AdminSolution3Component {
       this.toastr.info('No changes were made.', 'Info');
     }
   }
+
+  // Helper function to validate a single input
+  isValidInput(input: string): boolean {
+    return input.trim() !== ''; // Check if the input is not empty or contains only space
+  }
+  
+  // Helper function to validate an array of inputs
+  isValidInputArray(inputArray: string[]): boolean {
+    return inputArray.every(input => this.isValidInput(input));
+  } 
   
   // Track if there is any changes made
   isAnyChanges(){
@@ -127,8 +162,8 @@ export class AdminSolution3Component {
 
   // End of main function and methods
 
-  sanitizeInput(input: string): string | null {
-    const harmfulChars = /[\;\(\)\<\>\'\"\\\/\[\]\{\}\%\=\?\&\+\*\#\@\$\^\|\`\~]/g;
+  sanitizeInputString(input: string): string | null {
+    const harmfulChars = /[\;\<\>\"\\\/\[\]\{\}\%\=\?\&\+\*\#\@\$\^\|\`\~]/g;
   
     // Check if the input contains harmful characters
     if (harmfulChars.test(input)) {
@@ -137,6 +172,25 @@ export class AdminSolution3Component {
     }
     // If no harmful characters are found, return the sanitized input
     return input;
+  }
+  
+  sanitizeInputArray(input: string[]): string[] | null{
+    const harmfulChars = /[\<\>\"\\\[\]\{\}\=\?\&\+\*\@\$\^\|\`\~]/g;
+    const sanitizedInput: string[] = [];
+
+    for(const str of input){
+      // Check if the string array contains harmful chars
+      if(harmfulChars.test(str)){
+
+        console.log(`Harmful character detected in string: ${str}`);
+        console.log(`Harmful character: ${str.match(harmfulChars)}`);
+        return null;
+      }
+
+      sanitizedInput.push(str);
+    }
+
+    return sanitizedInput;
   }
 
   ngOnInit(): void{

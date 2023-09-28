@@ -78,6 +78,23 @@ export class AdminCase1Component {
 
   updateData(): void {
     if (this.isAnyChanges()) {
+    // Validate input fields
+    if (
+      !this.isValidInput(this.header) ||
+      !this.isValidInput(this.header_desc) ||
+      !this.isValidInput(this.header_title) ||
+      !this.isValidInput(this.case1[0]) ||
+      !this.isValidInput(this.case2[0]) ||
+      !this.isValidInput(this.case3[0]) ||
+      !this.isValidInput(this.case4[0]) ||
+      !this.isValidInputArray(this.paragraphs) ||
+      !this.isValidInputArray(this.references)
+    ) {
+      // Validation failed, do not proceed with the update
+      this.toastr.error('One or more input fields are empty or contain only blank spaces. Please fill them out and try again.', 'Validation Error');
+      return;
+    }
+
       // Sanitize input before sending
       const sanitizedHeader = this.sanitizeInput(this.header);
       const sanitizedHeaderDesc = this.sanitizeInput(this.header_desc);
@@ -89,12 +106,11 @@ export class AdminCase1Component {
       const sanitizedCase3 = this.sanitizeInput(this.case3[0]);
       const sanitizedCase4 = this.sanitizeInput(this.case4[0]);
 
-      //Sanitize paragraphs
-      const sanitizedParagraphs = this.sanitizeParagraphs(this.paragraphs);
-
-      //Sanitize references
-      const sanitizedReferences = this.sanitizeReferences(this.references);
+      // Sanitize paragraphs
+      const sanitizedParagraphs = this.sanitizeArray(this.paragraphs);
   
+      // Sanitize references
+      const sanitizedReferences = this.sanitizeArray(this.references);
   
       // Check if any of the inputs failed validation
       if (
@@ -105,8 +121,8 @@ export class AdminCase1Component {
         sanitizedCase2 === null ||
         sanitizedCase3 === null ||
         sanitizedCase4 === null ||
-        sanitizedParagraphs.some((paragraph) => paragraph === '') || 
-        sanitizedReferences.some((reference) => reference === '') 
+        sanitizedParagraphs === null ||
+        sanitizedReferences === null
       ) {
         // Validation failed, do not proceed with the update
         this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
@@ -125,15 +141,13 @@ export class AdminCase1Component {
       this.case3[0] = sanitizedCase3;
       this.case4[0] = sanitizedCase4;
 
-      //Update sanitized paragrahps
-      this.paragraphs = sanitizedParagraphs;
-
-      //Update sanizited References
-      this.references = sanitizedReferences;
+     // Update sanitized paragraphs and references
+     this.paragraphs = sanitizedParagraphs;
+     this.references = sanitizedReferences;
   
       this.AdminCasesService.updateData(sanitizedData).subscribe(
         (updatedItem) => {
-          this.router.navigate(['/admin-cases-1']);
+          this.router.navigate(['/admin-cases-1']); //default: admin-case-problem-trash
           console.log(this.problem_trash[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
@@ -147,6 +161,16 @@ export class AdminCase1Component {
       this.toastr.info('No changes were made.', 'Info');
     }
   }
+
+// Helper function to validate a single input
+isValidInput(input: string): boolean {
+  return input.trim() !== ''; // Check if the input is not empty or contains only spaces
+}
+
+// Helper function to validate an array of inputs
+isValidInputArray(inputArray: string[]): boolean {
+  return inputArray.every(input => input.trim() !== ''); // Check if all inputs in the array are not empty or contain only spaces
+}
   
   // Track if there is any changes made
   isAnyChanges(){
@@ -156,7 +180,7 @@ export class AdminCase1Component {
   // End of main function and methods
 
   sanitizeInput(input: string): string | null {
-    const harmfulChars = /[\;\(\)\<\>\'\"\\\[\]\{\}\%\=\?\&\+\-\*\#\@\$\^\|\`\~]/g;
+    const harmfulChars = /[\<\>\"\\\[\]\{\}\%\=\&\+\*\#\@\^\|\~]/g;
   
     // Check if the input contains harmful characters
     if (harmfulChars.test(input)) {
@@ -166,23 +190,20 @@ export class AdminCase1Component {
     // If no harmful characters are found, return the sanitized input
     return input;
   }
-  
-  //Paragraph sanitization function
-  sanitizeParagraphs(paragraphs: string[]): string[] {
-    return paragraphs.map((paragraph) => {
-      const sanitizedParagraph = this.sanitizeInput(paragraph);
-      return sanitizedParagraph !== null ? sanitizedParagraph : '';
-    });
-  }
-  
-  //Reference sanitization function
-  sanitizeReferences(references: string[]): string[] {
-    return references.map((reference) => {
-      const sanitizedReference = this.sanitizeInput(reference);
-      return sanitizedReference !== null ? sanitizedReference : '';
-    });
-  }
 
+  sanitizeArray(inputArray: string[]): string[] | null {
+    const sanitizedArray: string[] = [];
+    for (const item of inputArray) {
+      const sanitizedItem = this.sanitizeInput(item);
+      if (sanitizedItem === null) {
+        // If any item in the array fails sanitization, return null
+        return null;
+      }
+      sanitizedArray.push(sanitizedItem);
+    }
+    return sanitizedArray;
+  }
+  
   ngOnInit(): void{
 
     this.getData();
