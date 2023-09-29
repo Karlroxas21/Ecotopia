@@ -87,8 +87,8 @@ export class AdminCase1Component {
       !this.isValidInput(this.case2[0]) ||
       !this.isValidInput(this.case3[0]) ||
       !this.isValidInput(this.case4[0]) ||
-      !this.isValidInputArray(this.paragraphs) ||
-      !this.isValidInputArray(this.references)
+      !this.isValidInputArray(this.paragraphs)
+      // !this.isValidInputArray(this.references)
     ) {
       // Validation failed, do not proceed with the update
       this.toastr.error('One or more input fields are empty or contain only blank spaces. Please fill them out and try again.', 'Validation Error');

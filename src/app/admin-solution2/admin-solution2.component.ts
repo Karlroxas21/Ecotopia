@@ -96,7 +96,6 @@ export class AdminSolution2Component {
     if (
       !this.isValidInput(this.header) ||
       !this.isValidInput(this.header_desc) ||
-      this.descriptions.some(descriptions => !this.isValidInput(descriptions)) ||
       !this.isValidInputArray(this.bullet1) ||
       !this.isValidInputArray(this.bullet2) ||
       !this.isValidInputArray(this.bullet3) ||
@@ -104,7 +103,10 @@ export class AdminSolution2Component {
       !this.isValidInputArray(this.bullet5) ||
       !this.isValidInputArray(this.bullet6) ||
       !this.isValidInputArray(this.bullet7) ||
-      !this.isValidInputArray(this.bullet8) 
+      !this.isValidInputArray(this.bullet8) ||
+      !this.isValidInputArray(this.links) ||
+      !this.isValidInputArray(this.references) 
+      // !this.isValidInputArray(this.descriptions) 
 
     ) {
       // Validation failed, do not proceed with the update
@@ -203,10 +205,10 @@ isValidInput(input: string): boolean {
   return input.trim() !== ''; // Check if the input is not empty or contains only spaces
 }
 
-// Helper function to validate an array of inputs
-isValidInputArray(inputArray: string[]): boolean {
-  return inputArray.every(input => input.trim() !== ''); // Check if all inputs in the array are not empty or contain only spaces
-}
+  // Helper function to validate an array of inputs
+  isValidInputArray(inputArray: string[]): boolean {
+    return inputArray.every(input => this.isValidInput(input));
+  } 
 
   
   // Track if there is any changes made
