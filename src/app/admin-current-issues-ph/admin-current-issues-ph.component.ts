@@ -102,6 +102,20 @@ export class AdminCurrentIssuesPhComponent {
 
   updateData(): void {
     if (this.isAnyChanges()) {
+    //  // Validate input fields
+    // if (
+    //   !this.isValidInputArray(this.sea_level_rise_coastal_erosion) ||
+    //   !this.isValidInputArray(this.sea_level_rise_coastal_erosion_2) ||
+    //   !this.isValidInputArray(this.biodiversity_ecosystem_loss) ||
+    //   !this.isValidInputArray(this.health_risk) ||
+    //   !this.isValidInputArray(this.water_scarcity) ||
+    //   !this.isValidInputArray(this.ocean_acidification) ||
+    //   !this.isValidInputArray(this.references) 
+    //   ) {
+    //     // Validation failed, do not proceed with the update
+    //     this.toastr.error('One or more input fields are empty or contain only blank spaces. Please fill them out and try again.', 'Validation Error');
+    //     return;
+    //   }
       
       // Sanitize input before sending
       const sanitizedSeaLevelErosion = this.sanitizeArray(this.sea_level_rise_coastal_erosion);
@@ -133,21 +147,21 @@ export class AdminCurrentIssuesPhComponent {
   
       // Create a sanitized copy of the data
       const sanitizedData = { ...this.current_issue_ph[0] };
-       this.sea_level_rise_coastal_erosion = sanitizedSeaLevelErosion;
-      this.sea_level_rise_coastal_erosion_2 = sanitizedSeaLevelErosion2;
-      this.biodiversity_ecosystem_loss = sanitizedBiodiversityLoss;
-      this.agriculture_food_security = sanitizedFoodSecurity;
-      this.health_risk = sanitizedHealthRisk;
-      this.water_scarcity = sanitizedWaterScarcity;
-      this.ocean_acidification = sanitizedOceanAcidification;
-      this.references = sanitizedReferences;
+      sanitizedData.sea_level_rise_coastal_erosion = sanitizedSeaLevelErosion;
+      sanitizedData.sea_level_rise_coastal_erosion_2 = sanitizedSeaLevelErosion2;
+      sanitizedData.biodiversity_ecosystem_loss = sanitizedBiodiversityLoss;
+      sanitizedData.agriculture_food_security = sanitizedFoodSecurity;
+      sanitizedData.health_risk = sanitizedHealthRisk;
+      sanitizedData.water_scarcity = sanitizedWaterScarcity;
+      sanitizedData.ocean_acidification = sanitizedOceanAcidification;
+      sanitizedData.references = sanitizedReferences;
 
      // Update sanitized references
      this.references = sanitizedReferences;
   
       this.AdminCurrentIssueService.updateData(sanitizedData).subscribe(
         (updatedItem) => {
-          this.router.navigate(['/admin-cases-2']);
+          this.router.navigate(['/admin-current-issues']);
           console.log(this.current_issue_ph[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
@@ -162,8 +176,8 @@ export class AdminCurrentIssuesPhComponent {
     }
   }
 
-  sanitizeArray(input: string[]): string[] | null{
-    const harmfulChars = /[\<\>\'\"\\\[\]\{\}\=\?\&\+\*\@\$\^\|\`\~]/g;
+  sanitizeArray (input: string[]): string[] | null{
+    const harmfulChars = /[\^]/g;
     const sanitizedInput: string[] = [];
 
     for(const str of input){
@@ -180,6 +194,16 @@ export class AdminCurrentIssuesPhComponent {
 
     return sanitizedInput;
   }
+
+  // // Helper function to validate a single input
+  // isValidInput(input: string): boolean {
+  //   return input.trim() !== ''; // Check if the input is not empty or contains only space
+  // }
+  
+  // // Helper function to validate an array of inputs
+  // isValidInputArray(inputArray: string[]): boolean {
+  //   return inputArray.every(input => this.isValidInput(input));
+  // } 
 
   // Track if there is any changes made
   isAnyChanges(){

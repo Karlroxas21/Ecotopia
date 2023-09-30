@@ -12,8 +12,8 @@ import { Title } from '@angular/platform-browser';
   ]
 })
 export class CurrentIssueComponent {
-  isFirstOpen = true;
-  oneAtATime = true;
+  // isFirstOpen = true;
+  // oneAtATime = true;
 
   current_issues_ph: any;
   title = "Ecotopia: Current Issues in the Philippines";
@@ -28,5 +28,11 @@ export class CurrentIssueComponent {
     });
 
     this.titleService.setTitle(this.title);
+  }
+
+  selectedTab: string = 'tab1';
+
+  selectTab(tab: string) {
+    this.selectedTab = tab;
   }
 }
