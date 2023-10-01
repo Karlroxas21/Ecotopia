@@ -76,24 +76,22 @@ export class AdminCase3Component {
   }
 
   updateData(): void {
-    if (
-      !this.isValidInput(this.header) ||
-      !this.isValidInput(this.header_desc) ||
-      !this.isValidInput(this.header_title) ||
-      !this.isValidInput(this.case1[0]) ||
-      !this.isValidInput(this.case2[0]) ||
-      !this.isValidInput(this.case3[0]) ||
-      !this.isValidInput(this.case4[0]) ||
-      !this.isValidInputArray(this.case3_content)
-      // this.case3_content.some(content => !this.isValidInput(content)) ||
-      // this.references.some(reference => !this.isValidInput(reference))
+    if (this.isAnyChanges()) {
+      if (
+        !this.isValidInput(this.header) ||
+        !this.isValidInput(this.header_desc) ||
+        !this.isValidInput(this.header_title) ||
+        !this.isValidInput(this.case1[0]) ||
+        !this.isValidInput(this.case2[0]) ||
+        !this.isValidInput(this.case3[0]) ||
+        !this.isValidInput(this.case4[0]) ||
+        !this.isValidInputArray(this.case3_content)
     ) {
       // Validation failed, do not proceed with the update
-      this.toastr.error('One or more input fields are empty or contain only blank spaces. Please fill them out and try again.', 'Validation Error');
+      this.toastr.error('Please fill in all input fields before updating.', 'Validation Error');
       return;
     }
 
-    if (this.isAnyChanges()) {
       const sanitizedHeader = this.sanitizeInput(this.header);
       const sanitizedHeaderDesc = this.sanitizeInput(this.header_desc);
       const sanitizedHeaderTitle = this.sanitizeInput(this.header_title);

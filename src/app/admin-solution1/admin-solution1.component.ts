@@ -113,7 +113,7 @@ export class AdminSolution1Component {
       !this.isValidInputArray(this.references)
     ) {
       // Validation failed, do not proceed with the update
-      this.toastr.error('One or more input fields are empty or contain invalid characters. Please fill them out correctly and try again.', 'Validation Error');
+      this.toastr.error('Please fill in all input fields before updating.', 'Validation Error');
       return;
     }
       // Sanitize input before sending
