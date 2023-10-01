@@ -80,7 +80,7 @@ export class AdminSolution3Component {
       !this.isValidInputArray(this.references)
     ) {
       // Validation failed, do not proceed with the update
-      this.toastr.error('One or more input fields are empty or contain only blank spaces. Please fill them out and try again.', 'Validation Error');
+      this.toastr.error('Please fill in all input fields before updating.', 'Validation Error');
       return;
     }
 

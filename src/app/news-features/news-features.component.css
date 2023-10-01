@@ -43,11 +43,11 @@ body, header{
   background-color: #505050 ;
 } */
 
-.item-sub-2{
+/* .item-sub-2{
   display: grid;
-  grid-template-rows: .3fr 1fr 1fr .5fr;
+  grid-template-rows: .1fr 1fr 1fr .1fr;
   padding-top: 20px;
-}
+} */
 
 .item-img img{
   height: 250px;
@@ -76,12 +76,10 @@ body, header{
   font-style: italic;
 }
 
-.item-title{
-  font-size: 2rem;
-}
 
 .item-desc{
   font-size: 1.5rem;
+  padding-bottom: 50px;
 }
 
 /* .item-link{
@@ -97,7 +95,9 @@ body, header{
   justify-content: center;
   transition: background-color 0.1s ease-in-out;
   width: 100px;
-  padding: 5px;
+  align-items: center;
+  padding: 10px 5px;
+  flex-direction: column;
 }
 
 .item-link a{

@@ -49,7 +49,11 @@ export class AdminAssessmentComponent {
   updateData(): void {
     if (this.isAnyChanges()) {
 
-      !this.isValidInputArray(this.pop_quiz) 
+      // Check for empty input fields in trivia game and pop quiz data
+      if (this.hasEmptyFields(this.trivia_game) || this.hasEmptyFields(this.pop_quiz)) {
+        this.toastr.error('Please fill in all input fields before updating.', 'Validation Error');
+        return;
+      }
 
       // Sanitize trivia game and pop quiz data
       const sanitizedTriviaGame = this.sanitizeTriviaGame(this.trivia_game);
@@ -87,12 +91,16 @@ export class AdminAssessmentComponent {
     }
   }
 
+  // Helper function to check for empty input fields in an array
+  hasEmptyFields(inputArray: any[]): boolean {
+    return inputArray.some(item => {
+      if (item.property === '' || item.options.some((option: string) => option === '') || item.correct_answer === '') {
+        return true;
+      }
+      return false;
+    });
+  }
 
- // Helper function to validate an array of inputs
-isValidInputArray(inputArray: string[]): boolean {
-  return inputArray.every(input => input.trim() !== ''); // Check if all inputs in the array are not empty or contain only spaces
-}
-  
   // Track if there is any changes made
   isAnyChanges(){
     return this.isThereAnyChanges;

@@ -1,5 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/henry-sans');
-
+@import "~boxicons/css/boxicons.min.css";
 
 *{
     margin: 0;
@@ -64,6 +64,10 @@ main{
 .flex-box p{
     font-size: 21px
 }
+.viewmore {
+    text-align: right;
+    margin-top: 20px;
+}
 .viewmore a{
     padding: 7px 15px;
     font-size: 21px;
@@ -76,6 +80,7 @@ main{
     border-radius: 30px;
     transition: background-color 0.1s ease-in-out;
 }
+
 .viewmore a:hover{
     background-color: rgb(148, 111, 51);
     cursor: pointer;
