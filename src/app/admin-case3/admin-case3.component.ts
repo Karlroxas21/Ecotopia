@@ -76,6 +76,23 @@ export class AdminCase3Component {
   }
 
   updateData(): void {
+    if (
+      !this.isValidInput(this.header) ||
+      !this.isValidInput(this.header_desc) ||
+      !this.isValidInput(this.header_title) ||
+      !this.isValidInput(this.case1[0]) ||
+      !this.isValidInput(this.case2[0]) ||
+      !this.isValidInput(this.case3[0]) ||
+      !this.isValidInput(this.case4[0]) ||
+      !this.isValidInputArray(this.case3_content)
+      // this.case3_content.some(content => !this.isValidInput(content)) ||
+      // this.references.some(reference => !this.isValidInput(reference))
+    ) {
+      // Validation failed, do not proceed with the update
+      this.toastr.error('One or more input fields are empty or contain only blank spaces. Please fill them out and try again.', 'Validation Error');
+      return;
+    }
+
     if (this.isAnyChanges()) {
       const sanitizedHeader = this.sanitizeInput(this.header);
       const sanitizedHeaderDesc = this.sanitizeInput(this.header_desc);
@@ -157,6 +174,16 @@ export class AdminCase3Component {
     // If no harmful characters are found, return the sanitized input
     return input;
   }
+
+  // Helper function to validate a single input
+isValidInput(input: string): boolean {
+  return input.trim() !== ''; // Check if the input is not empty or contains only spaces
+}
+
+// Helper function to validate an array of inputs
+isValidInputArray(inputArray: string[]): boolean {
+  return inputArray.every(input => input.trim() !== ''); // Check if all inputs in the array are not empty or contain only spaces
+}
 
   // Track if there is any change
   isAnyChanges() {

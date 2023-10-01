@@ -92,20 +92,50 @@ export class AdminSolution2Component {
 
   updateData(): void {
     if (this.isAnyChanges()) {
+       // Validate input fields
+    if (
+      !this.isValidInput(this.header) ||
+      !this.isValidInput(this.header_desc) ||
+      !this.isValidInputArray(this.bullet1) ||
+      !this.isValidInputArray(this.bullet2) ||
+      !this.isValidInputArray(this.bullet3) ||
+      !this.isValidInputArray(this.bullet4) ||
+      !this.isValidInputArray(this.bullet5) ||
+      !this.isValidInputArray(this.bullet6) ||
+      !this.isValidInputArray(this.bullet7) ||
+      !this.isValidInputArray(this.bullet8) ||
+      !this.isValidInputArray(this.links) ||
+      !this.isValidInputArray(this.references) 
+      // !this.isValidInputArray(this.descriptions) 
+
+    ) {
+      // Validation failed, do not proceed with the update
+      this.toastr.error('One or more input fields are empty or contain only blank spaces. Please fill them out and try again.', 'Validation Error');
+      return;
+    }
+
       // Sanitize input before sending
-      const sanitizedHeader = this.sanitizeInput(this.header);
-      const sanitizedHeaderDesc = this.sanitizeInput(this.header_desc);
+      const sanitizedHeader = this.sanitizeInputString(this.header);
+      const sanitizedHeaderDesc = this.sanitizeInputString(this.header_desc);
 
       // Sanitize bullet data
-      const sanitizedBullet1 = this.sanitizeInput(this.bullet1[0]);
-      const sanitizedBullet2 = this.sanitizeInput(this.bullet2[0]);
-      const sanitizedBullet3 = this.sanitizeInput(this.bullet3[0]);
-      const sanitizedBullet4 = this.sanitizeInput(this.bullet4[0]);
-      const sanitizedBullet5 = this.sanitizeInput(this.bullet5[0]);
-      const sanitizedBullet6 = this.sanitizeInput(this.bullet6[0]);
-      const sanitizedBullet7 = this.sanitizeInput(this.bullet7[0]);
-      const sanitizedBullet8 = this.sanitizeInput(this.bullet8[0]);
-      const sanitizedDescriptions = this.sanitizeInput(this.descriptions[0]);
+      const sanitizedBullet1 = this.sanitizeInputArray(this.bullet1);
+      const sanitizedBullet2 = this.sanitizeInputArray(this.bullet2);
+      const sanitizedBullet3 = this.sanitizeInputArray(this.bullet3);
+      const sanitizedBullet4 = this.sanitizeInputArray(this.bullet4);
+      const sanitizedBullet5 = this.sanitizeInputArray(this.bullet5);
+      const sanitizedBullet6 = this.sanitizeInputArray(this.bullet6);
+      const sanitizedBullet7 = this.sanitizeInputArray(this.bullet7);
+      const sanitizedBullet8 = this.sanitizeInputArray(this.bullet8);
+
+      // Sanitize descriptions
+      const sanitizedDescription = this.sanitizeInputArray(this.descriptions);
+      
+      // Sanitize references
+      const sanitizedReferences = this.sanitizeInputArray(this.references);
+
+      // Sanitize links
+      const sanitizedLinks = this.sanitizeInputArray(this.links);
   
       // Check if any of the inputs failed validation
       if (
@@ -119,8 +149,11 @@ export class AdminSolution2Component {
         sanitizedBullet6 === null ||
         sanitizedBullet7 === null ||
         sanitizedBullet8 === null ||
-        sanitizedDescriptions === null
-      ) {
+        sanitizedReferences === null ||
+        sanitizedDescription === null ||
+        sanitizedLinks === null)
+       {
+
         // Validation failed, do not proceed with the update
         this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
         return;
@@ -132,19 +165,27 @@ export class AdminSolution2Component {
       sanitizedData.header_description = sanitizedHeaderDesc;
   
       // Update sanitized bullet data
-      this.bullet1[0] = sanitizedBullet1;
-      this.bullet2[0] = sanitizedBullet2;
-      this.bullet3[0] = sanitizedBullet3;
-      this.bullet4[0] = sanitizedBullet4;
-      this.bullet5[0] = sanitizedBullet5;
-      this.bullet6[0] = sanitizedBullet6;
-      this.bullet7[0] = sanitizedBullet7;
-      this.bullet8[0] = sanitizedBullet8;
-      this.descriptions[0] = sanitizedDescriptions;
+      sanitizedData.bullet1 = sanitizedBullet1;
+      sanitizedData.bullet2 = sanitizedBullet2;
+      sanitizedData.bullet3 = sanitizedBullet3;
+      sanitizedData.bullet4 = sanitizedBullet4;
+      sanitizedData.bullet5 = sanitizedBullet5;
+      sanitizedData.bullet6 = sanitizedBullet6;
+      sanitizedData.bullet7 = sanitizedBullet7;
+      sanitizedData.bullet8 = sanitizedBullet8;
+
+      //Update sanitized solution Content
+      sanitizedData.descriptions = sanitizedDescription;
+      
+      // Update sanitized references
+      sanitizedData.references = sanitizedReferences;
+
+      // Update sanized
+      sanitizedData.links = sanitizedLinks;
   
       this.AdminSolution2Service.updateData(sanitizedData).subscribe(
         (updatedItem) => {
-          this.router.navigate(['/admin-cases-2']); //admin-cases-problemtrash
+          this.router.navigate(['/admin-solution2']);
           console.log(this.other_solutions[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
@@ -158,6 +199,17 @@ export class AdminSolution2Component {
       this.toastr.info('No changes were made.', 'Info');
     }
   }
+
+  // Helper function to validate a single input
+isValidInput(input: string): boolean {
+  return input.trim() !== ''; // Check if the input is not empty or contains only spaces
+}
+
+  // Helper function to validate an array of inputs
+  isValidInputArray(inputArray: string[]): boolean {
+    return inputArray.every(input => this.isValidInput(input));
+  } 
+
   
   // Track if there is any changes made
   isAnyChanges(){
@@ -166,8 +218,8 @@ export class AdminSolution2Component {
 
   // End of main function and methods
 
-  sanitizeInput(input: string): string | null {
-    const harmfulChars = /[ ]/g;
+  sanitizeInputString(input: string): string | null {
+    const harmfulChars = /[\;\(\)\<\>\'\"\\\/\[\]\{\}\%\=\?\&\+\*\#\@\$\^\|\`\~]/g;
   
     // Check if the input contains harmful characters
     if (harmfulChars.test(input)) {
@@ -176,6 +228,25 @@ export class AdminSolution2Component {
     }
     // If no harmful characters are found, return the sanitized input
     return input;
+  }
+  
+  sanitizeInputArray(input: string[]): string[] | null{
+    const harmfulChars = /[\<\>\'\"\\\[\]\{\}\=\?\&\+\*\@\$\^\|\`\~]/g;
+    const sanitizedInput: string[] = [];
+
+    for(const str of input){
+      // Check if the string array contains harmful chars
+      if(harmfulChars.test(str)){
+
+        console.log(`Harmful character detected in string: ${str}`);
+        console.log(`Harmful character: ${str.match(harmfulChars)}`);
+        return null;
+      }
+
+      sanitizedInput.push(str);
+    }
+
+    return sanitizedInput;
   }
 
   ngOnInit(): void{

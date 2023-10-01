@@ -48,10 +48,12 @@ export class AdminAssessmentComponent {
 
   updateData(): void {
     if (this.isAnyChanges()) {
+
+      !this.isValidInputArray(this.pop_quiz) 
+
       // Sanitize trivia game and pop quiz data
       const sanitizedTriviaGame = this.sanitizeTriviaGame(this.trivia_game);
       const sanitizedPopQuiz = this.sanitizePopQuiz(this.pop_quiz);
-  
   
       // Check if any of the inputs failed validation
       if (
@@ -84,6 +86,12 @@ export class AdminAssessmentComponent {
       this.toastr.info('No changes were made.', 'Info');
     }
   }
+
+
+ // Helper function to validate an array of inputs
+isValidInputArray(inputArray: string[]): boolean {
+  return inputArray.every(input => input.trim() !== ''); // Check if all inputs in the array are not empty or contain only spaces
+}
   
   // Track if there is any changes made
   isAnyChanges(){

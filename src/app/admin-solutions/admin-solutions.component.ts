@@ -71,6 +71,17 @@ export class AdminSolutionsComponent {
 
   updateData(): void {
     if (this.isAnyChanges()) {
+          // Validate input fields
+    if (
+      !this.isValidInput(this.solution_1) ||
+      !this.isValidInput(this.solution_2) ||
+      !this.isValidInput(this.solution_3) ||
+      !this.isValidInput(this.solution_4)
+    ) {
+      // Validation failed, do not proceed with the update
+      this.toastr.error('One or more input fields are empty or contain only blank spaces. Please fill them out and try again.', 'Validation Error');
+      return;
+    }
 
       // Sanitize bullet data
       const sanitizedBullet1 = this.sanitizeInput(this.solution_1);
@@ -115,7 +126,12 @@ export class AdminSolutionsComponent {
       this.toastr.info('No changes were made.', 'Info');
     }
   }
-  
+
+  // Helper function to validate an array of inputs
+isValidInput(inputArray: string[]): boolean {
+  return inputArray.every(input => input.trim() !== ''); // Check if all inputs are not empty or contain only spaces
+}
+
   // Track if there is any changes made
   isAnyChanges(){
     return this.isThereAnyChanges;
