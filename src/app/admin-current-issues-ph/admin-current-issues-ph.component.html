@@ -269,27 +269,6 @@
                             "
                           ></textarea>
                         </li>
-                        <li>
-                          <div
-                            *ngIf="!editing_sea_level_rise_coastal_erosion_2[8]"
-                            (click)="startEditingSeaLevelErosion2(8)"
-                          >
-                            {{ sea_level_rise_coastal_erosion_2[8] }}
-                          </div>
-  
-                          <textarea
-                            rows="4" cols="125"
-                            style="font-size: 1.3rem"
-                            *ngIf="editing_sea_level_rise_coastal_erosion_2[8]"
-                            (blur)="finishEditingSeaLevelErosion2(8, $event)"
-                            class="resizable-input"
-                            (ngModelChange)="doesChange()"
-                            [(ngModel)]="
-                              current_issue_ph[0]
-                                .sea_level_rise_coastal_erosion_2[8]
-                            "
-                          ></textarea>
-                        </li>
                       </ul>
                     </td>
                   </tr>

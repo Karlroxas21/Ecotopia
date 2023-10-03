@@ -6,7 +6,7 @@
       <!-- Tab Headers -->
       <div class="tab-headers">
         <div class="tab-header" [class.active]="selectedTab === 'tab1'" (click)="selectTab('tab1')">Typhoon and Extreme Weather Events</div>
-        <div class="tab-header" [class.active]="selectedTab === 'tab2'" (click)="selectTab('tab2')">Sea Level Rise and Coastal Erosion 2</div>
+        <div class="tab-header" [class.active]="selectedTab === 'tab2'" (click)="selectTab('tab2')">Sea Level Rise and Coastal Erosion</div>
         <div class="tab-header" [class.active]="selectedTab === 'tab3'" (click)="selectTab('tab3')">Ocean Acidification</div>
         <div class="tab-header" [class.active]="selectedTab === 'tab4'" (click)="selectTab('tab4')">Biodiversity and Ecosystem Loss</div>
         <div class="tab-header" [class.active]="selectedTab === 'tab5'" (click)="selectTab('tab5')">Agriculture and Food Security</div>
@@ -97,9 +97,6 @@
                     <ul>
                       <li>
                         {{ item.sea_level_rise_coastal_erosion_2[7] }}
-                      </li>
-                      <li>
-                        {{ item.sea_level_rise_coastal_erosion_2[8] }}
                       </li>
                     </ul>
                   </td>
@@ -249,9 +246,6 @@
                     <ul style="margin-top: 10px">
                       <li>
                         {{ item.biodiversity_ecosystem_loss[8] }}
-                      </li>
-                      <li>
-                        {{ item.biodiversity_ecosystem_loss[9] }}
                       </li>
                     </ul>
                   </td>

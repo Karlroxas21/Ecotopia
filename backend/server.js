@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 
 const history = require('connect-history-api-fallback');
 
+const helmet = require('helmet');
+
 // Routes
 
 // Admin Cases Routes
@@ -66,7 +68,7 @@ app.use(bodyParser.json());
 
 // This causes bug in API. Enable only if dockerizing it.
 // See : https://chat.openai.com/share/99b39e15-397a-496c-8689-1d023344b37d
-// app.use(history());
+app.use(history());
 
 app.use(express.static(path.join(__dirname, 'dist/ecotopia-capstone')));
 
@@ -121,6 +123,16 @@ app.use('/', assessment_trivia);
 
 // Login
 app.use('/', login_routes);
+
+// Security
+const cspOptions = {
+  directives: {
+    defaultSrc: ["'self'"],
+    scriptSrc: ["'self'"]
+  }
+};
+
+app.use(helmet.contentSecurityPolicy(cspOptions));
 
 app.listen(port, ()=>{
     console.log(`Listening on ${port}`);

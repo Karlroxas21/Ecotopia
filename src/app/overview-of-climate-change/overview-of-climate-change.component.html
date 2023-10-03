@@ -260,9 +260,6 @@
     <div class="related-news-container-main">
       <div class="related-news-container" *ngFor="let item of news | slice : 0 : itemsToShow">
         <div class="tile-1">
-          <div class="rnc-sub-div1">
-            <img class="img-400px" src="{{item.photo}}" alt="News Photo" style="height: 170px;">
-          </div>
           <div class="rnc-sub-div2">
             <h3><a href="{{item.link}}">{{item.title}}</a></h3>
             <hr>
