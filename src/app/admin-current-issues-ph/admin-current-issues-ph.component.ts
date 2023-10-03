@@ -53,19 +53,19 @@ export class AdminCurrentIssuesPhComponent {
       // sea_level_rise_coastal_erosion
       this.arrayPusher(
         this.sea_level_rise_coastal_erosion,
-        4,
+        3,
         'sea_level_rise_coastal_erosion');
 
       // sea_level_rise_coastal_erosion_2
       this.arrayPusher(
         this.sea_level_rise_coastal_erosion_2,
-        9,
+        8,
         'sea_level_rise_coastal_erosion_2'); 
 
       // biodiversity_ecosystem_loss
       this.arrayPusher(
         this.biodiversity_ecosystem_loss,
-        10,
+        9,
         'biodiversity_ecosystem_loss');   
 
       // agriculture_food_security
@@ -102,20 +102,27 @@ export class AdminCurrentIssuesPhComponent {
 
   updateData(): void {
     if (this.isAnyChanges()) {
-    //  // Validate input fields
-    // if (
-    //   !this.isValidInputArray(this.sea_level_rise_coastal_erosion) ||
-    //   !this.isValidInputArray(this.sea_level_rise_coastal_erosion_2) ||
-    //   !this.isValidInputArray(this.biodiversity_ecosystem_loss) ||
-    //   !this.isValidInputArray(this.health_risk) ||
-    //   !this.isValidInputArray(this.water_scarcity) ||
-    //   !this.isValidInputArray(this.ocean_acidification) ||
-    //   !this.isValidInputArray(this.references) 
-    //   ) {
-    //     // Validation failed, do not proceed with the update
-    //     this.toastr.error('One or more input fields are empty or contain only blank spaces. Please fill them out and try again.', 'Validation Error');
-    //     return;
-    //   }
+     // Validate input fields
+    if (
+      !this.isValidInputArray(this.sea_level_rise_coastal_erosion) ||
+      !this.isValidInputArray(this.sea_level_rise_coastal_erosion_2) ||
+      !this.isValidInputArray(this.biodiversity_ecosystem_loss) ||
+      !this.isValidInputArray(this.health_risk) ||
+      !this.isValidInputArray(this.water_scarcity) ||
+      !this.isValidInputArray(this.ocean_acidification) ||
+      !this.isValidInputArray(this.references) 
+      ) {
+        console.log(!this.isValidInputArray(this.sea_level_rise_coastal_erosion));
+        console.log(!this.isValidInputArray(this.sea_level_rise_coastal_erosion_2));
+        console.log(!this.isValidInputArray(this.biodiversity_ecosystem_loss));
+        console.log(!this.isValidInputArray(this.health_risk));
+        console.log(!this.isValidInputArray(this.water_scarcity));
+        console.log(!this.isValidInputArray(this.ocean_acidification));
+        console.log(!this.isValidInputArray(this.references));
+        // Validation failed, do not proceed with the update
+        this.toastr.error('One or more input fields are empty or contain only blank spaces. Please fill them out and try again.', 'Validation Error');
+        return;
+      }
       
       // Sanitize input before sending
       const sanitizedSeaLevelErosion = this.sanitizeArray(this.sea_level_rise_coastal_erosion);
@@ -161,8 +168,7 @@ export class AdminCurrentIssuesPhComponent {
   
       this.AdminCurrentIssueService.updateData(sanitizedData).subscribe(
         (updatedItem) => {
-          this.router.navigate(['/admin-current-issues']);
-          console.log(this.current_issue_ph[0]);
+          this.router.navigate(['/admin-current-issues-ph']);
           this.toastr.success('Data updated successfully.', 'Success');
         },
         (err) => {
@@ -177,15 +183,13 @@ export class AdminCurrentIssuesPhComponent {
   }
 
   sanitizeArray (input: string[]): string[] | null{
-    const harmfulChars = /[\^]/g;
+    const harmfulChars = /[\<\>\\\[\]\{\}\=\&\*\#\@\$\^\|\`\~]/g;
     const sanitizedInput: string[] = [];
 
     for(const str of input){
       // Check if the string array contains harmful chars
       if(harmfulChars.test(str)){
 
-        console.log(`Harmful character detected in string: ${str}`);
-        console.log(`Harmful character: ${str.match(harmfulChars)}`);
         return null;
       }
 
@@ -195,15 +199,15 @@ export class AdminCurrentIssuesPhComponent {
     return sanitizedInput;
   }
 
-  // // Helper function to validate a single input
-  // isValidInput(input: string): boolean {
-  //   return input.trim() !== ''; // Check if the input is not empty or contains only space
-  // }
+  // Helper function to validate a single input
+  isValidInput(input: string): boolean {
+    return input.trim() !== ''; // Check if the input is not empty or contains only space
+  }
   
-  // // Helper function to validate an array of inputs
-  // isValidInputArray(inputArray: string[]): boolean {
-  //   return inputArray.every(input => this.isValidInput(input));
-  // } 
+  // Helper function to validate an array of inputs
+  isValidInputArray(inputArray: string[]): boolean {
+    return inputArray.every(input => this.isValidInput(input));
+  } 
 
   // Track if there is any changes made
   isAnyChanges(){
@@ -223,9 +227,9 @@ export class AdminCurrentIssuesPhComponent {
 
   editing_sea_level_rise_coastal_erosion: boolean [] = [false, false, false, false];
 
-  editing_sea_level_rise_coastal_erosion_2: boolean [] = [false, false, false, false, false, false, false, false, false];
+  editing_sea_level_rise_coastal_erosion_2: boolean [] = [false, false, false, false, false, false, false];
 
-  editing_biodiversity_ecosystem_loss: boolean [] = [false, false, false, false, false, false, false, false, false, false];
+  editing_biodiversity_ecosystem_loss: boolean [] = [false, false, false, false, false, false, false, false, false];
 
   editing_agriculture_food_security: boolean [] = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
 

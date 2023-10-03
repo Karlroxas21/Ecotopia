@@ -775,28 +775,6 @@
                             "
                           ></textarea>
                         </li>
-                        <li>
-                          <div
-                            *ngIf="!editing_biodiversity_ecosystem_loss[9]"
-                            (click)="startEditingBiodiversityEcosystemLoss(9)"
-                          >
-                            {{ biodiversity_ecosystem_loss[9] }}
-                          </div>
-  
-                          <textarea
-                            rows="3" cols="125"
-                            style="font-size: 1.3rem"
-                            *ngIf="editing_biodiversity_ecosystem_loss[9]"
-                            (blur)="
-                              finishEditingBiodiversityEcosystemLoss(9, $event)
-                            "
-                            class="resizable-input"
-                            (ngModelChange)="doesChange()"
-                            [(ngModel)]="
-                              current_issue_ph[0].biodiversity_ecosystem_loss[9]
-                            "
-                          ></textarea>
-                        </li>
                       </ul>
                     </td>
                   </tr>
