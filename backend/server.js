@@ -6,7 +6,24 @@ const mongoose = require('mongoose');
 
 const history = require('connect-history-api-fallback');
 
+const app = express();
+
 const helmet = require('helmet');
+
+
+// Remove the "X-Powered-By" header
+app.disable('x-powered-by');
+
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"], 
+    scriptSrc: ["'self'", "'unsafe-eval'", "'unsafe-inline'"],
+    styleSrc: ["'self'", "https://fonts.googleapis.com", "https://unpkg.com/aos@2.3.1/dist/aos.css", "https://pro.fontawesome.com/releases/v5.10.0/css/all.css", "https://fonts.cdnfonts.com/css/henry-sans", "'unsafe-inline'"],
+    imgSrc: ["'self'", "data:", "blob:", "'unsafe-inline'"],
+    scriptSrcAttr: ["'unsafe-inline'"]
+    // Add more directives as needed
+  }
+}));
 
 // Routes
 
@@ -57,11 +74,16 @@ const assessment_trivia = require('./routes/assessment-routes');
 // Login
 const login_routes = require('./routes/login-routes');
 
-const app = express();
 const port = process.env.PORT || 80;
 mongoose.connect('mongodb+srv://karlmarxroxas1:Mvckf9rVcnZoxP0V@website.h8t2kwr.mongodb.net/ecotopia');
 
 // CORS Middleware
+const corsOptions = {
+  origin: 'localhost', 
+  methods: 'GET,POST,PUT',           
+  allowedHeaders: 'Content-Type', 
+};
+
 app.use(cors());
 
 app.use(bodyParser.json());
@@ -124,15 +146,6 @@ app.use('/', assessment_trivia);
 // Login
 app.use('/', login_routes);
 
-// Security
-const cspOptions = {
-  directives: {
-    defaultSrc: ["'self'"],
-    scriptSrc: ["'self'"]
-  }
-};
-
-app.use(helmet.contentSecurityPolicy(cspOptions));
 
 app.listen(port, ()=>{
     console.log(`Listening on ${port}`);
