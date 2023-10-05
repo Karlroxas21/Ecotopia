@@ -16,6 +16,20 @@ export class LoginComponent {
     private router: Router,
     private toastr: ToastrService) { }
 
+  sessionCheck(): boolean{
+    if(!localStorage.getItem('token')){
+
+      return true;
+
+    }
+
+    return false;
+  }
+
+  redirectAdmin(){
+    this.router.navigate(['/admin-current-issues-ph'])
+  }
+
   login(){
     const formData = {
       username: this.username,
