@@ -46,18 +46,18 @@ export class AdminPanelComponent {
   constructor(private router: Router){}
   
   navItems: NavItem[] = [
-    { text: 'Current Issues', icon: 'bx-file', route: '/admin-current-issues-ph'},
-    { text: 'Assessment', icon: 'bx-edit', route: '/admin-assessment' },
+    { text: 'Current Issues', icon: 'bx bxs-file', route: '/admin-current-issues-ph'},
+    { text: 'Assessment', icon: 'bx bxs-edit', route: '/admin-assessment' },
 
     //Cases
-    { text: 'Cases' , icon: 'bx-briefcase-alt', route: '/admin-cases'},
-    { text: 'Case 1', icon: 'bx-trash', route: '/admin-case-1'},
-    { text: 'Case 2', icon: 'bx-bus', route: '/admin-case-2' },
-    { text: 'Case 3', icon: 'bx-question-mark', route: '/admin-case-3' },
-    { text: 'Case 4', icon: 'bxs-magic-wand', route: '/admin-case-4' },
+    { text: 'Cases' , icon: 'bx bxs-briefcase-alt', route: '/admin-cases'},
+    { text: 'Case 1', icon: 'bx bxs-book-content', route: '/admin-case-1'},
+    { text: 'Case 2', icon: 'bx bx-target-lock', route: '/admin-case-2' },
+    { text: 'Case 3', icon: 'bx bxs-info-circle', route: '/admin-case-3' },
+    { text: 'Case 4', icon: 'bx bxs-notepad', route: '/admin-case-4' },
 
     //Solutions
-    { text: 'Solutions', icon: 'bx-check-shield', route: '/admin-solutions'},
+    { text: 'Solutions', icon: 'bx bxs-check-shield', route: '/admin-solutions'},
     { text: 'Solution 1', icon: 'bx-check-shield', route: '/admin-solution-1'},
     { text: 'Solution 2', icon: 'bx-check-shield', route: '/admin-solution-2' },
     { text: 'Solution 3', icon: 'bx-check-shield', route: '/admin-solution-3' }
