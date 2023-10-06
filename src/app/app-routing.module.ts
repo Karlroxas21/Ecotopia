@@ -43,6 +43,9 @@ import { AdminAssessmentComponent } from './admin-assessment/admin-assessment.co
 
 // Auth Guard
 import { AuthGuard } from './auth.guard';
+import { EvidenceComponent } from './evidence/evidence.component';
+import { CausesComponent } from './causes/causes.component';
+import { EffectsComponent } from './effects/effects.component';
 
 const routes: Routes = [
   {component: LandingPageComponent, path: ''},
@@ -65,6 +68,10 @@ const routes: Routes = [
   {component: MaterialComponent, path: 'material'},
   {component: LoginComponent, path: 'login'},
   {component: PolicyComponent, path: 'privacypolicy'},
+  {component: EvidenceComponent, path: 'evidence'},
+  {component: CausesComponent, path: 'cause'},
+  {component: EffectsComponent, path: 'effect'},
+  
 
   // Cases
   {component: Case1Component, path: 'case1'},

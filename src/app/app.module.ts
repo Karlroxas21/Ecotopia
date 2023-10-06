@@ -47,6 +47,9 @@ import { Case2Component } from './case2/case2.component';
 import { Case3Component } from './case3/case3.component';
 import { Case4Component } from './case4/case4.component';
 import { PolicyComponent } from './policy/policy.component';
+import { CausesComponent } from './causes/causes.component';
+import { EffectsComponent } from './effects/effects.component';
+import { EvidenceComponent } from './evidence/evidence.component';
 
 
 
@@ -91,6 +94,9 @@ import { PolicyComponent } from './policy/policy.component';
     Case3Component,
     Case4Component,
     PolicyComponent,
+    CausesComponent,
+    EffectsComponent,
+    EvidenceComponent,
 
     
   ],
