@@ -22,7 +22,7 @@ export class CurrentIssueComponent {
     private titleService: Title) { }
 
   ngOnInit(): void{
-    this.http.get<any[]>('/currentIssue')
+    this.http.get<any[]>('http://localhost:80/currentIssue')
     .subscribe(incoming_data => {
       this.current_issues_ph = incoming_data;
     });

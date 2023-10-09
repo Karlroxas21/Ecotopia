@@ -54,7 +54,7 @@ export class AssessmentComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.http.get<any[]>('/assessment_trivia')
+    this.http.get<any[]>('http://localhost:80/assessment_trivia')
       .subscribe(incoming_data => {
         this.assessment = incoming_data;
 

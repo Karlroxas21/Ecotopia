@@ -15,7 +15,7 @@ export class OthersolutionsComponent {
     private titleService: Title) { }
 
   ngOnInit(): void{
-    this.http.get<any[]>('/othersolutions')
+    this.http.get<any[]>('http://localhost:80/othersolutions')
     .subscribe(incoming_data => {
       this.other_solutions = incoming_data;
 

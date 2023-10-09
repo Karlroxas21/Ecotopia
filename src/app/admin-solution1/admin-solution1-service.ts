@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
 
 export class AdminSolution1Service {
 
-        private urlAPI = "/admin-solution-1";
+        private urlAPI = "http://localhost:80/admin-solution-1";
 
         constructor(private http: HttpClient) { }
 

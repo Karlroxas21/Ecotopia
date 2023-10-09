@@ -14,7 +14,7 @@ export class Case1Component {
   constructor(private http: HttpClient, private titleService: Title) { }
 
   ngOnInit(): void {
-    this.http.get<any[]>('/problemtrash')
+    this.http.get<any[]>('http://localhost:80/problemtrash')
       .subscribe(problem_trash => {
         this.problem_trash = problem_trash;
       })

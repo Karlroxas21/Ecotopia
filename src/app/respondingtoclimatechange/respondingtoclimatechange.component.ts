@@ -15,7 +15,7 @@ export class RespondingtoclimatechangeComponent {
     private titleService: Title){ }
 
     ngOnInit(): void{
-      this.http.get<any[]>('/respondingtoclimatechange')
+      this.http.get<any[]>('http://localhost:80/respondingtoclimatechange')
       .subscribe(incoming_data => {
         this.responding_climate_change = incoming_data;
 
