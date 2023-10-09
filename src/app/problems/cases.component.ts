@@ -14,7 +14,7 @@ export class CasesComponent implements OnInit {
   constructor(private http: HttpClient, private titleService: Title){}
 
   ngOnInit():void{
-    this.http.get<any[]>('http://localhost:80/problems')
+    this.http.get<any[]>('/problems')
     .subscribe(cases =>{
       this.cases = cases;
     })

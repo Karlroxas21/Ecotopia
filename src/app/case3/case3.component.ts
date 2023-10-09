@@ -14,7 +14,7 @@ export class Case3Component {
   constructor(private http: HttpClient, private titleService: Title){}
 
   ngOnInit(): void {
-      this.http.get<any[]>('http://localhost:80/causesofclimatechange')
+      this.http.get<any[]>('/causesofclimatechange')
       .subscribe(cause_climate_change =>{
         this.causes_climate_change = cause_climate_change;
         console.log(cause_climate_change);

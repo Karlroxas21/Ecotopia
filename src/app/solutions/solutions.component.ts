@@ -15,7 +15,7 @@ export class SolutionsComponent {
     private titleService: Title) { }
 
   ngOnInit(): void{
-    this.http.get<any>('http://localhost:80/solutions')
+    this.http.get<any>('/solutions')
     .subscribe(incoming_data => {
       this.solutions = incoming_data;
 

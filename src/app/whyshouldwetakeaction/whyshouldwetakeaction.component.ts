@@ -15,7 +15,7 @@ export class WhyshouldwetakeactionComponent implements OnInit {
     private titleService: Title) { }
 
   ngOnInit(): void{
-    this.http.get<any[]>('http://localhost:80/whyshouldwetakeactions')
+    this.http.get<any[]>('/whyshouldwetakeactions')
     .subscribe(incoming_data =>{
       this.y_should_we_take_action = incoming_data;
 

@@ -14,7 +14,7 @@ export class Case2Component implements OnInit {
   constructor(private http: HttpClient, private titleService: Title){}
 
   ngOnInit(): void {
-      this.http.get<any[]>('http://localhost:80/outdatedjeepengine')
+      this.http.get<any[]>('/outdatedjeepengine')
       .subscribe(outdated_engine =>{
         this.outdated_engine = outdated_engine;
         console.log(outdated_engine);

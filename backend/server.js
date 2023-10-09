@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -16,11 +18,12 @@ app.disable('x-powered-by');
 
 app.use(helmet.contentSecurityPolicy({
   directives: {
-    defaultSrc: ["'self'"], 
+    defaultSrc: ["'self'", "http://localhost"], 
     scriptSrc: ["'self'", "'unsafe-eval'", "'unsafe-inline'"],
     styleSrc: ["'self'", "https://fonts.googleapis.com", "https://unpkg.com/aos@2.3.1/dist/aos.css", "https://pro.fontawesome.com/releases/v5.10.0/css/all.css", "https://fonts.cdnfonts.com/css/henry-sans", "'unsafe-inline'"],
     imgSrc: ["'self'", "data:", "blob:", "'unsafe-inline'"],
-    scriptSrcAttr: ["'unsafe-inline'"]
+    scriptSrcAttr: ["'unsafe-inline'"],
+    reportTo: ["'csp-endpoint'"]
     // Add more directives as needed
   }
 }));
@@ -75,10 +78,16 @@ const assessment_trivia = require('./routes/assessment-routes');
 const login_routes = require('./routes/login-routes');
 
 const port = process.env.PORT || 80;
-mongoose.connect('mongodb+srv://karlmarxroxas1:Mvckf9rVcnZoxP0V@website.h8t2kwr.mongodb.net/ecotopia');
+
+const URI=process.env.DB_CONNECTION;
+
+mongoose.connect(URI)
+
+const allowedOrigin = ['dry-forest-52571-e7ad1e7e2bf2.herokuapp.com'];
 
 // CORS Middleware
 const corsOptions = {
+  origin: allowedOrigin,
   origin: 'localhost', 
   methods: 'GET,POST,PUT',           
   allowedHeaders: 'Content-Type', 
@@ -90,7 +99,7 @@ app.use(bodyParser.json());
 
 // This causes bug in API. Enable only if dockerizing it.
 // See : https://chat.openai.com/share/99b39e15-397a-496c-8689-1d023344b37d
-// app.use(history());
+app.use(history());
 
 app.use(express.static(path.join(__dirname, 'dist/ecotopia-capstone')));
 
