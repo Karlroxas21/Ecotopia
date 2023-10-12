@@ -70,6 +70,12 @@ export class AppComponent {
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+    if (this.isMenuOpen) {
+      document.body.style.overflow = 'hidden'; // Prevent scrolling when the menu is open
+    } else {
+      document.body.style.overflow = 'auto'; // Restore scrolling when the menu is closed
+    }
   }
+  
 }
 

@@ -1,5 +1,5 @@
 .header-img{
-    height:980px;
+    height: 900px;
     overflow: hidden;
     position: relative;
 }
@@ -41,6 +41,7 @@ header img{
     display: flex;
     flex-direction: column;
     position: relative;
+    padding: 20;
 }
 .insights-container .insights-container-sub:hover {
     transform: scale(1.1);
@@ -226,11 +227,10 @@ section h1{
 
 /* Encyclopedic Entry */
 .encyclopedic-entry-container{
-    display: flex;
-    flex-direction: column;
-    margin-top: 5%;
-    margin-left: 20%;
-    margin-right: 30%;
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 10px;
 }
 
 .eec-1 h1{
@@ -363,7 +363,7 @@ section h1{
     }
 
     .example-item-main-container-sub2 img{
-        width: 100%;
+        max-width: 100%;
     }
 
     /* Encyclopedic Entry */
@@ -508,3 +508,12 @@ section h1{
         font-size: 20px;
     }
 }
+
+  
+  
+  /* Reference */
+  .reference-container {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  
