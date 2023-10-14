@@ -1,23 +1,18 @@
-body{
-    margin: 0px;
-    padding: 0px;
+body {
+    margin: 0;
+    padding: 100px;
+    background-image: url("src/assets/escaperoom/border.png");
+    background-size: 1000px 700px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
-#gameContainer{
+
+#gameContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 4.5%;
-    margin-bottom: 5%;
-    position: relative; 
+    margin-top: 1%;
+    margin-bottom: 1%;
+    position: relative;
     width: 100%;
-    
-}
-img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    margin-top: 8%;
-    margin-left: 25%;
-    object-fit: contain;
 }

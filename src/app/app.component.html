@@ -10,7 +10,7 @@
 
   </head>
   <body>
-    <header  (scroll)="onscroll()" [ngClass]="navbarfixed?'fixed':'nofixed'" *ngIf="!hideNavbar">
+    <header (scroll)="onscroll()" *ngIf="!hideNavbar || isMenuOpen" [ngClass]="{'fixed-navbar': navbarfixed}">
       <input type="checkbox" id="nav_check" hidden>
       <nav>
         <ul>
