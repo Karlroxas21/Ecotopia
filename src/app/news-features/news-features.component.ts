@@ -12,7 +12,7 @@ export class NewsFeaturesComponent implements OnInit {
   news: any[] = [];
   itemsToShow: number = 6;
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient){ }
 
   ngOnInit(): void{
     this.http.get<any[]>(`${environment.apiUrl}news_features`)
