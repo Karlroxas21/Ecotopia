@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { environment } from '../../environments/environment'
 
 @Injectable({
         providedIn: 'root'
 })
 
 export class AdminSolutionsService {
-        private urlAPI = "http://localhost:80/admin-solutions";
+        private urlAPI = `${environment.apiUrl}admin-solutions`;
 
         constructor(private http: HttpClient){ }
 

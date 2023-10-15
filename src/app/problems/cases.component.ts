@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
+import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-cases',
@@ -14,7 +15,7 @@ export class CasesComponent implements OnInit {
   constructor(private http: HttpClient, private titleService: Title){}
 
   ngOnInit():void{
-    this.http.get<any[]>('/problems')
+    this.http.get<any[]>(`${environment.apiUrl}problems`)
     .subscribe(cases =>{
       this.cases = cases;
     })

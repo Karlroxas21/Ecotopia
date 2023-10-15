@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
+import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-othersolutions',
@@ -15,7 +16,7 @@ export class OthersolutionsComponent {
     private titleService: Title) { }
 
   ngOnInit(): void{
-    this.http.get<any[]>('http://localhost:80/othersolutions')
+    this.http.get<any[]>(`${environment.apiUrl}othersolutions`)
     .subscribe(incoming_data => {
       this.other_solutions = incoming_data;
 

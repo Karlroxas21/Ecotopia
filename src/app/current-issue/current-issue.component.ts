@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
+import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-current-issue',
@@ -22,7 +23,7 @@ export class CurrentIssueComponent {
     private titleService: Title) { }
 
   ngOnInit(): void{
-    this.http.get<any[]>('http://localhost:80/currentIssue')
+    this.http.get<any[]>(`${environment.apiUrl}currentIssue`)
     .subscribe(incoming_data => {
       this.current_issues_ph = incoming_data;
     });

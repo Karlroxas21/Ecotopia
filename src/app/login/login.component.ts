@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr'; 
+import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-login',
@@ -67,7 +68,7 @@ export class LoginComponent {
         password: this.password,
       };
     
-      this.http.post('http://localhost:80/login', formData).subscribe(
+      this.http.post(`${environment.apiUrl}login`, formData).subscribe(
         (response: any) => {
           localStorage.setItem('token', response.token);
     

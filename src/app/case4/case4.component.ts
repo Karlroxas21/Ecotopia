@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
+import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-case4',
@@ -14,7 +15,7 @@ export class Case4Component {
   constructor(private http: HttpClient, private titleService: Title){}
 
   ngOnInit(): void{
-    this.http.get<any[]>('http://localhost:80/effectsofclimatechange')
+    this.http.get<any[]>(`${environment.apiUrl}effectsofclimatechange`)
     .subscribe(effects_climate_change =>{
       this.effects_climate_change = effects_climate_change;
       console.log(effects_climate_change);

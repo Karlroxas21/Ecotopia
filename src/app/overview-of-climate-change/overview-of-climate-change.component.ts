@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import SimpleParallax from 'simple-parallax-js';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-overview-of-climate-change',
@@ -15,7 +16,7 @@ export class OverviewOfClimateChangeComponent implements OnInit {
   constructor(private http: HttpClient){}
 
   ngOnInit():void{
-    this.http.get<any[]>('http://localhost:80/overviewOfClimateChange')
+    this.http.get<any[]>(`${environment.apiUrl}overviewOfClimateChange`)
     .subscribe(news =>{
       this.news = news;
     })

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-news-features',
@@ -14,7 +15,7 @@ export class NewsFeaturesComponent implements OnInit {
   constructor(private http: HttpClient){}
 
   ngOnInit(): void{
-    this.http.get<any[]>('http://localhost:80/news_features')
+    this.http.get<any[]>(`${environment.apiUrl}news_features`)
     .subscribe(news =>{
       this.news = news;
     });

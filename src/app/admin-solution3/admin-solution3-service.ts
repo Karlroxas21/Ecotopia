@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { environment } from '../../environments/environment'
 
 @Injectable({
         providedIn: 'root'
@@ -8,8 +9,8 @@ import { Observable } from "rxjs";
 
 export class AdminSolution3Service {
         
-        private urlAPI = "http://localhost:80/admin-solution-3";
-
+        private urlAPI = `${environment.apiUrl}admin-solution-3`;
+        
         constructor(private http: HttpClient) { }
 
         getData(): Observable<any> {

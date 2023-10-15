@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
+import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-respondingtoclimatechange',
@@ -15,7 +16,7 @@ export class RespondingtoclimatechangeComponent {
     private titleService: Title){ }
 
     ngOnInit(): void{
-      this.http.get<any[]>('http://localhost:80/respondingtoclimatechange')
+      this.http.get<any[]>(`${environment.apiUrl}respondingtoclimatechange`)
       .subscribe(incoming_data => {
         this.responding_climate_change = incoming_data;
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
+import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-whyshouldwetakeaction',
@@ -15,7 +16,7 @@ export class WhyshouldwetakeactionComponent implements OnInit {
     private titleService: Title) { }
 
   ngOnInit(): void{
-    this.http.get<any[]>('http://localhost:80/whyshouldwetakeactions')
+    this.http.get<any[]>(`${environment.apiUrl}whyshouldwetakeactions`)
     .subscribe(incoming_data =>{
       this.y_should_we_take_action = incoming_data;
 
