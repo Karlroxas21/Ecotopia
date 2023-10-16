@@ -14,22 +14,20 @@
 .sub-right{
     width: 60%;
 }
-.about-maafia h1{
-    font-size: 50px;
-    font-weight: bolder;
-    color: #ffffff;
+
+.about-maafia {
     background-color: #001DD3;
-    border-radius: 20px;
-    display: inline-block;
-    width: 100%;
+    padding: 30px 20px;
+    border-radius: 15px;
     text-align: center;
-    transition: all .45s ease;
-}
-.about-maafia{
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: center;
-}
+  }
+  
+  .about-maafia h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+  }
 
 .about-maafia p{
     font-size: 1.5rem;
@@ -51,12 +49,29 @@
     transition: all .45s ease;
 }
 
-.email p{
+.sub-objective2 {
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sub-objective2 .objective-1 img {
+    width: 180px;
+    max-width: 100%; 
+    height: auto; 
+    padding-bottom: 10px;
+}
+
+.email {
     font-family: 'Henry Sans Medium', sans-serif;
     font-size: 1.5rem;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.email p {
     margin: 0;
-    padding: 0;
-    transition: all .45s ease;
 }
 
 /* Objectives */
@@ -264,16 +279,40 @@
         display: flex;
         flex-direction: column;
     }
-    .sub-objective2{
-        margin-left: -70px;
-    }
 }
-@media screen and (max-width: 330px){
+@media screen and (max-width: 440px){
     .about .content img{
         width: 250px;
         height: 250px;
     }
     .about-maafia h1{
         font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 315px){
+    .about-maafia h1{
+        font-size: 19px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sub-objective2 {
+        flex-direction: column; 
+    }
+
+    .sub-objective2 .objective-1 img {
+        width: 100%; 
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .sub-objective2 {
+        padding-bottom: 10px;
+    }
+}
+@media screen and (max-width: 340px) {
+    .sub-objective2 p{
+        font-size: 18px;
     }
 }
