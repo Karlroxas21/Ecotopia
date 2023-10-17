@@ -34,6 +34,10 @@ app.use(helmet.hsts({
   includeSubDomains: true,
 }))
 
+app.use((req, res, next) =>{
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  next();
+})
 // Routes
 
 // Admin Cases Routes
