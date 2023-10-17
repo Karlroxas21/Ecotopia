@@ -28,6 +28,12 @@ app.use(helmet.contentSecurityPolicy({
   }
 }));
 
+// HSTS Strict-Transport-Security
+app.use(helmet.hsts({
+  maxAge: 15552000, // 180 days in secs
+  includeSubDomains: true,
+}))
+
 // Routes
 
 // Admin Cases Routes
