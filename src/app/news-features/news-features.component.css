@@ -132,11 +132,7 @@ body, header{
   background-color: #02179c;
   color: white;
 }
-@media only screen and (max-width: 359px) {
-  .header-txt h1{
-    margin-right: 70px;
-  }
-}
+
 
 @media only screen and (max-width: 1138px){
   .grid-container{

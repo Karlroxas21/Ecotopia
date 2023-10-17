@@ -44,15 +44,15 @@ table, td, th{
 }
 
 .ccs-sub-div2{
-    padding-left: 100px;
-    padding-right: 50px;
-    margin-right: 80px;
+    width: 100%;
+    padding: 10px;
     font-size: 20px;
 }
 
 .ccs-div2{
     display: flex;
 }
+
 
 .padding-top-40px{
     padding-top: 40px;
@@ -166,6 +166,7 @@ table, td, th{
       width: 100%;
       margin-top: 10px; 
     }
+    
   }
 
   @media screen and (max-width: 1863px) {

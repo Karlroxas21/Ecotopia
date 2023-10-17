@@ -270,8 +270,9 @@ section h1{
 
 /* Related News */
 .related-news-container-main{
-    /* background-color: lightblue;
-    border: 1px solid black; */
+    background-color: #949494;
+    border: 2px solid black;
+    border-radius: 10px;
     height: 100%;
     width: 100%;
     overflow-x: scroll;
@@ -283,10 +284,10 @@ section h1{
     width: 180%;
 }
 .margins{
-    margin-top: 5%;
+    margin-top: 3%;
     margin-left: 10%;
     margin-right: 10%;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
 }
 .margins h2{
     font-weight: bold   ;
@@ -508,6 +509,11 @@ section h1{
         font-size: 20px;
     }
 }
+@media screen and (max-width: 280px) {
+    .box2 h2 {
+        font-size: 18px;
+    }
+}
 
   
   
@@ -517,3 +523,107 @@ section h1{
     margin-right: 5%;
   }
   
+
+
+
+  /* For screens smaller than 768px (tablets and below) */
+@media screen and (max-width: 1012px) {
+    /* Header */
+    .header-img {
+        height: 80%;
+    }
+
+    .header-img::after {
+        height: 80%;
+    }
+
+    /* Insights */
+    .insights-container,
+    .insights-container-2 {
+        flex-direction: column;
+    }
+
+    .insights-main-container {
+        position: relative;
+        background-color: black;
+        padding-left: 20px; 
+        padding-right: 20px; 
+        top: 20%; 
+    }
+
+    .insights-container-sub {
+        padding: 10px; 
+    }
+
+    .insights-container-text h1 {
+        font-size: 2rem;
+    }
+
+    .insights-container-sub::before {
+        width: 100%; 
+        background-color: rgba(255, 255, 255, 1);
+    }
+
+    .container {
+        margin-top: 20px; 
+        margin-bottom: 20px; 
+    }
+
+    .container .text,
+    .container .image {
+        padding: 10px; 
+    }
+
+    .what-is-climate-c h1 {
+        font-size: 2rem;
+    }
+
+    /* Encyclopedic Entry */
+    .encyclopedic-entry-container {
+        margin-left: 5%;
+        margin-right: 5%;
+        padding: 10px;
+    }
+
+    .eec-1 h1 {
+        font-size: 2rem;
+    }
+
+    .eec-1 p {
+        font-size: 1.2rem;
+    }
+
+    .eec-2 p {
+        font-size: 1rem;
+    }
+
+    .all-caps {
+        font-size: 0.8rem;
+    }
+
+    /* Reference */
+    .reference-container {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .tile-1 {
+        width: 100%;
+    }
+
+    .margins {
+        margin-top: 20px; 
+        margin-left: 5%; 
+        margin-right: 5%; 
+        margin-bottom: 20px; 
+    }
+
+    .margins h2 {
+        font-size: 2rem; 
+    }
+}
+
+
+
+
+

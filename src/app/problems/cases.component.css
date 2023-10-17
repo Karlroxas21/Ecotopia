@@ -14,18 +14,21 @@ html{
     padding: 0;
 }
 .content img{
-    width: 800px;
-    height: 800px;
+    width: 100%; 
+    max-width: 800px; 
+    height: auto;
 }
 .content{
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
     min-height: 50vh;
     padding: 10px;
     margin-bottom: 60px;
     transition: 0.5s;
+    justify-content: space-evenly;
 }
 .content .textbox{
     position: relative;
@@ -44,7 +47,6 @@ html{
 .content .textbox p{
     font-size: 25px;
     color: #000000;
-    text-align: justify;
     line-height: 1.5em;
     font-weight: 300;
     padding-top: 20px;
@@ -52,7 +54,7 @@ html{
 .card-container {
     display: flex;
     margin-bottom: 50px;
-    padding: 0 60px 0 60px;
+    padding: 0 12px 0 12px;
   }
   
 .card {
@@ -63,11 +65,6 @@ html{
     border: 3px solid;
     border-radius: 35px;
 }
-  
-  /*.card:hover {
-    transform: scale(1.1);
-    border-color: #ff0000;
-  }*/
   
   .card h2 {
     margin-top: 0;
@@ -97,20 +94,38 @@ html{
 @media screen and (max-width: 825px){
     .content img{
         width: 100%;
-        height: 100%;
+        height: auto;
     }
 }
-@media screen and (max-width: 750px){
-    h1{
-        text-align: center;
-    }
+@media screen and (max-width: 498px){
     .text p{
         text-align: justify;
     }
-    .content .textbox h2{
-        line-height: 110px;
-        font-size: 80px;
+    .content .textbox h2 {
+        font-size: 40px;
+        line-height: 60px;
+    }
+    .card{
+        width: 100%;
     }
 }
-  
+
+.item-title {
+    color: #0030FF;
+    padding-bottom: 10px; 
+    padding-left: 20px;   
+    font-size: 50px;   
+    font-weight: bold;
+}
+
+@media screen and (max-width: 750px) {
+    h1{
+        text-align: center;
+    }
+    .item-title {
+        font-size: 32px;
+        padding-bottom: 8px; 
+        padding-left: 10px; 
+    }
+}
 

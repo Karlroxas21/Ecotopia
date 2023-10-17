@@ -18,54 +18,32 @@ html{
     padding: 0;
 }
 .content img{
-    width: 800px;
-    height: 800px;
+    width: 100%; 
+    max-width: 800px; 
+    height: auto;
 }
 .content{
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
     min-height: 50vh;
     padding: 10px;
     margin-bottom: 60px;
     transition: 0.5s;
-}
-.content2{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    min-height: 30vh;
-}
-.content2 i{
-    font-size: 200%;
+    justify-content: space-evenly;
 }
 .content .textbox{
     position: relative;
     max-width: 600px;
 }
-.content2, .textbox2{
-    padding-right: 10px;
-}
 .content .textbox h2{
     color: #1A238D;
     line-height: 120px;
     font-family: 'Roboto', sans-serif;
-    font-size: 100px;
+    font-size: 90px;
     font-weight: 900;
-}
-.content2 .textbox2 h3{
-    color: #0217D4;
-    font-family: 'Roboto', sans-serif;
-    font-size: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 50px;
-    border-style: solid;
-    padding: 50px 50px 50px 50px;
-
 }
 .content .textbox span{
     color: #FF96A9;
@@ -73,7 +51,6 @@ html{
 .content .textbox p{
     font-size: 25px;
     color: #000000;
-    text-align: justify;
     line-height: 1.5em;
     font-weight: 300;
     padding-top: 20px;
@@ -129,7 +106,7 @@ html{
     margin-top: 60px;
 }
 section .reference-container{
-    padding: 50px;
+    padding: 30px;
 }
 .center{
     display: block;
@@ -196,3 +173,75 @@ section .reference-container{
         flex-direction: column;
     }
 }
+
+@media screen and (max-width: 498px){
+    .text p{
+        text-align: justify;
+    }
+    .content .textbox h2 {
+        font-size: 40px;
+        line-height: 60px;
+    }
+    .content{
+        margin-top: 10px;
+    }
+}
+
+
+.item-title {
+    color: #0030FF;
+    padding-bottom: 10px; 
+    font-size: 50px;   
+    font-weight: bold;
+    text-align: center;
+}
+
+@media screen and (max-width: 750px) {
+    h1{
+        text-align: center;
+    }
+    .item-title {
+        font-size: 32px;
+        padding-bottom: 8px; 
+        padding-left: 10px; 
+    }
+}
+
+
+
+.text {
+    padding: 0 100px 0 100px;
+    color: #080d14;
+    transition: 0.5s;
+}
+
+@media screen and (max-width: 1024px) {
+    .text {
+        padding: 0 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .text {
+        padding: 0 20px;
+    }
+    .text h1 {
+        font-size: 36px;
+    }
+    .text p {
+        font-size: 18px;
+    }
+    .text ul {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .text h1 {
+        font-size: 28px;
+    }
+    .text p {
+        font-size: 16px;
+    }
+}
+
