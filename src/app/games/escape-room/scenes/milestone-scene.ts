@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { heartPointsService } from './heart-service';
+import { scoreService } from './score-service';
 
 export class Milestone extends Phaser.Scene {
         constructor() {
@@ -12,8 +13,9 @@ export class Milestone extends Phaser.Scene {
         }
 
 
-        textDisplay = "Congratulation's!\n You've escape the challenge and you make a positive impact \non the environment";
+        textDisplay = `Congratulations!\n\nYou answered all the correct answers and make a positive impact on\nthe environemnt!\n\n You're score is ${scoreService.getScorePoints()}` ;
 
+        character: any;
 
         create() {
 
@@ -32,9 +34,9 @@ export class Milestone extends Phaser.Scene {
                 );
 
                 const closeButton = this.add.text(
-                        this.config.width - 90,
-                        centerY - this.config.height / 6 / 2 + 15,
-                        "X",
+                        this.config.width /2,
+                        centerY - this.config.height / 6 / 2 + 200,
+                        "click here to restart",
                         { font: '18px Arial', color: '#ffffff' }
                 );
                 closeButton.setOrigin(0.5);
@@ -48,10 +50,22 @@ export class Milestone extends Phaser.Scene {
                         centerX,
                         centerY,
                         this.textDisplay,
-                        { font: '18px monospace', color: '#ffffff', align: 'center' }
+                        { font: '21px monospace', color: '#ffffff', align: 'center' }
                 );
                 guide.setOrigin(0.5);
                 // End of text
+
+        this.character = this.add.sprite(650, 480, 'character');
+        this.character.setScale(0.3);
+
+    this.anims.create({
+      key: 'character_key',
+      frames: this.anims.generateFrameNumbers('character', {start: 0, end: 6}),
+      frameRate: 10,
+      repeat: -1
+    })
+
+    this.character.anims.play('character_key');
 
         }
 

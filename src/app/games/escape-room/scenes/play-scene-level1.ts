@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { heartPointsService } from './heart-service';
+import { scoreService } from './score-service';
 
 export class PlayScene extends Phaser.Scene {
   constructor() {
@@ -60,10 +61,14 @@ export class PlayScene extends Phaser.Scene {
   bgMusic: any;
   choiceButtonSFX: any;
 
-  textDisplay = "Which item should you prioritize picking up to help \nclean the beach?";
+  textDisplay = "S1Which item should you prioritize picking up to help \nclean the beach?";
 
-  choice1 = "Plastic bottles and cigarette butts";
-  choice2 = "Seashells and pebbles";
+  choice1 = "Plastic bottles";
+  choice2 = "Cigarette butts";
+  choice3 = "Seashells";
+  choice4 = "Pebbles";
+
+  scoreDisplay: any;
 
   create() {
     this.background = this.add.image(0, 0, 'level-1-bg');
@@ -88,9 +93,21 @@ export class PlayScene extends Phaser.Scene {
     this.cloud0 = this.add.image(100, 200, 'cloud-0');
     
     for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
-      this.heart_icon = this.add.image(770, 30 + i * 30, 'heart-icon');
+      this.heart_icon = this.add.sprite(770, 10 + i * 50, 'heart-icon');
+      this.heart_icon.setScale(0.08);
+
+      this.anims.create({
+        key: 'heart-icon_key',
+        frames: this.anims.generateFrameNumbers('heart-icon', {start: 0, end: 4}),
+        frameRate: 10,
+        repeat: -1
+    })
+
+    this.heart_icon.anims.play('heart-icon_key');
     }
     
+    this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
+
     this.choiceButtonSFX = this.sound.add('choice');
 
     // Question
@@ -129,13 +146,15 @@ export class PlayScene extends Phaser.Scene {
     const choice1Guide = this.add.text(
       choice1CenterX,
       choice1CenterY,
-      this.choice1,
+      this.choice3,
       { font: '18px monospace', color: '#ffffff' }
     );
 
     choice1Guide.setInteractive()
     choice1Guide.on('pointerdown', () => {
-      this.scene.start('play-scene-correct', {config: this.game.config});
+      this.scene.start('play-scene-wrong', {config: this.game.config});
+      scoreService.decreaseScorePoints(1);
+      heartPointsService.decreaseHeartPoints();
       
       this.choiceButtonSFX.play();
 
@@ -162,13 +181,71 @@ export class PlayScene extends Phaser.Scene {
     );
     choice2Guide.setInteractive()
     choice2Guide.on('pointerdown', () => {
-      heartPointsService.decreaseHeartPoints();
-      this.scene.start('play-scene-wrong', {config: this.game.config});
+      this.scene.start('play-scene-correct', {config: this.game.config});
 
+      scoreService.increaseScorePoints(2);
       this.choiceButtonSFX.play();
 
     });
     // End of choice 2
+
+    // Choice 3
+    const choice3CenterX = 100;
+    const choice3CenterY = centerY + 180;
+    const choice3graphics = this.add.graphics();
+    choice3graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+    choice3graphics.fillRect(
+      75,
+      centerY + 170,
+      this.config.width - 150,
+      40
+    );
+
+    const choice3Guide = this.add.text(
+      choice3CenterX,
+      choice3CenterY,
+      this.choice4,
+      { font: '18px monospace', color: '#ffffff' }
+    );
+
+    choice3Guide.setInteractive()
+    choice3Guide.on('pointerdown', () => {
+      this.scene.start('play-scene-wrong', {config: this.game.config});
+      scoreService.decreaseScorePoints(1);
+      heartPointsService.decreaseHeartPoints();
+
+      this.choiceButtonSFX.play();
+
+    });
+    // End of choice 3
+
+    // Choice 4
+    const choice4CenterX = 100;
+    const choice4CenterY = centerY + 230;
+    const choice4graphics = this.add.graphics();
+    choice4graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+    choice4graphics.fillRect(
+      75,
+      centerY + 220,
+      this.config.width - 150,
+      40
+    );
+
+    const choice4Guide = this.add.text(
+      choice4CenterX,
+      choice4CenterY,
+      this.choice1,
+      { font: '18px monospace', color: '#ffffff' }
+    );
+    choice4Guide.setInteractive()
+    choice4Guide.on('pointerdown', () => {
+      this.scene.start('play-scene-correct', {config: this.game.config});
+      scoreService.increaseScorePoints(4);
+
+      this.choiceButtonSFX.play();
+
+    });
+    // End of choice 4
 
     this.clutters();
 

@@ -28,10 +28,12 @@ export class PrePlayScene extends Phaser.Scene {
   bgMusic: any;
   xButtonSFX: any;
 
+  character: any;
+
   guide: any;
   timer: any;
 
-  private textDisplay = 'You need to pick the right answers to complete the game';
+  private textDisplay = 'Welcome to Climate Escape! Your mission is to help restore \nnature to its former glory!\n\nAll you need to do is to pick the right answers to complete \nthe game. Pick 3 wrong answers and it\'\ll be game over. \n\nGood luck!';
 
   create() {
     this.background = this.add.image(0, 0, 'level-1-bg');
@@ -44,34 +46,75 @@ export class PrePlayScene extends Phaser.Scene {
     //Guide
     const centerX = this.config.width / 2;
     const centerY = this.config.height / 2;
-    const graphics = this.add.graphics();
-    graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-    graphics.fillRect(
-      75,
-      centerY - this.config.height / 6 / 2,
-      this.config.width - 150,
-      this.config.height / 6
-    );
+    // const graphics = this.add.graphics();
+    // graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+    // graphics.fillRect(
+    //   75,
+    //   centerY - this.config.height / 6 / 2,
+    //   this.config.width - 150,
+    //   this.config.height / 4
+    // );
 
     const guide = this.add.text(
       centerX,
-      centerY,
-      this.textDisplay,
-      { font: '18px monospace', color: '#ffffff' }
+      centerY - 30,
+      '',
+      { font: '20px monospace', color: '#ffffff' }
     );
     guide.setOrigin(0.5);
+
+    let index = 0;
+    const textToType = this.textDisplay;
+
+    const typeingTimer = this.time.addEvent({
+      delay: 50,
+      callback: () =>{
+        guide.text += textToType[index];
+        index++;
+
+        if(index === textToType.length){
+          typeingTimer.remove();
+        }
+      },
+      callbackScope: this,
+      loop: true,
+    })
+
+    this.character = this.add.sprite(-50, 480, 'character');
+    this.character.setScale(0.5);
+
+    this.anims.create({
+      key: 'character_key',
+      frames: this.anims.generateFrameNumbers('character', {start: 0, end: 2}),
+      frameRate: 10,
+      repeat: -1
+    })
+
+    const timeline = this.tweens.createTimeline();
+
+    timeline.add({
+      targets: this.character,
+      x: 150,
+      ease: 'Linear',
+      duration: 1000,
+      onComplete: () =>{
+        this.character.anims.play('character_key')
+      },
+    });
+
+    timeline.play();
 
     // Close button
     const closeButton = this.add.text(
       this.config.width - 90,
-      centerY - this.config.height / 6 / 2 + 15,
-      'X',
+      centerY - this.config.height / 6 / 2 + 150,
+      'continue',
       { font: '18px monospace', color: '#ffffff' }
     );
     closeButton.setOrigin(0.5);
     closeButton.setInteractive();
     closeButton.on('pointerdown', () => {
-      graphics.destroy();
+      // graphics.destroy();
       guide.destroy();
       closeButton.destroy();
       this.scene.start('play-scene', { config: this.game.config });

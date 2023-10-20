@@ -14,9 +14,6 @@ export class MainScene extends Phaser.Scene {
       '../../../../assets/background/climate-escape-background.png'
     );
 
-    // Heart icon
-    this.load.image('heart-icon', '../../../../assets/game/heart_icon.png');
-
     // SFX
     this.load.audio('x-button', '../../../../assets/game/x-button.mp3');
     this.load.audio('level-passed', '../../../../assets/game/level-passed.mp3');
@@ -96,6 +93,18 @@ export class MainScene extends Phaser.Scene {
     this.load.image('scene5-bg-wrong', '../../../../assets/game/scene5/lake(soda).png');
     this.load.image('scene5-bg-correct', '../../../../assets/game/scene5/lake(wli).png');
 
+    // Example sprite character
+    this.load.spritesheet('character', '../../../../assets/game/chara.png',{
+      frameWidth: 408,
+      frameHeight: 460
+    })
+
+    // Heart sprite
+    this.load.spritesheet('heart-icon', '../../../../assets/game/heart_sprite.png', {
+      frameWidth: 510,
+      frameHeight: 510
+    });
+    
     // Loading bar
     let loadingBar = this.add.graphics({
       fillStyle: { color: 0xffffff },
@@ -144,7 +153,7 @@ export class MainScene extends Phaser.Scene {
     // Uncomment this when done in level 1!
     this.load.on('complete', () => {
       // default-scene is the original value
-      this.scene.start('default-scene', { config: this.game.config });
+      this.scene.start('pre-play-scene', { config: this.game.config });
     });
 
     // Temporary to see Level 2 Scene Fast.
