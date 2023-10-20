@@ -17,7 +17,7 @@ export class ScoreService{
                 this.scorePoints -= number;
         }
         
-        resetHeartPoints() {
+        resetScorePoints() {
                 this.scorePoints = this.initialScorePoints;
         }
 }

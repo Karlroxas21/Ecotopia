@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
-
 import { heartPointsService } from './heart-service';
+import { scoreService } from './score-service';
 
 export class GameOver extends Phaser.Scene {
   config: Phaser.Types.Core.GameConfig | any;
@@ -16,6 +16,7 @@ export class GameOver extends Phaser.Scene {
 
   init(data: { config: Phaser.Types.Core.GameConfig }) {
     this.config = data.config;
+    scoreService.resetScorePoints();
   }
 
   background: any;

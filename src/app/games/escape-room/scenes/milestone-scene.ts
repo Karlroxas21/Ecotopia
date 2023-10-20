@@ -13,12 +13,17 @@ export class Milestone extends Phaser.Scene {
         }
 
 
-        textDisplay = `Congratulations!\n\nYou answered all the correct answers and make a positive impact on\nthe environemnt!\n\n You're score is ${scoreService.getScorePoints()}` ;
+        textDisplay: any;
+
 
         character: any;
 
         create() {
 
+                this.textDisplay = `Congratulations!\n\nYou answered all the correct answers and make a positive impact on\nthe environemnt!\n\n You're score is ${scoreService.getScorePoints()}` 
+                // reset score
+                scoreService.resetScorePoints();
+                scoreService
                 this.sound.stopAll();
                 // Text
                 const centerX = this.config.width / 2;
