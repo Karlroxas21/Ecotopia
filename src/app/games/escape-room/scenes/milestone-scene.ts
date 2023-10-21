@@ -15,12 +15,13 @@ export class Milestone extends Phaser.Scene {
 
         textDisplay: any;
 
-
         character: any;
+
+        mileStoneMusic: any;
 
         create() {
 
-                this.textDisplay = `Congratulations!\n\nYou answered all the correct answers and make a positive impact on\nthe environemnt!\n\n You're score is ${scoreService.getScorePoints()}` 
+                this.textDisplay = `Congratulations!\n\nYou answered all the correct answers and make a positive impact on\nthe environemnt!\n\n You're score is ${scoreService.getScorePoints()}`
                 // reset score
                 scoreService.resetScorePoints();
                 scoreService
@@ -39,7 +40,7 @@ export class Milestone extends Phaser.Scene {
                 );
 
                 const closeButton = this.add.text(
-                        this.config.width /2,
+                        this.config.width / 2,
                         centerY - this.config.height / 6 / 2 + 200,
                         "click here to restart",
                         { font: '18px Arial', color: '#ffffff' }
@@ -60,18 +61,20 @@ export class Milestone extends Phaser.Scene {
                 guide.setOrigin(0.5);
                 // End of text
 
-        this.character = this.add.sprite(650, 480, 'character');
-        this.character.setScale(0.3);
+                this.character = this.add.sprite(150, 480, 'character');
+                this.character.setScale(0.3);
 
-    this.anims.create({
-      key: 'character_key',
-      frames: this.anims.generateFrameNumbers('character', {start: 0, end: 6}),
-      frameRate: 10,
-      repeat: -1
-    })
+                this.anims.create({
+                        key: 'character_key',
+                        frames: this.anims.generateFrameNumbers('character', { start: 0, end: 6 }),
+                        frameRate: 10,
+                        repeat: -1
+                })
 
-    this.character.anims.play('character_key');
+                this.character.anims.play('character_key');
 
+                this.mileStoneMusic = this.sound.add('milestone');
+                this.mileStoneMusic.play();
         }
 
         override update() {

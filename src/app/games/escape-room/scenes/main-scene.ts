@@ -22,6 +22,7 @@ export class MainScene extends Phaser.Scene {
     this.load.audio('choice', '../../../../assets/game/choice-button.mp3');
     this.load.audio('bg-music', '../../../../assets/game/bg-music.mp3');
     this.load.audio('game-over', '../../../../assets/game/game-over.mp3');
+    this.load.audio('milestone', '../../../../assets/game/milestone-scene.mp3');
 
     // Level 1 Assets
     // BG
@@ -153,7 +154,7 @@ export class MainScene extends Phaser.Scene {
     // Uncomment this when done in level 1!
     this.load.on('complete', () => {
       // default-scene is the original value
-      this.scene.start('default-scene', { config: this.game.config });
+      this.scene.start('milestone-scene', { config: this.game.config });
     });
 
     // Temporary to see Level 2 Scene Fast.

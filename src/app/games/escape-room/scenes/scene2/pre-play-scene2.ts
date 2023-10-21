@@ -63,6 +63,12 @@ export class PrePlayScene2 extends Phaser.Scene {
       loop: true,
     })
 
+    // Finish text display when user click
+    this.input.on('pointerdown', ()=>{
+      guide.text = textToType;
+      typeingTimer.remove();
+    })
+
     this.character = this.add.sprite(150, 700, 'character');
     this.character.setScale(0.5);
 
