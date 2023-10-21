@@ -287,13 +287,6 @@ export class PlayScene2 extends Phaser.Scene {
       this.config.height / 6
     );
 
-    const guide = this.add.text(
-      centerX,
-      centerY,
-      this.textDisplay,
-      { font: '18px monospace', color: '#ffffff' }
-    );
-    guide.setOrigin(0.5);
     // End of Question
 
   }

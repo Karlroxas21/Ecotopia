@@ -33,7 +33,7 @@ export class PrePlayScene extends Phaser.Scene {
   guide: any;
   timer: any;
 
-  private textDisplay = 'Welcome to Climate Escape! Your mission is to help restore \nnature to its former glory!\n\nAll you need to do is to pick the right answers to complete \nthe game. Pick 3 wrong answers and it\'\ll be game over. \n\nGood luck!';
+  private textDisplay = 'Welcome to Climate Escape! Your mission is to help restore \nnature to its former glory!\n\nAll you need to do is to click the text of the right answers \nto complete the game. Pick 3 wrong answers and it\'\ll be game over. \n\nGood luck!';
 
   create() {
     this.background = this.add.image(0, 0, 'level-1-bg');
