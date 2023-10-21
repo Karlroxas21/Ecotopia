@@ -24,6 +24,8 @@ import { PrePlayScene2 } from './scenes/scene2/pre-play-scene2';
 import { PrePlayScene3 } from './scenes/scene3/pre-play-scene3';
 import { PrePlayScene4 } from './scenes/scene4/pre-play-scene4';
 import { PrePlayScene5 } from './scenes/scene5/pre-play-scene5';
+import { GameService } from './game-service';
+import { GameDataService } from './game-service.data';
 
 @Component({
   selector: 'app-escape-room',
@@ -33,7 +35,9 @@ import { PrePlayScene5 } from './scenes/scene5/pre-play-scene5';
 export class EscapeRoomComponent implements OnInit{
   phaserGame !: Phaser.Game ;
   config: Phaser.Types.Core.GameConfig;
-  constructor(){
+  
+  constructor(private GameService: GameService,
+    private gameDataService: GameDataService){
     this.config = {
       type: Phaser.AUTO,
       height: 600,
@@ -80,6 +84,8 @@ export class EscapeRoomComponent implements OnInit{
     return this.phaserGame;
   }
 
+  gameData: any;
+
   ngOnInit() {
     if(!this.phaserGame){
       this.createGame();
@@ -87,6 +93,7 @@ export class EscapeRoomComponent implements OnInit{
       this.getGameInstance();
     }
  }
+
 
  ngOnDestroy(){
   if(this.phaserGame){

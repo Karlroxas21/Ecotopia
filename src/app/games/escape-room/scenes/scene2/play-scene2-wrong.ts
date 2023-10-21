@@ -35,19 +35,19 @@ export class PlayScene2Wrong extends Phaser.Scene {
                 this.failedSFX = this.sound.add('failed');
                 this.failedSFX.play();
 
-                for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
-                        this.heart_icon = this.add.sprite(770, 10 + i * 50, 'heart-icon');
-                        this.heart_icon.setScale(0.08);
+                // for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
+                //         this.heart_icon = this.add.sprite(770, 10 + i * 50, 'heart-icon');
+                //         this.heart_icon.setScale(0.08);
                   
-                        this.anims.create({
-                          key: 'heart-icon_key',
-                          frames: this.anims.generateFrameNumbers('heart-icon', {start: 0, end: 4}),
-                          frameRate: 10,
-                          repeat: -1
-                      })
+                //         this.anims.create({
+                //           key: 'heart-icon_key',
+                //           frames: this.anims.generateFrameNumbers('heart-icon', {start: 0, end: 4}),
+                //           frameRate: 10,
+                //           repeat: -1
+                //       })
                   
-                      this.heart_icon.anims.play('heart-icon_key');
-                }
+                //       this.heart_icon.anims.play('heart-icon_key');
+                // }
 
                 this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
 

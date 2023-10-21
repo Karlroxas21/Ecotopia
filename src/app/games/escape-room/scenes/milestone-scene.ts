@@ -50,6 +50,7 @@ export class Milestone extends Phaser.Scene {
                 closeButton.on('pointerdown', () => {
                         this.scene.start('pre-play-scene', { config: this.game.config });
                         heartPointsService.resetHeartPoints();
+                        this.mileStoneMusic.destroy();
                 })
 
                 const guide = this.add.text(
