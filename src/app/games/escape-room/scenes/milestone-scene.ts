@@ -61,8 +61,8 @@ export class Milestone extends Phaser.Scene {
                 guide.setOrigin(0.5);
                 // End of text
 
-                this.character = this.add.sprite(150, 480, 'character');
-                this.character.setScale(0.3);
+                this.character = this.add.sprite(150, 460, 'character');
+                this.character.setScale(0.6);
 
                 this.anims.create({
                         key: 'character_key',
