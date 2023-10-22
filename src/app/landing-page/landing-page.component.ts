@@ -51,12 +51,17 @@ export class LandingPageComponent implements OnInit {
     // Move t1 to the right and t2 to the left
     const t1 = this.el.nativeElement.querySelector('#t1');
     if (t1) {
-      this.renderer.setStyle(t1, 'transform', `translateX(${scrollY * 0.3}px)`);
+      this.renderer.setStyle(t1, 'transform', `translateY(${scrollY * 0.3}px)`);
     }
 
     const t2 = this.el.nativeElement.querySelector('#t2');
     if (t2) {
       this.renderer.setStyle(t2, 'transform', `translateX(-${scrollY * 0.3}px)`);
+    }
+    
+    const plants = this.el.nativeElement.querySelector('#plants');
+    if (plants) {
+      this.renderer.setStyle(plants, 'transform', `translateX(-${scrollY * 0.3}px)`);
     }
   }
 
