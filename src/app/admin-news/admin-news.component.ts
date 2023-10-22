@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './admin-news.component.html',
   styleUrls: ['./admin-news.component.css']
 })
-export class AdminNewsComponent implements OnInit{
+export class AdminNewsComponent implements OnInit {
   news: any[] = [];
   itemsToShow: number = 6;
 
@@ -19,84 +19,116 @@ export class AdminNewsComponent implements OnInit{
     title: '',
     datePublished: '',
     link: '',
-    description: ''
+    description: '',
   };
 
-  constructor(private http: HttpClient,
+  constructor(
+    private http: HttpClient,
     private adminNewsService: AdminNewsService,
-    private toastr: ToastrService){ }
+    private toastr: ToastrService
+  ) {}
 
   openEditModal(item: any): void {
     this.news = item;
   }
 
-  saveNews(item: any){
-    if(this.isAnyChanges()){
-      this.adminNewsService.updateDataById(item).subscribe((data) =>{
-        this.toastr.success(item._id, 'News updated successfuly with ID: ');
-      }, (err) =>{
-        console.error("Error updating item with ID: ", item._id)
-        this.toastr.error(item._id, "Error updating item with ID: ");
-      });
+  saveNews(item: any) {
+    if (this.isAnyChanges()) {
+      if (this.containsHarmfulCharacters(item)) {
+        this.toastr.error('Input contains harmful characters or some field are empty.', 'Validation Error');
+      } else if (this.hasEmptyFields(item)) {
+        this.toastr.error('All fields are empty.', 'Error');
+      } else {
+        this.adminNewsService.updateDataById(item).subscribe(
+          (data) => {
+            this.toastr.success(item._id, 'News updated successfully with ID: ');
+          },
+          (err) => {
+            console.error('Error updating item with ID: ', item._id);
+            this.toastr.error(item._id, 'Error updating item with ID: ');
+          }
+        );
 
-      this.isThereAnyChanges = false;
+        this.isThereAnyChanges = false;
+      }
     } else {
       this.toastr.info('No changes were made.', 'Info');
     }
-    
   }
 
-  addNews(){
-    this.adminNewsService.addData(this.newNewsItem).subscribe(
-      (res)=>{
-        this.toastr.success(this.newNewsItem.title, 'Successfuly Added!');
-        this.clearForm();
+  addNews() {
+    if (this.hasEmptyFields(this.newNewsItem)) {
+      this.toastr.error('All fields are empty.', 'Error');
+    } else if (this.containsHarmfulCharacters(this.newNewsItem)) {
+      this.toastr.error('Input contains harmful characters or some field are empty.', 'Validation Error');
+    } else {
+      this.adminNewsService.addData(this.newNewsItem).subscribe(
+        (res) => {
+          this.toastr.success(this.newNewsItem.title, 'Successfully Added!');
+          this.clearForm();
+        },
+        (err) => {
+          this.toastr.error('Error adding item: ', this.newNewsItem.title);
+          console.error(err);
+        }
+      );
+    }
+  }
+
+  deleteNews(item: any) {
+    this.adminNewsService.deleteData(item).subscribe(
+      (res) => {
+        this.toastr.success(item._id, ' Deleted');
       },
-      (err)=>{
-        this.toastr.error("Error adding item: ",this.newNewsItem.title);
-        console.error(err);
-        
+      (err) => {
+        this.toastr.error('Error deleting item: ', item._id);
       }
-    )
+    );
   }
 
-  deleteNews(item: any){
-    this.adminNewsService.deleteData(item).subscribe((res)=>{
-      this.toastr.success(item._id, ' Deleted');
-    }, 
-    (err)=>{
-      this.toastr.error('Error deleting item: ', item._id);
-    })
-  }
-  
   clearForm() {
     this.newNewsItem = {
       title: '',
       datePublished: '',
       link: '',
-      description: ''
+      description: '',
     };
   }
-  ngOnInit(): void{
-    this.adminNewsService.getData().subscribe((news)=>{
+
+  ngOnInit(): void {
+    this.adminNewsService.getData().subscribe((news) => {
       this.news = news;
-    })
+    });
   }
 
-  loadMore(){
+  loadMore() {
     this.itemsToShow += 5;
   }
 
-  readMore(link: String){
-
-  }
-
-  isAnyChanges(){
+  isAnyChanges() {
     return this.isThereAnyChanges;
   }
 
-  doesChange(){
+  doesChange() {
     this.isThereAnyChanges = true;
   }
 
+  containsHarmfulCharacters(item: any): boolean {
+    const harmfulCharactersRegex = /[@#$%^&*()_+={}\[\]:;<>,/?\\|]/;
+    
+    return (
+      harmfulCharactersRegex.test(item.title) ||
+      harmfulCharactersRegex.test(item.datePublished) ||
+      harmfulCharactersRegex.test(item.description)
+    );
+  }
+
+  hasEmptyFields(item: any): boolean {
+    return (
+      !item.title ||
+      !item.datePublished ||
+      !item.link ||
+      !item.description
+    );
+  }
 }

@@ -2,7 +2,7 @@
 
 <header>
 
-        <div class="header-txt" data-aos="fade-down-left" data-aos-duration="1000">
+        <div class="header-txt">
           <h1>Admin News & Features</h1>
         </div>
       </header>
@@ -145,6 +145,26 @@
         </div>
       </div>
       <!-- End modal for add news -->
+
+      <div class="row">
+        <div class="header-txt" data-aos="fade-down-left" data-aos-duration="1000">
+          <h1>Date Picker</h1>
+        </div>
+        <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+          <input type="text"
+                 placeholder="Datepicker"
+                 class="form-control"
+                 bsDatepicker
+                 [bsConfig]="{ isAnimated: true }">
+        </div>
+        <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+          <input type="text"
+                 placeholder="Daterangepicker"
+                 class="form-control"
+                 bsDaterangepicker
+                 [bsConfig]="{ isAnimated: true }">
+        </div>
+      </div>  
 
       </body>
       
