@@ -4,12 +4,17 @@ import { environment } from '../../environments/environment'
 import { AdminNewsService } from './admin-news.service';
 import { ToastrService } from 'ngx-toastr';
 
+
+
 @Component({
   selector: 'app-admin-news',
   templateUrl: './admin-news.component.html',
   styleUrls: ['./admin-news.component.css']
 })
 export class AdminNewsComponent implements OnInit {
+  selectedDateValue = new Date();
+  datepickerModel?: Date;
+  daterangepickerModel?: Date[];
   news: any[] = [];
   itemsToShow: number = 6;
 
@@ -35,9 +40,9 @@ export class AdminNewsComponent implements OnInit {
   saveNews(item: any) {
     if (this.isAnyChanges()) {
       if (this.containsHarmfulCharacters(item)) {
-        this.toastr.error('Input contains harmful characters or some field are empty.', 'Validation Error');
+        this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
       } else if (this.hasEmptyFields(item)) {
-        this.toastr.error('All fields are empty.', 'Error');
+        this.toastr.error('Some fields are empty.', 'Error');
       } else {
         this.adminNewsService.updateDataById(item).subscribe(
           (data) => {
@@ -58,9 +63,9 @@ export class AdminNewsComponent implements OnInit {
 
   addNews() {
     if (this.hasEmptyFields(this.newNewsItem)) {
-      this.toastr.error('All fields are empty.', 'Error');
+      this.toastr.error('Some fields are empty.', 'Error');
     } else if (this.containsHarmfulCharacters(this.newNewsItem)) {
-      this.toastr.error('Input contains harmful characters or some field are empty.', 'Validation Error');
+      this.toastr.error('Input contains harmful characters.', 'Error');
     } else {
       this.adminNewsService.addData(this.newNewsItem).subscribe(
         (res) => {
@@ -114,11 +119,10 @@ export class AdminNewsComponent implements OnInit {
   }
 
   containsHarmfulCharacters(item: any): boolean {
-    const harmfulCharactersRegex = /[@#$%^&*()_+={}\[\]:;<>,/?\\|]/;
+    const harmfulCharactersRegex = /[!@#$%^&*_+={}\[\];<>/?\\|]/;
     
     return (
       harmfulCharactersRegex.test(item.title) ||
-      harmfulCharactersRegex.test(item.datePublished) ||
       harmfulCharactersRegex.test(item.description)
     );
   }

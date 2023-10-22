@@ -53,10 +53,21 @@
                           <label for="floatingTitle">Title</label>
                         </div>
 
-                        <div class="form-floating mb-3">
-                          <input class="form-control" id="floatingCalendar" placeholder="Date published" name="datePublished" [(ngModel)]="item.datePublished" (ngModelChange)="doesChange()">
-                          <label for="floatingCalendar">Date published</label>
+                        <div class="row">
+                          <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+                            <input
+                            name="date"
+                            type="date"
+                            id="datepicker"
+                            class="form-control mt-1 mb-2 ml-3"
+                            [ngModelOptions]="{ standalone: true }"
+                            [(ngModel)]="selectedDateValue"
+                            #vdate="ngModel"
+                            name="datePublished" [(ngModel)]="item.datePublished" (ngModelChange)="doesChange()"
+                          />
+                          </div>
                         </div>
+                        
                         <div class="form-floating mb-3">
                           <input class="form-control" id="floatingLink" placeholder="Link" name="link"[(ngModel)]="item.link" (ngModelChange)="doesChange()">
                           <label for="floatingLink">Link</label>
@@ -122,9 +133,20 @@
                   <label for="floatingTitle">News Title</label>
                 </div>
 
-                <div class="form-floating mb-3">
-                  <input class="form-control" id="floatingCalendar" placeholder="Date published" name="datePublished"[(ngModel)]="newNewsItem.datePublished">
-                  <label for="floatingCalendar">Date published</label>
+
+                <div class="row">
+                  <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+                    <input
+                    name="date"
+                    type="date"
+                    id="datepicker"
+                    class="form-control mt-1 mb-2 ml-3"
+                    [ngModelOptions]="{ standalone: true }"
+                    [(ngModel)]="selectedDateValue"
+                    #vdate="ngModel"
+                    name="datePublished"[(ngModel)]="newNewsItem.datePublished"
+                  />
+                  </div>
                 </div>
                 <div class="form-floating mb-3">
                   <input class="form-control" id="floatingLink" placeholder="Link" name="link" [(ngModel)]="newNewsItem.link">
@@ -145,26 +167,6 @@
         </div>
       </div>
       <!-- End modal for add news -->
-
-      <div class="row">
-        <div class="header-txt" data-aos="fade-down-left" data-aos-duration="1000">
-          <h1>Date Picker</h1>
-        </div>
-        <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
-          <input type="text"
-                 placeholder="Datepicker"
-                 class="form-control"
-                 bsDatepicker
-                 [bsConfig]="{ isAnimated: true }">
-        </div>
-        <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
-          <input type="text"
-                 placeholder="Daterangepicker"
-                 class="form-control"
-                 bsDaterangepicker
-                 [bsConfig]="{ isAnimated: true }">
-        </div>
-      </div>  
 
       </body>
       
