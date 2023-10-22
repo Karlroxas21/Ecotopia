@@ -17,23 +17,24 @@
             <i class="bx {{ item.icon }}"></i>
           </a>
         </li>
-
         <li *ngIf="item.children">
-          <a (click)="toggleDropdown(item)" style="cursor: pointer">
-            <span>{{ item.text }}</span>
-            <i
-              class="bx bx-chevron-down"
-              [ngClass]="{ rotate: item.showChildren }"
-            ></i>
+          <a (click)="toggleDropdown(item)" style="cursor: pointer;">
+            <span *ngIf="!isCollapsed">{{ item.text }}</span>
+            <i *ngIf="!isCollapsed" class="bx bx-chevron-down" [ngClass]="{ rotate: item.showChildren }"></i>
+            <a *ngIf="isCollapsed" [routerLink]="[item.route]" class="bx {{ item.icon }}" style="margin-left: -15px;"></a>
           </a>
           <ul *ngIf="item.showChildren">
-            <li *ngFor="let childItem of item.children">
-              <a href="#">{{ childItem.text }}</a>
+            <li *ngFor="let childItem of item.children" class="dropdown-item" style="margin-left: 15px;">
+              <a [routerLink]="[childItem.route]">
+                <span *ngIf="!isCollapsed">{{ childItem.text }}</span>
+                <i *ngIf="isCollapsed" class="bx {{ childItem.icon }}" style="margin-left: -15px;"></i>
+              </a>
             </li>
           </ul>
         </li>
+
       </ng-container>
-      <div id="logout">
+      <div id="logout"> 
         <a (click)="logout()">
         <i *ngIf="isCollapsed" class="bx bx-log-out"></i>
         <i *ngIf="!isCollapsed" class="bx bxs-log-out"
@@ -44,3 +45,4 @@
     </ul>
   </div>
 </body>
+
