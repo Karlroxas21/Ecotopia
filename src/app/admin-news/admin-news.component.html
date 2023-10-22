@@ -1,0 +1,153 @@
+<app-admin-panel></app-admin-panel>
+
+<header>
+
+        <div class="header-txt" data-aos="fade-down-left" data-aos-duration="1000">
+          <h1>Admin News & Features</h1>
+        </div>
+      </header>
+      <body>
+
+        <div>
+          <button type="button" class="btn btn-primary mg-b" data-bs-toggle="modal" data-bs-target="#staticBackdropAddNews">Add News</button>
+        </div>
+        <div class="grid-container">
+          <div class="item" *ngFor="let item of news">
+            <div class="item-sub">
+              <!-- <div class="item-img">
+                <img src="{{ item.photo }}" alt="News Photo" />
+              </div> -->
+            </div>
+      
+            <div class="item-sub-2">
+
+              <div class="item-date">
+                <p>{{ item.datePublished }}</p>
+              </div>
+              <div class="item-title">
+                <h2>{{ item.title }}</h2>
+              </div>
+              <div class="item-desc">
+                <p>{{ item.description }}</p>
+              </div>
+              <div>
+                <button (click)="openEditModal(news)" type="button" class="btn btn-primary mg-b" data-bs-toggle="modal" [attr.data-bs-target]="'#staticBackdropEditNews-' + item._id">Edit</button>
+              </div>
+              <div>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" [attr.data-bs-target]="'#staticDeleteNews-' + item._id">Delete</button>
+              </div>
+
+              <!-- Modal for edit news -->
+              <div class="modal fade" [id]="'staticBackdropEditNews-' + item._id" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit News</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <!-- <form (ngSubmit)=""> -->
+                      <form>
+                        <div class="form-floating mb-3">
+                          <input class="form-control" id="floatingTitle" placeholder="News Title" name="title"[(ngModel)]="item.title" (ngModelChange)="doesChange()">
+                          <label for="floatingTitle">Title</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                          <input class="form-control" id="floatingCalendar" placeholder="Date published" name="datePublished" [(ngModel)]="item.datePublished" (ngModelChange)="doesChange()">
+                          <label for="floatingCalendar">Date published</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                          <input class="form-control" id="floatingLink" placeholder="Link" name="link"[(ngModel)]="item.link" (ngModelChange)="doesChange()">
+                          <label for="floatingLink">Link</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                          <textarea class="form-control" placeholder="Short description" id="floatingTextarea" name="description" [(ngModel)]="item.description" (ngModelChange)="doesChange()"></textarea>
+                          <label for="floatingTextarea">Description</label>
+                        </div>
+                        
+                    </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button (click)="saveNews(item)"type="button" class="btn btn-primary">Edit news</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End modal for edit news -->
+
+              <!-- Modal for deleting news -->
+
+              <div class="modal fade" [id]="'staticDeleteNews-' + item._id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure you want to delete this news?</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Date Published: <b>{{ item.datePublished }}</b></p>
+                        <p>Title: <b>{{ item.title }}</b></p>
+                        <p>Description: <b>{{ item.description }}</b></p>
+                        <p>Link: <b>{{ item.link }}</b></p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button (click)="deleteNews(item)" type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>              
+
+              <!-- End modal for deleting news -->
+      
+            </div>
+          </div>
+      </div>
+      
+      <!-- Modal for add news -->
+      <div class="modal fade" id="staticBackdropAddNews" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Add News</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- <form (ngSubmit)=""> -->
+              <form>
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="floatingTitle" placeholder="News Title" name="title" [(ngModel)]="newNewsItem.title">
+                  <label for="floatingTitle">News Title</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="floatingCalendar" placeholder="Date published" name="datePublished"[(ngModel)]="newNewsItem.datePublished">
+                  <label for="floatingCalendar">Date published</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="floatingLink" placeholder="Link" name="link" [(ngModel)]="newNewsItem.link">
+                  <label for="floatingLink">Link</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <textarea class="form-control" placeholder="Short description" name="description" id="floatingTextarea" [(ngModel)]="newNewsItem.description"></textarea>
+                  <label for="floatingTextarea">Short description</label>
+                </div>
+                
+            </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button (click)="addNews()"type="button" class="btn btn-primary">Add news</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End modal for add news -->
+
+      </body>
+      
+      <app-footer></app-footer>
+      
+      

@@ -50,8 +50,7 @@ import { PolicyComponent } from './policy/policy.component';
 import { CausesComponent } from './causes/causes.component';
 import { EffectsComponent } from './effects/effects.component';
 import { EvidenceComponent } from './evidence/evidence.component';
-
-
+import { AdminNewsComponent } from './admin-news/admin-news.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +96,7 @@ import { EvidenceComponent } from './evidence/evidence.component';
     CausesComponent,
     EffectsComponent,
     EvidenceComponent,
+    AdminNewsComponent,
 
     
   ],

@@ -41,6 +41,9 @@ import { AdminSolutionsComponent } from './admin-solutions/admin-solutions.compo
 import { AdminCurrentIssuesPhComponent } from './admin-current-issues-ph/admin-current-issues-ph.component';
 import { AdminAssessmentComponent } from './admin-assessment/admin-assessment.component';
 
+// News
+import { AdminNewsComponent } from './admin-news/admin-news.component';
+
 // Auth Guard
 import { AuthGuard } from './auth.guard';
 import { EvidenceComponent } from './evidence/evidence.component';
@@ -92,7 +95,8 @@ const routes: Routes = [
   // Solution 4
   {component: AdminSolutionsComponent, path: 'admin-solutions', canActivate: [AuthGuard]},
   {component: AdminCurrentIssuesPhComponent, path: 'admin-current-issues-ph', canActivate: [AuthGuard]},
-  {component: AdminAssessmentComponent, path: 'admin-assessment', canActivate: [AuthGuard]}
+  {component: AdminAssessmentComponent, path: 'admin-assessment', canActivate: [AuthGuard]},
+  {component: AdminNewsComponent, path:'admin-news', canActivate: [AuthGuard]},
 
 ];
 
