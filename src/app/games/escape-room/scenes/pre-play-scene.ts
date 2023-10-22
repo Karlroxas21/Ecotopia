@@ -35,6 +35,8 @@ export class PrePlayScene extends Phaser.Scene {
 
   private textDisplay = 'Welcome to Climate Escape! Your mission is to help restore \nnature to its former glory!\n\nAll you need to do is to click the text of the right answers \nto complete the game. Pick 3 wrong answers and it\'\ll be game over. \n\nGood luck!';
 
+  private textDisplay2 = `You are standing on a pristine beach. As you survey \nthe landscape,you notice the entire beach is covered\nin litter, a clear contrast to the natural\nbeauty that surrounds them.`
+  
   create() {
     this.background = this.add.image(0, 0, 'level-1-bg');
     this.background.setOrigin(0, 0);
@@ -123,9 +125,10 @@ export class PrePlayScene extends Phaser.Scene {
       // graphics.destroy();
       guide.destroy();
       closeButton.destroy();
-      this.scene.start('play-scene', { config: this.game.config });
+      this.sceneOneScript();
       this.xButtonSFX = this.sound.add('x-button');
       this.xButtonSFX.play();
+
     });
     // End of Guide
 
@@ -143,6 +146,61 @@ export class PrePlayScene extends Phaser.Scene {
     if (this.cloud.x > this.config.width + this.cloud.displayWidth / 2) {
       this.cloud.x = -this.cloud.displayWidth / 2;
     }
+  }
+
+  // Scene 1 script
+  sceneOneScript(){
+    const centerX = this.config.width / 2;
+    const centerY = this.config.height / 2;
+    const guide = this.add.text(
+      centerX,
+      centerY - 30,
+      '',
+      { font: '20px monospace', color: '#ffffff' }
+    );
+    guide.setOrigin(0.5);
+
+    let index = 0;
+    const textToType = this.textDisplay2;
+
+    const typeingTimer = this.time.addEvent({
+      delay: 50,
+      callback: () =>{
+        guide.text += textToType[index];
+        index++;
+
+        if(index === textToType.length){
+          typeingTimer.remove();
+        }
+      },
+      callbackScope: this,
+      loop: true,
+    })
+
+    // Finish text display when user click
+    this.input.on('pointerdown', ()=>{
+      guide.text = textToType;
+      typeingTimer.remove();
+    })
+
+    // Close button
+    const closeButton = this.add.text(
+      this.config.width - 90,
+      centerY - this.config.height / 6 / 2 + 150,
+      'continue',
+      { font: '18px monospace', color: '#ffffff' }
+    );
+    closeButton.setOrigin(0.5);
+    closeButton.setInteractive();
+    closeButton.on('pointerdown', () => {
+      // graphics.destroy();
+      guide.destroy();
+      closeButton.destroy();
+      this.scene.start('play-scene', { config: this.game.config });
+      this.xButtonSFX = this.sound.add('x-button');
+      this.xButtonSFX.play();
+
+    });
   }
 
   nakakalatNaBasura() {
@@ -190,6 +248,5 @@ export class PrePlayScene extends Phaser.Scene {
       .setScale(1.5); 
   }
 
-  
 
 }

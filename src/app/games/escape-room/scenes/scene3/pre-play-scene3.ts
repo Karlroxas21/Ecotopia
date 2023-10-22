@@ -16,8 +16,7 @@ export class PrePlayScene3 extends Phaser.Scene {
   choiceButton: any;
 
   character: any;
-
-  scriptDisplay = "Even the park is not spared by these pollutants! You\'re almost\ndone with your mission! \n\nWhat should you collect to help the park pond regain its\nnatural beauty?";
+  scriptDisplay = "The park is shrouded in a thick layer of pollution, \nand even the once-clearpond is now a murky mess.\nYou look around in dismay.";
 
   create() {
     this.background = this.add.image(0, 0, 'scene3-bg');

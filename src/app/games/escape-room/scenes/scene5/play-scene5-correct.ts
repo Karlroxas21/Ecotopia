@@ -20,7 +20,7 @@ export class PlayScene5Correct extends Phaser.Scene {
         levelPassed: any;
         xButtonSFX: any;
 
-        textDisplay = "Correct!\nSoda cans and styroam cups are commonly found in lakes and \ncan harm aquatic life";
+        textDisplay = "Correct!\nProper lake ecosystem management improves water quality,\nbiodiversity, and ecological balance, benefiting both\nthe environment and communities.";
 
         currentHeartPoints = heartPointsService.getHeartPoints();
 

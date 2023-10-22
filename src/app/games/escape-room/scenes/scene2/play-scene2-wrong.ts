@@ -20,7 +20,7 @@ export class PlayScene2Wrong extends Phaser.Scene {
         xButtonSFX: any;
         failedSFX: any;
 
-        textDisplay = "Wrong!\nLeaves and branches are natural river debris \nand do not contribute to pollution";
+        textDisplay = "Wrong!\nNeglecting the correct waste when cleaning a river can reduce\neffectiveness and harm the environment, as certain materials\nmay require special handling or recycling.";
 
         currentHeartPoints = heartPointsService.getHeartPoints();
 

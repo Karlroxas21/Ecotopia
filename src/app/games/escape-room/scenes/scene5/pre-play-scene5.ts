@@ -16,8 +16,8 @@ export class PrePlayScene5 extends Phaser.Scene {
   choiceButton: any;
 
   character: any;
-
-  scriptDisplay = "Last one! You're almost home!\n\nWhat should you prioritize collecting to restore the \nhealth of the lake?";
+                  
+  scriptDisplay = "One more to go, and you’re nearly finished!\n\nThe serene lakeshore's turquoise waters mirror he light,\nbut the sight of the now-polluted shoreline amid the\nnatural beauty floods you with disappointment.";
 
   create() {
     this.background = this.add.image(0, 0, 'scene5-bg');

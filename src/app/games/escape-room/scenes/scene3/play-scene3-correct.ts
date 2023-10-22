@@ -20,7 +20,7 @@ export class PlayScene3Correct extends Phaser.Scene {
         levelPassed: any;
         xButtonSFX: any;
 
-        textDisplay = "Correct!\nThese items often litter parks and harm local wildlife \nif ingested ";
+        textDisplay = "Correct!\nGathering such trash in parks restores beauty, enhances\nwell-being, backs biodiversity, and offers an eco-friendly\nspace for relaxation and recreation.";
 
         choice1 = "Oil drums and plastic bags";
         choice2 = "Leaves and branches";

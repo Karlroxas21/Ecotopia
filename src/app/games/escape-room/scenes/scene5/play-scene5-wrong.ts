@@ -20,7 +20,7 @@ export class PlayScene5Wrong extends Phaser.Scene {
         xButtonSFX: any;
         failedSFX: any;
 
-        textDisplay = "Wrong!\n Water lilies and algae are part of the lake's ecosystem \nand are not pollutants";
+        textDisplay = "Wrong!\nIncorrect lake ecosystem management decisions can worsen its\nhealth and neglect specific ecological challenges,\nhindering improvement.";
 
         scoreDisplay: any;
         

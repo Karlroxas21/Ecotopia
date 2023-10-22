@@ -20,7 +20,7 @@ export class PlayScene4Correct extends Phaser.Scene {
         levelPassed:any;
         xButtonSFX: any;
 
-        textDisplay = "Correct!\nFishing nets and plastic bottles can entangle marine life and \npollute the water";
+        textDisplay = "Correct!\nThis enhances harbors through better waste management, reducing\nmarine pollution risks, and preserving coastal ecosystems.";
 
         choice1 = "Oil drums and plastic bags";
         choice2 = "Leaves and branches";

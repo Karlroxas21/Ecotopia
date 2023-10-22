@@ -16,8 +16,8 @@ export class PrePlayScene2 extends Phaser.Scene {
   choiceButton: any;
 
   character: any;
-
-  scriptDisplay = "The local river has become a dumping ground for oil drums \nand non-biodegradable wastes. \n\nWhich waste should you focus on removing to protect \nthe river ecosystem?";
+                  
+  scriptDisplay = "You are standing at the edge of the local river, horrified \nas you gaze upon a distressing sight";
 
   create() {
     this.background = this.add.image(0, 0, 'scene2-bg');

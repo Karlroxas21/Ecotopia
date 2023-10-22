@@ -61,7 +61,7 @@ export class PlaySceneWrong extends Phaser.Scene {
         failedSFX: any;
         xButtonSFX: any;
 
-        textDisplay = "Wrong! \n Seashells and pebbles are natural beach elements \nand do not pose a pollution threat";
+        textDisplay = "Wrong!\nWe should focus more on hazardous materials and litters on\ncleaning up on the beach because they are the one who\nimmediately harm the environment or safety of the beach.";
 
         choice1 = "Plastic bottles and cigarette butts";
         choice2 = "Seashells and pebbles";

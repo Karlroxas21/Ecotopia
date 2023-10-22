@@ -20,7 +20,7 @@ export class PlayScene2Correct extends Phaser.Scene {
         levelPassed: any;
         xButtonSFX: any;
 
-        textDisplay = "Correct! \nOil drums and plastic bags can contaminate the water \nand harm aquatic life";
+        textDisplay = "Correct!\nPrioritizing the right waste in river ecosystems is crucial to\nprevent pollution, maintain nature's balance, and safeguard\nwater quality, aquatic life, and the environment's health.";
 
         choice1 = "Oil drums and plastic bags";
         choice2 = "Leaves and branches";

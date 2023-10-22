@@ -20,7 +20,7 @@ export class PlayScene4Wrong extends Phaser.Scene {
         xButtonSFX: any;
         failedSFX: any;
 
-        textDisplay = "Wrong!\n Seaweed and barnacles are natural components of the harbor \nand are not pollutants ";
+        textDisplay = "Wrong!\nUninformed decisions in harbor enhancement can result in poor\nchoices, neglecting eco-friendly solutions.";
 
         scoreDisplay: any;
         create() {

@@ -17,7 +17,7 @@ export class PrePlayScene4 extends Phaser.Scene {
 
   character: any;
 
-  scriptDisplay = "As one of the many places that nature and humans meet in\nthe middle, there is no wonder why it is also full of trash.\n\nWhat should you focus on picking up to improve the\nharbor environment?";
+  scriptDisplay = "Your almost done with your mission!\n\nBeneath the clear blue sky, you're captivated by a bustling \nharbor from a scenic overlook. Ships come and go, their\nhorns echoing across the water, yet a subtle layer of pollution\nmars the otherwise breathtaking view.";
 
   create() {
     this.background = this.add.image(0, 0, 'scene4-bg');

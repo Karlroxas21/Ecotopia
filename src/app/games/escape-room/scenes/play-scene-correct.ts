@@ -48,7 +48,7 @@ export class PlaySceneCorrect extends Phaser.Scene {
 
         scoreDisplay: any;
 
-        textDisplay = "Correct! \n These items are common pollutants on beaches and can harm \nmarine life and the environment";
+        textDisplay = "Correct! \n Cleaning up beaches is important because they're a common and\nharmful source of marine debris that can seriously harm the\nenvironment and wildlife.";
 
         create() {
                 this.background = this.add.image(0, 0, 'level-1-bg');

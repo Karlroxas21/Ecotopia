@@ -20,7 +20,7 @@ export class PlayScene3Wrong extends Phaser.Scene {
         xButtonSFX: any;
         failedSFX: any;
 
-        textDisplay = "Wrong!\nLily pads and duck feathers are part of the pond's ecosystem \nand should be left understurbed ";
+        textDisplay = "Wrong!\nFailing to address the correct pond waste won't restore\nits beauty. Overlooking pollutants or invasives can hinder\necosystem restoration and its overall appeal.";
 
         scoreDisplay: any;
 
