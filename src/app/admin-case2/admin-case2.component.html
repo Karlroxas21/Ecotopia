@@ -1,7 +1,7 @@
 <main>
   <app-admin-panel></app-admin-panel>
   <div class="content" *ngFor="let item of outdated_engine">
-    <div class="textbox" data-aos="fade-right">
+    <div class="textbox">
       <div>
       <!-- <div *ngIf="!editing_header" (click)="startEditingHeader()"> -->
         <h2>{{ header }}</h2>
@@ -42,7 +42,6 @@
     <img
       src="/assets/casesimages/cases1.png"
       alt="sad earth"
-      data-aos="fade-left"
     />
   </div>
 
@@ -68,8 +67,7 @@
         color: #001dd3;
         text-align: center;
         font-size: 50px;
-        font-weight: bold;
-        margin-left: 100px;
+        font-weight: bo
       "
       *ngIf="editing_title"
       (blur)="finishEditingTitle($event)"
@@ -236,7 +234,6 @@
             style="
               font-size: 50px;
               font-weight: bold;
-              margin-left: 100px;
             "
             *ngIf="editing_indicator_1[0]"
             (blur)="finishEditingIndicator1($event)"
@@ -355,7 +352,6 @@
             style="
               font-size: 50px;
               font-weight: bold;
-              margin-left: 100px;
             "
             *ngIf="editing_indicator_2[0]"
             (blur)="finishEditingIndicator2($event)"
@@ -457,7 +453,6 @@
             style="
               font-size: 50px;
               font-weight: bold;
-              margin-left: 100px;
             "
             *ngIf="editing_indicator_3[0]"
             (blur)="finishEditingIndicator3($event)"
@@ -542,7 +537,6 @@
             style="
               font-size: 50px;
               font-weight: bold;
-              margin-left: 100px;
             "
             *ngIf="editing_indicator_4[0]"
             (blur)="finishEditingIndicator4($event)"
@@ -628,7 +622,7 @@
               style="
                 font-size: 50px;
                 font-weight: bold;
-                margin-left: 100px;
+
               "
               *ngIf="editing_indicator_5[0]"
               (blur)="finishEditingIndicator5($event)"

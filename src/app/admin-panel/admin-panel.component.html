@@ -24,7 +24,7 @@
             <a *ngIf="isCollapsed" [routerLink]="[item.route]" class="bx {{ item.icon }}" style="margin-left: -15px;"></a>
           </a>
           <ul *ngIf="item.showChildren">
-            <li *ngFor="let childItem of item.children" class="dropdown-item" style="margin-left: 15px;">
+            <li *ngFor="let childItem of item.children" class="dropdown-item">
               <a [routerLink]="[childItem.route]">
                 <span *ngIf="!isCollapsed">{{ childItem.text }}</span>
                 <i *ngIf="isCollapsed" class="bx {{ childItem.icon }}" style="margin-left: -15px;"></i>
@@ -38,10 +38,9 @@
         <a (click)="logout()">
         <i *ngIf="isCollapsed" class="bx bx-log-out"></i>
         <i *ngIf="!isCollapsed" class="bx bxs-log-out"
-          ><span style="font-weight: bold"> Logout</span></i
-        >
-      </a>
-    </div>
+          ><span style="font-weight: bold"> Logout</span></i>
+        </a>
+      </div>
     </ul>
   </div>
 </body>

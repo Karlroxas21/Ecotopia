@@ -26,6 +26,8 @@ export class LandingPageComponent implements OnInit {
 
   adjustParallax() {
     const scrollY = window.scrollY;
+    const windowWidth = window.innerWidth;
+    
 
     const text = this.el.nativeElement.querySelector('#text');
     if (text) {
@@ -63,13 +65,31 @@ export class LandingPageComponent implements OnInit {
     if (plants) {
       this.renderer.setStyle(plants, 'transform', `translateX(-${scrollY * 0.3}px)`);
     }
+
+    const sea = this.el.nativeElement.querySelector('#sea');
+    let initialOffsetSea = -550;
+    if (scrollY > 0) {
+      initialOffsetSea += scrollY * 0.1;
+    }
+    if (sea) {
+      this.renderer.setStyle(sea, 'transform', `translateX(${initialOffsetSea}px)`);
+    }
+  
+    const oldman = this.el.nativeElement.querySelector('#oldman');
+    if (oldman) {
+      let initialOffsetOldman = -800; // Initial position set in the HTML
+      if (scrollY > 0) {
+        initialOffsetOldman += scrollY * 0.3;
+      }
+      this.renderer.setStyle(oldman, 'transform', `translateX(-${initialOffsetOldman}px)`);
+    }
   }
 
 
   ngAfterViewInit(){
     const scene1 = document.getElementsByClassName('parallax-1');
     const parallaxInstance1 = new SimpleParallax(scene1, {
-      delay: .6,
+      delay: .9,
 	    transition: 'cubic-bezier(0,0,0,1)',
     });
 

@@ -48,32 +48,29 @@ export class AdminPanelComponent {
   constructor(private router: Router){}
   
   navItems: NavItem[] = [
-    { text: 'News', icon: 'bx bxs-file', route: '/admin-news'},
-    { text: 'Current Issues', icon: 'bx bxs-file', route: '/admin-current-issues-ph'},
+    { text: 'News', icon: 'bx bxs-file', route: '/admin-news' },
+    { text: 'Current Issues', icon: 'bx bxs-file', route: '/admin-current-issues-ph' },
     { text: 'Assessment', icon: 'bx bxs-edit', route: '/admin-assessment' },
     {
       text: 'Materials', icon: 'bx bxs-briefcase-alt',
       children: [
-        { text: 'Climate Action SDG 13', icon: 'bx-file', route: '/admin-cases' },
-        { text: 'Overview', icon: 'bx-file', route: '/admin-case-1' },
-        { text: 'Target and Indicators', icon: 'bx-file', route: '/admin-case-2' },
-        { text: 'Progress and Info', icon: 'bx-file', route: '/admin-case-3' },
-        { text: 'Related Topics', icon: 'bx-file', route: '/admin-case-4' },
+        {
+          text: 'Climate Action SDG 13', icon: 'bx-file', route: '/admin-cases',
+          children: [
+            { text: 'Overview', icon: 'bx-file', route: '/admin-case-1' },
+            { text: 'Target and Indicators', icon: 'bx-file', route: '/admin-case-2' },
+            { text: 'Progress and Info', icon: 'bx-file', route: '/admin-case-3' },
+            { text: 'Related Topics', icon: 'bx-file', route: '/admin-case-4' }
+          ]
+        },
         { text: 'Solutions', icon: 'bx bxs-check-shield', route: '/admin-solutions' },
         { text: 'Solution 1', icon: 'bx-check-shield', route: '/admin-solution-1' },
         { text: 'Solution 2', icon: 'bx-check-shield', route: '/admin-solution-2' },
         { text: 'Solution 3', icon: 'bx-check-shield', route: '/admin-solution-3' }
       ]
-    },
-    // {
-    //   text: 'Solutions', icon: 'bx bxs-check-shield',
-    //   children: [
-    //     { text: 'Solution 1', icon: 'bx-check-shield', route: '/admin-solution-1' },
-    //     { text: 'Solution 2', icon: 'bx-check-shield', route: '/admin-solution-2' },
-    //     { text: 'Solution 3', icon: 'bx-check-shield', route: '/admin-solution-3' }
-    //   ]
-    // },
+    }
   ];
+  
 
   toggleSidebar(){
     this.isCollapsed = !this.isCollapsed;
@@ -81,6 +78,7 @@ export class AdminPanelComponent {
 
   toggleDropdown(item: NavItem) {
     item.showChildren = !item.showChildren;
+    
   }
 
   logout(){
