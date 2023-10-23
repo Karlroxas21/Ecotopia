@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { heartPointsService } from './heart-service';
+import { scoreService } from './score-service';
 
 export class PlaySceneCorrect extends Phaser.Scene {
         constructor() {
@@ -45,7 +46,9 @@ export class PlaySceneCorrect extends Phaser.Scene {
         levelPassedSFX: any;
         xButtonSFX: any;
 
-        textDisplay = "Correct! \n These items are common pollutants on beaches and can harm \nmarine life and the environment";
+        scoreDisplay: any;
+
+        textDisplay = "Correct! \n Cleaning up beaches is important because they're a common and\nharmful source of marine debris that can seriously harm the\nenvironment and wildlife.";
 
         create() {
                 this.background = this.add.image(0, 0, 'level-1-bg');
@@ -56,9 +59,22 @@ export class PlaySceneCorrect extends Phaser.Scene {
 
                 this.xButtonSFX = this.sound.add('x-button');
 
-                for(let i = 0; i < heartPointsService.getHeartPoints(); i++){
-                        this.heart_icon = this.add.image(770, 30 + i * 30, 'heart-icon');
+                for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
+                        this.heart_icon = this.add.sprite(770, 10 + i * 50, 'heart-icon');
+                        this.heart_icon.setScale(0.08);
+                  
+                        this.anims.create({
+                          key: 'heart-icon_key',
+                          frames: this.anims.generateFrameNumbers('heart-icon', {start: 0, end: 4}),
+                          frameRate: 10,
+                          repeat: -1
+                      })
+                  
+                      this.heart_icon.anims.play('heart-icon_key');
                 }
+
+                this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
+
 
                 // Clouds
                 this.cloud1 = this.add.image(0, 200, 'cloud-1');
@@ -101,7 +117,7 @@ export class PlaySceneCorrect extends Phaser.Scene {
                 closeButton.setInteractive();
                 closeButton.on('pointerdown', () => {
                         this.xButtonSFX.play();
-                        this.scene.start('play-scene2', { config: this.game.config });
+                        this.scene.start('pre-play-scene2', { config: this.game.config });
                 })
 
                 const guide = this.add.text(

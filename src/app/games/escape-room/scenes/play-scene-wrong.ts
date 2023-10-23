@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { heartPointsService } from './heart-service';
+import { scoreService } from './score-service';
 
 export class PlaySceneWrong extends Phaser.Scene {
         constructor() {
@@ -60,11 +61,13 @@ export class PlaySceneWrong extends Phaser.Scene {
         failedSFX: any;
         xButtonSFX: any;
 
-        textDisplay = "Wrong! \n Seashells and pebbles are natural beach elements \nand do not pose a pollution threat";
+        textDisplay = "Wrong!\nWe should focus more on hazardous materials and litters on\ncleaning up on the beach because they are the one who\nimmediately harm the environment or safety of the beach.";
 
         choice1 = "Plastic bottles and cigarette butts";
         choice2 = "Seashells and pebbles";
         isCorrect !: boolean;
+        
+        scoreDisplay: any;
 
         currentHeartPoints = heartPointsService.getHeartPoints();
 
@@ -77,9 +80,21 @@ export class PlaySceneWrong extends Phaser.Scene {
                 
                 this.xButtonSFX = this.sound.add('x-button');
                 
-                for(let i = 0; i < heartPointsService.getHeartPoints(); i++){
-                        this.heart_icon = this.add.image(770, 30 + i * 30, 'heart-icon');
+                for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
+                        this.heart_icon = this.add.sprite(770, 10 + i * 50, 'heart-icon');
+                        this.heart_icon.setScale(0.08);
+                  
+                        this.anims.create({
+                          key: 'heart-icon_key',
+                          frames: this.anims.generateFrameNumbers('heart-icon', {start: 0, end: 4}),
+                          frameRate: 10,
+                          repeat: -1
+                      })
+                  
+                      this.heart_icon.anims.play('heart-icon_key');
                 }
+                this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
+
                 // Clouds
                 this.cloud1 = this.add.image(0, 200, 'cloud-1');
                 this.cloud1.setScale(0.5);
@@ -121,7 +136,7 @@ export class PlaySceneWrong extends Phaser.Scene {
                       closeButton.setInteractive();
                       closeButton.on('pointerdown', () =>{
                         this.xButtonSFX.play();
-                        this.scene.start('play-scene2', { config: this.game.config});
+                        this.scene.start('pre-play-scene2', { config: this.game.config});
                       })
 
                 const guide = this.add.text(

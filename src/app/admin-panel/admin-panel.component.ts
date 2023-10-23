@@ -10,9 +10,11 @@ import { AdminSolution2Component } from '../admin-solution2/admin-solution2.comp
 import { AdminSolution3Component } from '../admin-solution3/admin-solution3.component';
 import { AdminSolutionsComponent } from '../admin-solutions/admin-solutions.component';
 import { AdminCurrentIssuesPhComponent } from '../admin-current-issues-ph/admin-current-issues-ph.component';
+import { AdminNewsComponent } from '../admin-news/admin-news.component';
 import { Router } from '@angular/router';
 
 const routes: Routes = [
+  {component: AdminNewsComponent, path: 'admin-news'},
   {component: AdminCasesComponent, path: 'admin-cases'},
   {component: AdminCase1Component, path: 'admin-case-1'},
   {component: AdminCase2Component, path: 'admin-case-2'},
@@ -46,7 +48,8 @@ export class AdminPanelComponent {
   constructor(private router: Router){}
   
   navItems: NavItem[] = [
-    { text: 'Current Issues', icon: 'bx bxs-file', route: '/admin-current-issues-ph' },
+    { text: 'News', icon: 'bx bxs-file', route: '/admin-news'},
+    { text: 'Current Issues', icon: 'bx bxs-file', route: '/admin-current-issues-ph'},
     { text: 'Assessment', icon: 'bx bxs-edit', route: '/admin-assessment' },
     {
       text: 'Materials', icon: 'bx bxs-briefcase-alt',

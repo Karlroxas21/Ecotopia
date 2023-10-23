@@ -20,6 +20,12 @@ import { PlayScene5 } from './scenes/scene5/play-scene5';
 import { PlayScene5Correct } from './scenes/scene5/play-scene5-correct';
 import { PlayScene5Wrong } from './scenes/scene5/play-scene5-wrong';
 import { Milestone } from './scenes/milestone-scene';
+import { PrePlayScene2 } from './scenes/scene2/pre-play-scene2';
+import { PrePlayScene3 } from './scenes/scene3/pre-play-scene3';
+import { PrePlayScene4 } from './scenes/scene4/pre-play-scene4';
+import { PrePlayScene5 } from './scenes/scene5/pre-play-scene5';
+import { scoreService} from './scenes/score-service';
+import { heartPointsService } from './scenes/heart-service';
 
 @Component({
   selector: 'app-escape-room',
@@ -29,6 +35,7 @@ import { Milestone } from './scenes/milestone-scene';
 export class EscapeRoomComponent implements OnInit{
   phaserGame !: Phaser.Game ;
   config: Phaser.Types.Core.GameConfig;
+  
   constructor(){
     this.config = {
       type: Phaser.AUTO,
@@ -41,15 +48,19 @@ export class EscapeRoomComponent implements OnInit{
         PlayScene,
         PlaySceneWrong,
         PlaySceneCorrect,
+        PrePlayScene2,
         PlayScene2,
         PlayScene2Wrong,
         PlayScene2Correct,
+        PrePlayScene3,
         PlayScene3,
         PlayScene3Correct,
         PlayScene3Wrong,
+        PrePlayScene4,
         PlayScene4,
         PlayScene4Correct,
         PlayScene4Wrong,
+        PrePlayScene5,
         PlayScene5,
         PlayScene5Correct,
         PlayScene5Wrong,
@@ -72,6 +83,8 @@ export class EscapeRoomComponent implements OnInit{
     return this.phaserGame;
   }
 
+  gameData: any;
+
   ngOnInit() {
     if(!this.phaserGame){
       this.createGame();
@@ -80,10 +93,14 @@ export class EscapeRoomComponent implements OnInit{
     }
  }
 
+
  ngOnDestroy(){
   if(this.phaserGame){
     this.phaserGame.destroy(true);
   }
+
+  scoreService.resetScorePoints();
+  heartPointsService.resetHeartPoints();
  }
  
 }

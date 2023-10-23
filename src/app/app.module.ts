@@ -51,8 +51,7 @@ import { CausesComponent } from './causes/causes.component';
 import { EffectsComponent } from './effects/effects.component';
 import { EvidenceComponent } from './evidence/evidence.component';
 import { LandingPageNewComponent } from './landing-page-new/landing-page-new.component';
-
-
+import { AdminNewsComponent } from './admin-news/admin-news.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +98,7 @@ import { LandingPageNewComponent } from './landing-page-new/landing-page-new.com
     EffectsComponent,
     EvidenceComponent,
     LandingPageNewComponent,
+    AdminNewsComponent,
 
     
   ],

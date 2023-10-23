@@ -14,9 +14,6 @@ export class MainScene extends Phaser.Scene {
       '../../../../assets/background/climate-escape-background.png'
     );
 
-    // Heart icon
-    this.load.image('heart-icon', '../../../../assets/game/heart_icon.png');
-
     // SFX
     this.load.audio('x-button', '../../../../assets/game/x-button.mp3');
     this.load.audio('level-passed', '../../../../assets/game/level-passed.mp3');
@@ -25,6 +22,7 @@ export class MainScene extends Phaser.Scene {
     this.load.audio('choice', '../../../../assets/game/choice-button.mp3');
     this.load.audio('bg-music', '../../../../assets/game/bg-music.mp3');
     this.load.audio('game-over', '../../../../assets/game/game-over.mp3');
+    this.load.audio('milestone', '../../../../assets/game/milestone-scene.mp3');
 
     // Level 1 Assets
     // BG
@@ -77,25 +75,45 @@ export class MainScene extends Phaser.Scene {
     this.load.image('garbage14', '../../../../assets/game/scene1/garbage14.png');
 
     // Scene 2
-    this.load.image('scene2-bg', '../../../../assets/game/scene2/riverbank(both).png');
-    this.load.image('scene2-bg-correct', '../../../../assets/game/scene2/riverbank(lvs).png');
-    this.load.image('scene2-bg-wrong', '../../../../assets/game/scene2/riverbank(od).png');
+    this.load.image('scene2-bg', '../../../../assets/game/scene2/riverbank_mess.png');
+    this.load.image('scene2-bg-correct', '../../../../assets/game/scene2/riverbank.png');
+    this.load.image('scene2-bg-wrong', '../../../../assets/game/scene2/riverbank_mess.png');
         
     // Scene 3
-    this.load.image('scene3-bg', '../../../../assets/game/scene3/park(both).png');
+    this.load.image('scene3-bg', '../../../../assets/game/scene3/park_mess.png');
     this.load.image('scene3-bg-correct', '../../../../assets/game/scene3/park(lpd).png');
-    this.load.image('scene3-bg-wrong', '../../../../assets/game/scene3/park(cups).png');
+    this.load.image('scene3-bg-wrong', '../../../../assets/game/scene3/park_mess.png');
 
     // Scene 4
-    this.load.image('scene4-bg', '../../../../assets/game/scene4/harbor(both).png');
-    this.load.image('scene4-bg-wrong', '../../../../assets/game/scene4/harbor(nets).png');
+    this.load.image('scene4-bg', '../../../../assets/game/scene4/harbor_mess.png');
+    this.load.image('scene4-bg-wrong', '../../../../assets/game/scene4/arbor_mess.png');
     this.load.image('scene4-bg-correct', '../../../../assets/game/scene4/harbor(swd).png');
 
     // Scene 5
-    this.load.image('scene5-bg', '../../../../assets/game/scene5/lake(both).png');
-    this.load.image('scene5-bg-wrong', '../../../../assets/game/scene5/lake(soda).png');
+    this.load.image('scene5-bg', '../../../../assets/game/scene5/lake_mess.png');
+    this.load.image('scene5-bg-wrong', '../../../../assets/game/scene5/lake_mess.png');
     this.load.image('scene5-bg-correct', '../../../../assets/game/scene5/lake(wli).png');
 
+    // Game Over Scene
+    this.load.image('game-over', '../../../../assets/game/game_over.png');
+
+    // Milestone scene
+    // Game Over Scene
+    this.load.image('character-win', '../../../../assets/game/char_cngrts.png');
+    this.load.image('congrats-bg', '../../../../assets/game/cngts_bg.png');
+   
+    // Example sprite character
+    this.load.spritesheet('character', '../../../../assets/game/chara.png',{
+      frameWidth: 408,
+      frameHeight: 460
+    })
+
+    // Heart sprite
+    this.load.spritesheet('heart-icon', '../../../../assets/game/heart_sprite.png', {
+      frameWidth: 510,
+      frameHeight: 510
+    });
+    
     // Loading bar
     let loadingBar = this.add.graphics({
       fillStyle: { color: 0xffffff },

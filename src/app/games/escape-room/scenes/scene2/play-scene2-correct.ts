@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { heartPointsService } from '../heart-service';
+import { scoreService } from '../score-service';
 
 export class PlayScene2Correct extends Phaser.Scene {
         constructor() {
@@ -19,11 +20,13 @@ export class PlayScene2Correct extends Phaser.Scene {
         levelPassed: any;
         xButtonSFX: any;
 
-        textDisplay = "Correct! \nOil drums and plastic bags can contaminate the water \nand harm aquatic life";
+        textDisplay = "Correct!\nPrioritizing the right waste in river ecosystems is crucial to\nprevent pollution, maintain nature's balance, and safeguard\nwater quality, aquatic life, and the environment's health.";
 
         choice1 = "Oil drums and plastic bags";
         choice2 = "Leaves and branches";
         currentHeartPoints = heartPointsService.getHeartPoints();
+
+        scoreDisplay: any;
 
         create() {
                 this.background = this.add.image(0, 0, 'scene2-bg-correct');
@@ -34,9 +37,22 @@ export class PlayScene2Correct extends Phaser.Scene {
                 this.levelPassed = this.sound.add('level-passed');
                 this.levelPassed.play();
 
-                for(let i = 0; i < heartPointsService.getHeartPoints(); i++){
-                        this.heart_icon = this.add.image(770, 30 + i * 30, 'heart-icon');
+                for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
+                        this.heart_icon = this.add.sprite(770, 10 + i * 50, 'heart-icon');
+                        this.heart_icon.setScale(0.08);
+                  
+                        this.anims.create({
+                          key: 'heart-icon_key',
+                          frames: this.anims.generateFrameNumbers('heart-icon', {start: 0, end: 4}),
+                          frameRate: 10,
+                          repeat: -1
+                      })
+                  
+                      this.heart_icon.anims.play('heart-icon_key');
                 }
+
+                this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
+
 
                 // Text
                 const centerX = this.config.width / 2;
@@ -60,7 +76,7 @@ export class PlayScene2Correct extends Phaser.Scene {
                 closeButton.setOrigin(0.5);
                 closeButton.setInteractive();
                 closeButton.on('pointerdown', () => {
-                        this.scene.start('play-scene3', { config: this.game.config });
+                        this.scene.start('pre-play-scene3', { config: this.game.config });
                         this.xButtonSFX.play();
                 })
 
