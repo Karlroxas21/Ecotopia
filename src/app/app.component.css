@@ -14,7 +14,7 @@
 .nofixed{
   position: static;
   transition: 0.2 linear;
-  top: -50px
+  top: -50px;
 }
 li, a, button{
   font-family: 'Henry Sans Bold', sans-serif;
@@ -33,31 +33,34 @@ header{
   align-items: center;
   padding: 10px;
   width: 100%;
-  height: 120px;
+  height: 105px;
   background: #EDEDED;
   z-index: 100;
 }
 nav{
   display: flex;
-  justify-content: center;
+  justify-content: flex-end; /* Align items to the right */
   align-items: center;
   padding: 10px;
   width: 100%;
   height: 120px;
 }
+
 .logo{
   cursor: pointer;
-  margin-top: 30px;
+  margin-top: 10px;
+  margin-left: 25px;
+  position: absolute;
+  left: 0;
 }
 nav .logo{
-  display: none;
-  margin-left: -15px;
+  display: block;
+  height: 100px;
+  margin-left: 50px;
+  margin-bottom: 50px;
 }
 nav .logo2{
-  cursor: pointer;
-  padding-top: 5px;
-  margin-left: 15px;
-  margin-right: 15px;
+  display: none;
 }
 nav ul{
   display: flex;
@@ -90,20 +93,8 @@ nav ul li{
 .bx-x {
   transform: rotate(90deg);
 }
-/* .lines:hover{
-  background: #737279;
-}
-.lines div{
-  width: 30px;
-  height: 2px;
-  margin: 6px 0;
-  background: #000;
-}
-.lines:hover{
-  background: #FF96A9;
-} */
 .logo{
-  display: none;
+  display: block;
   cursor: pointer;
   transition: 0.2;
   margin: 0 25px;
@@ -162,42 +153,38 @@ ul li ul.dropdown a.active {
 }
 @media only screen and (max-width: 1242px) {
   header{
-      width: 100%;
-      padding: 0 20px;
-      height: 80px;
+    width: 100%;
+    padding: 0 20px;
+    height: 80px;
   }
   nav{
-      position: absolute; /*absolute*/
-      top: -1000px;
-      z-index: 1;
-      width: 100%;
-      height: 55vh;
-      background-color: #EDEDED;
-      transition: 0.2s;
-      margin-top: 80px;
-      right: 1px;
+    position: absolute;
+    top: -1000px;
+    z-index: 1;
+    width: 100%;
+    height: 55vh;
+    background-color: #EDEDED;
+    transition: 0.2s;
+    margin-top: 80px;
+    right: 1px;
+    justify-content: center;
   }
   nav .logo{
-      display: block;
-      height: 100px;
-      margin-left: 50px;
-      margin-bottom: 50px;
+    display: block;
+    height: 100px;
+    margin-left: 50px;
+    margin-bottom: 50px;
   }
   nav .logo2{
     display: none;
   }
   nav ul li a{
-      /* margin-bottom: 5px;
-      padding: 10px; */
-      justify-content: center;
-      display: flex;
+    justify-content: center;
+    display: flex;
   }
   nav ul{
-      display: block;
+    display: block;
   }
-  /* nav ul li {
-      margin-top: 15px;
-  } */
   .lines{
     display: block;
     position: absolute;
@@ -225,10 +212,7 @@ ul li ul.dropdown a.active {
 .fixed-navbar {
   position: fixed;
   width: 100%;
-  transition: 0.2s linear;
+  transition: 0.3s linear;
   top: 0px;
   display: block; 
 }
-
-
-

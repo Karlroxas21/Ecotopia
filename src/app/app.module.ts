@@ -50,6 +50,7 @@ import { PolicyComponent } from './policy/policy.component';
 import { CausesComponent } from './causes/causes.component';
 import { EffectsComponent } from './effects/effects.component';
 import { EvidenceComponent } from './evidence/evidence.component';
+import { LandingPageNewComponent } from './landing-page-new/landing-page-new.component';
 import { AdminNewsComponent } from './admin-news/admin-news.component';
 
 @NgModule({
@@ -96,6 +97,7 @@ import { AdminNewsComponent } from './admin-news/admin-news.component';
     CausesComponent,
     EffectsComponent,
     EvidenceComponent,
+    LandingPageNewComponent,
     AdminNewsComponent,
 
     

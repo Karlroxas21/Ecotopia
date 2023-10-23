@@ -19,6 +19,7 @@ import { AssessmentComponent } from './assessment/assessment.component';
 import { MaterialComponent } from './material/material.component';
 import { LoginComponent } from './login/login.component';
 import { PolicyComponent } from './policy/policy.component';
+import { LandingPageNewComponent } from './landing-page-new/landing-page-new.component';
 
 // Cases
 import { Case1Component } from './case1/case1.component';
@@ -74,6 +75,7 @@ const routes: Routes = [
   {component: EvidenceComponent, path: 'evidence'},
   {component: CausesComponent, path: 'cause'},
   {component: EffectsComponent, path: 'effect'},
+  {component: LandingPageNewComponent, path: 'landingpagenew'},
   
 
   // Cases

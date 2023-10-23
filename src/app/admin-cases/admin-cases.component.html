@@ -2,7 +2,8 @@
   <app-admin-panel></app-admin-panel>
   <div class="content">
     <div class="textbox" data-aos="fade-down-right" *ngFor="let item of cases">
-      <div *ngIf="!editing_header" (click)="startEditingHeader()">
+      <div>
+      <!-- <div *ngIf="!editing_header" (click)="startEditingHeader()"> -->
         <h2>{{ header }}</h2>
       </div>
       <h3>
@@ -16,11 +17,12 @@
           [(ngModel)]="cases[0].header"
         ></textarea>
       </h3>
-
-      <div
+      
+      <div>
+      <!-- <div
         *ngIf="!editing_header_description"
         (click)="startEditingHeaderDescription()"
-      >
+      > -->
         <p>{{ header_desc }}</p>
       </div>
       <p>
@@ -51,7 +53,8 @@
         font-weight: bold;
       "
     >
-      <div *ngIf="!editing_header_title" (click)="startEditingTitle()">
+    <div>
+      <!-- <div *ngIf="!editing_header_title" (click)="startEditingTitle()"> -->
         <p>{{ header_title }}</p>
       </div>
       <textarea
@@ -69,7 +72,8 @@
   <div class="card-container" data-aos="zoom-in" *ngFor="let item of cases">
     <div class="card" style="border-color: #9AC5D7">
       <div class="card-content" >
-        <div *ngIf="!editing_case1_0" (click)="startEditingCase1_0()">
+        <div>
+        <!-- <div *ngIf="!editing_case1_0" (click)="startEditingCase1_0()"> -->
           <h2 style="color: #9AC5D7">
             <i class='bx bxs-book-content' style="font-size: 40px;"></i>
             {{ case1[0] }}
@@ -120,7 +124,8 @@
 
     <div class="card" style="border-color: #A6782A" *ngFor="let item of cases">
       <div class="card-content">
-        <div *ngIf="!editing_case2_0" (click)="startEditingCase2_0()">
+        <div>
+        <!-- <div *ngIf="!editing_case2_0" (click)="startEditingCase2_0()"> -->
           <h2 style="color: #A6782A">
            <i class='bx bx-target-lock' style="font-size: 45px;"></i>
             {{ case2[0] }}
@@ -168,7 +173,8 @@
 
     <div class="card" style="border-color: #A2C3F9" *ngFor="let item of cases">
       <div class="card-content">
-        <div *ngIf="!editing_case3_0" (click)="startEditingCase3_0()">
+        <div>
+        <!-- <div *ngIf="!editing_case3_0" (click)="startEditingCase3_0()"> -->
           <h2 style="color: #A2C3F9">
             <i class='bx bxs-info-circle' style="font-size: 45px;"></i>
             {{ case3[0] }}
@@ -220,7 +226,8 @@
 
     <div class="card" style="border-color: #501118" *ngFor="let item of cases">
       <div class="card-content">
-        <div *ngIf="!editing_case4_0" (click)="startEditingCase4_0()">
+        <div>
+        <!-- <div *ngIf="!editing_case4_0" (click)="startEditingCase4_0()"> -->
           <h2 style="color: #501118">
             <i class='bx bxs-notepad' style="font-size: 45px;"></i>
             {{ case4[0] }}

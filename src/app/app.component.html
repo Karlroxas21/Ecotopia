@@ -10,11 +10,11 @@
 
   </head>
   <body>
-    <header (scroll)="onscroll()" *ngIf="!hideNavbar || isMenuOpen" [ngClass]="{'fixed-navbar': navbarfixed}">
+    <header *ngIf="!hideNavbar">
       <input type="checkbox" id="nav_check" hidden>
       <nav>
         <ul>
-          <!-- <li [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><a routerLink="">Home</a></li> -->
+          <li [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><a routerLink="">Home</a></li>
           <li [routerLinkActive]="'active'"><a routerLink="material">Materials</a>
             <ul class="dropdown">
               <div class="dropdown-content">
@@ -28,7 +28,7 @@
                   (click)="closeNavbar()"
                   [routerLinkActive]="'active'"
                   routerLink="problems"
-                  >Cases</a
+                  >Climate Action SD/13</a
                 >
                 <a
                   (click)="closeNavbar()"

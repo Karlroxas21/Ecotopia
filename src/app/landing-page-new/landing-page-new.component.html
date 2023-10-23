@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <div class="parallax-slider">
+    <div class="slide-container" [ngStyle]="getSlideStyle()">
+      <div
+        class="slide"
+        [style.backgroundImage]="'url(' + images[currentIndex] + ')'"
+      ></div>
+      <div class="description-overlay">
+        <!-- <div class="description">{{ descriptions[currentIndex] }}</div> -->
+      </div>
+    </div>
+    <button class="arrow left" (click)="prevSlide()">&#9665;</button>
+    <button class="arrow right" (click)="nextSlide()">&#9655;</button>
+  </div>
+
+  <body>
+    <section>
+      <div class="box">
+        <h2>Typhoon and extreme weather events</h2>
+        <div class="container">
+          <div
+            class="imgBx"
+            [style.backgroundImage]="'url(assets/landingpagenew/extremeweather.jpg)'"
+          ></div>
+          <div class="content">
+            <p>
+              Rescuers pull a rubber boat carrying residents through a flooded
+              street after Typhoon Vamco hit in Marikina City, suburban Manila
+              on November 12, 2020.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="box">
+        <h2 class="scrolling-title">Sea Level Rise and Coastal Erosion</h2>
+        <div class="container">
+          <div
+            class="imgBx"
+            [style.backgroundImage]="'url(assets/landingpagenew/sealevels.jpg)'"
+          ></div>
+          <div class="content">
+            <p>
+              This photo taken on Jan. 11, 2019, shows houses on bamboo stilts
+              amid encroaching bay waters in Sitio Pariahan, Bulacan.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="box">
+        <h2 class="scrolling-title">Ocean Acidification</h2>
+        <div class="container">
+          <div
+            class="imgBx"
+            [style.backgroundImage]="'url(assets/landingpagenew/oceanacidification.jpg)'"
+          ></div>
+          <div class="content">
+            <p>
+              Carbon emission speeding up ocean acidification, scientists warn.
+              by Philippine Environews
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="box">
+        <h2 class="scrolling-title">Biodiversity and Ecosystem Loss</h2>
+        <div class="container">
+          <div
+            class="imgBx"
+            [style.backgroundImage]="
+              'url(assets/landingpagenew/bioandloss.jpg)'
+            "
+          ></div>
+          <div class="content">
+            <p>
+              Unsustainable human practices cause excessive loss of natural
+              life, leading to looming threats of species decline and loss.
+              (FPE)
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="box">
+        <h2 class="scrolling-title">Agricultural and Food Security</h2>
+        <div class="container">
+          <div
+            class="imgBx"
+            [style.backgroundImage]="
+              'url(assets/landingpagenew/agriandfood.jpg)'
+            "
+          ></div>
+          <div class="content">
+            <p>
+              A Camarines Norte resident checks for what's left bof his coconuts
+              after Typhoon Ulysses (Vamco) plowed through his farm. PHOTO BY
+              ROB REYES/RAPPLER
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="box">
+        <h2 class="scrolling-title">Health Risk</h2>
+        <div class="container">
+          <div
+            class="imgBx"
+            [style.backgroundImage]="
+              'url(assets/landingpagenew/healthrisk.jpg)'
+            "
+          ></div>
+          <div class="content">
+            <p>
+              Children in the Philippines receive treatment for diarrhea, a
+              major health risk that often arises in floodwater after extreme
+              weather. Researchers warn that young people will face more risks
+              like this as the climate changes. Ted Aljibe/AFP/Getty
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="box">
+        <h2 class="scrolling-title">Water Scarcity</h2>
+        <div class="container">
+          <div
+            class="imgBx"
+            [style.backgroundImage]="
+              'url(assets/landingpagenew/waterscarcity.jpg)'
+            "
+          ></div>
+          <div class="content">
+            <p>
+              Residents line up for water rationed by Manila Water in Barangay
+              Highway Hills, Mandaluyong City on March 11, 2019. The water
+              distributor has limited the supply of water, believed to last
+              through the summer season, in parts of Metro Manila due to
+              increased demand, lack of rains, and low water level at the La
+              Mesa Dam, its emergency source. George Calvelo, ABS-CBN News
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="parallax-container">
+      <div class="parallax-description">
+        <h1>Description</h1>
+        <p>Additional details here</p>
+      </div>
+      <div
+        class="parallax-image"
+        [style.transform]="'scale(' + scale + ')'"
+        [style.background-image]="'url(' + imageUrl + ')'"
+        (window:scroll)="onScroll($event)"
+      ></div>
+    </div>
+  </body>
+</html>
