@@ -1,9 +1,9 @@
 <body>
   <div class="assessment">
-    <h1>Assessment</h1>
+    <h1>Self-Assessment</h1>
   </div>
 
-  <div class="assessment2">
+  <!-- <div class="assessment2">
     <div
       class="container2"
       style="border-color: #a6782a"
@@ -23,7 +23,7 @@
             >
               {{ quiz.question }}
             </p>
-            <!-- <p>{{ quiz.question }}</p> -->
+            <p>{{ quiz.question }}</p>
             <ng-container *ngFor="let option of quiz.options; let j = index">
               <input
                 type="radio"
@@ -81,7 +81,7 @@
           Play Again
         </button>
     </div>
-  </div>
+  </div> -->
 
   <div class="assessment2">
     <div
@@ -90,7 +90,7 @@
       *ngFor="let item of assessment; let index = index"
     >
       <form>
-        <h2>Pop Quiz</h2>
+        <!-- <h2>Pop Quiz</h2> -->
         <ol type="1">
           <li *ngFor="let quiz of item.pop_quiz; let i = index">
             <p
