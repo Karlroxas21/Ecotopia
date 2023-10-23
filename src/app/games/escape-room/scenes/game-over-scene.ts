@@ -24,10 +24,10 @@ export class GameOver extends Phaser.Scene {
   bgMusic: any;
   gameOverSFX: any;
 
-  textDisplay = "Game Over!\n Click 'X' to restart";
+  textDisplay = "Game Over!\nYou've run out of chances to make a difference in the fight\nagainst water pollution in the context of climate change.\nYour quiz adventure ends here.";
 
   create() {
-    this.background = this.add.image(0, 0, 'scene2-bg-wrong'); // Change this
+    this.background = this.add.image(0, 0, 'game-over'); // Change this
     this.background.setOrigin(0, 0);
 
     this.sound.stopAll();

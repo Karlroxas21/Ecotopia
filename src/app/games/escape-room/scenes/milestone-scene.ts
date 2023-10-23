@@ -16,12 +16,19 @@ export class Milestone extends Phaser.Scene {
         textDisplay: any;
 
         character: any;
+        background: any;
 
         mileStoneMusic: any;
 
         create() {
 
-                this.textDisplay = `Congratulations!\n\nYou answered all the correct answers and make a positive impact on\nthe environemnt!\n\n You're score is ${scoreService.getScorePoints()}`
+                this.background = this.add.image(0, 0, 'congrats-bg');
+                this.background.setOrigin(0, 0);
+
+                this.character = this.add.image(300, 440, 'character-win');
+                this.character.setScale(0.55);
+
+                this.textDisplay = `Congratulations for raising awareness by picking the\ncorrect answer.Learning and spreading the word about\nwater pollution is a crucial step in addressing\nclimate change!\n\nYou're score is ${scoreService.getScorePoints()}`
                 // reset score
                 scoreService.resetScorePoints();
                 scoreService
@@ -33,10 +40,10 @@ export class Milestone extends Phaser.Scene {
                 const graphics = this.add.graphics();
                 graphics.fillStyle(0x000000, 0.5); // Color and Alpha
                 graphics.fillRect(
-                        75,
-                        centerY - this.cameras.main.height / 6 / 2,
+                        60,
+                        (centerY - this.cameras.main.height / 6 / 2) - 40,
                         this.config.width - 150,
-                        this.config.height / 6
+                        this.config.height / 4
                 );
 
                 const closeButton = this.add.text(
@@ -55,24 +62,21 @@ export class Milestone extends Phaser.Scene {
 
                 const guide = this.add.text(
                         centerX,
-                        centerY,
+                        centerY - 20,
                         this.textDisplay,
                         { font: '21px monospace', color: '#ffffff', align: 'center' }
                 );
                 guide.setOrigin(0.5);
                 // End of text
 
-                this.character = this.add.sprite(150, 460, 'character');
-                this.character.setScale(0.6);
-
-                this.anims.create({
-                        key: 'character_key',
-                        frames: this.anims.generateFrameNumbers('character', { start: 0, end: 6 }),
-                        frameRate: 10,
-                        repeat: -1
-                })
-
-                this.character.anims.play('character_key');
+                // Text blinking
+                this.time.addEvent({
+                        delay: 400,
+                        callback: () => {
+                        closeButton.visible = !closeButton.visible;
+                        },
+                        loop: true
+                });
 
                 this.mileStoneMusic = this.sound.add('milestone');
                 this.mileStoneMusic.play();
