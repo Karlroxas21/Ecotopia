@@ -18,7 +18,7 @@ app.disable('x-powered-by');
 
 app.use(helmet.contentSecurityPolicy({
   directives: {
-    defaultSrc: ["'self'", "http://localhost"], 
+    defaultSrc: ["'self'", "http://localhost", "https://ecotopiabeta.live"], 
     scriptSrc: ["'self'", "'unsafe-eval'", "'unsafe-inline'"],
     styleSrc: ["'self'", "https://fonts.googleapis.com", "https://unpkg.com/aos@2.3.1/dist/aos.css", "https://pro.fontawesome.com/releases/v5.10.0/css/all.css", "https://fonts.cdnfonts.com/css/henry-sans", "'unsafe-inline'"],
     imgSrc: ["'self'", "data:", "blob:", "'unsafe-inline'"],
@@ -96,7 +96,7 @@ const URI=process.env.DB_CONNECTION;
 
 mongoose.connect(URI)
 
-const allowedOrigin = ['dry-forest-52571-e7ad1e7e2bf2.herokuapp.com'];
+const allowedOrigin = ['vast-chipmunk-pmtbqfn8dn3rzmindozaebrn.herokudns.com', 'ecotopia-kwatro-1d9051e0c450.herokuapp.com', 'ecotopia.live'];
 
 // CORS Middleware
 const corsOptions = {
@@ -112,7 +112,7 @@ app.use(bodyParser.json());
 
 // This causes bug in API. Enable only if dockerizing it.
 // See : https://chat.openai.com/share/99b39e15-397a-496c-8689-1d023344b37d
-// app.use(history());
+app.use(history());
 
 app.use(express.static(path.join(__dirname, 'dist/ecotopia-capstone')));
 

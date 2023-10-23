@@ -86,7 +86,7 @@ export class MainScene extends Phaser.Scene {
 
     // Scene 4
     this.load.image('scene4-bg', '../../../../assets/game/scene4/harbor_mess.png');
-    this.load.image('scene4-bg-wrong', '../../../../assets/game/scene4/arbor_mess.png');
+    this.load.image('scene4-bg-wrong', '../../../../assets/game/scene4/harbor_mess.png');
     this.load.image('scene4-bg-correct', '../../../../assets/game/scene4/harbor(swd).png');
 
     // Scene 5
