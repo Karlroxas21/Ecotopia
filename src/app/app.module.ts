@@ -52,6 +52,7 @@ import { EffectsComponent } from './effects/effects.component';
 import { EvidenceComponent } from './evidence/evidence.component';
 import { LandingPageNewComponent } from './landing-page-new/landing-page-new.component';
 import { AdminNewsComponent } from './admin-news/admin-news.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker'; 
 
 @NgModule({
   declarations: [
@@ -113,6 +114,8 @@ import { AdminNewsComponent } from './admin-news/admin-news.component';
     ToastrModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    BsDatepickerModule.forRoot(),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
