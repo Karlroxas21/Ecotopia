@@ -14,7 +14,7 @@ export class AdminCasesComponent implements OnInit {
   cases: any ;
 
   //Temporary title only
-  title = "Admin: Cases";
+  title = "Admin: SDG#13";
 
   header: string = "";
   header_desc: string = "";

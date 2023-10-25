@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AdminCase2Component {
   outdated_engine: any;
-  title = "Admin: Case 2";
+  title = "Admin: Target and Indicators";
 
   header: string = "";
   header_desc: string = "";

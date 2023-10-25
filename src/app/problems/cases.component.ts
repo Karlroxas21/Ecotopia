@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment'
 })
 export class CasesComponent implements OnInit {
   cases: any ;
-  title = "Ecotopia: Cases";
+  title = "SDG #13";
 
   constructor(private http: HttpClient, private titleService: Title){}
 

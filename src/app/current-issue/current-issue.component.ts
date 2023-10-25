@@ -17,7 +17,7 @@ export class CurrentIssueComponent {
   // oneAtATime = true;
 
   current_issues_ph: any;
-  title = "Ecotopia: Current Issues in the Philippines";
+  title = "Current Issues in the Philippines";
 
   constructor(private http: HttpClient,
     private titleService: Title) { }

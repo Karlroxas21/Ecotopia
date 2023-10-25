@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr'; 
 import { environment } from '../../environments/environment'
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,12 @@ export class LoginComponent {
 
   constructor(private http: HttpClient, 
     private router: Router,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private titleService: Title) { }
+
+  ngOnInit(){
+    this.titleService.setTitle("Admin Login");
+  }
 
   sessionCheck(): boolean{
     if(!localStorage.getItem('token')){

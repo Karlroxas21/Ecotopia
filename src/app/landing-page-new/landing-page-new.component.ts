@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-landing-page-new',
@@ -41,10 +42,12 @@ export class LandingPageNewComponent implements OnInit{
   //   'Description for Image 3'
   // ];
 
-  constructor() { }
+  constructor(private titleService: Title) { }
 
   ngOnInit(): void {
     this.startSlider();
+
+    this.titleService.setTitle("Ecotopia");
   }
 
   startSlider() {

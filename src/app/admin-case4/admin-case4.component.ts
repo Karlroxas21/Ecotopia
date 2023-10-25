@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AdminCase4Component {
   effects_climate_change: any;
-  title = "Admin: Case 4";
+  title = "Admin: Related Topics";
 
   header: string = "";
   header_desc: string = "";

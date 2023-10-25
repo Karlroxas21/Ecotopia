@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment'
 })
 export class SolutionsComponent {
   solutions: any;
-  title = "Ecotopia: Solutions";
+  title = "Solutions";
 
   constructor(private http: HttpClient,
     private titleService: Title) { }

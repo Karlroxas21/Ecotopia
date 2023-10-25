@@ -53,6 +53,7 @@ export class AdminPanelComponent {
     { text: 'Assessment', icon: 'bx bxs-edit', route: '/admin-assessment' },
     { text: 'Climate Action SDG 13', icon: 'bx-file',
       children: [
+        { text: 'SDG #13', icon: 'bx-file', route: '/admin-cases' },
         { text: 'Overview', icon: 'bx-file', route: '/admin-case-1' },
         { text: 'Target and Indicators', icon: 'bx-file', route: '/admin-case-2' },
         { text: 'Progress and Info', icon: 'bx-file', route: '/admin-case-3' },

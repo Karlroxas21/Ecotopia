@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 
 export class AdminCase1Component {
   problem_trash: any;
-  title = "Admin: Cases";
+  title = "Admin: Overview";
 
   header: string = "";
   header_desc: string = "";

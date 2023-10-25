@@ -27,6 +27,7 @@ import { PrePlayScene5 } from './scenes/scene5/pre-play-scene5';
 import { scoreService} from './scenes/score-service';
 import { heartPointsService } from './scenes/heart-service';
 import { Pre2PlayScene } from './scenes/pre2-play-scene'; // temporary
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-escape-room',
@@ -37,7 +38,7 @@ export class EscapeRoomComponent implements OnInit{
   phaserGame !: Phaser.Game ;
   config: Phaser.Types.Core.GameConfig;
   
-  constructor(){
+  constructor(private titleService: Title){
     this.config = {
       type: Phaser.AUTO,
       height: 600,
@@ -88,6 +89,8 @@ export class EscapeRoomComponent implements OnInit{
   gameData: any;
 
   ngOnInit() {
+    this.titleService.setTitle("Climate Escape");
+    
     if(!this.phaserGame){
       this.createGame();
     }else{

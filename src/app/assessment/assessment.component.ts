@@ -13,7 +13,7 @@ import { environment } from '../../environments/environment'
 
 export class AssessmentComponent implements OnInit {
   assessment: any;
-  title = "Ecotopia: Assessment";
+  title = "Self-Assessment";
 
   selectedAnswersTriviaGame: string[] = []; // Selected answer will store here. Index 0 = Question 1, Index 9 = Question 10.
   selectedAnswersPopQuiz: string[] = [];

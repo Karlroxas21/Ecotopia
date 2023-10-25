@@ -3,8 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment'
 import { AdminNewsService } from './admin-news.service';
 import { ToastrService } from 'ngx-toastr';
-
-
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-admin-news',
@@ -30,7 +29,8 @@ export class AdminNewsComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private adminNewsService: AdminNewsService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private titleService: Title
   ) {}
 
   openEditModal(item: any): void {
@@ -101,6 +101,7 @@ export class AdminNewsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Admin: News")
     this.adminNewsService.getData().subscribe((news) => {
       this.news = news;
     });
