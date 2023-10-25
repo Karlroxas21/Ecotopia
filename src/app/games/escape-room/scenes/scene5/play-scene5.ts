@@ -1,7 +1,8 @@
 import Phaser from 'phaser';
 import { heartPointsService } from '../heart-service';
 import { scoreService } from '../score-service';
-import { gameService } from '../../game-service';
+import { environment } from 'src/environments/environment';
+import axios from 'axios';
 
 export class PlayScene5 extends Phaser.Scene {
   constructor() {
@@ -34,296 +35,248 @@ export class PlayScene5 extends Phaser.Scene {
 
   scoreDisplay: any;
 
-  gameData: any[] = [
-    {
-      "question": "What should you prioritize collecting to restore the health of the lake?",
-      "choices": [
-        "Collecting and removing excess algae and aquatic plants",
-        "Conducting regular water quality tests",
-        "Introducing non-native fish species for diversity",
-        "Encouraging increased recreational boating"
-      ],
-      "weights": [4, 2, -1, -1]
-    },
-    {
-      "question": "Which of the following items should be prioritized to improve the health of the lake ecosystem?",
-      "choices": [
-        "Collecting data on bird migration patterns",
-        "Removing litter and pollutants from the lake",
-        "Adding chemical fertilizers to enhance plant growth",
-        "Promoting excessive fishing to reduce fish population"
-      ],
-      "weights": [-1, 4, -1, 2]
-    },
-    {
-      "question": "What actions are crucial for restoring a lake's health?",
-      "choices": [
-        "Building properties for tourism",
-        "Establishing protected areas for natural habitats",
-        "Implementing strict fishing regulations",
-        "Collecting and managing stormwater runoff"
-      ],
-      "weights": [-1, 4, -1, 2]
-    },
-    {
-      "question": "In order to restore a lake's health, what should be given priority?",
-      "choices": [
-        "Hosting large-scale recreational events on the lake",
-        "Monitoring and controlling invasive species",
-        "Increasing motorized boat traffic",
-        "Implementing water quality monitoring and strategies"
-      ],
-      "weights": [-1, 2, -1, 4]
-    }
-  ]
-  ;
+  gameData: any;
 
-  // async fetchData(){
-  //   try{
-  //     this.gameData = await gameService.callData('game_scene5');
-    
-  //   }catch (error){
-  //     console.error(`Error: `, error);
-  //   }
-  // }
+  private urlAPI = `${environment.apiUrl}`;
 
-  getRandomQuestion(){
-    // this.fetchData().then(()=>{
-      const randomIndexForQuestion = Phaser.Math.RND.integerInRange(0, this.gameData.length - 1);
-      const randomQuestion = this.gameData[randomIndexForQuestion];
+  getRandomQuestion() {
+    axios.get(`${this.urlAPI}game_scene1`)
+      .then((response) => {
+        this.gameData = response.data;
+        const randomIndexForQuestion = Phaser.Math.RND.integerInRange(0, this.gameData.length - 1);
+        const randomQuestion = this.gameData[randomIndexForQuestion];
 
-      const randomIndexesForChoices: number[]= [];
+        const randomIndexesForChoices: number[] = [];
 
-      while(randomIndexesForChoices.length < 4){
-        const randomIndex = Phaser.Math.RND.integerInRange(0, 3);
-        if(!randomIndexesForChoices.includes(randomIndex)){
-          randomIndexesForChoices.push(randomIndex);
+        while (randomIndexesForChoices.length < 4) {
+          const randomIndex = Phaser.Math.RND.integerInRange(0, 3);
+          if (!randomIndexesForChoices.includes(randomIndex)) {
+            randomIndexesForChoices.push(randomIndex);
+          }
         }
+
+        if (randomQuestion.question.length >= 50) {
+          const indexToInsertNewline = randomQuestion.question.lastIndexOf(' ', 50);
+          if (indexToInsertNewline !== -1) {
+            randomQuestion.question = randomQuestion.question.slice(0, indexToInsertNewline) + '\n' + randomQuestion.question.slice(indexToInsertNewline + 1);
+          }
+        }
+
+        this.textDisplay = randomQuestion.question;
+        this.choice1 = randomQuestion.choices[randomIndexesForChoices[0]];
+        this.choice2 = randomQuestion.choices[randomIndexesForChoices[1]];
+        this.choice3 = randomQuestion.choices[randomIndexesForChoices[2]];
+        this.choice4 = randomQuestion.choices[randomIndexesForChoices[3]];
+
+        this.weight1 = randomQuestion.weights[randomIndexesForChoices[0]];
+        this.weight2 = randomQuestion.weights[randomIndexesForChoices[1]];
+        this.weight3 = randomQuestion.weights[randomIndexesForChoices[2]];
+        this.weight4 = randomQuestion.weights[randomIndexesForChoices[3]];
+
+        const centerX = (this.config.width / 2) - 40;
+        const centerY = 100;
+
+        const graphics = this.add.graphics();
+        graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+        graphics.fillRect(
+          75,
+          centerY - this.config.height / 6 / 2,
+          this.config.width - 150,
+          this.config.height / 6
+        );
+
+        const guide = this.add.text(
+          centerX,
+          centerY,
+          this.textDisplay,
+          { font: '18px monospace', color: '#ffffff' }
+        );
+        guide.setOrigin(0.5);
+        // End of Question
+
+        // Choice 1
+        const choice1CenterX = 100;
+        const choice1CenterY = centerY + 80;
+        const choice1graphics = this.add.graphics();
+        choice1graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+        choice1graphics.fillRect(
+          75,
+          centerY + 70,
+          this.config.width - 150,
+          40
+        );
+
+        const choice1Guide = this.add.text(
+          choice1CenterX,
+          choice1CenterY,
+          this.choice1,
+          { font: '18px monospace', color: '#ffffff' }
+        );
+
+        choice1Guide.setInteractive()
+        choice1Guide.on('pointerdown', () => {
+          if (heartPointsService.getHeartPoints() === 0) {
+            this.scene.start('game-over-scene', { config: this.game.config });
+          }
+          else if (Number(this.weight1) > 0) {
+            scoreService.increaseScorePoints(Number(this.weight1));
+            this.scene.start('play-scene5-correct', { config: this.game.config });
+          }
+          else {
+            scoreService.decreaseScorePoints(1);
+            heartPointsService.decreaseHeartPoints();
+            this.scene.start('play-scene5-wrong', { config: this.game.config });
+          }
+
+          this.choiceButtonSFX.play();
+
+        });
+        // End of choice 1
+
+        // Choice 2
+        const choice2CenterX = 100;
+        const choice2CenterY = centerY + 130;
+        const choice2graphics = this.add.graphics();
+        choice2graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+        choice2graphics.fillRect(
+          75,
+          centerY + 120,
+          this.config.width - 150,
+          40
+        );
+
+        const choice2Guide = this.add.text(
+          choice2CenterX,
+          choice2CenterY,
+          this.choice2,
+          { font: '18px monospace', color: '#ffffff' }
+        );
+        choice2Guide.setInteractive()
+        choice2Guide.on('pointerdown', () => {
+          if (heartPointsService.getHeartPoints() === 0) {
+            this.scene.start('game-over-scene', { config: this.game.config });
+          }
+          else if (Number(this.weight2) > 0) {
+            scoreService.increaseScorePoints(Number(this.weight2));
+            this.scene.start('play-scene5-correct', { config: this.game.config });
+          }
+          else {
+            scoreService.decreaseScorePoints(1);
+            heartPointsService.decreaseHeartPoints();
+            this.scene.start('play-scene5-wrong', { config: this.game.config });
+          }
+
+          this.choiceButtonSFX.play();
+
+        });
+        // End of choice 2
+
+        // Choice 3
+        const choice3CenterX = 100;
+        const choice3CenterY = centerY + 180;
+        const choice3graphics = this.add.graphics();
+        choice3graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+        choice3graphics.fillRect(
+          75,
+          centerY + 170,
+          this.config.width - 150,
+          40
+        );
+
+        const choice3Guide = this.add.text(
+          choice3CenterX,
+          choice3CenterY,
+          this.choice3,
+          { font: '18px monospace', color: '#ffffff' }
+        );
+
+        choice3Guide.setInteractive()
+        choice3Guide.on('pointerdown', () => {
+          if (heartPointsService.getHeartPoints() === 0) {
+            this.scene.start('game-over-scene', { config: this.game.config });
+          }
+          else if (Number(this.weight3) > 0) {
+            scoreService.increaseScorePoints(Number(this.weight3));
+            this.scene.start('play-scene5-correct', { config: this.game.config });
+          }
+          else {
+            scoreService.decreaseScorePoints(1);
+            heartPointsService.decreaseHeartPoints();
+            this.scene.start('play-scene5-wrong', { config: this.game.config });
+          }
+
+          this.choiceButtonSFX.play();
+
+        });
+        // End of choice 3
+
+        // Choice 4
+        const choice4CenterX = 100;
+        const choice4CenterY = centerY + 230;
+        const choice4graphics = this.add.graphics();
+        choice4graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+        choice4graphics.fillRect(
+          75,
+          centerY + 220,
+          this.config.width - 150,
+          40
+        );
+
+        const choice4Guide = this.add.text(
+          choice4CenterX,
+          choice4CenterY,
+          this.choice4,
+          { font: '18px monospace', color: '#ffffff' }
+        );
+        choice4Guide.setInteractive()
+        choice4Guide.on('pointerdown', () => {
+          if (heartPointsService.getHeartPoints() === 0) {
+            this.scene.start('game-over-scene', { config: this.game.config });
+          }
+          else if (Number(this.weight4) > 0) {
+            scoreService.increaseScorePoints(Number(this.weight4));
+            this.scene.start('play-scene5-correct', { config: this.game.config });
+          }
+          else {
+            scoreService.decreaseScorePoints(1);
+            heartPointsService.decreaseHeartPoints();
+            this.scene.start('play-scene5-wrong', { config: this.game.config });
+          }
+
+          this.choiceButtonSFX.play();
+
+        });
+        // End of choice 4
+        })
       }
-      // console.log(randomQuestion.choices[randomIndexForChoices]);
-
-      if (randomQuestion.question.length >= 50) {
-        const indexToInsertNewline = randomQuestion.question.lastIndexOf(' ', 50);
-        if (indexToInsertNewline !== -1) {
-          randomQuestion.question = randomQuestion.question.slice(0, indexToInsertNewline) + '\n' + randomQuestion.question.slice(indexToInsertNewline + 1);
-        }
-      }
-      
-      this.textDisplay = randomQuestion.question;
-      this.choice1 = randomQuestion.choices[randomIndexesForChoices[0]];
-      this.choice2 = randomQuestion.choices[randomIndexesForChoices[1]];
-      this.choice3 = randomQuestion.choices[randomIndexesForChoices[2]];
-      this.choice4 = randomQuestion.choices[randomIndexesForChoices[3]];
-
-      this.weight1 = randomQuestion.weights[randomIndexesForChoices[0]];
-      this.weight2 = randomQuestion.weights[randomIndexesForChoices[1]];
-      this.weight3 = randomQuestion.weights[randomIndexesForChoices[2]];
-      this.weight4 = randomQuestion.weights[randomIndexesForChoices[3]];
-
-      const centerX = (this.config.width / 2) - 40;
-      const centerY = 100;
-        
-      const graphics = this.add.graphics();
-      graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-      graphics.fillRect(
-        75,
-        centerY - this.config.height / 6 / 2,
-        this.config.width - 150,
-        this.config.height / 6
-      );
-
-      const guide = this.add.text(
-        centerX,
-        centerY,
-        this.textDisplay,
-        { font: '18px monospace', color: '#ffffff' }
-      );
-      guide.setOrigin(0.5);
-      // End of Question
-      
-      // Choice 1
-      const choice1CenterX = 100;
-      const choice1CenterY = centerY + 80;
-      const choice1graphics = this.add.graphics();
-      choice1graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-      choice1graphics.fillRect(
-        75,
-        centerY + 70,
-        this.config.width - 150,
-        40
-      );
-  
-      const choice1Guide = this.add.text(
-        choice1CenterX,
-        choice1CenterY,
-        this.choice1,
-        { font: '18px monospace', color: '#ffffff' }
-      );
-  
-      choice1Guide.setInteractive()
-      choice1Guide.on('pointerdown', () => {
-        if(heartPointsService.getHeartPoints() === 0){
-          this.scene.start('game-over-scene', {config: this.game.config});
-        }
-        else if(Number(this.weight1) > 0){
-          scoreService.increaseScorePoints(Number(this.weight1));
-          this.scene.start('play-scene5-correct', {config: this.game.config});
-        }
-        else{
-          scoreService.decreaseScorePoints(1);
-          heartPointsService.decreaseHeartPoints();
-          this.scene.start('play-scene5-wrong', {config: this.game.config});
-        }
-    
-        this.choiceButtonSFX.play();
-  
-      });
-      // End of choice 1
-  
-      // Choice 2
-      const choice2CenterX = 100;
-      const choice2CenterY = centerY + 130;
-      const choice2graphics = this.add.graphics();
-      choice2graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-      choice2graphics.fillRect(
-        75,
-        centerY + 120,
-        this.config.width - 150,
-        40
-      );
-  
-      const choice2Guide = this.add.text(
-        choice2CenterX,
-        choice2CenterY,
-        this.choice2,
-        { font: '18px monospace', color: '#ffffff' }
-      );
-      choice2Guide.setInteractive()
-      choice2Guide.on('pointerdown', () => {
-        if(heartPointsService.getHeartPoints() === 0){
-          this.scene.start('game-over-scene', {config: this.game.config});
-        }
-        else if(Number(this.weight2) > 0){
-          scoreService.increaseScorePoints(Number(this.weight2));
-          this.scene.start('play-scene5-correct', {config: this.game.config});
-        }
-        else{
-          scoreService.decreaseScorePoints(1);
-          heartPointsService.decreaseHeartPoints();
-          this.scene.start('play-scene5-wrong', {config: this.game.config});
-        }
-
-        this.choiceButtonSFX.play();
-  
-      });
-      // End of choice 2
-  
-      // Choice 3
-      const choice3CenterX = 100;
-      const choice3CenterY = centerY + 180;
-      const choice3graphics = this.add.graphics();
-      choice3graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-      choice3graphics.fillRect(
-        75,
-        centerY + 170,
-        this.config.width - 150,
-        40
-      );
-  
-      const choice3Guide = this.add.text(
-        choice3CenterX,
-        choice3CenterY,
-        this.choice3,
-        { font: '18px monospace', color: '#ffffff' }
-      );
-  
-      choice3Guide.setInteractive()
-      choice3Guide.on('pointerdown', () => {
-        if(heartPointsService.getHeartPoints() === 0){
-          this.scene.start('game-over-scene', {config: this.game.config});
-        }
-        else if(Number(this.weight3) > 0){
-          scoreService.increaseScorePoints(Number(this.weight3));
-          this.scene.start('play-scene5-correct', {config: this.game.config});
-        }
-        else{
-          scoreService.decreaseScorePoints(1);
-          heartPointsService.decreaseHeartPoints();
-          this.scene.start('play-scene5-wrong', {config: this.game.config});
-        }
-  
-        this.choiceButtonSFX.play();
-  
-      });
-      // End of choice 3
-  
-      // Choice 4
-      const choice4CenterX = 100;
-      const choice4CenterY = centerY + 230;
-      const choice4graphics = this.add.graphics();
-      choice4graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-      choice4graphics.fillRect(
-        75,
-        centerY + 220,
-        this.config.width - 150,
-        40
-      );
-  
-      const choice4Guide = this.add.text(
-        choice4CenterX,
-        choice4CenterY,
-        this.choice4,
-        { font: '18px monospace', color: '#ffffff' }
-      );
-      choice4Guide.setInteractive()
-      choice4Guide.on('pointerdown', () => {
-        if(heartPointsService.getHeartPoints() === 0){
-          this.scene.start('game-over-scene', {config: this.game.config});
-        }
-        else if(Number(this.weight4) > 0){
-          scoreService.increaseScorePoints(Number(this.weight4));
-          this.scene.start('play-scene5-correct', {config: this.game.config});
-        }
-        else{
-          scoreService.decreaseScorePoints(1);
-          heartPointsService.decreaseHeartPoints();
-          this.scene.start('play-scene5-wrong', {config: this.game.config});
-        }
-
-        this.choiceButtonSFX.play();
-  
-      });
-      // End of choice 4
-    // })
-  }
 
   create() {
-    this.background = this.add.image(0, 0, 'scene5-bg');
-    this.background.setOrigin(0, 0);
+        this.background = this.add.image(0, 0, 'scene5-bg');
+        this.background.setOrigin(0, 0);
 
-    this.choiceButtonSFX = this.sound.add('choice');
+        this.choiceButtonSFX = this.sound.add('choice');
 
-    // for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
-    //   this.heart_icon = this.add.sprite(770, 10 + i * 50, 'heart-icon');
-    //   this.heart_icon.setScale(0.08);
+        for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
+          this.heart_icon = this.add.sprite(770, 10 + i * 50, 'heart-icon');
+          this.heart_icon.setScale(0.08);
 
-    //   this.anims.create({
-    //     key: 'heart-icon_key',
-    //     frames: this.anims.generateFrameNumbers('heart-icon', {start: 0, end: 4}),
-    //     frameRate: 10,
-    //     repeat: -1
-    // })
+          this.anims.create({
+            key: 'heart-icon_key',
+            frames: this.anims.generateFrameNumbers('heart-icon', {start: 0, end: 4}),
+            frameRate: 10,
+            repeat: -1
+        })
 
-    //   this.heart_icon.anims.play('heart-icon_key');
-    // }
+          this.heart_icon.anims.play('heart-icon_key');
+        }
 
-    this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
+        this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
 
-    this.getRandomQuestion();
+        this.getRandomQuestion();
 
-  }
+      }
 
   override update() {
 
-  }
+      }
 }

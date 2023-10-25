@@ -1,7 +1,8 @@
 import Phaser from 'phaser';
 import { heartPointsService } from '../heart-service';
 import { scoreService } from '../score-service';
-import { gameService } from '../../game-service';
+import { environment } from 'src/environments/environment';
+import axios from 'axios';
 
 export class PlayScene3 extends Phaser.Scene {
   constructor() {
@@ -34,42 +35,14 @@ export class PlayScene3 extends Phaser.Scene {
 
   scoreDisplay: any;
 
-  gameData: any[] = [
-    {
-      "question": "What should you collect to help the park pond regain its natural beauty?",
-      "choices": ["Plastic toys", "Trash and litter", "Native aquatic plants", "Old newspapers"],
-      "weights": [-1, 4, 2, -1]
-    },
-    {
-      "question": "Which of the following items are beneficial for restoring the park pond's natural beauty?",
-      "choices": ["Broken glass bottles", "Exotic fish species", "Soil from construction sites", "Water-testing kits"],
-      "weights": [-1, 4, -1, 2]
-    },
-    {
-      "question": "What materials should you gather to promote the rejuvenation of the park pond's ecosystem?",
-      "choices": ["Abandoned bicycles", "Chemical pesticides", "Fallen leaves and twigs", "Industrial waste"],
-      "weights": [-1, -1, 4, 2]
-    },
-    {
-      "question": "Which of the following will contribute to the park pond's environmental restoration?",
-      "choices": ["Barbecue grills", "Invasive plant species", "Natural rocks and pebbles", "Discarded plastic bags"],
-      "weights": [-1, -1, 4, 2]
-    }
-  ]
-  
-  ;
+  gameData: any;
 
-  // async fetchData(){
-  //   try{
-  //     this.gameData = await gameService.callData('game_scene3');
-    
-  //   }catch (error){
-  //     console.error(`Error: `, error);
-  //   }
-  // }
+  private urlAPI = `${environment.apiUrl}`;
 
   getRandomQuestion(){
-    // this.fetchData().then(()=>{
+    axios.get(`${this.urlAPI}game_scene3`)
+    .then((response)=>{
+      this.gameData = response.data;
       const randomIndexForQuestion = Phaser.Math.RND.integerInRange(0, this.gameData.length - 1);
       const randomQuestion = this.gameData[randomIndexForQuestion];
 
@@ -81,7 +54,6 @@ export class PlayScene3 extends Phaser.Scene {
           randomIndexesForChoices.push(randomIndex);
         }
       }
-      // console.log(randomQuestion.choices[randomIndexForChoices]);
 
       if (randomQuestion.question.length >= 50) {
         const indexToInsertNewline = randomQuestion.question.lastIndexOf(' ', 50);
@@ -277,7 +249,7 @@ export class PlayScene3 extends Phaser.Scene {
   
       });
       // End of choice 4
-    // })
+    })
   }
 
   create() {
@@ -303,7 +275,6 @@ export class PlayScene3 extends Phaser.Scene {
     this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
 
     this.getRandomQuestion();
-
 
   }
 

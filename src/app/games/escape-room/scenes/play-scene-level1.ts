@@ -1,7 +1,8 @@
 import Phaser from 'phaser';
 import { heartPointsService } from './heart-service';
 import { scoreService } from './score-service';
-import { gameService } from '../game-service';
+import { environment } from 'src/environments/environment';
+import axios from 'axios';
 
 export class PlayScene extends Phaser.Scene {
   constructor() {
@@ -15,7 +16,7 @@ export class PlayScene extends Phaser.Scene {
 
   background: any;
 
-  heart_icon:any;
+  heart_icon: any;
 
   cloud1: any;
   cloud2: any;
@@ -76,253 +77,226 @@ export class PlayScene extends Phaser.Scene {
 
   scoreDisplay: any;
 
-  gameData: any[] = [
-    {
-      question: "When participating in a beach cleanup, which of the following should be your priority to pick up?",
-      choices: ["Plastic Bottles", "Broken glass", "Shells for your collection", "Abandoned sandcastles"],
-      weights: [4, 2, -1, -1],
-    },
-    {
-      question: "To effectively clean the beach, which items should you focus on removing?",
-      choices: ["Seagull feathers", "Plastic straws", "Coral fragments", "Broken Glass"],
-      weights: [-1, 4, -1, 2],
-    },
-    {
-      question: "What is the most important item to target during a beach cleanup to protect the environment?",
-      choices: ["Broken Glass", "Cigarette butts", "Beach volleyball nets", "Beach hats"],
-      weights: [2, 4, -1, -1],
-    },
-    {
-      question: "When cleaning a beach, which two items are the most critical to prioritize?",
-      choices: ["Plastic bags", "Abandoned fishing nets", "Seashells", "Flip-flops"],
-      weights: [4, 2, -1, -1],
-    },
-  ];
+  gameData: any;
 
-  // async fetchData(){
-  //   try{
-  //     this.gameData = await gameService.callData('game_scene1');
-    
-  //   }catch (error){
-  //     console.error(`Error: `, error);
-  //   }
-  // }
+  private urlAPI = `${environment.apiUrl}`;
 
-  getRandomQuestion(){
-    // this.fetchData().then(()=>{
-      const randomIndexForQuestion = Phaser.Math.RND.integerInRange(0, this.gameData.length - 1);
-      const randomQuestion = this.gameData[randomIndexForQuestion];
+  getRandomQuestion() {
+    axios.get(`${this.urlAPI}game_scene1`)
+      .then((response) => {
+        this.gameData = response.data;
+        const randomIndexForQuestion = Phaser.Math.RND.integerInRange(0, this.gameData.length - 1);
+        const randomQuestion = this.gameData[randomIndexForQuestion];
 
-      const randomIndexesForChoices: number[]= [];
+        const randomIndexesForChoices: number[] = [];
 
-      while(randomIndexesForChoices.length < 4){
-        const randomIndex = Phaser.Math.RND.integerInRange(0, 3);
-        if(!randomIndexesForChoices.includes(randomIndex)){
-          randomIndexesForChoices.push(randomIndex);
-        }
-      }
-      // console.log(randomQuestion.choices[randomIndexForChoices]);
-
-      if (randomQuestion.question.length >= 50) {
-        const indexToInsertNewline = randomQuestion.question.lastIndexOf(' ', 50);
-        if (indexToInsertNewline !== -1) {
-          randomQuestion.question = randomQuestion.question.slice(0, indexToInsertNewline) + '\n' + randomQuestion.question.slice(indexToInsertNewline + 1);
-        }
-      }
-      
-      this.textDisplay = randomQuestion.question;
-      this.choice1 = randomQuestion.choices[randomIndexesForChoices[0]];
-      this.choice2 = randomQuestion.choices[randomIndexesForChoices[1]];
-      this.choice3 = randomQuestion.choices[randomIndexesForChoices[2]];
-      this.choice4 = randomQuestion.choices[randomIndexesForChoices[3]];
-
-      this.weight1 = randomQuestion.weights[randomIndexesForChoices[0]];
-      this.weight2 = randomQuestion.weights[randomIndexesForChoices[1]];
-      this.weight3 = randomQuestion.weights[randomIndexesForChoices[2]];
-      this.weight4 = randomQuestion.weights[randomIndexesForChoices[3]];
-
-      const centerX = (this.config.width / 2) - 40;
-      const centerY = 100;
-
-      // Question
-      const graphics = this.add.graphics();
-      graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-      graphics.fillRect(
-        75,
-        centerY - this.config.height / 6 / 2,
-        this.config.width - 150,
-        this.config.height / 6
-      );
-
-      const guide = this.add.text(
-        centerX,
-        centerY,
-        this.textDisplay,
-        { font: '18px monospace', color: '#ffffff' }
-      );
-      guide.setOrigin(0.5);
-      // End of Question
-      
-      // Choice 1
-      const choice1CenterX = 100;
-      const choice1CenterY = centerY + 80;
-      const choice1graphics = this.add.graphics();
-      choice1graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-      choice1graphics.fillRect(
-        75,
-        centerY + 70,
-        this.config.width - 150,
-        40
-      );
-  
-      const choice1Guide = this.add.text(
-        choice1CenterX,
-        choice1CenterY,
-        this.choice1,
-        { font: '18px monospace', color: '#ffffff' }
-      );
-  
-      choice1Guide.setInteractive()
-      choice1Guide.on('pointerdown', () => {
-        if(heartPointsService.getHeartPoints() === 0){
-          this.scene.start('game-over-scene', {config: this.game.config});
-        }
-        else if(Number(this.weight1) > 0){
-          scoreService.increaseScorePoints(Number(this.weight1));
-          this.scene.start('play-scene-correct', {config: this.game.config});
-        }
-        else{
-          scoreService.decreaseScorePoints(1);
-          heartPointsService.decreaseHeartPoints();
-          this.scene.start('play-scene-wrong', {config: this.game.config});
-        }
-    
-        this.choiceButtonSFX.play();
-  
-      });
-      // End of choice 1
-  
-      // Choice 2
-      const choice2CenterX = 100;
-      const choice2CenterY = centerY + 130;
-      const choice2graphics = this.add.graphics();
-      choice2graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-      choice2graphics.fillRect(
-        75,
-        centerY + 120,
-        this.config.width - 150,
-        40
-      );
-  
-      const choice2Guide = this.add.text(
-        choice2CenterX,
-        choice2CenterY,
-        this.choice2,
-        { font: '18px monospace', color: '#ffffff' }
-      );
-      choice2Guide.setInteractive()
-      choice2Guide.on('pointerdown', () => {
-
-        if(heartPointsService.getHeartPoints() === 0){
-          this.scene.start('game-over-scene', {config: this.game.config});
-        }
-        else if(Number(this.weight2) > 0){
-          scoreService.increaseScorePoints(Number(this.weight2));
-          this.scene.start('play-scene-correct', {config: this.game.config});
-        }
-        else{
-          scoreService.decreaseScorePoints(1);
-          heartPointsService.decreaseHeartPoints();
-          this.scene.start('play-scene-wrong', {config: this.game.config});
-        }
-    
-
-        this.choiceButtonSFX.play();
-  
-      });
-      // End of choice 2
-  
-      // Choice 3
-      const choice3CenterX = 100;
-      const choice3CenterY = centerY + 180;
-      const choice3graphics = this.add.graphics();
-      choice3graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-      choice3graphics.fillRect(
-        75,
-        centerY + 170,
-        this.config.width - 150,
-        40
-      );
-  
-      const choice3Guide = this.add.text(
-        choice3CenterX,
-        choice3CenterY,
-        this.choice3,
-        { font: '18px monospace', color: '#ffffff' }
-      );
-  
-      choice3Guide.setInteractive()
-      choice3Guide.on('pointerdown', () => {
-
-        if(heartPointsService.getHeartPoints() === 0){
-          this.scene.start('game-over-scene', {config: this.game.config});
-        }
-        else if(Number(this.weight3) > 0){
-          scoreService.increaseScorePoints(Number(this.weight3));
-          this.scene.start('play-scene-correct', {config: this.game.config});
-        }
-        else{
-          scoreService.decreaseScorePoints(1);
-          heartPointsService.decreaseHeartPoints();
-          this.scene.start('play-scene-wrong', {config: this.game.config});
-        }
-  
-        this.choiceButtonSFX.play();
-  
-      });
-      // End of choice 3
-  
-      // Choice 4
-      const choice4CenterX = 100;
-      const choice4CenterY = centerY + 230;
-      const choice4graphics = this.add.graphics();
-      choice4graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-      choice4graphics.fillRect(
-        75,
-        centerY + 220,
-        this.config.width - 150,
-        40
-      );
-  
-      const choice4Guide = this.add.text(
-        choice4CenterX,
-        choice4CenterY,
-        this.choice4,
-        { font: '18px monospace', color: '#ffffff' }
-      );
-      choice4Guide.setInteractive()
-      choice4Guide.on('pointerdown', () => {
-
-        if(heartPointsService.getHeartPoints() === 0){
-          this.scene.start('game-over-scene', {config: this.game.config});
-        }
-        else if(Number(this.weight4) > 0){
-          scoreService.increaseScorePoints(Number(this.weight4));
-          this.scene.start('play-scene-correct', {config: this.game.config});
-        }
-        else{
-          scoreService.decreaseScorePoints(1);
-          heartPointsService.decreaseHeartPoints();
-          this.scene.start('play-scene-wrong', {config: this.game.config});
+        while (randomIndexesForChoices.length < 4) {
+          const randomIndex = Phaser.Math.RND.integerInRange(0, 3);
+          if (!randomIndexesForChoices.includes(randomIndex)) {
+            randomIndexesForChoices.push(randomIndex);
+          }
         }
 
-        this.choiceButtonSFX.play();
-  
-      });
-      // End of choice 4
-    // })
+        if (randomQuestion.question.length >= 50) {
+          const indexToInsertNewline = randomQuestion.question.lastIndexOf(' ', 50);
+          if (indexToInsertNewline !== -1) {
+            randomQuestion.question = randomQuestion.question.slice(0, indexToInsertNewline) + '\n' + randomQuestion.question.slice(indexToInsertNewline + 1);
+          }
+        }
+
+        this.textDisplay = randomQuestion.question;
+        this.choice1 = randomQuestion.choices[randomIndexesForChoices[0]];
+        this.choice2 = randomQuestion.choices[randomIndexesForChoices[1]];
+        this.choice3 = randomQuestion.choices[randomIndexesForChoices[2]];
+        this.choice4 = randomQuestion.choices[randomIndexesForChoices[3]];
+
+        this.weight1 = randomQuestion.weights[randomIndexesForChoices[0]];
+        this.weight2 = randomQuestion.weights[randomIndexesForChoices[1]];
+        this.weight3 = randomQuestion.weights[randomIndexesForChoices[2]];
+        this.weight4 = randomQuestion.weights[randomIndexesForChoices[3]];
+
+        const centerX = (this.config.width / 2) - 40;
+        const centerY = 100;
+
+        // Question
+        const graphics = this.add.graphics();
+        graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+        graphics.fillRect(
+          75,
+          centerY - this.config.height / 6 / 2,
+          this.config.width - 150,
+          this.config.height / 6
+        );
+
+        const guide = this.add.text(
+          centerX,
+          centerY,
+          this.textDisplay,
+          { font: '18px monospace', color: '#ffffff' }
+        );
+        guide.setOrigin(0.5);
+        // End of Question
+
+        // Choice 1
+        const choice1CenterX = 100;
+        const choice1CenterY = centerY + 80;
+        const choice1graphics = this.add.graphics();
+        choice1graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+        choice1graphics.fillRect(
+          75,
+          centerY + 70,
+          this.config.width - 150,
+          40
+        );
+
+        const choice1Guide = this.add.text(
+          choice1CenterX,
+          choice1CenterY,
+          this.choice1,
+          { font: '18px monospace', color: '#ffffff' }
+        );
+
+        choice1Guide.setInteractive()
+        choice1Guide.on('pointerdown', () => {
+          if (heartPointsService.getHeartPoints() === 0) {
+            this.scene.start('game-over-scene', { config: this.game.config });
+          }
+          else if (Number(this.weight1) > 0) {
+            scoreService.increaseScorePoints(Number(this.weight1));
+            this.scene.start('play-scene-correct', { config: this.game.config });
+          }
+          else {
+            scoreService.decreaseScorePoints(1);
+            heartPointsService.decreaseHeartPoints();
+            this.scene.start('play-scene-wrong', { config: this.game.config });
+          }
+
+          this.choiceButtonSFX.play();
+
+        });
+        // End of choice 1
+
+        // Choice 2
+        const choice2CenterX = 100;
+        const choice2CenterY = centerY + 130;
+        const choice2graphics = this.add.graphics();
+        choice2graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+        choice2graphics.fillRect(
+          75,
+          centerY + 120,
+          this.config.width - 150,
+          40
+        );
+
+        const choice2Guide = this.add.text(
+          choice2CenterX,
+          choice2CenterY,
+          this.choice2,
+          { font: '18px monospace', color: '#ffffff' }
+        );
+        choice2Guide.setInteractive()
+        choice2Guide.on('pointerdown', () => {
+
+          if (heartPointsService.getHeartPoints() === 0) {
+            this.scene.start('game-over-scene', { config: this.game.config });
+          }
+          else if (Number(this.weight2) > 0) {
+            scoreService.increaseScorePoints(Number(this.weight2));
+            this.scene.start('play-scene-correct', { config: this.game.config });
+          }
+          else {
+            scoreService.decreaseScorePoints(1);
+            heartPointsService.decreaseHeartPoints();
+            this.scene.start('play-scene-wrong', { config: this.game.config });
+          }
+
+
+          this.choiceButtonSFX.play();
+
+        });
+        // End of choice 2
+
+        // Choice 3
+        const choice3CenterX = 100;
+        const choice3CenterY = centerY + 180;
+        const choice3graphics = this.add.graphics();
+        choice3graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+        choice3graphics.fillRect(
+          75,
+          centerY + 170,
+          this.config.width - 150,
+          40
+        );
+
+        const choice3Guide = this.add.text(
+          choice3CenterX,
+          choice3CenterY,
+          this.choice3,
+          { font: '18px monospace', color: '#ffffff' }
+        );
+
+        choice3Guide.setInteractive()
+        choice3Guide.on('pointerdown', () => {
+
+          if (heartPointsService.getHeartPoints() === 0) {
+            this.scene.start('game-over-scene', { config: this.game.config });
+          }
+          else if (Number(this.weight3) > 0) {
+            scoreService.increaseScorePoints(Number(this.weight3));
+            this.scene.start('play-scene-correct', { config: this.game.config });
+          }
+          else {
+            scoreService.decreaseScorePoints(1);
+            heartPointsService.decreaseHeartPoints();
+            this.scene.start('play-scene-wrong', { config: this.game.config });
+          }
+
+          this.choiceButtonSFX.play();
+
+        });
+        // End of choice 3
+
+        // Choice 4
+        const choice4CenterX = 100;
+        const choice4CenterY = centerY + 230;
+        const choice4graphics = this.add.graphics();
+        choice4graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+        choice4graphics.fillRect(
+          75,
+          centerY + 220,
+          this.config.width - 150,
+          40
+        );
+
+        const choice4Guide = this.add.text(
+          choice4CenterX,
+          choice4CenterY,
+          this.choice4,
+          { font: '18px monospace', color: '#ffffff' }
+        );
+        choice4Guide.setInteractive()
+        choice4Guide.on('pointerdown', () => {
+
+          if (heartPointsService.getHeartPoints() === 0) {
+            this.scene.start('game-over-scene', { config: this.game.config });
+          }
+          else if (Number(this.weight4) > 0) {
+            scoreService.increaseScorePoints(Number(this.weight4));
+            this.scene.start('play-scene-correct', { config: this.game.config });
+          }
+          else {
+            scoreService.decreaseScorePoints(1);
+            heartPointsService.decreaseHeartPoints();
+            this.scene.start('play-scene-wrong', { config: this.game.config });
+          }
+
+          this.choiceButtonSFX.play();
+
+        });
+        // End of choice 4
+      })
   }
-  
+
   create() {
 
     this.background = this.add.image(0, 0, 'level-1-bg');
@@ -345,35 +319,35 @@ export class PlayScene extends Phaser.Scene {
     this.cloud8 = this.add.image(400, 300, 'cloud-8');
     this.cloud9 = this.add.image(300, 150, 'cloud-9');
     this.cloud0 = this.add.image(100, 200, 'cloud-0');
-    
-    for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
+
+    for (let i = 1; i <= heartPointsService.getHeartPoints(); i++) {
       this.heart_icon = this.add.sprite(770, 10 + i * 50, 'heart-icon');
       this.heart_icon.setScale(0.08);
 
       this.anims.create({
         key: 'heart-icon_key',
-        frames: this.anims.generateFrameNumbers('heart-icon', {start: 0, end: 4}),
+        frames: this.anims.generateFrameNumbers('heart-icon', { start: 0, end: 4 }),
         frameRate: 10,
         repeat: -1
-    })
+      })
 
-    this.heart_icon.anims.play('heart-icon_key');
+      this.heart_icon.anims.play('heart-icon_key');
     }
-    
+
     this.scoreDisplay = this.add.text(10, 10, `Score: ${Number(scoreService.getScorePoints())}`, { font: '20px monospace', color: '#ffffff' });
 
     this.choiceButtonSFX = this.sound.add('choice');
-    
+
     this.getRandomQuestion();
 
     this.clutters();
 
     this.garbages();
-  
+
   }
 
   override update() {
-   
+
     // Update cloud position
     this.cloud1.x += 0.1;
     this.cloud2.x += 0.1;
@@ -423,121 +397,121 @@ export class PlayScene extends Phaser.Scene {
     const clutter1 = this.add
       .image(this.config.width - 400, this.config.height - 20, 'garbage1')
       .setScale(1.5);
-   
+
     const clutter2 = this.add
       .image(this.config.width - 600, this.config.height - 50, 'garbage2')
       .setScale(1.5);
-    
+
     const clutter3 = this.add
       .image(this.config.width - 350, this.config.height - 30, 'garbage3')
       .setScale(1.5);
-    
+
     const clutter4 = this.add
       .image(this.config.width - 40, this.config.height - 100, 'garbage4')
       .setScale(1.5);
-   
+
     const clutter5 = this.add
       .image(this.config.width - 60, this.config.height - 90, 'garbage5')
       .setScale(1.5); // this will be replace
-    
+
     const clutter6 = this.add
       .image(this.config.width - 720, this.config.height - 115, 'garbage6')
       .setScale(1.5);
-   
+
     const clutter7 = this.add
       .image(this.config.width - 523, this.config.height - 143, 'garbage7')
       .setScale(1.5); // this will be replace
-   
+
     const clutter8 = this.add
       .image(this.config.width - 269, this.config.height - 125, 'garbage8')
       .setScale(1.5);
-    
+
     const clutter9 = this.add
       .image(this.config.width - 666, this.config.height - 143, 'garbage9')
       .setScale(1.5);
-    
+
     const clutter10 = this.add
       .image(this.config.width - 490, this.config.height - 130, 'garbage10')
       .setScale(1.5);
-    
+
     const clutter11 = this.add
       .image(this.config.width - 700, this.config.height - 112, 'garbage11')
-      .setScale(1.5); 
+      .setScale(1.5);
 
     const clutter12 = this.add
       .image(this.config.width - 560, this.config.height - 70, 'garbage12')
-      .setScale(1.5); 
+      .setScale(1.5);
 
     const clutter13 = this.add
       .image(this.config.width - 630, this.config.height - 140, 'garbage13')
-      .setScale(1.5); 
+      .setScale(1.5);
 
     const clutter14 = this.add
       .image(this.config.width - 620, this.config.height - 99, 'garbage14')
-      .setScale(1.5); 
-      
+      .setScale(1.5);
+
   }
 
   clutters() {
     const clutter1 = this.add
       .image(this.config.width - 500, this.config.height - 20, 'clutter1')
       .setScale(1.5);
-   
+
     const clutter2 = this.add
       .image(this.config.width - 600, this.config.height - 100, 'clutter2')
       .setScale(1.5);
-    
+
     const clutter3 = this.add
       .image(this.config.width - 370, this.config.height - 30, 'clutter3')
       .setScale(1.5);
-    
+
     const clutter4 = this.add
       .image(this.config.width - 20, this.config.height - 80, 'clutter4')
       .setScale(1.5);
-   
+
     const clutter5 = this.add
       .image(this.config.width - 80, this.config.height - 70, 'clutter5')
       .setScale(1.5);
-    
+
     const clutter6 = this.add
       .image(this.config.width - 700, this.config.height - 100, 'clutter6')
       .setScale(1.5);
-   
+
     const clutter7 = this.add
       .image(this.config.width - 550, this.config.height - 100, 'clutter7')
-      .setScale(1.5); 
-   
+      .setScale(1.5);
+
     const clutter8 = this.add
       .image(this.config.width - 260, this.config.height - 120, 'clutter8')
       .setScale(1.5);
-    
+
     const clutter9 = this.add
       .image(this.config.width - 285, this.config.height - 120, 'clutter9')
-      .setScale(1.5); 
+      .setScale(1.5);
 
     const clutter10 = this.add
       .image(this.config.width - 750, this.config.height - 130, 'clutter10')
       .setScale(1.5);
-    
+
     const clutter11 = this.add
       .image(this.config.width - 770, this.config.height - 110, 'clutter11')
-      .setScale(1.5); 
+      .setScale(1.5);
 
     const clutter12 = this.add
       .image(this.config.width - 570, this.config.height - 80, 'clutter12')
-      .setScale(1.5); 
+      .setScale(1.5);
 
     const clutter13 = this.add
       .image(this.config.width - 670, this.config.height - 130, 'clutter13')
-      .setScale(1.5); 
+      .setScale(1.5);
 
     const clutter14 = this.add
       .image(this.config.width - 650, this.config.height - 80, 'clutter14')
-      .setScale(1.5); 
-      
+      .setScale(1.5);
+
     const clutter15 = this.add
       .image(this.config.width - 870, this.config.height - 150, 'clutter15')
-      .setScale(1.5); 
+      .setScale(1.5);
   }
 
 }
