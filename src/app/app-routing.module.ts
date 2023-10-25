@@ -50,61 +50,125 @@ import { AuthGuard } from './auth.guard';
 import { EvidenceComponent } from './evidence/evidence.component';
 import { CausesComponent } from './causes/causes.component';
 import { EffectsComponent } from './effects/effects.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Routes = [
-  {component: LandingPageComponent, path: ''},
-  {component: CurrentIssueComponent, path: 'currentIssue'},
-  {component: CurrentIssueComponent, path: 'effects'},
-  {component: EscapeRoomComponent, path: 'games'},
-  {component: NewsFeaturesComponent, path: 'newsFeatures'},
-  {component: CasesComponent, path: 'problems'},
-  {component: SolutionsComponent, path: 'solutions'},
-  {component: ExploreComponent, path: 'explore'},
-  {component: AboutusComponent, path: 'aboutus'},
-  {component: OverviewOfClimateChangeComponent, path: 'overviewOfClimateChange'},
-  {component: WebtoonComponent, path: 'webtoon'},
-  {component: InteractivevideoComponent, path: 'interactivevideo'},
-  {component: WhyshouldwetakeactionComponent, path: 'whyshouldwetakeactions'},
-  {component: RespondingtoclimatechangeComponent, path: 'respondingtoclimatechange'},
-  {component: OthersolutionsComponent, path: 'othersolutions'},
-  {component: GovernmentresourcesComponent, path: 'governmentresources'},
-  {component: AssessmentComponent, path: 'assessment'},
-  {component: MaterialComponent, path: 'material'},
-  {component: LoginComponent, path: 'login'},
-  {component: PolicyComponent, path: 'privacypolicy'},
-  {component: EvidenceComponent, path: 'evidence'},
-  {component: CausesComponent, path: 'cause'},
-  {component: EffectsComponent, path: 'effect'},
-  {component: LandingPageNewComponent, path: 'landingpagenew'},
-  
+  {
+    path: '',
+    component: NavbarComponent,
+    children: [
+      { component: LandingPageComponent, path: '' },
+      { component: CurrentIssueComponent, path: 'currentIssue' },
+      { component: CurrentIssueComponent, path: 'effects' },
+      { component: EscapeRoomComponent, path: 'games' },
+      { component: NewsFeaturesComponent, path: 'newsFeatures' },
+      { component: CasesComponent, path: 'problems' },
+      { component: SolutionsComponent, path: 'solutions' },
+      { component: ExploreComponent, path: 'explore' },
+      { component: AboutusComponent, path: 'aboutus' },
+      { component: OverviewOfClimateChangeComponent, path: 'overviewOfClimateChange' },
+      { component: WebtoonComponent, path: 'webtoon' },
+      { component: InteractivevideoComponent, path: 'interactivevideo' },
+      { component: WhyshouldwetakeactionComponent, path: 'whyshouldwetakeactions' },
+      { component: RespondingtoclimatechangeComponent, path: 'respondingtoclimatechange' },
+      { component: OthersolutionsComponent, path: 'othersolutions' },
+      { component: GovernmentresourcesComponent, path: 'governmentresources' },
+      { component: AssessmentComponent, path: 'assessment' },
+      { component: MaterialComponent, path: 'material' },
+      { component: LoginComponent, path: 'login' },
+      { component: PolicyComponent, path: 'privacypolicy' },
+      { component: EvidenceComponent, path: 'evidence' },
+      { component: CausesComponent, path: 'cause' },
+      { component: EffectsComponent, path: 'effect' },
+      { component: LandingPageNewComponent, path: 'landingpagenew' },
 
-  // Cases
-  {component: Case1Component, path: 'case1'},
-  {component: Case2Component, path: 'case2'},
-  {component: Case3Component, path: 'case3'},
-  {component: Case4Component, path: 'case4'},
-  // Admin Components
-  {component: AdminCasesComponent, path: 'admin-cases', canActivate: [AuthGuard]},
-  {component: AdminCase1Component, path: 'admin-case-1', canActivate: [AuthGuard]},
-  {component: AdminCase2Component, path: 'admin-case-2', canActivate: [AuthGuard]},
-  {component: AdminCase3Component, path: 'admin-case-3', canActivate: [AuthGuard]},
-  {component: AdminCase4Component, path: 'admin-case-4', canActivate: [AuthGuard]},
-  {component: AdminPanelComponent, path: 'adminpanel', canActivate: [AuthGuard]},
-  {component: AdminCasesComponent, path: 'admin-cases', canActivate: [AuthGuard]},
-  {component: AdminSolution1Component, path: 'admin-solution-1', canActivate: [AuthGuard]},
-  {component: AdminSolution2Component, path: 'admin-solution-2', canActivate: [AuthGuard]},
-  {component: AdminSolution3Component, path: 'admin-solution-3', canActivate: [AuthGuard]},
-  // Solution 4
-  {component: AdminSolutionsComponent, path: 'admin-solutions', canActivate: [AuthGuard]},
-  {component: AdminCurrentIssuesPhComponent, path: 'admin-current-issues-ph', canActivate: [AuthGuard]},
-  {component: AdminAssessmentComponent, path: 'admin-assessment', canActivate: [AuthGuard]},
-  {component: AdminNewsComponent, path:'admin-news', canActivate: [AuthGuard]},
+      // Cases
+      { component: Case1Component, path: 'case1' },
+      { component: Case2Component, path: 'case2' },
+      { component: Case3Component, path: 'case3' },
+      { component: Case4Component, path: 'case4' },
 
+      // Admin Components
+      { component: AdminCasesComponent, path: 'admin-cases', canActivate: [AuthGuard] },
+      { component: AdminCase1Component, path: 'admin-case-1', canActivate: [AuthGuard] },
+      { component: AdminCase2Component, path: 'admin-case-2', canActivate: [AuthGuard] },
+      { component: AdminCase3Component, path: 'admin-case-3', canActivate: [AuthGuard] },
+      { component: AdminCase4Component, path: 'admin-case-4', canActivate: [AuthGuard] },
+      { component: AdminPanelComponent, path: 'adminpanel', canActivate: [AuthGuard] },
+      { component: AdminCasesComponent, path: 'admin-cases', canActivate: [AuthGuard] },
+      { component: AdminSolution1Component, path: 'admin-solution-1', canActivate: [AuthGuard] },
+      { component: AdminSolution2Component, path: 'admin-solution-2', canActivate: [AuthGuard] },
+      { component: AdminSolution3Component, path: 'admin-solution-3', canActivate: [AuthGuard] },
+      // Solution 4
+      { component: AdminSolutionsComponent, path: 'admin-solutions', canActivate: [AuthGuard] },
+      { component: AdminCurrentIssuesPhComponent, path: 'admin-current-issues-ph', canActivate: [AuthGuard] },
+      { component: AdminAssessmentComponent, path: 'admin-assessment', canActivate: [AuthGuard] },
+      { component: AdminNewsComponent, path: 'admin-news', canActivate: [AuthGuard] },
+    ],
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
+  }
 ];
+
+// const routes: Routes = [
+//   { component: LandingPageComponent, path: '' },
+//   { component: CurrentIssueComponent, path: 'currentIssue' },
+//   { component: CurrentIssueComponent, path: 'effects' },
+//   { component: EscapeRoomComponent, path: 'games' },
+//   { component: NewsFeaturesComponent, path: 'newsFeatures' },
+//   { component: CasesComponent, path: 'problems' },
+//   { component: SolutionsComponent, path: 'solutions' },
+//   { component: ExploreComponent, path: 'explore' },
+//   { component: AboutusComponent, path: 'aboutus' },
+//   { component: OverviewOfClimateChangeComponent, path: 'overviewOfClimateChange' },
+//   { component: WebtoonComponent, path: 'webtoon' },
+//   { component: InteractivevideoComponent, path: 'interactivevideo' },
+//   { component: WhyshouldwetakeactionComponent, path: 'whyshouldwetakeactions' },
+//   { component: RespondingtoclimatechangeComponent, path: 'respondingtoclimatechange' },
+//   { component: OthersolutionsComponent, path: 'othersolutions' },
+//   { component: GovernmentresourcesComponent, path: 'governmentresources' },
+//   { component: AssessmentComponent, path: 'assessment' },
+//   { component: MaterialComponent, path: 'material' },
+//   { component: LoginComponent, path: 'login' },
+//   { component: PolicyComponent, path: 'privacypolicy' },
+//   { component: EvidenceComponent, path: 'evidence' },
+//   { component: CausesComponent, path: 'cause' },
+//   { component: EffectsComponent, path: 'effect' },
+//   { component: LandingPageNewComponent, path: 'landingpagenew' },
+
+
+//   // Cases
+//   { component: Case1Component, path: 'case1' },
+//   { component: Case2Component, path: 'case2' },
+//   { component: Case3Component, path: 'case3' },
+//   { component: Case4Component, path: 'case4' },
+//   // Admin Components
+//   { component: AdminCasesComponent, path: 'admin-cases', canActivate: [AuthGuard] },
+//   { component: AdminCase1Component, path: 'admin-case-1', canActivate: [AuthGuard] },
+//   { component: AdminCase2Component, path: 'admin-case-2', canActivate: [AuthGuard] },
+//   { component: AdminCase3Component, path: 'admin-case-3', canActivate: [AuthGuard] },
+//   { component: AdminCase4Component, path: 'admin-case-4', canActivate: [AuthGuard] },
+//   { component: AdminPanelComponent, path: 'adminpanel', canActivate: [AuthGuard] },
+//   { component: AdminCasesComponent, path: 'admin-cases', canActivate: [AuthGuard] },
+//   { component: AdminSolution1Component, path: 'admin-solution-1', canActivate: [AuthGuard] },
+//   { component: AdminSolution2Component, path: 'admin-solution-2', canActivate: [AuthGuard] },
+//   { component: AdminSolution3Component, path: 'admin-solution-3', canActivate: [AuthGuard] },
+//   // Solution 4
+//   { component: AdminSolutionsComponent, path: 'admin-solutions', canActivate: [AuthGuard] },
+//   { component: AdminCurrentIssuesPhComponent, path: 'admin-current-issues-ph', canActivate: [AuthGuard] },
+//   { component: AdminAssessmentComponent, path: 'admin-assessment', canActivate: [AuthGuard] },
+//   { component: AdminNewsComponent, path: 'admin-news', canActivate: [AuthGuard] },
+//   { component: NotFoundComponent, path: '**' },
+
+// ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    scrollPositionRestoration: 'enabled'})],
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -52,7 +52,9 @@ import { EffectsComponent } from './effects/effects.component';
 import { EvidenceComponent } from './evidence/evidence.component';
 import { LandingPageNewComponent } from './landing-page-new/landing-page-new.component';
 import { AdminNewsComponent } from './admin-news/admin-news.component';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker'; 
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -100,8 +102,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     EvidenceComponent,
     LandingPageNewComponent,
     AdminNewsComponent,
-
-    
+    NotFoundComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

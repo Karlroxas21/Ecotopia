@@ -4,16 +4,12 @@ import { Scenes } from 'phaser';
 import SimpleParallax from 'simple-parallax-js';
 import { Router, NavigationEnd } from '@angular/router';
 
-// interface SideNavToggle{
-//   screenWidth: number;
-//   collapsed: boolean;
-// }
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
-export class AppComponent {
+export class NavbarComponent {
   title = 'ecotopia-capstone';
   hideNavbar = false;
   hideNavbarPages = ['/admin-currentissue', '/admin-cases', '/admin-case-1', 
@@ -86,4 +82,3 @@ export class AppComponent {
   }
   
 }
-
