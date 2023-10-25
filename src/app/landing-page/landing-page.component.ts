@@ -27,6 +27,10 @@ export class LandingPageComponent implements OnInit {
   adjustParallax() {
     const scrollY = window.scrollY;
     const windowWidth = window.innerWidth;
+    const sea = this.el.nativeElement.querySelector('#sea');
+    const oldman = this.el.nativeElement.querySelector('#oldman');
+    const screenWidthThreshold = 768;
+
     
 
     const text = this.el.nativeElement.querySelector('#text');
@@ -66,23 +70,33 @@ export class LandingPageComponent implements OnInit {
       this.renderer.setStyle(plants, 'transform', `translateX(-${scrollY * 0.3}px)`);
     }
 
-    const sea = this.el.nativeElement.querySelector('#sea');
-    let initialOffsetSea = -550;
-    if (scrollY > 0) {
-      initialOffsetSea += scrollY * 0.1;
-    }
-    if (sea) {
-      this.renderer.setStyle(sea, 'transform', `translateX(${initialOffsetSea}px)`);
-    }
+    if (window.innerWidth >= screenWidthThreshold) {
+      // Apply the parallax effect for desktop screens
+      let initialOffsetSea = -550;
+      if (scrollY > 0) {
+        initialOffsetSea += scrollY * 0.1;
+      }
+      if (sea) {
+        this.renderer.setStyle(sea, 'transform', `translateX(${initialOffsetSea}px)`);
+      }
   
-    const oldman = this.el.nativeElement.querySelector('#oldman');
-    if (oldman) {
-      let initialOffsetOldman = -800; // Initial position set in the HTML
+      let initialOffsetOldman = -800;
       if (scrollY > 0) {
         initialOffsetOldman += scrollY * 0.3;
       }
-      this.renderer.setStyle(oldman, 'transform', `translateX(-${initialOffsetOldman}px)`);
+      if (oldman) {
+        this.renderer.setStyle(oldman, 'transform', `translateX(-${initialOffsetOldman}px)`);
+      }
+    } else {
+      // Apply a different effect for mobile screens to sea
+    if (sea) {
+      let mobileOffsetSea = -420;
+      if (scrollY > 0) {
+        mobileOffsetSea += scrollY * 0.1;
+      }
+      this.renderer.setStyle(sea, 'transform', `translateX(${mobileOffsetSea}px)`);
     }
+   }
   }
 
 

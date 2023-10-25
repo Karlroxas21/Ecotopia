@@ -199,11 +199,11 @@ section:nth-child(even) .container .content{
 }
 
 .parallax-description h1 {
-  font-size: 26px; 
+  font-size: 32px; 
 }
 
 .parallax-description p {
-  font-size: 18px; 
+  font-size: 24px; 
 }
 
 .parallax-image {
@@ -240,15 +240,16 @@ section:nth-child(even) .container .content{
     font-size: 14px; 
   }
 }
-@media only screen and (max-width: 353px) {
+@media only screen and (max-width: 438px) {
   .parallax-description h1 {
-    font-size: 16px; 
+    font-size: 14px; 
   }
   
   .parallax-description p {
-    font-size: 12px; 
+    font-size: 10px; 
   }
 }
+
 
 
 /*slider parallax*/
@@ -340,3 +341,18 @@ section:nth-child(even) .container .content{
   }
 }
 
+@media only screen and (max-width: 378px) {
+  .slide {
+    height: 200px
+  }
+  .arrow {
+    top: 50%;
+    font-size: 10px;
+
+  }
+  .parallax-slider {
+    height: 200px;
+    width: 90%;
+  }
+  
+}
