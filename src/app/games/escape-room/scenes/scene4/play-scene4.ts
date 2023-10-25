@@ -34,19 +34,41 @@ export class PlayScene4 extends Phaser.Scene {
 
   scoreDisplay: any;
 
-  gameData: any;
-
-  async fetchData(){
-    try{
-      this.gameData = await gameService.callData('game_scene4');
-    
-    }catch (error){
-      console.error(`Error: `, error);
+  gameData: any[] = [
+    {
+      "question": "What should you focus on when picking up ways to improve the harbor environment?",
+      "choices": ["Increasing industrial waste disposal", "Promoting sustainable fishing practices", "Expanding offshore drilling operations", "Reducing plastic waste and pollution"],
+      "weights": [-1, 2, -1, 4]
+    },
+    {
+      "question": "Which of the following actions contribute to the improvement of the harbor environment?",
+      "choices": ["Enhancing oil spill response capabilities", "Encouraging excessive commercial shipping", "Implementing harmful chemical runoff practices", "Supporting local recycling initiatives"],
+      "weights": [2, -1, -1, 4]
+    },
+    {
+      "question": "In efforts to enhance the harbor environment, which choices are advisable to prioritize?",
+      "choices": ["Encouraging heavy shipping traffic", "Establishing marine protected areas", "Disregarding water quality standards", "Promoting overfishing practices"],
+      "weights": [-1, 2, -1, 4]
+    },
+    {
+      "question": "What actions should be taken to positively impact the harbor environment?",
+      "choices": ["Building more industrial facilities near the shoreline", "Implementing effective sewage treatment systems", "Increasing the discharge of toxic chemicals", "Fostering partnerships for marine conservation"],
+      "weights": [-1, 4, -1, 2]
     }
-  }
+  ]
+  ;
+
+  // async fetchData(){
+  //   try{
+  //     this.gameData = await gameService.callData('game_scene4');
+    
+  //   }catch (error){
+  //     console.error(`Error: `, error);
+  //   }
+  // }
   
   getRandomQuestion(){
-    this.fetchData().then(()=>{
+    // this.fetchData().then(()=>{
       const randomIndexForQuestion = Phaser.Math.RND.integerInRange(0, this.gameData.length - 1);
       const randomQuestion = this.gameData[randomIndexForQuestion];
 
@@ -80,6 +102,15 @@ export class PlayScene4 extends Phaser.Scene {
 
       const centerX = (this.config.width / 2) - 40;
       const centerY = 100;
+      
+      const graphics = this.add.graphics();
+      graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+      graphics.fillRect(
+        75,
+        centerY - this.config.height / 6 / 2,
+        this.config.width - 150,
+        this.config.height / 6
+      );
 
       const guide = this.add.text(
         centerX,
@@ -243,7 +274,7 @@ export class PlayScene4 extends Phaser.Scene {
   
       });
       // End of choice 4
-    })
+    // })
   }
 
   create() {
@@ -269,27 +300,6 @@ export class PlayScene4 extends Phaser.Scene {
     this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
 
     this.getRandomQuestion();
-
-    // Question
-    const centerX = (this.config.width / 2) - 40;
-    const centerY = 100;
-    const graphics = this.add.graphics();
-    graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-    graphics.fillRect(
-      75,
-      centerY - this.config.height / 6 / 2,
-      this.config.width - 150,
-      this.config.height / 6
-    );
-
-    const guide = this.add.text(
-      centerX,
-      centerY,
-      this.textDisplay,
-      { font: '18px monospace', color: '#ffffff' }
-    );
-    guide.setOrigin(0.5);
-    // End of Question
 
   }
 

@@ -36,19 +36,41 @@ export class PlayScene2 extends Phaser.Scene {
 
   scoreDisplay: any;
 
-  gameData: any;
-
-  async fetchData(){
-    try{
-      this.gameData = await gameService.callData('game_scene2');
-    
-    }catch (error){
-      console.error(`Error: `, error);
+  gameData: any[] = [
+    {
+      "question": "What waste, if left unaddressed, poses the most immediate threat to the river ecosystem?",
+      "choices": ["Plastic waste", "Organic waste", "Paper waste", "Glass waste"],
+      "weights": [4, 2, -1, -1]
+    },
+    {
+      "question": "Which type of waste is less harmful to the river ecosystem and can even decompose naturally?",
+      "choices": ["Metal waste", "Electronic waste", "Plastic waste", "Organic waste"],
+      "weights": [-1, -1, 4, 2]
+    },
+    {
+      "question": "What waste should you prioritize removing to protect the river ecosystem's biodiversity?",
+      "choices": ["Glass waste", "Industrial waste", "Plastic waste", "Textile waste"],
+      "weights": [-1, -1, 4, 2]
+    },
+    {
+      "question": "To safeguard the river ecosystem, which waste should be the least of your concerns?",
+      "choices": ["Plastic waste", "Chemical waste", "Glass waste", "Paper waste"],
+      "weights": [-1, -1, 4, 2]
     }
-  }
+  ]
+  ;
+
+  // async fetchData(){
+  //   try{
+  //     this.gameData = await gameService.callData('game_scene2');
+    
+  //   }catch (error){
+  //     console.error(`Error: `, error);
+  //   }
+  // }
 
   getRandomQuestion(){
-    this.fetchData().then(()=>{
+    // this.fetchData().then(()=>{
       const randomIndexForQuestion = Phaser.Math.RND.integerInRange(0, this.gameData.length - 1);
       const randomQuestion = this.gameData[randomIndexForQuestion];
 
@@ -62,8 +84,8 @@ export class PlayScene2 extends Phaser.Scene {
       }
       // console.log(randomQuestion.choices[randomIndexForChoices]);
 
-      if (randomQuestion.question.length >= 50) {
-        const indexToInsertNewline = randomQuestion.question.lastIndexOf(' ', 50);
+      if (randomQuestion.question.length >= 55) {
+        const indexToInsertNewline = randomQuestion.question.lastIndexOf(' ', 55);
         if (indexToInsertNewline !== -1) {
           randomQuestion.question = randomQuestion.question.slice(0, indexToInsertNewline) + '\n' + randomQuestion.question.slice(indexToInsertNewline + 1);
         }
@@ -82,6 +104,16 @@ export class PlayScene2 extends Phaser.Scene {
 
       const centerX = (this.config.width / 2) - 40;
       const centerY = 100;
+
+      // Question
+      const graphics = this.add.graphics();
+      graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+      graphics.fillRect(
+        75,
+        centerY - this.config.height / 6 / 2,
+        this.config.width - 150,
+        this.config.height / 6
+      );
 
       const guide = this.add.text(
         centerX,
@@ -249,7 +281,7 @@ export class PlayScene2 extends Phaser.Scene {
   
       });
       // End of choice 4
-    })
+    // })
   }
   
   create() {
@@ -275,17 +307,6 @@ export class PlayScene2 extends Phaser.Scene {
     this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
 
     this.getRandomQuestion();
-    // Question
-    const centerX = (this.config.width / 2) - 40;
-    const centerY = 100;
-    const graphics = this.add.graphics();
-    graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-    graphics.fillRect(
-      75,
-      centerY - this.config.height / 6 / 2,
-      this.config.width - 150,
-      this.config.height / 6
-    );
 
     // End of Question
 

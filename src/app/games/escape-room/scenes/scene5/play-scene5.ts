@@ -34,19 +34,61 @@ export class PlayScene5 extends Phaser.Scene {
 
   scoreDisplay: any;
 
-  gameData: any;
-
-  async fetchData(){
-    try{
-      this.gameData = await gameService.callData('game_scene5');
-    
-    }catch (error){
-      console.error(`Error: `, error);
+  gameData: any[] = [
+    {
+      "question": "What should you prioritize collecting to restore the health of the lake?",
+      "choices": [
+        "Collecting and removing excess algae and aquatic plants",
+        "Conducting regular water quality tests",
+        "Introducing non-native fish species for diversity",
+        "Encouraging increased recreational boating"
+      ],
+      "weights": [4, 2, -1, -1]
+    },
+    {
+      "question": "Which of the following items should be prioritized to improve the health of the lake ecosystem?",
+      "choices": [
+        "Collecting data on bird migration patterns",
+        "Removing litter and pollutants from the lake",
+        "Adding chemical fertilizers to enhance plant growth",
+        "Promoting excessive fishing to reduce fish population"
+      ],
+      "weights": [-1, 4, -1, 2]
+    },
+    {
+      "question": "What actions are crucial for restoring a lake's health?",
+      "choices": [
+        "Building properties for tourism",
+        "Establishing protected areas for natural habitats",
+        "Implementing strict fishing regulations",
+        "Collecting and managing stormwater runoff"
+      ],
+      "weights": [-1, 4, -1, 2]
+    },
+    {
+      "question": "In order to restore a lake's health, what should be given priority?",
+      "choices": [
+        "Hosting large-scale recreational events on the lake",
+        "Monitoring and controlling invasive species",
+        "Increasing motorized boat traffic",
+        "Implementing water quality monitoring and strategies"
+      ],
+      "weights": [-1, 2, -1, 4]
     }
-  }
+  ]
+  ;
+
+  // async fetchData(){
+  //   try{
+  //     this.gameData = await gameService.callData('game_scene5');
+    
+  //   }catch (error){
+  //     console.error(`Error: `, error);
+  //   }
+  // }
 
   getRandomQuestion(){
-    this.fetchData().then(()=>{
+    // this.fetchData().then(()=>{
       const randomIndexForQuestion = Phaser.Math.RND.integerInRange(0, this.gameData.length - 1);
       const randomQuestion = this.gameData[randomIndexForQuestion];
 
@@ -80,6 +122,15 @@ export class PlayScene5 extends Phaser.Scene {
 
       const centerX = (this.config.width / 2) - 40;
       const centerY = 100;
+        
+      const graphics = this.add.graphics();
+      graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+      graphics.fillRect(
+        75,
+        centerY - this.config.height / 6 / 2,
+        this.config.width - 150,
+        this.config.height / 6
+      );
 
       const guide = this.add.text(
         centerX,
@@ -243,7 +294,7 @@ export class PlayScene5 extends Phaser.Scene {
   
       });
       // End of choice 4
-    })
+    // })
   }
 
   create() {
@@ -269,27 +320,6 @@ export class PlayScene5 extends Phaser.Scene {
     this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
 
     this.getRandomQuestion();
-
-    // Question
-    const centerX = (this.config.width / 2) - 40;
-    const centerY = 100;
-    const graphics = this.add.graphics();
-    graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-    graphics.fillRect(
-      75,
-      centerY - this.config.height / 6 / 2,
-      this.config.width - 150,
-      this.config.height / 6
-    );
-
-    const guide = this.add.text(
-      centerX,
-      centerY,
-      this.textDisplay,
-      { font: '18px monospace', color: '#ffffff' }
-    );
-    guide.setOrigin(0.5);
-    // End of Question
 
   }
 

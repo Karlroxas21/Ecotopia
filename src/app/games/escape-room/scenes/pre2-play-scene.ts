@@ -1,8 +1,8 @@
 import Phaser from 'phaser';
 
-export class PrePlayScene extends Phaser.Scene {
+export class Pre2PlayScene extends Phaser.Scene {
   constructor() {
-    super({ key: 'pre-play-scene' });
+    super({ key: 'pre2-play-scene' });
   }
 
   config: Phaser.Types.Core.GameConfig | any;
@@ -66,7 +66,7 @@ export class PrePlayScene extends Phaser.Scene {
     guide.setOrigin(0.5);
 
     let index = 0;
-    const textToType = this.textDisplay;
+    const textToType = this.textDisplay2;
 
     const typeingTimer = this.time.addEvent({
       delay: 50,
@@ -88,7 +88,7 @@ export class PrePlayScene extends Phaser.Scene {
       typeingTimer.remove();
     })
 
-    this.character = this.add.sprite(-50, 480, 'character');
+    this.character = this.add.sprite(150, 480, 'character');
     this.character.setScale(0.5);
 
     this.anims.create({
@@ -98,19 +98,21 @@ export class PrePlayScene extends Phaser.Scene {
       repeat: -1
     })
 
-    const timeline = this.tweens.createTimeline();
+    this.character.anims.play('character_key');
+    
+//     const timeline = this.tweens.createTimeline();
 
-    timeline.add({
-      targets: this.character,
-      x: 150,
-      ease: 'Linear',
-      duration: 1000,
-      onComplete: () =>{
-        this.character.anims.play('character_key')
-      },
-    });
+//     timeline.add({
+//       targets: this.character,
+//       x: 150,
+//       ease: 'Linear',
+//       duration: 1000,
+//       onComplete: () =>{
+//         this.character.anims.play('character_key')
+//       },
+//     });
 
-    timeline.play();
+//     timeline.play();
 
     // Close button
     const closeButton = this.add.text(
@@ -126,17 +128,13 @@ export class PrePlayScene extends Phaser.Scene {
       guide.destroy();
       this.character.destroy();
       closeButton.destroy();
-      this.scene.start('pre2-play-scene', { config: this.game.config }); // temporary 
+      this.scene.start('play-scene', { config: this.game.config }); // temporary 
       this.xButtonSFX = this.sound.add('x-button');
       this.xButtonSFX.play();
 
     });
     // End of Guide
 
-    // Background music
-    this.bgMusic = this.sound.add('bg-music', {loop: true, volume: 0.2});
-    this.bgMusic.play();
-      
   }
 
   override update() {

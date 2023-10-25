@@ -26,6 +26,7 @@ import { PrePlayScene4 } from './scenes/scene4/pre-play-scene4';
 import { PrePlayScene5 } from './scenes/scene5/pre-play-scene5';
 import { scoreService} from './scenes/score-service';
 import { heartPointsService } from './scenes/heart-service';
+import { Pre2PlayScene } from './scenes/pre2-play-scene'; // temporary
 
 @Component({
   selector: 'app-escape-room',
@@ -49,6 +50,7 @@ export class EscapeRoomComponent implements OnInit{
         PlaySceneWrong,
         PlaySceneCorrect,
         PrePlayScene2,
+        Pre2PlayScene,
         PlayScene2,
         PlayScene2Wrong,
         PlayScene2Correct,

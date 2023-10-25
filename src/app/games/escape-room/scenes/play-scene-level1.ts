@@ -76,19 +76,40 @@ export class PlayScene extends Phaser.Scene {
 
   scoreDisplay: any;
 
-  gameData: any;
+  gameData: any[] = [
+    {
+      question: "When participating in a beach cleanup, which of the following should be your priority to pick up?",
+      choices: ["Plastic Bottles", "Broken glass", "Shells for your collection", "Abandoned sandcastles"],
+      weights: [4, 2, -1, -1],
+    },
+    {
+      question: "To effectively clean the beach, which items should you focus on removing?",
+      choices: ["Seagull feathers", "Plastic straws", "Coral fragments", "Broken Glass"],
+      weights: [-1, 4, -1, 2],
+    },
+    {
+      question: "What is the most important item to target during a beach cleanup to protect the environment?",
+      choices: ["Broken Glass", "Cigarette butts", "Beach volleyball nets", "Beach hats"],
+      weights: [2, 4, -1, -1],
+    },
+    {
+      question: "When cleaning a beach, which two items are the most critical to prioritize?",
+      choices: ["Plastic bags", "Abandoned fishing nets", "Seashells", "Flip-flops"],
+      weights: [4, 2, -1, -1],
+    },
+  ];
 
-  async fetchData(){
-    try{
-      this.gameData = await gameService.callData('game_scene1');
+  // async fetchData(){
+  //   try{
+  //     this.gameData = await gameService.callData('game_scene1');
     
-    }catch (error){
-      console.error(`Error: `, error);
-    }
-  }
+  //   }catch (error){
+  //     console.error(`Error: `, error);
+  //   }
+  // }
 
   getRandomQuestion(){
-    this.fetchData().then(()=>{
+    // this.fetchData().then(()=>{
       const randomIndexForQuestion = Phaser.Math.RND.integerInRange(0, this.gameData.length - 1);
       const randomQuestion = this.gameData[randomIndexForQuestion];
 
@@ -122,6 +143,16 @@ export class PlayScene extends Phaser.Scene {
 
       const centerX = (this.config.width / 2) - 40;
       const centerY = 100;
+
+      // Question
+      const graphics = this.add.graphics();
+      graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+      graphics.fillRect(
+        75,
+        centerY - this.config.height / 6 / 2,
+        this.config.width - 150,
+        this.config.height / 6
+      );
 
       const guide = this.add.text(
         centerX,
@@ -289,7 +320,7 @@ export class PlayScene extends Phaser.Scene {
   
       });
       // End of choice 4
-    })
+    // })
   }
   
   create() {
@@ -334,18 +365,6 @@ export class PlayScene extends Phaser.Scene {
     this.choiceButtonSFX = this.sound.add('choice');
     
     this.getRandomQuestion();
-
-    // Question
-    const centerX = (this.config.width / 2) - 40;
-    const centerY = 100;
-    const graphics = this.add.graphics();
-    graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-    graphics.fillRect(
-      75,
-      centerY - this.config.height / 6 / 2,
-      this.config.width - 150,
-      this.config.height / 6
-    );
 
     this.clutters();
 

@@ -34,19 +34,42 @@ export class PlayScene3 extends Phaser.Scene {
 
   scoreDisplay: any;
 
-  gameData: any;
-
-  async fetchData(){
-    try{
-      this.gameData = await gameService.callData('game_scene3');
-    
-    }catch (error){
-      console.error(`Error: `, error);
+  gameData: any[] = [
+    {
+      "question": "What should you collect to help the park pond regain its natural beauty?",
+      "choices": ["Plastic toys", "Trash and litter", "Native aquatic plants", "Old newspapers"],
+      "weights": [-1, 4, 2, -1]
+    },
+    {
+      "question": "Which of the following items are beneficial for restoring the park pond's natural beauty?",
+      "choices": ["Broken glass bottles", "Exotic fish species", "Soil from construction sites", "Water-testing kits"],
+      "weights": [-1, 4, -1, 2]
+    },
+    {
+      "question": "What materials should you gather to promote the rejuvenation of the park pond's ecosystem?",
+      "choices": ["Abandoned bicycles", "Chemical pesticides", "Fallen leaves and twigs", "Industrial waste"],
+      "weights": [-1, -1, 4, 2]
+    },
+    {
+      "question": "Which of the following will contribute to the park pond's environmental restoration?",
+      "choices": ["Barbecue grills", "Invasive plant species", "Natural rocks and pebbles", "Discarded plastic bags"],
+      "weights": [-1, -1, 4, 2]
     }
-  }
+  ]
+  
+  ;
+
+  // async fetchData(){
+  //   try{
+  //     this.gameData = await gameService.callData('game_scene3');
+    
+  //   }catch (error){
+  //     console.error(`Error: `, error);
+  //   }
+  // }
 
   getRandomQuestion(){
-    this.fetchData().then(()=>{
+    // this.fetchData().then(()=>{
       const randomIndexForQuestion = Phaser.Math.RND.integerInRange(0, this.gameData.length - 1);
       const randomQuestion = this.gameData[randomIndexForQuestion];
 
@@ -80,6 +103,17 @@ export class PlayScene3 extends Phaser.Scene {
 
       const centerX = (this.config.width / 2) - 40;
       const centerY = 100;
+
+          
+      // Question
+      const graphics = this.add.graphics();
+      graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+      graphics.fillRect(
+        75,
+        centerY - this.config.height / 6 / 2,
+        this.config.width - 150,
+        this.config.height / 6
+      );
 
       const guide = this.add.text(
         centerX,
@@ -243,7 +277,7 @@ export class PlayScene3 extends Phaser.Scene {
   
       });
       // End of choice 4
-    })
+    // })
   }
 
   create() {
@@ -269,27 +303,7 @@ export class PlayScene3 extends Phaser.Scene {
     this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
 
     this.getRandomQuestion();
-    
-    // Question
-    const centerX = (this.config.width / 2) - 40;
-    const centerY = 100;
-    const graphics = this.add.graphics();
-    graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-    graphics.fillRect(
-      75,
-      centerY - this.config.height / 6 / 2,
-      this.config.width - 150,
-      this.config.height / 6
-    );
 
-    const guide = this.add.text(
-      centerX,
-      centerY,
-      this.textDisplay,
-      { font: '18px monospace', color: '#ffffff' }
-    );
-    guide.setOrigin(0.5);
-    // End of Question
 
   }
 
