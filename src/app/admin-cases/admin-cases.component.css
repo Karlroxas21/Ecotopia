@@ -76,10 +76,6 @@ html{
   .card h2 {
     margin-top: 0;
   }
-
-.resizable-input {
-    resize: both;
-}
 @media screen and (max-width: 1299px){
     .content{
         flex-direction: column;
@@ -143,3 +139,14 @@ html{
     letter-spacing: 1.65px;
   }
 
+  .resizable-input {
+    width: 95%; 
+    height: 70%; 
+  }
+  
+  .resizable-input {
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 1.3rem;
+  }
+  

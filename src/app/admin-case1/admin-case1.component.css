@@ -129,11 +129,6 @@ section .reference-container{
   .card h2 {
     margin-top: 0;
   }
-
-  .resizable-input {
-    resize: both;
-}
-
 .publish-container{
     display: flex;
     align-items: center;
@@ -194,4 +189,15 @@ section .reference-container{
         margin-top: 50px;
         flex-direction: column;
     }
+}
+
+.resizable-input {
+  width: 100%; 
+  height: 130px; 
+}
+
+.resizable-input {
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-size: 1.3rem;
 }

@@ -105,10 +105,6 @@
         letter-spacing: 1.65px;
       }
 
-.resizable-input {
-        resize: both;
-}
-
 @media screen and (max-width: 1299px) {
         .card-container {
                 flex-direction: column;
@@ -148,4 +144,16 @@
                 margin: 20px;
                 margin-top: 20px;
         }
+}
+
+
+.resizable-input {
+  width: 100%; 
+  height: 130px; 
+}
+
+.resizable-input {
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-size: 1.3rem;
 }

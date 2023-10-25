@@ -1,12 +1,12 @@
 <main>
         <div class="content">
-          <div class="textbox" data-aos="fade-right" *ngFor="let item of causes_climate_change">
+          <div class="textbox" *ngFor="let item of causes_climate_change">
             <h2>{{item.header}}</h2>
             <p>
               {{item.header_description}}
             </p>
           </div>
-          <img src="/assets/casesimages/cases1.png" alt="sad earth" data-aos="fade-left">
+          <img src="/assets/casesimages/cases1.png" alt="sad earth">
         </div>
       
         <div *ngFor="let item of causes_climate_change">

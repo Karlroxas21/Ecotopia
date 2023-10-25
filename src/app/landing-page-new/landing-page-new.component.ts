@@ -16,7 +16,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 })
 export class LandingPageNewComponent implements OnInit{
   scale: number = 1;
-  imageUrl: string = 'assets/landingpagenew/sampleclimate.jpg'; 
+  imageUrl: string = 'assets/landingpagenew/parallaxtop/ext.png'; 
   scrollY = 0;
 
   @HostListener('window:scroll', ['$event'])

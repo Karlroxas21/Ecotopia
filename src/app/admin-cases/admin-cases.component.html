@@ -1,7 +1,7 @@
 <main>
   <app-admin-panel></app-admin-panel>
   <div class="content">
-    <div class="textbox" data-aos="fade-down-right" *ngFor="let item of cases">
+    <div class="textbox" *ngFor="let item of cases">
       <div>
       <!-- <div *ngIf="!editing_header" (click)="startEditingHeader()"> -->
         <h2>{{ header }}</h2>
@@ -39,7 +39,6 @@
     <img
       src="/assets/casesimages/cases1.png"
       alt="sad earth"
-      data-aos="fade-left"
     />
   </div>
 
