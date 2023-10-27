@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment'
 })
 export class RespondingtoclimatechangeComponent {
   responding_climate_change: any;
-  title = "Ecotopia: Responding to Climate Change";
+  title = "Responding to Climate Change";
 
   constructor(private http: HttpClient,
     private titleService: Title){ }

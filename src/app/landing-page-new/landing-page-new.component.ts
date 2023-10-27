@@ -47,7 +47,6 @@ export class LandingPageNewComponent implements OnInit{
   ngOnInit(): void {
     this.startSlider();
 
-    this.titleService.setTitle("Ecotopia");
   }
 
   startSlider() {
