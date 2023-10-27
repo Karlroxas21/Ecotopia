@@ -1,4 +1,7 @@
 @import "~boxicons/css/boxicons.min.css";
+*{
+    font-display: swap;
+}
 .footer-container{
     width: 100%;
 }

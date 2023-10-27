@@ -17,7 +17,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class LandingPageNewComponent implements OnInit{
   scale: number = 1;
-  imageUrl: string = 'assets/landingpagenew/parallaxtop/ext.png'; 
+  imageUrl: string = 'assets/landingpagenew/parallaxtop/ext.webp'; 
   scrollY = 0;
 
   @HostListener('window:scroll', ['$event'])
@@ -32,8 +32,8 @@ export class LandingPageNewComponent implements OnInit{
   currentIndex: number = 0;
   isSmaller: boolean = false;
   images: string[] = [
-    'assets/landingpagenew/climateaction.png',
-    'assets/landingpagenew/takeurgentaction.jpg',
+    'assets/landingpagenew/climateaction.webp',
+    'assets/landingpagenew/takeurgentaction.webp',
     // 'assets/landingpagenew/targetgoals.png'
   ];
   // descriptions: string[] = [

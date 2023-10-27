@@ -1,42 +1,51 @@
-<header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Stay informed and inspired by the latest climate change news and in-depth features. 
+  Explore the critical issues, solutions, and stories shaping our sustainable future. Join the conversation on climate action.">
+  <title>News and Features</title>
+</head>
+  <header>
 
-  <div class="header-txt">
-    <h1>News & Features</h1>
+    <div class="header-txt">
+      <h1>News & Features</h1>
+    </div>
+  </header>
+  <body>
+    <div class="grid-container">
+      <div class="item" *ngFor="let item of news | slice : 0 : itemsToShow">
+        <div class="item-sub">
+          <!-- <div class="item-img">
+            <img src="{{ item.photo }}" alt="News Photo" />
+          </div> -->
+        </div>
+  
+        <div class="item-sub-2">
+  
+          <div class="item-date">
+            <p>{{ item.datePublished }}</p>
+          </div>
+          <div class="item-title">
+            <h2>{{ item.title }}</h2>
+          </div>
+          <div class="item-desc">
+            <p>{{ item.description }}</p>
+          </div>
+          <div class="item-link">
+            <a href="{{ item.link }}" target="_blank">Read more</a>
+          </div>
+  
+        </div>
+      </div>
   </div>
-</header>
-<body>
-  <div class="grid-container">
-    <div class="item" *ngFor="let item of news | slice : 0 : itemsToShow" data-aos="fade-right" data-aos-duration="1000">
-      <div class="item-sub">
-        <!-- <div class="item-img">
-          <img src="{{ item.photo }}" alt="News Photo" />
-        </div> -->
+  
+      <div class="button">
+        <button (click)="loadMore()">Show More</button>
       </div>
-
-      <div class="item-sub-2">
-
-        <div class="item-date">
-          <p>{{ item.datePublished }}</p>
-        </div>
-        <div class="item-title">
-          <h2>{{ item.title }}</h2>
-        </div>
-        <div class="item-desc">
-          <p>{{ item.description }}</p>
-        </div>
-        <div class="item-link">
-          <a href="{{ item.link }}" target="_blank">Read more</a>
-        </div>
-
-      </div>
-    </div>
-</div>
-
-    <div class="button">
-      <button (click)="loadMore()">Show More</button>
-    </div>
-
-</body>
-
-<app-footer></app-footer>
-
+  
+  </body>
+  
+  <app-footer></app-footer>
+  
+</html>

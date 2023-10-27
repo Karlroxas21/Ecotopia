@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Henry Sans', sans-serif;
+    font-display: swap;
 }
 .text{
   margin: 50px;

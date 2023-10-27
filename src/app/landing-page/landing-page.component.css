@@ -1,11 +1,13 @@
   @font-face {
   font-family: 'Henry Sans Bold';
   src: url(/assets/font/HenrySansBold.6affb29a.ttf) format('truetype');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Henry Sans Regular';
   src: url(/assets/font/HenrySansRegular.a74efa90.ttf) format('truetype');
+  font-display: swap;
 }
 
 
@@ -78,7 +80,7 @@
 .earth {
   width: 300px;
   height: 300px;
-  background-image: url(/assets/landing-page/map.jpg);
+  background-image: url(/assets/landing-page/map.webp);
   border-radius: 50%;
   margin-top: 50px;
   margin-right: 0px;

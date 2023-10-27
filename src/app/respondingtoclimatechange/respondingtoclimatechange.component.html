@@ -1,76 +1,85 @@
-<body>
-  <div class="background" style="margin-bottom: 50px">
-    <img src="assets/solutionsimages/plants.jpg" alt="Plants" width="100%" />
-  </div>
-
-  <main style="padding: 0 30px 0 30px">
-    <div class="text" *ngFor="let item of responding_climate_change">
-      <h2 style="color: #501118">
-        {{item.header}}
-      </h2>
-      <br />
-
-      <h4 style="color: #501118;">{{item.header_description}}</h4>
-
-      <br>
-
-      <h3 style="color: #501118">
-        {{item.descriptions[0]}}
-      </h3>
-      <p>
-        <br />
-        <b style="font-size: 24px; color: #501118">1. {{item.bullets.bullet_1[0]}}</b>
-        <br />
-        {{item.bullets.bullet_1[1]}} 
-        <br />
-        <br />
-        <b style="font-size: 24px; color: #501118">2. {{item.bullets.bullet_2[0]}}</b>
-        <br />
-        {{item.bullets.bullet_2[1]}}
-      </p>
-      <br />
-      <p>
-        {{item.descriptions[1]}}
-
-        <br />
-        <br />
-
-        {{item.descriptions[2]}}
-
-        <br />
-        <br />
-
-        {{item.descriptions[3]}}
-
-        <br />
-        <br />
-
-        {{item.descriptions[4]}}
-
-        <br />
-        <br />
-
-        {{item.descriptions[5]}}
-        
-        <br />
-      </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Explore forward-thinking solutions to combat climate change. From renewable energy to sustainable practices, 
+  our site showcases a range of impactful strategies for a greener, healthier planet.">
+  <title>Responding to Climate Change</title>
+</head>
+  <body>
+    <div class="background" style="margin-bottom: 50px">
+      <img src="assets/solutionsimages/plants.jpg" alt="Plants" width="100%" />
     </div>
-
-    <section>
-      <div class="reference-container" *ngFor="let item of responding_climate_change">
-        <accordion [isAnimated]="true">
-          <accordion-group heading="References">
-            <a
-              href={{item.references[0]}}
-              target="_blank"
-              >{{item.references[0]}}</a
-            >
-          </accordion-group>
-        </accordion>
+  
+    <main style="padding: 0 30px 0 30px">
+      <div class="text" *ngFor="let item of responding_climate_change">
+        <h2 style="color: #501118">
+          {{item.header}}
+        </h2>
+        <br />
+  
+        <h4 style="color: #501118;">{{item.header_description}}</h4>
+  
+        <br>
+  
+        <h3 style="color: #501118">
+          {{item.descriptions[0]}}
+        </h3>
+        <p>
+          <br />
+          <b style="font-size: 24px; color: #501118">1. {{item.bullets.bullet_1[0]}}</b>
+          <br />
+          {{item.bullets.bullet_1[1]}} 
+          <br />
+          <br />
+          <b style="font-size: 24px; color: #501118">2. {{item.bullets.bullet_2[0]}}</b>
+          <br />
+          {{item.bullets.bullet_2[1]}}
+        </p>
+        <br />
+        <p>
+          {{item.descriptions[1]}}
+  
+          <br />
+          <br />
+  
+          {{item.descriptions[2]}}
+  
+          <br />
+          <br />
+  
+          {{item.descriptions[3]}}
+  
+          <br />
+          <br />
+  
+          {{item.descriptions[4]}}
+  
+          <br />
+          <br />
+  
+          {{item.descriptions[5]}}
+          
+          <br />
+        </p>
       </div>
-    </section>
-  </main>
-  <footer>
-    <app-footer></app-footer>
-  </footer>
+  
+      <section>
+        <div class="reference-container" *ngFor="let item of responding_climate_change">
+          <accordion [isAnimated]="true">
+            <accordion-group heading="References">
+              <a
+                href={{item.references[0]}}
+                target="_blank"
+                >{{item.references[0]}}</a
+              >
+            </accordion-group>
+          </accordion>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <app-footer></app-footer>
+    </footer>
 </body>
+</html>

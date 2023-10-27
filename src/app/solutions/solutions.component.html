@@ -1,81 +1,90 @@
-<body>
-  <div class="background" style="margin-bottom: 50px">
-    <img
-      src="assets/solutionsimages/actnow.jpg"
-      alt="Act now! Image"
-      width="100%"
-    />
-  </div>
-
-  <div class="text">
-    <h1>Solutions of Climate Change</h1>
-  </div>
-
-  <div class="card-container" *ngFor="let item of solutions">
-    <div class="card" style="background-color: #9AC5D7" data-aos="zoom-in">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Explore forward-thinking solutions to combat climate change. From renewable energy to sustainable practices, 
+  our site showcases a range of impactful strategies for a greener, healthier planet.">
+  <title>Solutions</title>
+</head>
+  <body>
+    <div class="background" style="margin-bottom: 50px">
       <img
-        src="assets/solutionsimages/action.jpg"
-        alt="People cleaning in the beach Image"
+        src="assets/solutionsimages/actnow.jpg"
+        alt="Act now! Image"
+        width="100%"
       />
-      <div class="card-content">
-        <h3>{{item.solution_1[0]}}</h3>
-        <p style="margin-bottom: 55px">
-          {{item.solution_1[1]}}
-        </p>
-        <a class="learn-more-button" href="whyshouldwetakeactions"
-          >Learn More <i class="bx bxs-right-arrow" style="font-size: 13px"></i
-        ></a>
+    </div>
+  
+    <div class="text">
+      <h1>Solutions of Climate Change</h1>
+    </div>
+  
+    <div class="card-container" *ngFor="let item of solutions">
+      <div class="card" style="background-color: #9AC5D7" data-aos="zoom-in">
+        <img
+          src="assets/solutionsimages/action.jpg"
+          alt="People cleaning in the beach Image"
+        />
+        <div class="card-content">
+          <h3>{{item.solution_1[0]}}</h3>
+          <p style="margin-bottom: 55px">
+            {{item.solution_1[1]}}
+          </p>
+          <a class="learn-more-button" href="whyshouldwetakeactions"
+            >Learn More <i class="bx bxs-right-arrow" style="font-size: 13px"></i
+          ></a>
+        </div>
+      </div>
+  
+      <div class="spacer"></div>
+  
+      <div class="card" style="background-color: #A6782A" data-aos="zoom-in">
+        <img
+          src="assets/solutionsimages/solutions.jpg"
+          alt="Cleaning City Image"
+        />
+        <div class="card-content">
+          <h3>{{item.solution_2[0]}}</h3>
+          <p style="margin-bottom: 90px">
+            {{item.solution_2[1]}}
+          </p>
+          <a class="learn-more-button" href="othersolutions"
+            >Learn More
+            <i class="bx bxs-right-arrow" style="font-size: 13px"></i>
+          </a>
+        </div>
       </div>
     </div>
-
-    <div class="spacer"></div>
-
-    <div class="card" style="background-color: #A6782A" data-aos="zoom-in">
-      <img
-        src="assets/solutionsimages/solutions.jpg"
-        alt="Cleaning City Image"
-      />
-      <div class="card-content">
-        <h3>{{item.solution_2[0]}}</h3>
-        <p style="margin-bottom: 90px">
-          {{item.solution_2[1]}}
-        </p>
-        <a class="learn-more-button" href="othersolutions"
-          >Learn More
-          <i class="bx bxs-right-arrow" style="font-size: 13px"></i>
-        </a>
+  
+    <div class="card-container" style="margin-top: 20px" *ngFor="let item of solutions">
+      <div class="card" style="background-color: #501118" data-aos="zoom-in" >
+        <img src="assets/solutionsimages/plants.jpg" alt="Plants Image" />
+        <div class="card-content">
+          <h3>{{item.solution_3[0]}}</h3>
+          <p>
+            {{item.solution_3[1]}}
+          </p>
+          <a class="learn-more-button" href="respondingtoclimatechange"
+            >Learn More <i class="bx bxs-right-arrow" style="font-size: 13px"></i
+          ></a>
+        </div>
+      </div>
+  
+      <div class="spacer"></div>
+  
+      <div class="card" style="background-color: #A2C3F9" data-aos="zoom-in">
+        <img src="assets/solutionsimages/city.jpg" alt="Urban Image" />
+        <div class="card-content">
+          <h3>{{item.solution_4[0]}}</h3>
+          <p>
+            {{item.solution_4[1]}}
+          </p>
+          <a class="learn-more-button" href="governmentresources"
+            >Learn More <i class="bx bxs-right-arrow" style="font-size: 13px"></i
+          ></a>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="card-container" style="margin-top: 20px" *ngFor="let item of solutions">
-    <div class="card" style="background-color: #501118" data-aos="zoom-in" >
-      <img src="assets/solutionsimages/plants.jpg" alt="Plants Image" />
-      <div class="card-content">
-        <h3>{{item.solution_3[0]}}</h3>
-        <p>
-          {{item.solution_3[1]}}
-        </p>
-        <a class="learn-more-button" href="respondingtoclimatechange"
-          >Learn More <i class="bx bxs-right-arrow" style="font-size: 13px"></i
-        ></a>
-      </div>
-    </div>
-
-    <div class="spacer"></div>
-
-    <div class="card" style="background-color: #A2C3F9" data-aos="zoom-in">
-      <img src="assets/solutionsimages/city.jpg" alt="Urban Image" />
-      <div class="card-content">
-        <h3>{{item.solution_4[0]}}</h3>
-        <p>
-          {{item.solution_4[1]}}
-        </p>
-        <a class="learn-more-button" href="governmentresources"
-          >Learn More <i class="bx bxs-right-arrow" style="font-size: 13px"></i
-        ></a>
-      </div>
-    </div>
-  </div>
-</body>
-<app-footer></app-footer>
+  </body>
+  <app-footer></app-footer>
+</html>
