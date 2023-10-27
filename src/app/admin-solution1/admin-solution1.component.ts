@@ -161,24 +161,6 @@ export class AdminSolution1Component {
         sanitizedDescription === null ||
         sanitizedReferences === null)
        {
-        // console.log('sanitizedHeader', sanitizedHeader);
-        // console.log('sanitizedHeaderDesc', sanitizedHeaderDesc);
-        // console.log('sanitizedBullet1', sanitizedBullet1);
-        // console.log('sanitizedBullet2', sanitizedBullet2);
-        // console.log('sanitizedBullet3', sanitizedBullet3);
-        // console.log('sanitizedBullet4', sanitizedBullet4);
-        // console.log('sanitizedBullet5', sanitizedBullet5);
-        // console.log('sanitizedBullet6', sanitizedBullet6);
-        // console.log('sanitizedBullet7', sanitizedBullet7);
-        // console.log('sanitizedBullet8', sanitizedBullet8);
-        // console.log('sanitizedBullet9', sanitizedBullet9);
-        // console.log('sanitizedBullet10', sanitizedBullet10);
-        // console.log('sanitizedBullet11', sanitizedBullet11);
-        // console.log('sanitizedBullet12', sanitizedBullet12);
-        // console.log('sanitizedBullet13', sanitizedBullet13);
-        // console.log('sanitizedDescription', sanitizedDescription);
-        // console.log('sanitizedReferences', sanitizedReferences);
-
 
         // Validation failed, do not proceed with the update
         this.toastr.error('Invalid characters detected in one or more input fields. Please remove them and try again.', 'Validation Error');
@@ -214,7 +196,6 @@ export class AdminSolution1Component {
       this.AdminSolution1Service.updateData(sanitizedData).subscribe(
         (updatedItem) => {
           this.router.navigate(['/admin-solution1']);
-          console.log(this.y_should_we_take_action[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
         (err) => {
@@ -265,8 +246,6 @@ export class AdminSolution1Component {
       // Check if the string array contains harmful chars
       if(harmfulChars.test(str)){
 
-        console.log(`Harmful character detected in string: ${str}`);
-        console.log(`Harmful character: ${str.match(harmfulChars)}`);
         return null;
       }
 

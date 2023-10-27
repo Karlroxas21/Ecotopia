@@ -71,7 +71,6 @@ export class AdminCase3Component {
       // Reference
       this.referencePusher(this.references);
 
-      console.log(this.causes_climate_change);
     })
   }
 
@@ -147,7 +146,6 @@ export class AdminCase3Component {
       this.AdminCase3Service.updateData(sanitizedData).subscribe(
         (updatedItem) => {
           this.router.navigate(['/admin-case-3']);
-          console.log(this.causes_climate_change[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
         (err) => {

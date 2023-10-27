@@ -186,7 +186,6 @@ export class AdminSolution2Component {
       this.AdminSolution2Service.updateData(sanitizedData).subscribe(
         (updatedItem) => {
           this.router.navigate(['/admin-solution2']);
-          console.log(this.other_solutions[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
         (err) => {
@@ -238,8 +237,6 @@ isValidInput(input: string): boolean {
       // Check if the string array contains harmful chars
       if(harmfulChars.test(str)){
 
-        console.log(`Harmful character detected in string: ${str}`);
-        console.log(`Harmful character: ${str.match(harmfulChars)}`);
         return null;
       }
 

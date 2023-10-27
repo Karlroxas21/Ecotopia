@@ -78,8 +78,6 @@ export class AdminCase2Component {
       this.indicatorPusher(this.indicator_4, "4", 4);
       this.indicatorPusher(this.indicator_5, "5", 4);
 
-      console.log(this.indicator_2);
-
       // References
       this.referencePusher(this.references);
     })
@@ -178,7 +176,6 @@ export class AdminCase2Component {
       this.AdminCase2Service.updateData(sanitizedData).subscribe(
         (updatedItem) => {
           this.router.navigate(['/admin-cases-2']);
-          console.log(this.outdated_engine[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
         (err) => {

@@ -20,7 +20,6 @@ export class WhyshouldwetakeactionComponent implements OnInit {
     .subscribe(incoming_data =>{
       this.y_should_we_take_action = incoming_data;
 
-      console.log(this.y_should_we_take_action)
     });
 
     this.titleService.setTitle(this.title);

@@ -11,7 +11,7 @@ export class MainScene extends Phaser.Scene {
     // Background in default scene
     this.load.image(
       'default-scene-bg',
-      '../../../../assets/background/climate-escape-background.png'
+      '../../../../assets/background/climate-escape-background.jpg'
     );
 
     // SFX

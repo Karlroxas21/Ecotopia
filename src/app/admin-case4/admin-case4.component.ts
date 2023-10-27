@@ -66,7 +66,6 @@ export class AdminCase4Component {
       this.casePusher(this.case3, "3");
       this.casePusher(this.case4, "4");
 
-      console.log(this.case4_content)
       // Descriptions
       this.caseContentPusher(this.case4_content);
 
@@ -153,7 +152,6 @@ export class AdminCase4Component {
        this.AdminCase4Service.updateData(sanitizedData).subscribe(
         (updatedItem) => {
           this.router.navigate(['/admin-case-4']);
-          console.log(this.effects_climate_change[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
         (err) => {

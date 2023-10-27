@@ -54,7 +54,6 @@ export class PlayScene4 extends Phaser.Scene {
             randomIndexesForChoices.push(randomIndex);
           }
         }
-        // console.log(randomQuestion.choices[randomIndexForChoices]);
 
         if (randomQuestion.question.length >= 50) {
           const indexToInsertNewline = randomQuestion.question.lastIndexOf(' ', 50);

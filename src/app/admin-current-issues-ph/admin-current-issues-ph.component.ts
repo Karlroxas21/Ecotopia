@@ -112,13 +112,6 @@ export class AdminCurrentIssuesPhComponent {
       !this.isValidInputArray(this.ocean_acidification) ||
       !this.isValidInputArray(this.references) 
       ) {
-        console.log(!this.isValidInputArray(this.sea_level_rise_coastal_erosion));
-        console.log(!this.isValidInputArray(this.sea_level_rise_coastal_erosion_2));
-        console.log(!this.isValidInputArray(this.biodiversity_ecosystem_loss));
-        console.log(!this.isValidInputArray(this.health_risk));
-        console.log(!this.isValidInputArray(this.water_scarcity));
-        console.log(!this.isValidInputArray(this.ocean_acidification));
-        console.log(!this.isValidInputArray(this.references));
         // Validation failed, do not proceed with the update
         this.toastr.error('One or more input fields are empty or contain only blank spaces. Please fill them out and try again.', 'Validation Error');
         return;

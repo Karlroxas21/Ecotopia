@@ -18,7 +18,6 @@ export class Case4Component {
     this.http.get<any[]>(`${environment.apiUrl}effectsofclimatechange`)
     .subscribe(effects_climate_change =>{
       this.effects_climate_change = effects_climate_change;
-      console.log(effects_climate_change);
     })
 
     this.titleService.setTitle(this.title)

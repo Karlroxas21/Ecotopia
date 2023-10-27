@@ -131,7 +131,6 @@ export class AdminSolution3Component {
       this.AdminSolution3Service.updateData(sanitizedData).subscribe(
         (updatedItem) => {
           this.router.navigate(['/admin-solution3']);
-          console.log(this.responding_to_climate_change[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
         (err) => {
@@ -182,8 +181,6 @@ export class AdminSolution3Component {
       // Check if the string array contains harmful chars
       if(harmfulChars.test(str)){
 
-        console.log(`Harmful character detected in string: ${str}`);
-        console.log(`Harmful character: ${str.match(harmfulChars)}`);
         return null;
       }
 

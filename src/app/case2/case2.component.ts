@@ -18,7 +18,6 @@ export class Case2Component implements OnInit {
       this.http.get<any[]>(`${environment.apiUrl}outdatedjeepengine`)
       .subscribe(outdated_engine =>{
         this.outdated_engine = outdated_engine;
-        console.log(outdated_engine);
       })
 
       this.titleService.setTitle(this.title);

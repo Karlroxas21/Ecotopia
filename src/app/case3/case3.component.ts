@@ -18,7 +18,6 @@ export class Case3Component {
       this.http.get<any[]>(`${environment.apiUrl}causesofclimatechange`)
       .subscribe(cause_climate_change =>{
         this.causes_climate_change = cause_climate_change;
-        console.log(cause_climate_change);
       })
 
       this.titleService.setTitle(this.title);

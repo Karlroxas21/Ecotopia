@@ -116,7 +116,6 @@ export class AdminCasesComponent implements OnInit {
       this.AdminCase.updateData(sanitizedData).subscribe(
         (updatedItem) => {
           this.router.navigate(['/admin-cases']);
-          console.log(this.cases[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
         (err) => {
@@ -167,8 +166,6 @@ export class AdminCasesComponent implements OnInit {
       // Check if the string array contains harmful chars
       if(harmfulChars.test(str)){
 
-        console.log(`Harmful character detected in string: ${str}`);
-        console.log(`Harmful character: ${str.match(harmfulChars)}`);
         return null;
       }
 

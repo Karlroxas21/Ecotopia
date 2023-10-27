@@ -148,7 +148,6 @@ export class AdminCase1Component {
       this.AdminCasesService.updateData(sanitizedData).subscribe(
         (updatedItem) => {
           this.router.navigate(['/admin-cases-1']); //default: admin-case-problem-trash
-          console.log(this.problem_trash[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
         (err) => {

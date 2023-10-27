@@ -77,7 +77,6 @@ export class AdminAssessmentComponent {
       this.AdminAssessmentService.updateData(sanitizedData).subscribe(
         (updatedItem) => {
           this.router.navigate(['/admin-assessment']);
-          console.log(this.assessment[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
         (err) => {

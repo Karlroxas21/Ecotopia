@@ -113,7 +113,6 @@ export class AdminSolutionsComponent {
       this.AdminSolutionsService.updateData(sanitizedData).subscribe(
         (updatedItem) => {
           this.router.navigate(['/admin-solutions']);
-          console.log(this.solutions[0]);
           this.toastr.success('Data updated successfully.', 'Success');
         },
         (err) => {
