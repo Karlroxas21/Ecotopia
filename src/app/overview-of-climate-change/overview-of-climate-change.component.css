@@ -1,3 +1,6 @@
+*{
+    font-display: swap;
+}
 .header-img{
     height: 900px;
     overflow: hidden;

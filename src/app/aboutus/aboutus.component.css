@@ -1,9 +1,13 @@
+*{
+    font-display: swap;
+}
 
 .parent{
     display: flex;
     flex-direction: row;
     margin: 3%;
     gap: 20px;
+    font-display: swap;
 }
 
 /* LEFT SIDE */

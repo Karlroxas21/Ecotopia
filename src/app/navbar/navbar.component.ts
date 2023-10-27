@@ -1,5 +1,4 @@
 import { Component, HostListener } from '@angular/core';
-import * as AOS from 'aos';
 import { Scenes } from 'phaser';
 import SimpleParallax from 'simple-parallax-js';
 import { Router, NavigationEnd } from '@angular/router';
@@ -43,10 +42,6 @@ export class NavbarComponent {
      
      })
    }
-  ngOnInit(){
-    AOS.init();
-    window.addEventListener('load',AOS.refresh)
-  }
 
   closeNavbar() {
     const checkbox = document.getElementById('check') as HTMLInputElement;

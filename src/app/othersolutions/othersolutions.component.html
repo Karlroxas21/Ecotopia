@@ -1,136 +1,145 @@
-<body>
-  <div class="background" style="margin-bottom: 50px">
-    <img
-      src="assets/solutionsimages/solutions.jpg"
-      alt="Act now! image"
-      width="100%"
-    />
-  </div>
-
-  <main style="padding: 0 30px 0 30px">
-    <div class="text" *ngFor="let item of other_solutions">
-      <h1 style="color: #001DD3">
-        {{item.header}}
-      </h1>
-
-      <h2> {{item.header_description}}</h2>
-
-      <br>
-
-      <h3 style="color: #A6782A">{{item.descriptions[0]}}</h3>
-      <p>
-        {{item.descriptions[1]}}
-        <br />
-
-        <li>
-          <b style="font-size: 24px; color: #A6782A"
-            >{{item.bullets.bullet_1[0]}}</b
-          >
-          <br />
-            {{item.bullets.bullet_1[1]}}
-        </li>
-        <br />
-        <li>
-          <b style="font-size: 24px; color: #A6782A">{{item.bullets.bullet_2[0]}}</b>
-          <br />
-          {{item.bullets.bullet_2[1]}}
-        </li>
-        <br />
-        <li>
-          <b style="font-size: 24px; color: #A6782A"
-            >{{item.bullets.bullet_3[0]}}</b
-          >
-          <br />
-          {{item.bullets.bullet_3[1]}}
-
-          <div class="viewmore">
-            <br /><a
-              href={{item.links[0]}}
-              target="_blank"
-              >Continue reading <i class='bx bx-chevron-right'></i> </a
-            >
-          </div>
-        </li>
-      </p>
-      <br />
-      <h3 style="color: #A6782A">
-        {{item.descriptions[2]}}
-      </h3>
-      <p>
-        {{item.descriptions[3]}}
-        <br />
-        
-        <li>
-          <b style="font-size: 24px; color: #A6782A"
-            >{{item.bullets.bullet_4[0]}}</b
-          >
-          <br />
-          {{item.bullets.bullet_4[1]}}
-        </li>
-        <br />
-        <li>
-          <b style="font-size: 24px; color: #A6782A"
-            >{{item.bullets.bullet_5[0]}}</b
-          >
-          <br />
-            {{item.bullets.bullet_5[1]}}
-        </li>
-        <br />
-        <li>
-          <b style="font-size: 24px; color: #A6782A"
-            >{{item.bullets.bullet_6[0]}}</b
-          >
-          <br />
-          {{item.bullets.bullet_6[1]}}
-        </li>
-        <br />
-        <li>
-          <b style="font-size: 24px; color: #A6782A"
-            >{{item.bullets.bullet_7[0]}}</b
-          >
-          <br />
-          {{item.bullets.bullet_7[1]}}
-        </li>
-        <br />
-        <li>
-          <b style="font-size: 24px; color: #A6782A"
-            >{{item.bullets.bullet_8[0]}}</b
-          >
-          <br />
-          {{item.bullets.bullet_8[1]}}
-
-          <div class="viewmore">
-            <br /><a
-              href={{item.links[1]}}
-              target="_blank"
-              >Continue reading <i class='bx bx-chevron-right'></i> </a
-            >
-          </div>
-        </li>
-      </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Explore forward-thinking solutions to combat climate change. From renewable energy to sustainable practices, 
+  our site showcases a range of impactful strategies for a greener, healthier planet.">
+  <title>Other Solutions</title>
+</head>
+  <body>
+    <div class="background" style="margin-bottom: 50px">
+      <img
+        src="assets/solutionsimages/solutions.jpg"
+        alt="Act now! image"
+        width="100%"
+      />
     </div>
-
-    <section>
-      <div class="reference-container" *ngFor="let item of other_solutions">
-        <accordion [isAnimated]="true">
-          <accordion-group heading="References">
-            <a
-              href={{item.references[0]}}
-              target="_blank"
-              >{{item.references[0]}}</a
+  
+    <main style="padding: 0 30px 0 30px">
+      <div class="text" *ngFor="let item of other_solutions">
+        <h1 style="color: #001DD3">
+          {{item.header}}
+        </h1>
+  
+        <h2> {{item.header_description}}</h2>
+  
+        <br>
+  
+        <h3 style="color: #A6782A">{{item.descriptions[0]}}</h3>
+        <p>
+          {{item.descriptions[1]}}
+          <br />
+  
+          <li>
+            <b style="font-size: 24px; color: #A6782A"
+              >{{item.bullets.bullet_1[0]}}</b
             >
             <br />
-            <a
-              href={{item.references[1]}}
-              target="_blank"
-              >h{{item.references[1]}}</a
+              {{item.bullets.bullet_1[1]}}
+          </li>
+          <br />
+          <li>
+            <b style="font-size: 24px; color: #A6782A">{{item.bullets.bullet_2[0]}}</b>
+            <br />
+            {{item.bullets.bullet_2[1]}}
+          </li>
+          <br />
+          <li>
+            <b style="font-size: 24px; color: #A6782A"
+              >{{item.bullets.bullet_3[0]}}</b
             >
-          </accordion-group>
-        </accordion>
+            <br />
+            {{item.bullets.bullet_3[1]}}
+  
+            <div class="viewmore">
+              <br /><a
+                href={{item.links[0]}}
+                target="_blank"
+                >Continue reading <i class='bx bx-chevron-right'></i> </a
+              >
+            </div>
+          </li>
+        </p>
+        <br />
+        <h3 style="color: #A6782A">
+          {{item.descriptions[2]}}
+        </h3>
+        <p>
+          {{item.descriptions[3]}}
+          <br />
+          
+          <li>
+            <b style="font-size: 24px; color: #A6782A"
+              >{{item.bullets.bullet_4[0]}}</b
+            >
+            <br />
+            {{item.bullets.bullet_4[1]}}
+          </li>
+          <br />
+          <li>
+            <b style="font-size: 24px; color: #A6782A"
+              >{{item.bullets.bullet_5[0]}}</b
+            >
+            <br />
+              {{item.bullets.bullet_5[1]}}
+          </li>
+          <br />
+          <li>
+            <b style="font-size: 24px; color: #A6782A"
+              >{{item.bullets.bullet_6[0]}}</b
+            >
+            <br />
+            {{item.bullets.bullet_6[1]}}
+          </li>
+          <br />
+          <li>
+            <b style="font-size: 24px; color: #A6782A"
+              >{{item.bullets.bullet_7[0]}}</b
+            >
+            <br />
+            {{item.bullets.bullet_7[1]}}
+          </li>
+          <br />
+          <li>
+            <b style="font-size: 24px; color: #A6782A"
+              >{{item.bullets.bullet_8[0]}}</b
+            >
+            <br />
+            {{item.bullets.bullet_8[1]}}
+  
+            <div class="viewmore">
+              <br /><a
+                href={{item.links[1]}}
+                target="_blank"
+                >Continue reading <i class='bx bx-chevron-right'></i> </a
+              >
+            </div>
+          </li>
+        </p>
       </div>
-    </section>
-  </main>
-  <footer>
-    <app-footer></app-footer>
-  </footer>
-</body>
+  
+      <section>
+        <div class="reference-container" *ngFor="let item of other_solutions">
+          <accordion [isAnimated]="true">
+            <accordion-group heading="References">
+              <a
+                href={{item.references[0]}}
+                target="_blank"
+                >{{item.references[0]}}</a
+              >
+              <br />
+              <a
+                href={{item.references[1]}}
+                target="_blank"
+                >h{{item.references[1]}}</a
+              >
+            </accordion-group>
+          </accordion>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <app-footer></app-footer>
+    </footer>
+  </body>
+</html>

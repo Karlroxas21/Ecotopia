@@ -1,5 +1,4 @@
 import { Component, HostListener } from '@angular/core';
-import * as AOS from 'aos';
 import { Scenes } from 'phaser';
 import SimpleParallax from 'simple-parallax-js';
 import { Router, NavigationEnd } from '@angular/router';
@@ -47,11 +46,6 @@ export class AppComponent {
      
      })
    }
-  ngOnInit(){
-    AOS.init();
-    window.addEventListener('load',AOS.refresh)
-  }
-
   closeNavbar() {
     const checkbox = document.getElementById('check') as HTMLInputElement;
     checkbox.checked = false;
@@ -59,11 +53,6 @@ export class AppComponent {
 
   isSideNavCollapsed = false;
   screenWidth = 0;
-
-  // onToggleSideNav(data: SideNavToggle): void{
-  //   this.screenWidth = data.screenWidth;
-  //   this.isSideNavCollapsed = data.collapsed;
-  // }
 
   navbarfixed:boolean = false;
 

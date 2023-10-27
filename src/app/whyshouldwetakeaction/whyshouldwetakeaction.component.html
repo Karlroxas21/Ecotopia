@@ -1,176 +1,185 @@
-<body>
-  <div class="background" style="margin-bottom: 50px">
-    <img
-      src="assets/solutionsimages/action.jpg"
-      alt="Act now! image"
-      width="100%"
-    />
-  </div>
-
-  <main style="padding: 0 30px 0 30px">
-    <div class="text" *ngFor="let item of y_should_we_take_action">
-      <h1 style="color: #001DD3">{{ item.header }}</h1>
-      <h4 style="color: #000">
-        {{ item.header_description }}
-      </h4>
-
-      <br />
-
-      <b style="font-size: 24px; color: #9AC5D7">{{
-        item.bullets.bullet_1[0]
-      }}</b>
-      <br />
-      <p>{{ item.bullets.bullet_1[1] }}</p>
-
-      <br />
-      <br />
-
-      <b style="font-size: 24px; color: #9AC5D7">{{
-        item.bullets.bullet_2[0]
-      }}</b>
-      <br />
-      <p>{{ item.bullets.bullet_2[1] }}</p>
-
-      <br />
-      <br />
-
-      <b style="font-size: 24px; color: #9AC5D7">{{
-        item.bullets.bullet_3[0]
-      }}</b>
-      <br />
-      <p>{{ item.bullets.bullet_3[1] }}</p>
-
-      <br />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Explore forward-thinking solutions to combat climate change. From renewable energy to sustainable practices, 
+  our site showcases a range of impactful strategies for a greener, healthier planet.">
+  <title>Why Should We Take Action?</title>
+</head>
+  <body>
+    <div class="background" style="margin-bottom: 50px">
+      <img
+        src="assets/solutionsimages/action.jpg"
+        alt="Act now! image"
+        width="100%"
+      />
     </div>
-
-    <div class="flex-container">
-      <div class="flex-box" *ngFor="let item of y_should_we_take_action">
-        <h3 style="color: #9AC5D7; font-size: 28px;">
-          {{ item.descriptions[0] }}
-        </h3>
-
-        <p>{{ item.descriptions[1] }}</p>
-
+  
+    <main style="padding: 0 30px 0 30px">
+      <div class="text" *ngFor="let item of y_should_we_take_action">
+        <h1 style="color: #001DD3">{{ item.header }}</h1>
+        <h4 style="color: #000">
+          {{ item.header_description }}
+        </h4>
+  
         <br />
-
-        <li>
-          <b style="font-size: 24px; color: #9AC5D7"
-            >{{item.bullets.bullet_4[0]}}</b
-          >
-          <br />
-          <p>{{item.bullets.bullet_4[1]}}</p>
-        </li>
-
+  
+        <b style="font-size: 24px; color: #9AC5D7">{{
+          item.bullets.bullet_1[0]
+        }}</b>
         <br />
-
-        <li>
-          <b style="font-size: 24px; color: #9AC5D7"
-            >{{item.bullets.bullet_5[0]}}</b
-          >
-          <br />
-          <p>{{item.bullets.bullet_5[1]}}</p>
-        </li>
-
+        <p>{{ item.bullets.bullet_1[1] }}</p>
+  
         <br />
-
-
-        <li>
-          <b style="font-size: 24px; color: #9AC5D7"
-            >{{item.bullets.bullet_6[0]}}</b
-          >
-          <br />
-          <p>{{item.bullets.bullet_6[1]}}</p>
-        </li>
-
         <br />
-
-        <li>
-          <b style="font-size: 24px; color: #9AC5D7"
-            >{{item.bullets.bullet_7[0]}}</b
-          >
-          <br />
-          <p>{{item.bullets.bullet_7[1]}}</p>
-        </li>
-
+  
+        <b style="font-size: 24px; color: #9AC5D7">{{
+          item.bullets.bullet_2[0]
+        }}</b>
         <br />
-
-        <li>
-          <b style="font-size: 24px; color: #9AC5D7"
-            >{{item.bullets.bullet_8[0]}}</b
-          >
-          <br />
-          <p>{{item.bullets.bullet_8[1]}}</p>
-        </li>
-
+        <p>{{ item.bullets.bullet_2[1] }}</p>
+  
         <br />
-
-        <li>
-          <b style="font-size: 24px; color: #9AC5D7"
-            >{{item.bullets.bullet_9[0]}}</b
-          >
-          <br />
-          <p>{{item.bullets.bullet_9[1]}}</p>
-        </li>
-
         <br />
-
-        <li>
-          <b style="font-size: 24px; color: #9AC5D7"
-            >{{item.bullets.bullet_10[0]}}</b
-          >
-          <br />
-          <p>{{item.bullets.bullet_10[1]}}</p>
-        </li>
-
+  
+        <b style="font-size: 24px; color: #9AC5D7">{{
+          item.bullets.bullet_3[0]
+        }}</b>
         <br />
-
-        <li>
-          <b style="font-size: 24px; color: #9AC5D7">{{item.bullets.bullet_11[0]}}</b>
-          <br />
-          <p>{{item.bullets.bullet_11[1]}}</p>
-        </li>
-
+        <p>{{ item.bullets.bullet_3[1] }}</p>
+  
         <br />
-
-        <li>
-          <b style="font-size: 24px; color: #9AC5D7"
-            >{{item.bullets.bullet_12[0]}}</b
-          >
-          <br />
-          <p>{{item.bullets.bullet_12[1]}}</p>
-        </li>
-
-        <br />
-
-        <li>
-          <b style="font-size: 24px; color: #9AC5D7">{{item.bullets.bullet_13[0]}}</b>
-          <br />
-          <p>{{item.bullets.bullet_13[1]}}</p>
-        </li>
       </div>
-
-      <section>
-        <div class="reference-container" *ngFor="let item of y_should_we_take_action">
-          <accordion [isAnimated]="true">
-            <accordion-group heading="References">
-              <a
-                href={{item.references[0]}}
-                target="_blank"
-                >{{item.references[0]}}</a
-              >
-              <br />
-              <a
-                href={{item.references[1]}}
-                target="_blank"
-                >{{item.references[1]}}</a
-              >
-            </accordion-group>
-          </accordion>
+  
+      <div class="flex-container">
+        <div class="flex-box" *ngFor="let item of y_should_we_take_action">
+          <h3 style="color: #9AC5D7; font-size: 28px;">
+            {{ item.descriptions[0] }}
+          </h3>
+  
+          <p>{{ item.descriptions[1] }}</p>
+  
+          <br />
+  
+          <li>
+            <b style="font-size: 24px; color: #9AC5D7"
+              >{{item.bullets.bullet_4[0]}}</b
+            >
+            <br />
+            <p>{{item.bullets.bullet_4[1]}}</p>
+          </li>
+  
+          <br />
+  
+          <li>
+            <b style="font-size: 24px; color: #9AC5D7"
+              >{{item.bullets.bullet_5[0]}}</b
+            >
+            <br />
+            <p>{{item.bullets.bullet_5[1]}}</p>
+          </li>
+  
+          <br />
+  
+  
+          <li>
+            <b style="font-size: 24px; color: #9AC5D7"
+              >{{item.bullets.bullet_6[0]}}</b
+            >
+            <br />
+            <p>{{item.bullets.bullet_6[1]}}</p>
+          </li>
+  
+          <br />
+  
+          <li>
+            <b style="font-size: 24px; color: #9AC5D7"
+              >{{item.bullets.bullet_7[0]}}</b
+            >
+            <br />
+            <p>{{item.bullets.bullet_7[1]}}</p>
+          </li>
+  
+          <br />
+  
+          <li>
+            <b style="font-size: 24px; color: #9AC5D7"
+              >{{item.bullets.bullet_8[0]}}</b
+            >
+            <br />
+            <p>{{item.bullets.bullet_8[1]}}</p>
+          </li>
+  
+          <br />
+  
+          <li>
+            <b style="font-size: 24px; color: #9AC5D7"
+              >{{item.bullets.bullet_9[0]}}</b
+            >
+            <br />
+            <p>{{item.bullets.bullet_9[1]}}</p>
+          </li>
+  
+          <br />
+  
+          <li>
+            <b style="font-size: 24px; color: #9AC5D7"
+              >{{item.bullets.bullet_10[0]}}</b
+            >
+            <br />
+            <p>{{item.bullets.bullet_10[1]}}</p>
+          </li>
+  
+          <br />
+  
+          <li>
+            <b style="font-size: 24px; color: #9AC5D7">{{item.bullets.bullet_11[0]}}</b>
+            <br />
+            <p>{{item.bullets.bullet_11[1]}}</p>
+          </li>
+  
+          <br />
+  
+          <li>
+            <b style="font-size: 24px; color: #9AC5D7"
+              >{{item.bullets.bullet_12[0]}}</b
+            >
+            <br />
+            <p>{{item.bullets.bullet_12[1]}}</p>
+          </li>
+  
+          <br />
+  
+          <li>
+            <b style="font-size: 24px; color: #9AC5D7">{{item.bullets.bullet_13[0]}}</b>
+            <br />
+            <p>{{item.bullets.bullet_13[1]}}</p>
+          </li>
         </div>
-      </section>
-    </div>
-  </main>
-  <footer>
-    <app-footer></app-footer>
-  </footer>
-</body>
+  
+        <section>
+          <div class="reference-container" *ngFor="let item of y_should_we_take_action">
+            <accordion [isAnimated]="true">
+              <accordion-group heading="References">
+                <a
+                  href={{item.references[0]}}
+                  target="_blank"
+                  >{{item.references[0]}}</a
+                >
+                <br />
+                <a
+                  href={{item.references[1]}}
+                  target="_blank"
+                  >{{item.references[1]}}</a
+                >
+              </accordion-group>
+            </accordion>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <app-footer></app-footer>
+    </footer>
+  </body>
+</html>
