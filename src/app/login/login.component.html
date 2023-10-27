@@ -1,29 +1,37 @@
-<header *ngIf="sessionCheck()">
-    <div class="navbar">
-        <div class="navbarlogo">
-            <img src="/assets/logo/logo.png" alt="Ecotopia Logo" height="70px" width="100px" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Securely log in to your admin account. Access exclusive content and updates,">
+    <title>Login</title>
+</head>
+    <header *ngIf="sessionCheck()">
+        <div class="navbar">
+            <div class="navbarlogo">
+                <img src="/assets/logo/logo.png" alt="Ecotopia Logo" height="70px" width="100px" />
+            </div>
         </div>
-    </div>
-</header>
-
-<body>
-    <div class="login" *ngIf="sessionCheck()">
-        <h2>Sign in</h2>
-
-        <form (ngSubmit)="login()">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" [(ngModel)]="username" required />
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" [(ngModel)]="password" required />
-
-            <button type="submit" [disabled]="loginAttempts >= 5">Login</button>
+    </header>
+    
+    <body>
+        <div class="login" *ngIf="sessionCheck()">
+            <h2>Sign in</h2>
+    
+            <form (ngSubmit)="login()">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" [(ngModel)]="username" required />
+    
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" [(ngModel)]="password" required />
+    
+                <button type="submit" [disabled]="loginAttempts >= 5">Login</button>
+                
+            </form>
             
-        </form>
-        
-    </div>
-    <div *ngIf="!sessionCheck()">
-        <p>Already signed in as Administrator</p>
-        <button (click)="redirectAdmin()">Navigate to Admin</button>
-    </div>
-</body>
+        </div>
+        <div *ngIf="!sessionCheck()">
+            <p>Already signed in as Administrator</p>
+            <button (click)="redirectAdmin()">Navigate to Admin</button>
+        </div>
+    </body>
+</html>

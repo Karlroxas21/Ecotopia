@@ -1,613 +1,622 @@
-<body>
-  <section class="climate-change">
-    <h1>Current Issues on Climate Change in the Philippines</h1>
-
-    <div class="climate-change-info">
-      <!-- Tab Headers -->
-      <div class="tab-headers">
-        <div class="tab-header" [class.active]="selectedTab === 'tab1'" (click)="selectTab('tab1')">Typhoon and Extreme Weather Events</div>
-        <div class="tab-header" [class.active]="selectedTab === 'tab2'" (click)="selectTab('tab2')">Sea Level Rise and Coastal Erosion</div>
-        <div class="tab-header" [class.active]="selectedTab === 'tab3'" (click)="selectTab('tab3')">Ocean Acidification</div>
-        <div class="tab-header" [class.active]="selectedTab === 'tab4'" (click)="selectTab('tab4')">Biodiversity and Ecosystem Loss</div>
-        <div class="tab-header" [class.active]="selectedTab === 'tab5'" (click)="selectTab('tab5')">Agriculture and Food Security</div>
-        <div class="tab-header" [class.active]="selectedTab === 'tab6'" (click)="selectTab('tab6')">Health Risk</div>
-        <div class="tab-header" [class.active]="selectedTab === 'tab7'" (click)="selectTab('tab7')">Water Scarcity</div>
-        <div class="tab-header" [class.active]="selectedTab === 'tab8'" (click)="selectTab('tab8')">References</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Stay informed on the latest climate change issues. Explore up-to-date articles, reports, and insights on the pressing challenges 
+  and solutions in the fight against global warming. Join the conversation on climate action.">
+  <title>Current Issues</title>
+</head>
+  <body>
+    <section class="climate-change">
+      <h1>Current Issues on Climate Change in the Philippines</h1>
+  
+      <div class="climate-change-info">
+        <!-- Tab Headers -->
+        <div class="tab-headers">
+          <div class="tab-header" [class.active]="selectedTab === 'tab1'" (click)="selectTab('tab1')">Typhoon and Extreme Weather Events</div>
+          <div class="tab-header" [class.active]="selectedTab === 'tab2'" (click)="selectTab('tab2')">Sea Level Rise and Coastal Erosion</div>
+          <div class="tab-header" [class.active]="selectedTab === 'tab3'" (click)="selectTab('tab3')">Ocean Acidification</div>
+          <div class="tab-header" [class.active]="selectedTab === 'tab4'" (click)="selectTab('tab4')">Biodiversity and Ecosystem Loss</div>
+          <div class="tab-header" [class.active]="selectedTab === 'tab5'" (click)="selectTab('tab5')">Agriculture and Food Security</div>
+          <div class="tab-header" [class.active]="selectedTab === 'tab6'" (click)="selectTab('tab6')">Health Risk</div>
+          <div class="tab-header" [class.active]="selectedTab === 'tab7'" (click)="selectTab('tab7')">Water Scarcity</div>
+          <div class="tab-header" [class.active]="selectedTab === 'tab8'" (click)="selectTab('tab8')">References</div>
+        </div>
+        
+        <!-- Tab Content -->
+        <div class="tab-content">
+          <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab1' }">
+            <div class="ccs-div1">
+              <div class="ccs-sub-div1">
+                <p>
+                  {{ item.sea_level_rise_coastal_erosion[0] }}
+                </p>
+              </div>
+  
+              <div class="ccs-sub-div2">
+                <table class="ccs-table" style="margin-bottom: 30px">
+                  <tr>
+                    <td>
+                      {{ item.sea_level_rise_coastal_erosion[1] }}
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      {{ item.sea_level_rise_coastal_erosion[2] }}
+                    </td>
+                  </tr>
+  
+                  <!-- <tr>
+                    <td>
+                      {{ item.sea_level_rise_coastal_erosion[3] }}
+                    </td>
+                  </tr> -->
+                </table>
+              </div>
+            </div>
+          </div>
+  
+          <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab2' }">
+            <div class="ccs-div1">
+              <div class="ccs-sub-div1">
+                <p>
+                  {{ item.sea_level_rise_coastal_erosion_2[0] }}
+                </p>
+              </div>
+  
+              <div class="ccs-sub-div2">
+                <table class="ccs-table">
+                  <tr>
+                    <th>
+                      {{ item.sea_level_rise_coastal_erosion_2[1] }}
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          {{ item.sea_level_rise_coastal_erosion_2[2] }}
+                        </li>
+                        <li>
+                          {{ item.sea_level_rise_coastal_erosion_2[3] }}
+                        </li>
+                        <li>
+                          {{ item.sea_level_rise_coastal_erosion_2[4] }}
+                        </li>
+                        <li>
+                          {{ item.sea_level_rise_coastal_erosion_2[5] }}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <br />
+              <div class="ccs-sub-div2" style="margin-bottom: 30px">
+                <table class="ccs-table">
+                  <tr>
+                    <th>
+                      {{ item.sea_level_rise_coastal_erosion_2[6] }}
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          {{ item.sea_level_rise_coastal_erosion_2[7] }}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+  
+          <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab3' }">
+            <div class="ccs-div1">
+              <div class="ccs-sub-div1">
+                <h2 style="font-weight: bold;">{{item.ocean_acidification[0]}}</h2>
+                <br>
+                <p>
+                  {{item.ocean_acidification[1]}}
+                </p>
+              </div>
+  
+              <div class="ccs-sub-div2">
+                <table class="ccs-table" style="margin-bottom: 25px">
+                  <tr>
+                    <th>{{item.ocean_acidification[2]}}</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          {{item.ocean_acidification[3]}}
+                        </li>
+                        <li>
+                          {{item.ocean_acidification[4]}}
+                        </li>
+                        <li>
+                          {{item.ocean_acidification[5]}}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr></tr>
+                </table>
+  
+                <table class="ccs-table" style="margin-bottom: 25px">
+                  <tr>
+                    <th>{{item.ocean_acidification[6]}}</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          {{item.ocean_acidification[7]}}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr></tr>
+                </table>
+  
+                <table class="ccs-table" style="margin-bottom: 30px">
+                  <tr>
+                    <th>{{item.ocean_acidification[8]}}</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          {{item.ocean_acidification[9]}}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          {{item.ocean_acidification[10]}}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+        
+              </div>
+            </div>
+          </div>
+  
+          <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab4' }">
+            <div class="ccs-div1">
+              <div class="ccs-sub-div1">
+                <p>
+                  {{ item.biodiversity_ecosystem_loss[0] }}
+                </p>
+              </div>
+  
+              <div class="ccs-sub-div2">
+                <table class="ccs-table">
+                  <tr>
+                    <th>{{ item.biodiversity_ecosystem_loss[1] }}</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          {{ item.biodiversity_ecosystem_loss[2] }}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          {{ item.biodiversity_ecosystem_loss[3] }}
+                          <ul style="margin-top: 10px">
+                            <li>
+                              {{ item.biodiversity_ecosystem_loss[4] }}
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <br />
+              <div class="ccs-sub-div2" style="margin-bottom: 25px">
+                <table class="ccs-table">
+                  <tr>
+                    <th>{{ item.biodiversity_ecosystem_loss[5] }}</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      {{ item.biodiversity_ecosystem_loss[6] }}
+                    </td>
+                  </tr>
+                </table>
+              </div>
+  
+              <div class="ccs-sub-div2" style="margin-bottom: 30px">
+                <table class="ccs-table">
+                  <tr>
+                    <th>{{ item.biodiversity_ecosystem_loss[7] }}</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul style="margin-top: 10px">
+                        <li>
+                          {{ item.biodiversity_ecosystem_loss[8] }}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+  
+          <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab5' }">
+            <div class="ccs-div1">
+              <div class="ccs-sub-div1">
+                <p>
+                  {{ item.agriculture_food_security[0] }}
+                </p>
+              </div>
+  
+              <div class="ccs-sub-div2">
+                <table class="ccs-table">
+                  <tr>
+                    <th>
+                      {{ item.agriculture_food_security[1] }}
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          {{ item.agriculture_food_security[2] }}
+                        </li>
+                        <li>
+                          {{ item.agriculture_food_security[3] }}
+                        </li>
+                        <li>
+                          {{ item.agriculture_food_security[4] }}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li style="list-style-type: lower-roman">
+                          {{ item.agriculture_food_security[5] }}
+                          <ul>
+                            <li>
+                              {{ item.agriculture_food_security[6] }}
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+  
+                      <ul>
+                        <li style="list-style-type: lower-roman">
+                          {{ item.agriculture_food_security[7] }}
+                          <ul>
+                            <li>
+                              {{ item.agriculture_food_security[8] }}
+                            </li>
+                            <li>
+                              {{ item.agriculture_food_security[9] }}
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                      <ul style="margin-top: 10px">
+                        <li>
+                          {{ item.agriculture_food_security[10] }}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <br />
+              <div class="ccs-sub-div2" style="margin-bottom: 25px">
+                <table class="ccs-table">
+                  <tr>
+                    <td>
+                      {{ item.agriculture_food_security[11] }}
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      {{ item.agriculture_food_security[12] }}
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      {{ item.agriculture_food_security[13] }}
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      {{ item.agriculture_food_security[14] }}
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      {{ item.agriculture_food_security[15] }}
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+  
+          <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab6' }">
+            <div class="ccs-div1">
+              <div class="ccs-sub-div1">
+                <p>
+                  {{ item.health_risk[0] }}
+                </p>
+              </div>
+  
+              <div class="ccs-sub-div2">
+                <table class="ccs-table" style="margin-bottom: 25px">
+                  <tr>
+                    <th>
+                      {{ item.health_risk[1] }}
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          {{ item.health_risk[2] }}
+                        </li>
+                        <li>
+                          {{ item.health_risk[3] }}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr></tr>
+                </table>
+  
+                <table class="ccs-table" style="margin-bottom: 30px">
+                  <tr>
+                    <th>{{ item.health_risk[4] }}</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          {{ item.health_risk[5] }}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+  
+          <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab7' }">
+            <div class="ccs-div1">
+              <div class="ccs-sub-div1">
+                <p>
+                  {{ item.water_scarcity[0] }}
+                </p>
+              </div>
+  
+              <div class="ccs-sub-div2">
+                <table class="ccs-table" style="margin-bottom: 25px">
+                  <tr>
+                    <td>
+                      {{ item.water_scarcity[1] }}
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      {{ item.water_scarcity[2] }}
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      {{ item.water_scarcity[3] }}
+                    </td>
+                  </tr>
+                </table>
+                <table class="ccs-table" style="margin-bottom: 25px">
+                  <tr>
+                    <th>
+                      {{ item.water_scarcity[4] }}
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          {{ item.water_scarcity[5] }}
+                        </li>
+                        <li>
+                          {{ item.water_scarcity[6] }}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr></tr>
+                </table>
+  
+                <table class="ccs-table" style="margin-bottom: 25px">
+                  <tr>
+                    <th>
+                      {{ item.water_scarcity[7] }}
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li>
+                          {{ item.water_scarcity[8] }}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr></tr>
+                </table>
+  
+                <table class="ccs-table" style="margin-bottom: 30px">
+                  <tr>
+                    <td>
+                      {{ item.water_scarcity[9] }}
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      {{ item.water_scarcity[10] }}
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      {{ item.water_scarcity[11] }}
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+  
+  
+          <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab8' }">
+            <br>
+            <a href="{{ item.references[0] }}" target="_blank">{{
+              item.references[0]
+            }}</a>
+  
+            <br />
+            <a href="{{ item.references[1] }}" target="_blank">{{
+              item.references[1]
+            }}</a>
+  
+            <br />
+            <a href="{{ item.references[2] }}" target="_blank">{{
+              item.references[2]
+            }}</a>
+  
+            <br />
+            <a href="{{ item.references[3] }}" target="_blank">{{
+              item.references[3]
+            }}</a>
+  
+            <br />
+            <a href="{{ item.references[4] }}" target="_blank">{{
+              item.references[4]
+            }}</a>
+  
+            <br />
+            <a href="{{ item.references[5] }}" target="_blank">{{
+              item.references[5]
+            }}</a>
+  
+            <br />
+            <a href="{{ item.references[6] }}" target="_blank">{{
+              item.references[6]
+            }}</a>
+            <br />
+            <a href="{{ item.references[7] }}" target="_blank">{{
+              item.references[7]
+            }}</a>
+  
+            <br />
+            <a href="{{ item.references[8] }}" target="_blank"
+              >h{{ item.references[8] }}</a
+            >
+  
+            <br />
+            <a href="{{ item.references[9] }}" target="_blank">{{
+              item.references[9]
+            }}</a>
+            <br />
+            <a href="{{ item.references[10] }}" target="_blank">{{
+              item.references[10]
+            }}</a>
+            <br />
+            <a href="{{ item.references[11] }}" target="_blank">{{
+              item.references[11]
+            }}</a>
+            <br />
+            <a href="{{ item.references[12] }}" target="_blank">{{
+              item.references[12]
+            }}</a>
+            <br />
+            <a href="{{ item.references[13] }}" target="_blank">{{
+              item.references[13]
+            }}</a>
+            <br />
+            <a href="{{ item.references[14] }}" target="_blank">{{
+              item.references[14]
+            }}</a>
+            <br />
+            <a href="{{ item.references[15] }}" target="_blank">{{
+              item.references[15]
+            }}</a>
+  
+            <!--references for ocean acidification-->
+  
+            <br />
+            <a
+              href="https://oceanservice.noaa.gov/facts/acidification.html"
+              target="_blank"
+            ></a>
+  
+            <br />
+            <a
+              href="https://ispweb.pcaarrd.dost.gov.ph/understanding-coastal-acidification-effects-to-corals-and-marine-organisms/"
+              target="_blank"
+            >
+            </a>
+            <br />
+            <a
+              href="https://www.greenpeace.org/philippines/press/1364/climate-change-to-devastate-philippine-seas-greenpeace-proposes-roadmap-to-recovery/"
+              target="_blank"
+            >
+            </a>
+  
+            <br />
+            <a
+              href="https://infogram.com/ocean-acidification-of-philippines-1gyj725q4rk621l"
+              target="_blank"
+            ></a>
+  
+            <br />
+            <a
+              href="https://www.iaea.org/newscenter/news/what-is-ocean-acidification"
+              target="_blank"
+            ></a>
+          </div>
+        </div>
       </div>
-      
-      <!-- Tab Content -->
-      <div class="tab-content">
-        <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab1' }">
-          <div class="ccs-div1">
-            <div class="ccs-sub-div1">
-              <p>
-                {{ item.sea_level_rise_coastal_erosion[0] }}
-              </p>
-            </div>
-
-            <div class="ccs-sub-div2">
-              <table class="ccs-table" style="margin-bottom: 30px">
-                <tr>
-                  <td>
-                    {{ item.sea_level_rise_coastal_erosion[1] }}
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    {{ item.sea_level_rise_coastal_erosion[2] }}
-                  </td>
-                </tr>
-
-                <!-- <tr>
-                  <td>
-                    {{ item.sea_level_rise_coastal_erosion[3] }}
-                  </td>
-                </tr> -->
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab2' }">
-          <div class="ccs-div1">
-            <div class="ccs-sub-div1">
-              <p>
-                {{ item.sea_level_rise_coastal_erosion_2[0] }}
-              </p>
-            </div>
-
-            <div class="ccs-sub-div2">
-              <table class="ccs-table">
-                <tr>
-                  <th>
-                    {{ item.sea_level_rise_coastal_erosion_2[1] }}
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{ item.sea_level_rise_coastal_erosion_2[2] }}
-                      </li>
-                      <li>
-                        {{ item.sea_level_rise_coastal_erosion_2[3] }}
-                      </li>
-                      <li>
-                        {{ item.sea_level_rise_coastal_erosion_2[4] }}
-                      </li>
-                      <li>
-                        {{ item.sea_level_rise_coastal_erosion_2[5] }}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <br />
-            <div class="ccs-sub-div2" style="margin-bottom: 30px">
-              <table class="ccs-table">
-                <tr>
-                  <th>
-                    {{ item.sea_level_rise_coastal_erosion_2[6] }}
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{ item.sea_level_rise_coastal_erosion_2[7] }}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab3' }">
-          <div class="ccs-div1">
-            <div class="ccs-sub-div1">
-              <h2 style="font-weight: bold;">{{item.ocean_acidification[0]}}</h2>
-              <br>
-              <p>
-                {{item.ocean_acidification[1]}}
-              </p>
-            </div>
-
-            <div class="ccs-sub-div2">
-              <table class="ccs-table" style="margin-bottom: 25px">
-                <tr>
-                  <th>{{item.ocean_acidification[2]}}</th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{item.ocean_acidification[3]}}
-                      </li>
-                      <li>
-                        {{item.ocean_acidification[4]}}
-                      </li>
-                      <li>
-                        {{item.ocean_acidification[5]}}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr></tr>
-              </table>
-
-              <table class="ccs-table" style="margin-bottom: 25px">
-                <tr>
-                  <th>{{item.ocean_acidification[6]}}</th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{item.ocean_acidification[7]}}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr></tr>
-              </table>
-
-              <table class="ccs-table" style="margin-bottom: 30px">
-                <tr>
-                  <th>{{item.ocean_acidification[8]}}</th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{item.ocean_acidification[9]}}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{item.ocean_acidification[10]}}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-      
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab4' }">
-          <div class="ccs-div1">
-            <div class="ccs-sub-div1">
-              <p>
-                {{ item.biodiversity_ecosystem_loss[0] }}
-              </p>
-            </div>
-
-            <div class="ccs-sub-div2">
-              <table class="ccs-table">
-                <tr>
-                  <th>{{ item.biodiversity_ecosystem_loss[1] }}</th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{ item.biodiversity_ecosystem_loss[2] }}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{ item.biodiversity_ecosystem_loss[3] }}
-                        <ul style="margin-top: 10px">
-                          <li>
-                            {{ item.biodiversity_ecosystem_loss[4] }}
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <br />
-            <div class="ccs-sub-div2" style="margin-bottom: 25px">
-              <table class="ccs-table">
-                <tr>
-                  <th>{{ item.biodiversity_ecosystem_loss[5] }}</th>
-                </tr>
-                <tr>
-                  <td>
-                    {{ item.biodiversity_ecosystem_loss[6] }}
-                  </td>
-                </tr>
-              </table>
-            </div>
-
-            <div class="ccs-sub-div2" style="margin-bottom: 30px">
-              <table class="ccs-table">
-                <tr>
-                  <th>{{ item.biodiversity_ecosystem_loss[7] }}</th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul style="margin-top: 10px">
-                      <li>
-                        {{ item.biodiversity_ecosystem_loss[8] }}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab5' }">
-          <div class="ccs-div1">
-            <div class="ccs-sub-div1">
-              <p>
-                {{ item.agriculture_food_security[0] }}
-              </p>
-            </div>
-
-            <div class="ccs-sub-div2">
-              <table class="ccs-table">
-                <tr>
-                  <th>
-                    {{ item.agriculture_food_security[1] }}
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{ item.agriculture_food_security[2] }}
-                      </li>
-                      <li>
-                        {{ item.agriculture_food_security[3] }}
-                      </li>
-                      <li>
-                        {{ item.agriculture_food_security[4] }}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li style="list-style-type: lower-roman">
-                        {{ item.agriculture_food_security[5] }}
-                        <ul>
-                          <li>
-                            {{ item.agriculture_food_security[6] }}
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-
-                    <ul>
-                      <li style="list-style-type: lower-roman">
-                        {{ item.agriculture_food_security[7] }}
-                        <ul>
-                          <li>
-                            {{ item.agriculture_food_security[8] }}
-                          </li>
-                          <li>
-                            {{ item.agriculture_food_security[9] }}
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                    <ul style="margin-top: 10px">
-                      <li>
-                        {{ item.agriculture_food_security[10] }}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <br />
-            <div class="ccs-sub-div2" style="margin-bottom: 25px">
-              <table class="ccs-table">
-                <tr>
-                  <td>
-                    {{ item.agriculture_food_security[11] }}
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    {{ item.agriculture_food_security[12] }}
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    {{ item.agriculture_food_security[13] }}
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    {{ item.agriculture_food_security[14] }}
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    {{ item.agriculture_food_security[15] }}
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab6' }">
-          <div class="ccs-div1">
-            <div class="ccs-sub-div1">
-              <p>
-                {{ item.health_risk[0] }}
-              </p>
-            </div>
-
-            <div class="ccs-sub-div2">
-              <table class="ccs-table" style="margin-bottom: 25px">
-                <tr>
-                  <th>
-                    {{ item.health_risk[1] }}
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{ item.health_risk[2] }}
-                      </li>
-                      <li>
-                        {{ item.health_risk[3] }}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr></tr>
-              </table>
-
-              <table class="ccs-table" style="margin-bottom: 30px">
-                <tr>
-                  <th>{{ item.health_risk[4] }}</th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{ item.health_risk[5] }}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr></tr>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab7' }">
-          <div class="ccs-div1">
-            <div class="ccs-sub-div1">
-              <p>
-                {{ item.water_scarcity[0] }}
-              </p>
-            </div>
-
-            <div class="ccs-sub-div2">
-              <table class="ccs-table" style="margin-bottom: 25px">
-                <tr>
-                  <td>
-                    {{ item.water_scarcity[1] }}
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    {{ item.water_scarcity[2] }}
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    {{ item.water_scarcity[3] }}
-                  </td>
-                </tr>
-              </table>
-              <table class="ccs-table" style="margin-bottom: 25px">
-                <tr>
-                  <th>
-                    {{ item.water_scarcity[4] }}
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{ item.water_scarcity[5] }}
-                      </li>
-                      <li>
-                        {{ item.water_scarcity[6] }}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr></tr>
-              </table>
-
-              <table class="ccs-table" style="margin-bottom: 25px">
-                <tr>
-                  <th>
-                    {{ item.water_scarcity[7] }}
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>
-                        {{ item.water_scarcity[8] }}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr></tr>
-              </table>
-
-              <table class="ccs-table" style="margin-bottom: 30px">
-                <tr>
-                  <td>
-                    {{ item.water_scarcity[9] }}
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    {{ item.water_scarcity[10] }}
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    {{ item.water_scarcity[11] }}
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="tab-pane" *ngFor="let item of current_issues_ph" [ngClass]="{ 'active': selectedTab === 'tab8' }">
-          <br>
-          <a href="{{ item.references[0] }}" target="_blank">{{
-            item.references[0]
-          }}</a>
-
-          <br />
-          <a href="{{ item.references[1] }}" target="_blank">{{
-            item.references[1]
-          }}</a>
-
-          <br />
-          <a href="{{ item.references[2] }}" target="_blank">{{
-            item.references[2]
-          }}</a>
-
-          <br />
-          <a href="{{ item.references[3] }}" target="_blank">{{
-            item.references[3]
-          }}</a>
-
-          <br />
-          <a href="{{ item.references[4] }}" target="_blank">{{
-            item.references[4]
-          }}</a>
-
-          <br />
-          <a href="{{ item.references[5] }}" target="_blank">{{
-            item.references[5]
-          }}</a>
-
-          <br />
-          <a href="{{ item.references[6] }}" target="_blank">{{
-            item.references[6]
-          }}</a>
-          <br />
-          <a href="{{ item.references[7] }}" target="_blank">{{
-            item.references[7]
-          }}</a>
-
-          <br />
-          <a href="{{ item.references[8] }}" target="_blank"
-            >h{{ item.references[8] }}</a
-          >
-
-          <br />
-          <a href="{{ item.references[9] }}" target="_blank">{{
-            item.references[9]
-          }}</a>
-          <br />
-          <a href="{{ item.references[10] }}" target="_blank">{{
-            item.references[10]
-          }}</a>
-          <br />
-          <a href="{{ item.references[11] }}" target="_blank">{{
-            item.references[11]
-          }}</a>
-          <br />
-          <a href="{{ item.references[12] }}" target="_blank">{{
-            item.references[12]
-          }}</a>
-          <br />
-          <a href="{{ item.references[13] }}" target="_blank">{{
-            item.references[13]
-          }}</a>
-          <br />
-          <a href="{{ item.references[14] }}" target="_blank">{{
-            item.references[14]
-          }}</a>
-          <br />
-          <a href="{{ item.references[15] }}" target="_blank">{{
-            item.references[15]
-          }}</a>
-
-          <!--references for ocean acidification-->
-
-          <br />
-          <a
-            href="https://oceanservice.noaa.gov/facts/acidification.html"
-            target="_blank"
-          ></a>
-
-          <br />
-          <a
-            href="https://ispweb.pcaarrd.dost.gov.ph/understanding-coastal-acidification-effects-to-corals-and-marine-organisms/"
-            target="_blank"
-          >
-          </a>
-          <br />
-          <a
-            href="https://www.greenpeace.org/philippines/press/1364/climate-change-to-devastate-philippine-seas-greenpeace-proposes-roadmap-to-recovery/"
-            target="_blank"
-          >
-          </a>
-
-          <br />
-          <a
-            href="https://infogram.com/ocean-acidification-of-philippines-1gyj725q4rk621l"
-            target="_blank"
-          ></a>
-
-          <br />
-          <a
-            href="https://www.iaea.org/newscenter/news/what-is-ocean-acidification"
-            target="_blank"
-          ></a>
-        </div>
-      </div>
-    </div>
-  </section>
-</body>
-<footer>
-  <app-footer></app-footer>
-</footer>
+    </section>
+  </body>
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</html>

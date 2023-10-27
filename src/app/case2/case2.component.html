@@ -1,230 +1,240 @@
-<main>
-        <div class="content" *ngFor="let item of outdated_engine">
-          <div class="textbox">
-            <h2>{{ item.header }}</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Explore real-world solutions to climate change through cases. 
+  Dive into inspiring examples of environmental action, innovation, and impact. Discover how we're making a difference.">
+  <title>Case 2</title>
+</head>
+<body>
+  <main>
+    <div class="content" *ngFor="let item of outdated_engine">
+      <div class="textbox">
+        <h2>{{ item.header }}</h2>
+        <p>
+          {{ item.header_description }}
+        </p>
+      </div>
+      <img
+        src="/assets/casesimages/cases1.png"
+        alt="sad earth"
+      />
+    </div>
+  
+    <div *ngFor="let item of outdated_engine">
+      <h1
+      class="item-title"
+      >
+        {{ item.title }}
+      </h1>
+    </div>
+  
+    <div
+      class="card-container"
+      data-aos="zoom-in"
+      *ngFor="let item of outdated_engine"
+    >
+      <div class="card" style="border-color: #9ac5d7; align-items: center">
+        <div class="card-content">
+          <h2>
+            <a
+              class="learn-more-button"
+              href="{{ item.cases.case1[1] }}"
+              style="text-decoration: none; color: #9ac5d7"
+              ><i class="bx bxs-book-content" style="font-size: 40px"></i>
+              {{ item.cases.case1[0] }}</a
+            >
+          </h2>
+        </div>
+      </div>
+  
+      <div class="card" style="border-color: #a6782a; align-items: center">
+        <div class="card-content">
+          <h2>
+            <a
+              class="learn-more-button"
+              href="{{ item.cases.case2[1] }}"
+              style="text-decoration: none; color: #a6782a"
+              ><i class="bx bx-target-lock" style="font-size: 45px"></i>
+              {{ item.cases.case2[0] }}</a
+            >
+          </h2>
+        </div>
+      </div>
+  
+      <div class="card" style="border-color: #a2c3f9; align-items: center">
+        <div class="card-content">
+          <h2>
+            <a
+              class="learn-more-button"
+              href="{{ item.cases.case3[1] }}"
+              style="text-decoration: none; color: #a2c3f9"
+              ><i class="bx bxs-info-circle" style="font-size: 45px"></i>
+              {{ item.cases.case3[0] }}</a
+            >
+          </h2>
+        </div>
+      </div>
+  
+      <div class="card" style="border-color: #501118; align-items: center">
+        <div class="card-content">
+          <h2>
+            <a
+              class="learn-more-button"
+              href="{{ item.cases.case4[1] }}"
+              style="text-decoration: none; color: #501118"
+              ><i class="bx bxs-notepad" style="font-size: 45px"></i>
+              {{ item.cases.case4[0] }}</a
+            >
+          </h2>
+        </div>
+      </div>
+    </div>
+    <hr style="width: 100%" />
+  
+    <div class="text" *ngFor="let item of outdated_engine">
+      <h1 style="padding-top: 50px; color: #a6782a">
+        {{ item.cases.case2[0] }}
+      </h1>
+  
+      <h2 style="color: #a6782a; font-weight: bold;
+      text-align: center;">SDG Goal 13</h2>
+      <div class="container" *ngFor="let item of outdated_engine">
+        <div class="single-column"></div>
+        <div class="two-column">
+          <div class="left-column">
+            <h1>{{item.indicator_1[0]}}</h1>
+          </div>
+  
+          <div class="column-space"></div>
+  
+          <div class="right-column">
             <p>
-              {{ item.header_description }}
+              {{item.indicator_1[1]}}
             </p>
-          </div>
-          <img
-            src="/assets/casesimages/cases1.png"
-            alt="sad earth"
-          />
-        </div>
-      
-        <div *ngFor="let item of outdated_engine">
-          <h1
-          class="item-title"
-          >
-            {{ item.title }}
-          </h1>
-        </div>
-      
-        <div
-          class="card-container"
-          data-aos="zoom-in"
-          *ngFor="let item of outdated_engine"
-        >
-          <div class="card" style="border-color: #9ac5d7; align-items: center">
-            <div class="card-content">
-              <h2>
-                <a
-                  class="learn-more-button"
-                  href="{{ item.cases.case1[1] }}"
-                  style="text-decoration: none; color: #9ac5d7"
-                  ><i class="bx bxs-book-content" style="font-size: 40px"></i>
-                  {{ item.cases.case1[0] }}</a
-                >
-              </h2>
-            </div>
-          </div>
-      
-          <div class="card" style="border-color: #a6782a; align-items: center">
-            <div class="card-content">
-              <h2>
-                <a
-                  class="learn-more-button"
-                  href="{{ item.cases.case2[1] }}"
-                  style="text-decoration: none; color: #a6782a"
-                  ><i class="bx bx-target-lock" style="font-size: 45px"></i>
-                  {{ item.cases.case2[0] }}</a
-                >
-              </h2>
-            </div>
-          </div>
-      
-          <div class="card" style="border-color: #a2c3f9; align-items: center">
-            <div class="card-content">
-              <h2>
-                <a
-                  class="learn-more-button"
-                  href="{{ item.cases.case3[1] }}"
-                  style="text-decoration: none; color: #a2c3f9"
-                  ><i class="bx bxs-info-circle" style="font-size: 45px"></i>
-                  {{ item.cases.case3[0] }}</a
-                >
-              </h2>
-            </div>
-          </div>
-      
-          <div class="card" style="border-color: #501118; align-items: center">
-            <div class="card-content">
-              <h2>
-                <a
-                  class="learn-more-button"
-                  href="{{ item.cases.case4[1] }}"
-                  style="text-decoration: none; color: #501118"
-                  ><i class="bx bxs-notepad" style="font-size: 45px"></i>
-                  {{ item.cases.case4[0] }}</a
-                >
-              </h2>
-            </div>
+            <br />
+            <h2>{{item.indicator_1[2]}}</h2>
+            <ul>
+              <li>
+                {{item.indicator_1[3]}}
+              </li>
+              <li>
+                {{item.indicator_1[4]}}
+              </li>
+              <li>
+                {{item.indicator_1[5]}}
+              </li>
+            </ul>
           </div>
         </div>
-        <hr style="width: 100%" />
-      
-        <div class="text" *ngFor="let item of outdated_engine">
-          <h1 style="padding-top: 50px; color: #a6782a">
-            {{ item.cases.case2[0] }}
-          </h1>
-      
-          <h2 style="color: #a6782a; font-weight: bold;
-          text-align: center;">SDG Goal 13</h2>
-          <div class="container" *ngFor="let item of outdated_engine">
-            <div class="single-column"></div>
-            <div class="two-column">
-              <div class="left-column">
-                <h1>{{item.indicator_1[0]}}</h1>
-              </div>
-      
-              <div class="column-space"></div>
-      
-              <div class="right-column">
-                <p>
-                  {{item.indicator_1[1]}}
-                </p>
-                <br />
-                <h2>{{item.indicator_1[2]}}</h2>
-                <ul>
-                  <li>
-                    {{item.indicator_1[3]}}
-                  </li>
-                  <li>
-                    {{item.indicator_1[4]}}
-                  </li>
-                  <li>
-                    {{item.indicator_1[5]}}
-                  </li>
-                </ul>
-              </div>
-            </div>
-      
-            <div class="single-column"></div>
-            <div class="two-column">
-              <div class="left-column">
-                <h1>{{item.indicator_2[0]}}</h1>
-              </div>
-      
-              <div class="column-space"></div>
-      
-              <div class="right-column">
-                <p>
-                  {{item.indicator_2[1]}}
-                </p>
-                <br>
-                <h2>{{item.indicator_2[2]}}</h2>
-                <ul>
-                  <li>
-                    {{item.indicator_2[3]}}
-                  </li>
-                  <li>{{item.indicator_2[4]}}</li>
-                </ul>
-              </div>
-            </div>
-      
-            <div class="single-column">
-            </div>
-            <div class="two-column">
-              <div class="left-column">
-                <h1>{{item.indicator_3[0]}}</h1>
-              </div>
-      
-              <div class="column-space"></div>
-      
-              <div class="right-column">
-                <p>
-                  {{item.indicator_3[1]}}
-                </p>
-                <br>
-                <h2>{{item.indicator_3[2]}}</h2>
-                <ul>
-                  <li>
-                    {{item.indicator_3[3]}}
-                  </li>
-                </ul>
-              </div>
-            </div>
-      
-            <div class="single-column">
-            </div>
-            <div class="two-column">
-              <div class="left-column">
-                <h1>{{item.indicator_4[0]}}</h1>
-              </div>
-      
-              <div class="column-space"></div>
-      
-              <div class="right-column">
-                <p>
-                  {{item.indicator_4[1]}}
-                </p>
-                <br>
-                <h2>{{item.indicator_4[2]}}</h2>
-                <ul>
-                  <li>
-                    {{item.indicator_4[3]}}
-                  </li>
-                </ul>
-              </div>
-            </div>
-      
-            <div class="single-column">
-            </div>
-            <div class="two-column">
-              <div class="left-column">
-                <h1>{{item.indicator_5[0]}}</h1>
-              </div>
-      
-              <div class="column-space"></div>
-      
-              <div class="right-column">
-                <p>
-                  {{item.indicator_5[1]}}
-                </p>
-                <br>
-                <h2>{{item.indicator_5[2]}}</h2>
-                <ul>
-                  <li>
-                    {{item.indicator_5[3]}}
-                  </li>
-                </ul>
-              </div>
-            </div>
+  
+        <div class="single-column"></div>
+        <div class="two-column">
+          <div class="left-column">
+            <h1>{{item.indicator_2[0]}}</h1>
+          </div>
+  
+          <div class="column-space"></div>
+  
+          <div class="right-column">
+            <p>
+              {{item.indicator_2[1]}}
+            </p>
+            <br>
+            <h2>{{item.indicator_2[2]}}</h2>
+            <ul>
+              <li>
+                {{item.indicator_2[3]}}
+              </li>
+              <li>{{item.indicator_2[4]}}</li>
+            </ul>
           </div>
         </div>
-        <section>
-          <div class="reference-container" *ngFor="let item of outdated_engine">
-            <accordion [isAnimated]="true">
-              <accordion-group heading="References">
-                <a href="{{ item.references[0] }}" target="_blank"
-                  >{{ item.references[0] }}
-                </a>
-              </accordion-group>
-            </accordion>
+  
+        <div class="single-column">
+        </div>
+        <div class="two-column">
+          <div class="left-column">
+            <h1>{{item.indicator_3[0]}}</h1>
           </div>
-        </section>
-      </main>
-      <footer>
-        <app-footer></app-footer>
-      </footer>
-      
+  
+          <div class="column-space"></div>
+  
+          <div class="right-column">
+            <p>
+              {{item.indicator_3[1]}}
+            </p>
+            <br>
+            <h2>{{item.indicator_3[2]}}</h2>
+            <ul>
+              <li>
+                {{item.indicator_3[3]}}
+              </li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="single-column">
+        </div>
+        <div class="two-column">
+          <div class="left-column">
+            <h1>{{item.indicator_4[0]}}</h1>
+          </div>
+  
+          <div class="column-space"></div>
+  
+          <div class="right-column">
+            <p>
+              {{item.indicator_4[1]}}
+            </p>
+            <br>
+            <h2>{{item.indicator_4[2]}}</h2>
+            <ul>
+              <li>
+                {{item.indicator_4[3]}}
+              </li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="single-column">
+        </div>
+        <div class="two-column">
+          <div class="left-column">
+            <h1>{{item.indicator_5[0]}}</h1>
+          </div>
+  
+          <div class="column-space"></div>
+  
+          <div class="right-column">
+            <p>
+              {{item.indicator_5[1]}}
+            </p>
+            <br>
+            <h2>{{item.indicator_5[2]}}</h2>
+            <ul>
+              <li>
+                {{item.indicator_5[3]}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section>
+      <div class="reference-container" *ngFor="let item of outdated_engine">
+        <accordion [isAnimated]="true">
+          <accordion-group heading="References">
+            <a href="{{ item.references[0] }}" target="_blank"
+              >{{ item.references[0] }}
+            </a>
+          </accordion-group>
+        </accordion>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</body>
+</html>

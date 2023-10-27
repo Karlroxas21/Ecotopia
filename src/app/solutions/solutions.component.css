@@ -4,7 +4,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Henry Sans', sans-serif;;
+    font-family: 'Henry Sans', sans-serif;
+    font-display: swap;
 }
 .text{
   margin-bottom: 50px;
