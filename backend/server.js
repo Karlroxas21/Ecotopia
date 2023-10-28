@@ -1,6 +1,8 @@
 require('dotenv').config();
 
 const express = require('express');
+const compression = require('compression');
+const zlib = require('zlib');
 const cors = require('cors');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -14,6 +16,43 @@ const helmet = require('helmet');
 
 // Remove the "X-Powered-By" header
 app.disable('x-powered-by');
+
+// Use compression middleware to enable text compression
+app.use(compression());
+
+// Compress responses manually using zlib
+app.use((req, res, next) => {
+  const acceptEncoding = req.headers['accept-encoding'];
+  
+  if (!acceptEncoding || !acceptEncoding.match(/\b(gzip|deflate)\b/)) {
+    return next(); // Don't compress if the client doesn't support it
+  }
+  
+  // Set appropriate response headers
+  res.setHeader('Content-Encoding', acceptEncoding);
+
+  // Determine the content type based on the request URL
+  let contentType = 'text/html'; // Default content type
+
+  if (req.url.endsWith('.js')) {
+    contentType = 'application/javascript';
+  } else if (req.url.endsWith('.css')) {
+    contentType = 'text/css';
+  }
+
+  res.setHeader('Content-Type', contentType);
+
+  // Compress the response
+  const stream = acceptEncoding.includes('gzip') ? zlib.createGzip() : zlib.createDeflate();
+  
+  res.removeHeader('Content-Length'); // Remove Content-Length header
+
+  // Pipe the response through the compression stream
+  res.writeHead(200, { 'Content-Type': contentType }); // Set the content type
+  res.pipe(stream).pipe(res);
+});
+
+
 
 app.use((req, res, next) => {
   res.setHeader('Referrer-Policy', 'same-origin');
