@@ -103,7 +103,7 @@ export class AdminNewsComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle("Admin: News")
     this.adminNewsService.getData().subscribe((news) => {
-      this.news = news;
+      this.news = news.reverse();
     });
   }
 

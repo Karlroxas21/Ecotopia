@@ -20,7 +20,7 @@ export class NewsFeaturesComponent implements OnInit {
 
     this.http.get<any[]>(`${environment.apiUrl}news_features`)
     .subscribe(news =>{
-      this.news = news;
+      this.news = news.reverse();
     });
   }
 
