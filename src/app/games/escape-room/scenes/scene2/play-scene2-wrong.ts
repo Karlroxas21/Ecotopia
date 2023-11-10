@@ -20,7 +20,7 @@ export class PlayScene2Wrong extends Phaser.Scene {
         xButtonSFX: any;
         failedSFX: any;
 
-        textDisplay = "Wrong!\nNeglecting the correct waste when cleaning a river can reduce\neffectiveness and harm the environment, as certain materials\nmay require special handling or recycling.";
+        textDisplay = "Wrong! Neglecting the correct waste when cleaning a river can\nreduce effectiveness and harm the environment, as certain\nmaterials may require special handling or recycling.";
 
         currentHeartPoints = heartPointsService.getHeartPoints();
 
@@ -78,12 +78,11 @@ export class PlayScene2Wrong extends Phaser.Scene {
                 })
 
                 const guide = this.add.text(
-                        centerX,
-                        centerY,
+                        100,
+                        centerY - 25,
                         this.textDisplay,
-                        { font: '18px monospace', color: '#ffffff', align: 'center' }
+                        { font: '18px monospace', color: '#ffffff', align: 'left' }
                 );
-                guide.setOrigin(0.5);
                 // End of text
 
         }

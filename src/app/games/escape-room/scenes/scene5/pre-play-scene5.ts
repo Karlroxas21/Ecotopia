@@ -38,12 +38,11 @@ export class PrePlayScene5 extends Phaser.Scene {
     );
 
     const guide = this.add.text(
-      centerX + 10,
-      300 + 10,
+      100,
+      300 - 30,
       '',
-      { font: '18px monospace', color: '#ffffff' }
+      { font: '18px monospace', color: '#ffffff', align: 'left' }
     );
-    guide.setOrigin(0.5);
     // End of Question
 
     let index = 0;

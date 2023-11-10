@@ -20,7 +20,7 @@ export class PlayScene4Wrong extends Phaser.Scene {
         xButtonSFX: any;
         failedSFX: any;
 
-        textDisplay = "Wrong!\nUninformed decisions in harbor enhancement can result in poor\nchoices, neglecting eco-friendly solutions.";
+        textDisplay = "Wrong! Uninformed decisions in harbor enhancement can result\nin poor choices, neglecting eco-friendly solutions.";
 
         scoreDisplay: any;
         create() {
@@ -79,12 +79,11 @@ export class PlayScene4Wrong extends Phaser.Scene {
                 })
 
                 const guide = this.add.text(
-                        centerX,
-                        centerY,
+                        100,
+                        centerY - 25,
                         this.textDisplay,
-                        { font: '18px monospace', color: '#ffffff', align: 'center' }
+                        { font: '18px monospace', color: '#ffffff', align: 'left' }
                 );
-                guide.setOrigin(0.5);
                 // End of text  
 
 

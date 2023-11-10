@@ -48,7 +48,7 @@ export class PlaySceneCorrect extends Phaser.Scene {
 
         scoreDisplay: any;
 
-        textDisplay = "Correct! \n Cleaning up beaches is important because they're a common and\nharmful source of marine debris that can seriously harm the\nenvironment and wildlife.";
+        textDisplay = "Correct! Cleaning up beaches is important because they're a\ncommon and harmful source of marine debris that can seriously\nharm the environment and wildlife.";
 
         create() {
                 this.background = this.add.image(0, 0, 'level-1-bg');
@@ -121,12 +121,11 @@ export class PlaySceneCorrect extends Phaser.Scene {
                 })
 
                 const guide = this.add.text(
-                        centerX,
-                        centerY,
+                        100,
+                        centerY - 25,
                         this.textDisplay,
-                        { font: '18px monospace', color: '#ffffff', align: 'center' }
+                        { font: '18px monospace', color: '#ffffff', align: 'left' }
                 );
-                guide.setOrigin(0.5);
                 // End of Question
 
                 this.clutters();

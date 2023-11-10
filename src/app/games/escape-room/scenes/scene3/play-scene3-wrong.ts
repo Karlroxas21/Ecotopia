@@ -20,7 +20,7 @@ export class PlayScene3Wrong extends Phaser.Scene {
         xButtonSFX: any;
         failedSFX: any;
 
-        textDisplay = "Wrong!\nFailing to address the correct pond waste won't restore\nits beauty. Overlooking pollutants or invasives can hinder\necosystem restoration and its overall appeal.";
+        textDisplay = "Wrong! Failing to address the correct pond waste won't restore\nits beauty. Overlooking pollutants or invasives can hinder\necosystem restoration and its overall appeal.";
 
         scoreDisplay: any;
 
@@ -78,12 +78,11 @@ export class PlayScene3Wrong extends Phaser.Scene {
                 })
 
                 const guide = this.add.text(
-                        centerX,
-                        centerY,
+                        100,
+                        centerY - 20,
                         this.textDisplay,
-                        { font: '18px monospace', color: '#ffffff', align: 'center' }
+                        { font: '18px monospace', color: '#ffffff', align: 'left' }
                 );
-                guide.setOrigin(0.5);
                 // End of text  
 
 

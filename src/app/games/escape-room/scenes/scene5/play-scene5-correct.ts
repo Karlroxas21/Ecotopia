@@ -20,7 +20,7 @@ export class PlayScene5Correct extends Phaser.Scene {
         levelPassed: any;
         xButtonSFX: any;
 
-        textDisplay = "Correct!\nProper lake ecosystem management improves water quality,\nbiodiversity, and ecological balance, benefiting both\nthe environment and communities.";
+        textDisplay = "Correct! Proper lake ecosystem management improves water\nquality, biodiversity, and ecological balance, benefiting both\nthe environment and communities.";
 
         currentHeartPoints = heartPointsService.getHeartPoints();
 
@@ -77,12 +77,11 @@ export class PlayScene5Correct extends Phaser.Scene {
                 })
 
                 const guide = this.add.text(
-                        centerX,
-                        centerY,
+                        100,
+                        centerY - 25,
                         this.textDisplay,
-                        { font: '18px monospace', color: '#ffffff', align: 'center' }
+                        { font: '18px monospace', color: '#ffffff', align: 'left' }
                 );
-                guide.setOrigin(0.5);
                 // End of text
 
         }

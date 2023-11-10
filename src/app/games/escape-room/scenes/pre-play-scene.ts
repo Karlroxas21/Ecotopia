@@ -33,7 +33,7 @@ export class PrePlayScene extends Phaser.Scene {
   guide: any;
   timer: any;
 
-  private textDisplay = 'Welcome to Climate Escape! Your mission is to help restore \nnature to its former glory!\n\nAll you need to do is to click the text of the right answers \nto complete the game. Pick 3 wrong answers and it\'\ll be game over. \n\nGood luck!';
+  private textDisplay = 'Welcome to Climate Escape! Your mission is to help restore \nnature to its former glory!\n\nAll you need to do is to click the text of the right answers \nto complete the game. Pick 3 wrong answers and it\'\ll be game\nover. Good luck!';
 
   private textDisplay2 = `You are standing on a pristine beach. As you survey \nthe landscape,you notice the entire beach is covered\nin litter, a clear contrast to the natural\nbeauty that surrounds them.`
   
@@ -58,13 +58,11 @@ export class PrePlayScene extends Phaser.Scene {
     // );
 
     const guide = this.add.text(
-      centerX,
-      centerY - 30,
+      90,
+      centerY - 100,
       '',
-      { font: '20px monospace', color: '#ffffff' }
+      { font: '20px monospace', align: 'left', color: '#ffffff' }
     );
-    guide.setOrigin(0.5);
-
     let index = 0;
     const textToType = this.textDisplay;
 

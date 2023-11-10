@@ -24,7 +24,7 @@ export class GameOver extends Phaser.Scene {
   bgMusic: any;
   gameOverSFX: any;
 
-  textDisplay = "Game Over!\nYou've run out of chances to make a difference in the fight\nagainst water pollution in the context of climate change.\nYour quiz adventure ends here.";
+  textDisplay = "Game Over! You've run out of chances to make a difference in\nthe fight against water pollution in the context of climate\nchange. Your quiz adventure ends here.";
 
   create() {
     this.background = this.add.image(0, 0, 'game-over'); // Change this
@@ -61,12 +61,11 @@ export class GameOver extends Phaser.Scene {
       heartPointsService.resetHeartPoints();
     });
 
-    const guide = this.add.text(centerX, centerY, this.textDisplay, {
+    const guide = this.add.text(100, centerY - 30, this.textDisplay, {
       font: '18px monospace',
       color: '#ffffff',
-      align: 'center',
+      align: 'left',
     });
-    guide.setOrigin(0.5);
     // End of text
   }
 

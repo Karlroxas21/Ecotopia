@@ -20,7 +20,7 @@ export class PlayScene5Wrong extends Phaser.Scene {
         xButtonSFX: any;
         failedSFX: any;
 
-        textDisplay = "Wrong!\nIncorrect lake ecosystem management decisions can worsen its\nhealth and neglect specific ecological challenges,\nhindering improvement.";
+        textDisplay = "Wrong! Incorrect lake ecosystem management decisions can\nworsen its health and neglect specific ecological challenges,\nhindering improvement.";
 
         scoreDisplay: any;
         
@@ -80,12 +80,11 @@ export class PlayScene5Wrong extends Phaser.Scene {
                 })
 
                 const guide = this.add.text(
-                        centerX,
-                        centerY,
+                        100,
+                        centerY - 25,
                         this.textDisplay,
-                        { font: '18px monospace', color: '#ffffff', align: 'center' }
+                        { font: '18px monospace', color: '#ffffff', align: 'left' }
                 );
-                guide.setOrigin(0.5);
                 // End of text  
 
 

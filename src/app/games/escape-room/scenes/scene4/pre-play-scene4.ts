@@ -17,7 +17,7 @@ export class PrePlayScene4 extends Phaser.Scene {
 
   character: any;
 
-  scriptDisplay = "Your almost done with your mission!\n\nBeneath the clear blue sky, you're captivated by a bustling \nharbor from a scenic overlook. Ships come and go, their\nhorns echoing across the water, yet a subtle layer of pollution\nmars the otherwise breathtaking view.";
+  scriptDisplay = "Your almost done with your mission!\n\nBeneath the clear blue sky, you're captivated by a bustling \nharbor from a scenic overlook. Ships come and go, their\nhorns echoing across the water, yet a subtle layer of\npollution mars the otherwise breathtaking view.";
 
   create() {
     this.background = this.add.image(0, 0, 'scene4-bg');
@@ -38,12 +38,11 @@ export class PrePlayScene4 extends Phaser.Scene {
     );
 
     const guide = this.add.text(
-      centerX + 30,
-      300 + 10,
+      100,
+      260,
       '',
-      { font: '18px monospace', color: '#ffffff' }
+      { font: '18px monospace', color: '#ffffff', align: 'left' }
     );
-    guide.setOrigin(0.5);
     // End of Question
 
     let index = 0;

@@ -64,7 +64,7 @@ export class Milestone extends Phaser.Scene {
                         centerX,
                         centerY - 20,
                         this.textDisplay,
-                        { font: '21px monospace', color: '#ffffff', align: 'center' }
+                        { font: '21px monospace', color: '#ffffff', align: 'left' }
                 );
                 guide.setOrigin(0.5);
                 // End of text

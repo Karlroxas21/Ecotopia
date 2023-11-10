@@ -20,7 +20,7 @@ export class PlayScene2Correct extends Phaser.Scene {
         levelPassed: any;
         xButtonSFX: any;
 
-        textDisplay = "Correct!\nPrioritizing the right waste in river ecosystems is crucial to\nprevent pollution, maintain nature's balance, and safeguard\nwater quality, aquatic life, and the environment's health.";
+        textDisplay = "Correct! Prioritizing waste in rivers is vital for pollution\nprevention, ecological balance, and protecting water quality,\naquatic life, and environmental health.";
 
         choice1 = "Oil drums and plastic bags";
         choice2 = "Leaves and branches";
@@ -81,12 +81,11 @@ export class PlayScene2Correct extends Phaser.Scene {
                 })
 
                 const guide = this.add.text(
-                        centerX,
-                        centerY,
+                        100,
+                        centerY - 25,
                         this.textDisplay,
-                        { font: '18px monospace', color: '#ffffff', align: 'center' }
+                        { font: '18px monospace', color: '#ffffff', align: 'left' }
                 );
-                guide.setOrigin(0.5);
                 // End of text
 
         }

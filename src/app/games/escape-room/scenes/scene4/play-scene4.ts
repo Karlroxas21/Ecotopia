@@ -86,12 +86,11 @@ export class PlayScene4 extends Phaser.Scene {
         );
 
         const guide = this.add.text(
-          centerX,
-          centerY,
+          100,
+          centerY - 20,
           this.textDisplay,
-          { font: '18px monospace', color: '#ffffff' }
+          { font: '18px monospace', align: 'left', color: '#ffffff' }
         );
-        guide.setOrigin(0.5);
         // End of Question
 
         // Choice 1

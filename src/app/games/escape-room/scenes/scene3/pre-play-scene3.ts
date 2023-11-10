@@ -16,7 +16,7 @@ export class PrePlayScene3 extends Phaser.Scene {
   choiceButton: any;
 
   character: any;
-  scriptDisplay = "The park is shrouded in a thick layer of pollution, \nand even the once-clearpond is now a murky mess.\nYou look around in dismay.";
+  scriptDisplay = "The park is shrouded in a thick layer of pollution, and even\nthe once-clearpond is now a murky mess. You look around in\ndismay.";
 
   create() {
     this.background = this.add.image(0, 0, 'scene3-bg');
@@ -37,12 +37,11 @@ export class PrePlayScene3 extends Phaser.Scene {
     );
 
     const guide = this.add.text(
-      centerX + 30,
-      300 + 10,
+      100,
+      300,
       '',
-      { font: '18px monospace', color: '#ffffff' }
+      { font: '18px monospace', color: '#ffffff', align: 'left' }
     );
-    guide.setOrigin(0.5);
     // End of Question
 
     let index = 0;

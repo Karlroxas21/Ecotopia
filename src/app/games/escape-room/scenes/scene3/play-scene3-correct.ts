@@ -20,7 +20,7 @@ export class PlayScene3Correct extends Phaser.Scene {
         levelPassed: any;
         xButtonSFX: any;
 
-        textDisplay = "Correct!\nGathering such trash in parks restores beauty, enhances\nwell-being, backs biodiversity, and offers an eco-friendly\nspace for relaxation and recreation.";
+        textDisplay = "Correct! Gathering such trash in parks restores beauty,\nenhances well-being, backs biodiversity, and offers an\neco-friendly space for relaxation and recreation.";
 
         choice1 = "Oil drums and plastic bags";
         choice2 = "Leaves and branches";
@@ -80,12 +80,11 @@ export class PlayScene3Correct extends Phaser.Scene {
                 })
 
                 const guide = this.add.text(
-                        centerX,
-                        centerY,
+                        100,
+                        centerY - 25,
                         this.textDisplay,
-                        { font: '18px monospace', color: '#ffffff', align: 'center' }
+                        { font: '18px monospace', color: '#ffffff', align: 'left' }
                 );
-                guide.setOrigin(0.5);
                 // End of text
 
         }

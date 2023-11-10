@@ -61,7 +61,7 @@ export class PlaySceneWrong extends Phaser.Scene {
         failedSFX: any;
         xButtonSFX: any;
 
-        textDisplay = "Wrong!\nWe should focus more on hazardous materials and litters on\ncleaning up on the beach because they are the one who\nimmediately harm the environment or safety of the beach.";
+        textDisplay = "Wrong! We should focus more on hazardous materials and litters\non cleaning up on the beach because they are the one who\nimmediately harm the environment or safety of the beach.";
 
         choice1 = "Plastic bottles and cigarette butts";
         choice2 = "Seashells and pebbles";
@@ -140,12 +140,11 @@ export class PlaySceneWrong extends Phaser.Scene {
                       })
 
                 const guide = this.add.text(
-                        centerX,
-                        centerY,
+                        100,
+                        centerY - 25,
                         this.textDisplay,
-                        { font: '18px monospace', color: '#ffffff', align: 'center' }
+                        { font: '18px monospace', color: '#ffffff', align: 'left' }
                 );
-                guide.setOrigin(0.5);
                 // End of Question
                 
                 this.garbages();

@@ -20,7 +20,7 @@ export class PlayScene4Correct extends Phaser.Scene {
         levelPassed:any;
         xButtonSFX: any;
 
-        textDisplay = "Correct!\nThis enhances harbors through better waste management, reducing\nmarine pollution risks, and preserving coastal ecosystems.";
+        textDisplay = "Correct! This enhances harbors through better waste management,\nreducing marine pollution risks, and preserving coastal\necosystems.";
 
         choice1 = "Oil drums and plastic bags";
         choice2 = "Leaves and branches";
@@ -78,12 +78,11 @@ export class PlayScene4Correct extends Phaser.Scene {
                 })
 
                 const guide = this.add.text(
-                        centerX,
-                        centerY,
+                        100,
+                        centerY - 20,
                         this.textDisplay,
-                        { font: '18px monospace', color: '#ffffff', align: 'center' }
+                        { font: '18px monospace', color: '#ffffff', align: 'left' }
                 );
-                guide.setOrigin(0.5);
                 // End of text
 
         }
