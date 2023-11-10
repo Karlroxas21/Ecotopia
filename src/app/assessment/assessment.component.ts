@@ -62,9 +62,11 @@ export class AssessmentComponent implements OnInit {
 
         this.correctAnswersTriviaGame = incoming_data.map(item => item.trivia_game.map((quiz: { correct_answer: any; }) => quiz.correct_answer));
         this.correctAnswersPopQuiz = incoming_data.map(item => item.pop_quiz.map((quiz: { correct_answer: any; }) => quiz.correct_answer));
+
       });
 
     this.titleService.setTitle(this.title);
+
   }
 
 checkAnswerTriviaGame() {
