@@ -6,13 +6,31 @@
     background-position: center;
     background-repeat: no-repeat;
 } */
+.container{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-family: 'Henry Sans', sans-serif;
+    border-radius: 5px;
+}
+
+.details{
+    background-color: #EDEDED;
+    border-radius: 5px;
+    margin-bottom: 1%;
+    padding: 20px;
+}
 
 #gameContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1%;
-    margin-bottom: 1%;
     position: relative;
     width: 100%;
+    background-image: url('../../../assets/background/climate-escape-background-blur.jpg');
+    min-height: 600px;
+    object-fit: fill;
+    border-radius: 5px;
 }
+
