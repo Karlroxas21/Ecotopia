@@ -48,10 +48,10 @@ export class AdminPanelComponent {
   constructor(private router: Router){}
   
   navItems: NavItem[] = [
-    { text: 'News', icon: 'bx bxs-file', route: '/admin-news' },
+    { text: 'News', icon: 'bx bxs-news', route: '/admin-news' },
     { text: 'Current Issues', icon: 'bx bxs-file', route: '/admin-current-issues-ph' },
     { text: 'Assessment', icon: 'bx bxs-edit', route: '/admin-assessment' },
-    { text: 'Climate Action SDG 13', icon: 'bx-file',
+    { text: 'Climate Action SDG 13', icon: 'bx-bullseye',
       children: [
         { text: 'SDG #13', icon: 'bx-file', route: '/admin-cases' },
         { text: 'Overview', icon: 'bx-file', route: '/admin-case-1' },
