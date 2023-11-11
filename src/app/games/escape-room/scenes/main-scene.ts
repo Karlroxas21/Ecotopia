@@ -24,11 +24,6 @@ export class MainScene extends Phaser.Scene {
     this.load.audio('game-over', '../../../../assets/game/game-over.mp3');
     this.load.audio('milestone', '../../../../assets/game/milestone-scene.mp3');
 
-    // Level 1 Assets
-    // BG
-    this.load.image('level-1-bg', '../../../../assets/game/scene1/beach.png');
-    // Shark
-    this.load.image('shark', '../../../../assets/lvl1/shark_spritesheet.png');
     // Cloud
     this.load.image('cloud-1', '../../../../assets/game/scene1/cloud1.png');
     this.load.image('cloud-2', '../../../../assets/game/scene1/cloud2.png');
@@ -40,72 +35,69 @@ export class MainScene extends Phaser.Scene {
     this.load.image('cloud-8', '../../../../assets/game/scene1/cloud8.png');
     this.load.image('cloud-9', '../../../../assets/game/scene1/cloud9.png');
     this.load.image('cloud-0', '../../../../assets/game/scene1/cloud0.png');
-
-    // Sea shells and pebbles
-    this.load.image('clutter1', '../../../../assets/game/scene1/clutter1.png');
-    this.load.image('clutter2', '../../../../assets/game/scene1/clutter2.png');
-    this.load.image('clutter3', '../../../../assets/game/scene1/clutter3.png');
-    this.load.image('clutter4', '../../../../assets/game/scene1/clutter4.png');
-    this.load.image('clutter5', '../../../../assets/game/scene1/clutter5.png');
-    this.load.image('clutter6', '../../../../assets/game/scene1/clutter6.png');
-    this.load.image('clutter7', '../../../../assets/game/scene1/clutter7.png');
-    this.load.image('clutter8', '../../../../assets/game/scene1/clutter8.png');
-    this.load.image('clutter9', '../../../../assets/game/scene1/clutter9.png');
-    this.load.image('clutter10', '../../../../assets/game/scene1/clutter10.png');
-    this.load.image('clutter11', '../../../../assets/game/scene1/clutter11.png');
-    this.load.image('clutter12', '../../../../assets/game/scene1/clutter12.png');
-    this.load.image('clutter13', '../../../../assets/game/scene1/clutter13.png');
-    this.load.image('clutter14', '../../../../assets/game/scene1/clutter14.png');
-    this.load.image('clutter15', '../../../../assets/game/scene1/clutter15.png');
-
-    // Garbages
-    this.load.image('garbage1', '../../../../assets/game/scene1/garbage1.png');
-    this.load.image('garbage2', '../../../../assets/game/scene1/garbage2.png');
-    this.load.image('garbage3', '../../../../assets/game/scene1/garbage3.png');
-    this.load.image('garbage4', '../../../../assets/game/scene1/garbage4.png');
-    this.load.image('garbage5', '../../../../assets/game/scene1/garbage5.png');
-    this.load.image('garbage6', '../../../../assets/game/scene1/garbage6.png');
-    this.load.image('garbage7', '../../../../assets/game/scene1/garbage7.png');
-    this.load.image('garbage8', '../../../../assets/game/scene1/garbage8.png');
-    this.load.image('garbage9', '../../../../assets/game/scene1/garbage9.png');
-    this.load.image('garbage10', '../../../../assets/game/scene1/garbage10.png');
-    this.load.image('garbage11', '../../../../assets/game/scene1/garbage11.png');
-    this.load.image('garbage12', '../../../../assets/game/scene1/garbage12.png');
-    this.load.image('garbage13', '../../../../assets/game/scene1/garbage13.png');
-    this.load.image('garbage14', '../../../../assets/game/scene1/garbage14.png');
+   
+    // Scene 1 Assets
+    this.load.image('scene1-bg', '../../../../assets/game/scene1/scene1-bg.png');
+    this.load.image('scene1-bg-correct', '../../../../assets/game/scene1/scene1-bg-correct.png');
+    this.load.image('scene1-bg-wrong', '../../../../assets/game/scene1/scene1-bg-wrong.png');
+    this.load.spritesheet('scene1-sprite', '../../../../assets/game/scene1/scene1-sprite.png',{
+      frameWidth: 800,
+      frameHeight: 600
+    })
 
     // Scene 2
-    this.load.image('scene2-bg', '../../../../assets/game/scene2/riverbank_mess.png');
-    this.load.image('scene2-bg-correct', '../../../../assets/game/scene2/riverbank.png');
-    this.load.image('scene2-bg-wrong', '../../../../assets/game/scene2/riverbank_mess.png');
-        
+    this.load.image('scene2-bg', '../../../../assets/game/scene2/scene2-bg.png');
+    this.load.image('scene2-bg-correct', '../../../../assets/game/scene2/scene2-bg-correct.png');
+    this.load.image('scene2-bg-wrong', '../../../../assets/game/scene2/scene2-bg-wrong.png');
+    this.load.spritesheet('scene2-sprite', '../../../../assets/game/scene2/scene2-flow-sprite.png',{
+      frameWidth: 800,
+      frameHeight: 600
+    })
+
     // Scene 3
-    this.load.image('scene3-bg', '../../../../assets/game/scene3/park_mess.png');
-    this.load.image('scene3-bg-correct', '../../../../assets/game/scene3/park(lpd).png');
-    this.load.image('scene3-bg-wrong', '../../../../assets/game/scene3/park_mess.png');
+    this.load.image('scene3-bg', '../../../../assets/game/scene3/scene3-bg.png');
+    this.load.image('scene3-bg-correct', '../../../../assets/game/scene3/scene3-bg-correct.png');
+    this.load.image('scene3-bg-wrong', '../../../../assets/game/scene3/scene3-bg-wrong.png');
+    this.load.spritesheet('scene3-sprite', '../../../../assets/game/scene3/scene3-sprite.png',{
+      frameWidth: 800,
+      frameHeight: 600
+    })
 
     // Scene 4
-    this.load.image('scene4-bg', '../../../../assets/game/scene4/harbor_mess.png');
-    this.load.image('scene4-bg-wrong', '../../../../assets/game/scene4/harbor_mess.png');
-    this.load.image('scene4-bg-correct', '../../../../assets/game/scene4/harbor(swd).png');
+    this.load.image('scene4-bg', '../../../../assets/game/scene4/scene4-bg.png');
+    this.load.image('scene4-bg-wrong', '../../../../assets/game/scene4/scene4-bg-wrong.png');
+    this.load.image('scene4-bg-correct', '../../../../assets/game/scene4/scene4-bg-correct.png');
+    this.load.spritesheet('scene4-sprite', '../../../../assets/game/scene4/scene4-sprite.png',{
+      frameWidth: 800,
+      frameHeight: 600
+    })
 
     // Scene 5
-    this.load.image('scene5-bg', '../../../../assets/game/scene5/lake_mess.png');
-    this.load.image('scene5-bg-wrong', '../../../../assets/game/scene5/lake_mess.png');
-    this.load.image('scene5-bg-correct', '../../../../assets/game/scene5/lake(wli).png');
-
+    this.load.image('scene5-bg', '../../../../assets/game/scene5/scene5-bg.png');
+    this.load.image('scene5-bg-wrong', '../../../../assets/game/scene5/scene5-bg-wrong.png');
+    this.load.image('scene5-bg-correct', '../../../../assets/game/scene5/scene5-bg-correct.png');
+    this.load.spritesheet('scene5-sprite', '../../../../assets/game/scene5/scene5-sprite.png',{
+      frameWidth: 800,
+      frameHeight: 600
+    })
+    
     // Game Over Scene
     this.load.image('game-over', '../../../../assets/game/game_over.png');
 
     // Milestone scene
+    this.load.spritesheet('congrats-bg', '../../../../assets/game/cngts_bg.png',{
+      frameWidth: 517,
+      frameHeight: 598
+    })
+
     // Game Over Scene
     this.load.image('character-win', '../../../../assets/game/char_cngrts.png');
-    this.load.image('congrats-bg', '../../../../assets/game/cngts_bg.png');
+    // this.load.image('congrats-bg', '../../../../assets/game/cngts_bg.png');
    
     // Example sprite character
     this.load.spritesheet('character', '../../../../assets/game/chara.png',{
       frameWidth: 408,
-      frameHeight: 460
+      frameHeight: 230
     })
 
     // Heart sprite

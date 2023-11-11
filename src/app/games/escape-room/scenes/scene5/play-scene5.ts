@@ -16,6 +16,8 @@ export class PlayScene5 extends Phaser.Scene {
 
   background: any;
 
+  flow_sprite: any;
+
   heart_icon: any;
   
   cloud1: any;
@@ -51,7 +53,7 @@ export class PlayScene5 extends Phaser.Scene {
   private urlAPI = `${environment.apiUrl}`;
 
   getRandomQuestion() {
-    axios.get(`${this.urlAPI}game_scene1`)
+    axios.get(`${this.urlAPI}game_scene5`)
       .then((response) => {
         this.gameData = response.data;
         const randomIndexForQuestion = Phaser.Math.RND.integerInRange(0, this.gameData.length - 1);
@@ -263,6 +265,17 @@ export class PlayScene5 extends Phaser.Scene {
   create() {
         this.background = this.add.image(0, 0, 'scene5-bg');
         this.background.setOrigin(0, 0);
+
+        this.flow_sprite = this.add.sprite(0, 0, 'scene5-sprite');
+        this.flow_sprite.setOrigin(0, 0)
+        this.anims.create({
+          key: 'scene5-sprite-key',
+          frames: this.anims.generateFrameNumbers('scene5-sprite', { start: 0, end: 2 }),
+          frameRate: 2,
+          repeat: -1
+        })
+
+        this.flow_sprite.anims.play('scene5-sprite-key');
 
          // Clouds
         this.cloud1 = this.add.image(0, 200, 'cloud-1');

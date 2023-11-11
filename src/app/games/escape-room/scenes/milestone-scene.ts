@@ -21,10 +21,17 @@ export class Milestone extends Phaser.Scene {
         mileStoneMusic: any;
 
         create() {
+                
+                this.background = this.add.sprite(400, 300, 'congrats-bg');
+                
+                this.anims.create({
+                        key: 'bg-sprite',
+                        frames: this.anims.generateFrameNames('congrats-bg', {start: 0, end: 3}),
+                        frameRate: 10,
+                        repeat: -1
+                })
 
-                this.background = this.add.image(0, 0, 'congrats-bg');
-                this.background.setOrigin(0, 0);
-
+                this.background.anims.play('bg-sprite')
                 this.character = this.add.image(300, 440, 'character-win');
                 this.character.setScale(0.55);
 

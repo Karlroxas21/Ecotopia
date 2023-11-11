@@ -38,7 +38,7 @@ export class Pre2PlayScene extends Phaser.Scene {
   private textDisplay2 = `You are standing on a pristine beach. As you survey \nthe landscape,you notice the entire beach is covered\nin litter, a clear contrast to the natural beauty\nthat surrounds them.`
   
   create() {
-    this.background = this.add.image(0, 0, 'level-1-bg');
+    this.background = this.add.image(0, 0, 'scene1-bg');
     this.background.setOrigin(0, 0);
 
     // Clouds

@@ -15,6 +15,7 @@ export class PlayScene extends Phaser.Scene {
   }
 
   background: any;
+  flow_sprite: any;
 
   heart_icon: any;
 
@@ -28,37 +29,6 @@ export class PlayScene extends Phaser.Scene {
   cloud8: any;
   cloud9: any;
   cloud0: any;
-
-  clutter1: any;
-  clutter2: any;
-  clutter3: any;
-  clutter4: any;
-  clutter5: any;
-  clutter6: any;
-  clutter7: any;
-  clutter8: any;
-  clutter9: any;
-  clutter10: any;
-  clutter11: any;
-  clutter12: any;
-  clutter13: any;
-  clutter14: any;
-  clutter15: any;
-
-  garbage1: any;
-  garbage2: any;
-  garbage3: any;
-  garbage4: any;
-  garbage5: any;
-  garbage6: any;
-  garbage7: any;
-  garbage8: any;
-  garbage9: any;
-  garbage10: any;
-  garbage11: any;
-  garbage12: any;
-  garbage13: any;
-  garbage14: any;
 
   bgMusic: any;
   choiceButtonSFX: any;
@@ -298,8 +268,19 @@ export class PlayScene extends Phaser.Scene {
 
   create() {
 
-    this.background = this.add.image(0, 0, 'level-1-bg');
+    this.background = this.add.image(0, 0, 'scene1-bg');
     this.background.setOrigin(0, 0);
+
+    this.flow_sprite = this.add.sprite(0, 0, 'scene1-sprite');
+    this.flow_sprite.setOrigin(0, 0)
+    this.anims.create({
+      key: 'scene1-sprite-key',
+      frames: this.anims.generateFrameNumbers('scene1-sprite', { start: 0, end: 2 }),
+      frameRate: 1,
+      repeat: -1
+    })
+
+    this.flow_sprite.anims.play('scene1-sprite-key');
 
     // Clouds
     this.cloud1 = this.add.image(0, 200, 'cloud-1');
@@ -338,11 +319,6 @@ export class PlayScene extends Phaser.Scene {
     this.choiceButtonSFX = this.sound.add('choice');
 
     this.getRandomQuestion();
-
-    this.clutters();
-
-    this.garbages();
-
   }
 
   override update() {

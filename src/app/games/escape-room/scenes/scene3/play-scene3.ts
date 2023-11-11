@@ -16,6 +16,8 @@ export class PlayScene3 extends Phaser.Scene {
 
   background: any;
 
+  flow_sprite: any;
+
   heart_icon:any;
 
   cloud1: any;
@@ -265,6 +267,17 @@ export class PlayScene3 extends Phaser.Scene {
   create() {
     this.background = this.add.image(0, 0, 'scene3-bg');
     this.background.setOrigin(0, 0);
+
+    this.flow_sprite = this.add.sprite(0, 0, 'scene3-sprite');
+    this.flow_sprite.setOrigin(0, 0)
+    this.anims.create({
+      key: 'scene3-sprite-key',
+      frames: this.anims.generateFrameNumbers('scene3-sprite', { start: 0, end: 2 }),
+      frameRate: 2,
+      repeat: -1
+    })
+
+    this.flow_sprite.anims.play('scene3-sprite-key');
 
     // Clouds
     this.cloud1 = this.add.image(0, 100, 'cloud-1');

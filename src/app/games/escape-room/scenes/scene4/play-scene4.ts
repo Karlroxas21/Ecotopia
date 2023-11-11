@@ -16,6 +16,8 @@ export class PlayScene4 extends Phaser.Scene {
 
   background: any;
 
+  flow_sprite: any;
+
   heart_icon: any;
 
   cloud1: any;
@@ -263,6 +265,17 @@ export class PlayScene4 extends Phaser.Scene {
   create() {
         this.background = this.add.image(0, 0, 'scene4-bg');
         this.background.setOrigin(0, 0);
+
+        this.flow_sprite = this.add.sprite(0, 0, 'scene4-sprite');
+        this.flow_sprite.setOrigin(0, 0)
+        this.anims.create({
+          key: 'scene4-sprite-key',
+          frames: this.anims.generateFrameNumbers('scene4-sprite', { start: 0, end: 2 }),
+          frameRate: 2,
+          repeat: -1
+        })
+
+        this.flow_sprite.anims.play('scene4-sprite-key');
 
         // Clouds
         this.cloud1 = this.add.image(0, 200, 'cloud-1');

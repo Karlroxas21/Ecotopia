@@ -51,7 +51,7 @@ export class PlaySceneCorrect extends Phaser.Scene {
         textDisplay = "Correct! Cleaning up beaches is important because they're a\ncommon and harmful source of marine debris that can seriously\nharm the environment and wildlife.";
 
         create() {
-                this.background = this.add.image(0, 0, 'level-1-bg');
+                this.background = this.add.image(0, 0, 'scene1-bg-correct');
                 this.background.setOrigin(0, 0);
 
                 this.levelPassedSFX = this.sound.add('level-passed');
@@ -128,7 +128,6 @@ export class PlaySceneCorrect extends Phaser.Scene {
                 );
                 // End of Question
 
-                this.clutters();
         }
 
         override update() {

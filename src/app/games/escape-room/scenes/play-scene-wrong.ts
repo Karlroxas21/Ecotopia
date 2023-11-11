@@ -27,37 +27,6 @@ export class PlaySceneWrong extends Phaser.Scene {
         cloud9: any;
         cloud0: any;
 
-        clutter1: any;
-        clutter2: any;
-        clutter3: any;
-        clutter4: any;
-        clutter5: any;
-        clutter6: any;
-        clutter7: any;
-        clutter8: any;
-        clutter9: any;
-        clutter10: any;
-        clutter11: any;
-        clutter12: any;
-        clutter13: any;
-        clutter14: any;
-        clutter15: any;
-
-        garbage1: any;
-        garbage2: any;
-        garbage3: any;
-        garbage4: any;
-        garbage5: any;
-        garbage6: any;
-        garbage7: any;
-        garbage8: any;
-        garbage9: any;
-        garbage10: any;
-        garbage11: any;
-        garbage12: any;
-        garbage13: any;
-        garbage14: any;
-
         failedSFX: any;
         xButtonSFX: any;
 
@@ -72,7 +41,7 @@ export class PlaySceneWrong extends Phaser.Scene {
         currentHeartPoints = heartPointsService.getHeartPoints();
 
         create() {
-                this.background = this.add.image(0, 0, 'level-1-bg');
+                this.background = this.add.image(0, 0, 'scene1-bg-wrong');
                 this.background.setOrigin(0, 0);
 
                 this.failedSFX = this.sound.add('failed');
@@ -147,8 +116,6 @@ export class PlaySceneWrong extends Phaser.Scene {
                 );
                 // End of Question
                 
-                this.garbages();
-
         }
 
         override update() {
@@ -196,65 +163,6 @@ export class PlaySceneWrong extends Phaser.Scene {
                 if (this.cloud0.x > this.config.width + this.cloud0.displayWidth / 2) {
                         this.cloud0.x = -this.cloud0.displayWidth / 2;
                 }
-        }
-
-        garbages() {
-                const clutter1 = this.add
-                        .image(this.config.width - 400, this.config.height - 20, 'garbage1')
-                        .setScale(1.5);
-
-                const clutter2 = this.add
-                        .image(this.config.width - 600, this.config.height - 50, 'garbage2')
-                        .setScale(1.5);
-
-                const clutter3 = this.add
-                        .image(this.config.width - 350, this.config.height - 30, 'garbage3')
-                        .setScale(1.5);
-
-                const clutter4 = this.add
-                        .image(this.config.width - 40, this.config.height - 100, 'garbage4')
-                        .setScale(1.5);
-
-                const clutter5 = this.add
-                        .image(this.config.width - 60, this.config.height - 90, 'garbage5')
-                        .setScale(1.5); // this will be replace
-
-                const clutter6 = this.add
-                        .image(this.config.width - 720, this.config.height - 115, 'garbage6')
-                        .setScale(1.5);
-
-                const clutter7 = this.add
-                        .image(this.config.width - 523, this.config.height - 143, 'garbage7')
-                        .setScale(1.5); // this will be replace
-
-                const clutter8 = this.add
-                        .image(this.config.width - 269, this.config.height - 125, 'garbage8')
-                        .setScale(1.5);
-
-                const clutter9 = this.add
-                        .image(this.config.width - 666, this.config.height - 143, 'garbage9')
-                        .setScale(1.5);
-
-                const clutter10 = this.add
-                        .image(this.config.width - 490, this.config.height - 130, 'garbage10')
-                        .setScale(1.5);
-
-                const clutter11 = this.add
-                        .image(this.config.width - 700, this.config.height - 112, 'garbage11')
-                        .setScale(1.5);
-
-                const clutter12 = this.add
-                        .image(this.config.width - 560, this.config.height - 70, 'garbage12')
-                        .setScale(1.5);
-
-                const clutter13 = this.add
-                        .image(this.config.width - 630, this.config.height - 140, 'garbage13')
-                        .setScale(1.5);
-
-                const clutter14 = this.add
-                        .image(this.config.width - 620, this.config.height - 99, 'garbage14')
-                        .setScale(1.5);
-
         }
 
         winGraphics() {
