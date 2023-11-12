@@ -26,13 +26,14 @@
                 [ngClass]="{
                   'wrong-answer':
                     submittedPopQuiz &&
-                    selectedAnswersPopQuiz[index * 10 + i] !== quiz.correct_answer.code
+                    selectedAnswersPopQuiz[index * 10 + i] !== quiz.correct_answer.text
                 }"
               >
                 {{ quiz.question }}
               </p>
               <!-- <p>{{ quiz.question }}</p> -->
-              <ng-container *ngFor="let option of quiz.options; let j = index">
+              <!-- OLD -->
+              <!-- <ng-container *ngFor="let option of quiz.options; let j = index">
                 <input
                   type="radio"
                   [name]="'p' + (index + i + 1)"
@@ -40,11 +41,23 @@
                   [(ngModel)]="selectedAnswersPopQuiz[index * 10 + i]"
                 />
                 {{ option }}<br />
+                <p>value: {{quiz.correct_answer.text}}</p>
+              </ng-container> -->
+
+              <ng-container *ngFor="let option of quiz.options; let j = index">
+                <input
+                  type="radio"
+                  [name]="'p' + (index + i + 1)"
+                  [value]=option
+                  [(ngModel)]="selectedAnswersPopQuiz[index * 10 + i]"
+                />
+                <!-- {{ option }}<br /> -->
+                {{option}}<br>
               </ng-container>
               <p
                 *ngIf="
                   submittedPopQuiz &&
-                  selectedAnswersPopQuiz[index * 10 + i] !== quiz.correct_answer.code
+                  selectedAnswersPopQuiz[index * 10 + i] !== quiz.correct_answer.text
                 "
                 class="correct-answer"
               >
@@ -88,15 +101,6 @@
           </button>
         </form>
       </div>
-    </div>
-  
-    <div class="score-box" *ngIf="showScoreBox">
-      <div class="score-content">
-        <h3>Your Score</h3>
-        <p class="score">{{ scoreTriviaGame }}</p>
-        <button class="close-button" (click)="closeScoreBox()">Review the form</button>
-      </div>
-  
     </div>
   
     <div class="score-box" *ngIf="showScoreBox2">

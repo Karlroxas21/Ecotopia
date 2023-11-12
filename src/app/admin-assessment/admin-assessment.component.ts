@@ -149,7 +149,6 @@ export class AdminAssessmentComponent {
       sanitizedPopQuiz[i].property = this.sanitizeInput(sanitizedPopQuiz[i].property);
 
       if (sanitizedPopQuiz[i].property === null) {
-        console.log("1" + sanitizedPopQuiz[i].property)
         return null; // Validation failed
       }
 
@@ -157,15 +156,13 @@ export class AdminAssessmentComponent {
         sanitizedPopQuiz[i].options[j] = this.sanitizeInput(sanitizedPopQuiz[i].options[j]);
 
         if (sanitizedPopQuiz[i].options[j] === null) {
-          console.log("2" +sanitizedPopQuiz[i].options[j]);
           return null; // Validation failed
         }
       }
 
-      sanitizedPopQuiz[i].correct_answer.code = this.sanitizeInput(sanitizedPopQuiz[i].correct_answer.code);
+      sanitizedPopQuiz[i].correct_answer.text = this.sanitizeInput(sanitizedPopQuiz[i].correct_answer.text);
 
-      if (sanitizedPopQuiz[i].correct_answer.code === null) {
-        console.log("3" +sanitizedPopQuiz[i].correct_answer.code)
+      if (sanitizedPopQuiz[i].correct_answer.text === null) {
         return null; // Validation failed
       }
     }
@@ -287,7 +284,7 @@ export class AdminAssessmentComponent {
   }
 
   finishEditingCorrectAnswerPopQuiz(event: any, index: number): void{
-    this.pop_quiz[index].correct_answer.code = event.target.value;
+    this.pop_quiz[index].correct_answer.text = event.target.value;
     this.editing_correct_answer_popquiz[index] = false;
   }
 
