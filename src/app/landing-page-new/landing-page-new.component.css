@@ -19,7 +19,7 @@ section {
 }
 
 section h2 {
-  font-size: 4em;
+  font-size: 2em;
   color: #fff;
   margin-bottom: 50px;
   text-align: center;
@@ -123,6 +123,16 @@ section:nth-child(even) .container .content{
     margin: 0 auto;
   }
 }
+@media only screen and (max-width: 989px) {
+  section h2 {
+    font-size: 23px;
+  }
+}
+@media only screen and (max-width: 762px) {
+  section h2 {
+    font-size: 18px;
+  }
+}
 
 @media only screen and (max-width: 735px) {
   section {
@@ -149,6 +159,11 @@ section:nth-child(even) .container .content{
 @media only screen and (max-width: 612px) {
   section .container .imgBx {
     background-size: 100% auto;
+  }
+}
+@media only screen and (max-width: 423px) {
+  section h2 {
+    font-size: 12px;
   }
 }
 @media only screen and (max-width: 346px) {
@@ -258,8 +273,8 @@ section:nth-child(even) .container .content{
 .parallax-slider {
   position: relative;
   overflow: hidden;
-  height: 800px;
-  width: 75%;
+  height: 900px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -28,9 +28,71 @@ export class LandingPageComponent implements OnInit {
     const scrollY = window.scrollY;
     const windowWidth = window.innerWidth;
     const sea = this.el.nativeElement.querySelector('#sea');
+    const boy = this.el.nativeElement.querySelector('#boy');
+    const water = this.el.nativeElement.querySelector('#water');
     const oldman = this.el.nativeElement.querySelector('#oldman');
+    // const boy = this.el.nativeElement.querySelector('#boy');
     const screenWidthThreshold = 768;
 
+    // const trash = this.el.nativeElement.querySelector('#trash');
+    // if (trash) {
+    //   const offsetY = -100;
+    //   this.renderer.setStyle(trash, 'transform', `translateY(-${(scrollY - offsetY) * 0.2}px)`);
+    // }
+    
+    const bottle = this.el.nativeElement.querySelector('#bottle');
+    if (bottle) {
+      const offsetY = -100;
+      this.renderer.setStyle(bottle, 'transform', `translatex(-${(scrollY - offsetY) * 0.2}px)`);
+    }
+    
+    const papershred = this.el.nativeElement.querySelector('#papershred');
+    if (papershred) {
+      const offsetY = 50;
+      this.renderer.setStyle(papershred, 'transform', `translatex(${(scrollY - offsetY) * 0.2}px)`);
+    }
+    
+
+    if (window.innerWidth >= screenWidthThreshold) {
+      // Apply the effect for the 'boy' element
+      let initialOffsetBoy = -100;
+      if (scrollY > 0) {
+        initialOffsetBoy += scrollY * 0.3;
+      }
+      if (boy) {
+        this.renderer.setStyle(boy, 'transform', `translateY(-${initialOffsetBoy}px)`);
+      }
+    
+      // Apply the effect for the 'water' element
+      if (water) {
+        let initialOffsetWaterY = -100;
+        let initialOffsetWaterX = -150;
+        if (scrollY > 0) {
+          initialOffsetWaterY += scrollY * 0.3;
+          initialOffsetWaterX += scrollY * 0.9;
+        }
+        this.renderer.setStyle(water, 'transform', `translateY(${initialOffsetWaterY}px) translateX(${initialOffsetWaterX}px)`);
+      }
+    } else {
+
+      // Apply a different effect for the 'boy' element on mobile screens
+      if (boy) {
+        let mobileOffsetBoy = 400;
+        if (scrollY > 0) {
+          mobileOffsetBoy += scrollY * 0.3;
+        }
+        this.renderer.setStyle(boy, 'transform', `translateY(-${mobileOffsetBoy}px)`);
+      }
+    
+      // Apply a different effect for the 'water' element on mobile screens
+      if (water) {
+        let mobileOffsetWater = -150;
+        if (scrollY > 0) {
+          mobileOffsetWater += scrollY * 0.3;
+        }
+        this.renderer.setStyle(water, 'transform', `translateY(${mobileOffsetWater}px)`);
+      }
+    }
     
 
     const text = this.el.nativeElement.querySelector('#text');
@@ -72,25 +134,34 @@ export class LandingPageComponent implements OnInit {
 
     if (window.innerWidth >= screenWidthThreshold) {
       // Apply the parallax effect for desktop screens
-      let initialOffsetSea = -550;
+      let initialOffsetSea = -800;
       if (scrollY > 0) {
         initialOffsetSea += scrollY * 0.1;
       }
       if (sea) {
         this.renderer.setStyle(sea, 'transform', `translateX(${initialOffsetSea}px)`);
       }
+
+      // let initialOffsetBoy = -100;
+      // if (scrollY > 0) {
+      //   initialOffsetBoy += scrollY * 0.2;
+      // }
+      // if (boy) {
+      //   this.renderer.setStyle(boy, 'transform', `translateY(-${initialOffsetBoy}px)`);
+      // }
+      
   
-      let initialOffsetOldman = -800;
-      if (scrollY > 0) {
-        initialOffsetOldman += scrollY * 0.3;
-      }
-      if (oldman) {
-        this.renderer.setStyle(oldman, 'transform', `translateX(-${initialOffsetOldman}px)`);
-      }
-    } else {
+    //   let initialOffsetOldman = -1200;
+    //   if (scrollY > 0) {
+    //     initialOffsetOldman += scrollY * 0.3;
+    //   }
+    //   if (oldman) {
+    //     this.renderer.setStyle(oldman, 'transform', `translateX(-${initialOffsetOldman}px)`);
+    //   }
+    // } else {
       // Apply a different effect for mobile screens to sea
     if (sea) {
-      let mobileOffsetSea = -420;
+      let mobileOffsetSea = -600;
       if (scrollY > 0) {
         mobileOffsetSea += scrollY * 0.1;
       }
@@ -122,7 +193,5 @@ export class LandingPageComponent implements OnInit {
       orientation: 'left'
     });
 
-    
-    
   }
 }

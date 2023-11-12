@@ -5,24 +5,62 @@
     <meta name="description" content="Take action against climate change today. Join our mission for a sustainable future. 
     Explore solutions, get involved, and make a difference. Together, we can combat climate change." />
   </head>
-  <div class="parallax-slider">
+  <!-- <div class="parallax-slider">
     <div class="slide-container" [ngStyle]="getSlideStyle()">
       <div
         class="slide"
         [style.backgroundImage]="'url(' + images[currentIndex] + ')'"
       ></div>
       <div class="description-overlay">
-        <!-- <div class="description">{{ descriptions[currentIndex] }}</div> -->
+        <div class="description">{{ descriptions[currentIndex] }}</div>
       </div>
     </div>
     <button class="arrow left" (click)="prevSlide()">&#9665;</button>
     <button class="arrow right" (click)="nextSlide()">&#9655;</button>
-  </div>
+  </div> -->
+
+  <carousel [isAnimated]="true">
+    <slide>
+      <img src="assets/carousel/1.png" alt="First slide" style="display: block; width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+        <!-- <h3>First slide label</h3>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> -->
+      </div>
+    </slide>
+    <slide>
+      <img src="assets/carousel/2.png" alt="Second slide" style="display: block; width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+        <!-- <h3>Second slide label</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+      </div>
+    </slide>
+    <slide>
+      <img src="assets/carousel/3.png" alt="Third slide" style="display: block; width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+        <!-- <h3>Third slide label</h3>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> -->
+      </div>
+    </slide>
+    <slide>
+      <img src="assets/carousel/4.png" alt="Fourth slide" style="display: block; width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+        <!-- <h3>Third slide label</h3>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> -->
+      </div>
+    </slide>
+    <slide>
+      <img src="assets/carousel/5.png" alt="Fifth slide" style="display: block; width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+        <!-- <h3>Third slide label</h3>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> -->
+      </div>
+    </slide>
+  </carousel>
 
   <body>
     <section>
       <div class="box">
-        <h2>Typhoon and Extreme Weather Events</h2>
+        <h2 class="scrolling-title">Typhoon and Extreme Weather Events</h2>
         <div class="container">
           <div
             class="imgBx"
@@ -45,7 +83,7 @@
 
     <section>
       <div class="box">
-        <h2 class="scrolling-title">Sea Level Rise and Coastal Erosion</h2>
+        <h2 class="scrolling-title2">Sea Level Rise and Coastal Erosion</h2>
         <div class="container">
           <div
             class="imgBx"
@@ -87,7 +125,7 @@
 
     <section>
       <div class="box">
-        <h2 class="scrolling-title">Biodiversity and Ecosystem Loss</h2>
+        <h2 class="scrolling-title2">Biodiversity and Ecosystem Loss</h2>
         <div class="container">
           <div
             class="imgBx"
@@ -134,7 +172,7 @@
 
     <section>
       <div class="box">
-        <h2 class="scrolling-title">Health Risk</h2>
+        <h2 class="scrolling-title2">Health Risk</h2>
         <div class="container">
           <div
             class="imgBx"
@@ -179,7 +217,7 @@
       </div>
     </section>
 
-    <div class="parallax-container">
+    <!-- <div class="parallax-container">
       <div class="parallax-description">
         <h1>
           Eco-Friendly Waste Disposal Practices: A Key Strategy for Climate
@@ -192,7 +230,7 @@
           disposal can make recycling and waste management more efficient,
           decreasing the carbon footprint associated with waste processing and
           helping to combat climate change.
-        </p>x
+        </p>
       </div>
       <div
         class="parallax-image"
@@ -200,6 +238,6 @@
         [style.background-image]="'url(' + imageUrl + ')'"
         (window:scroll)="onScroll($event)"
       ></div>
-    </div>
+    </div> -->
   </body>
 </html>
