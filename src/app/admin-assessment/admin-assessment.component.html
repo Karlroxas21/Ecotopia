@@ -116,7 +116,7 @@
             *ngIf="!editing_correct_answers_popquiz(i)"
             (click)="startEditingCorrectAnswerPopQuiz(i)"
           >
-            <p>Correct Answer: {{ item.correct_answer }}</p>
+            <p>Correct Answer: {{ item.correct_answer.text }}</p>
           </div>
           <i>Format: p(number of question)_(choices from 1-4)</i>
 
