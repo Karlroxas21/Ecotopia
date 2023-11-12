@@ -21,7 +21,7 @@ export class OverviewOfClimateChangeComponent implements OnInit {
 
     this.http.get<any[]>(`${environment.apiUrl}overviewOfClimateChange`)
     .subscribe(news =>{
-      this.news = news;
+      this.news = news.reverse();
     })
     throw new Error('Method not implemented.');
   }

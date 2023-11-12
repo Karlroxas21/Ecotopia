@@ -162,7 +162,7 @@ checkAnswerTriviaGame() {
     for (let i = 0; i < 10; i++) {
       const selectedAnswer = this.selectedAnswersPopQuiz[i];
       if (selectedAnswer !== null && selectedAnswer !== undefined) {
-        if (item.pop_quiz[i].correct_answer === selectedAnswer) {
+        if (item.pop_quiz[i].correct_answer.code === selectedAnswer) {
           score_pop_quiz += 1;
           correctAnswersPopQuiz.push(`Question ${i + 1}`);
         } else {

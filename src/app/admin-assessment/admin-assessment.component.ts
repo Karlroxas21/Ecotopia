@@ -14,7 +14,6 @@ export class AdminAssessmentComponent {
   assessment: any;
   title = "Admin: Assessment";
 
-  trivia_game: any;
   pop_quiz: any;
 
   isThereAnyChanges: boolean = false;
@@ -37,9 +36,6 @@ export class AdminAssessmentComponent {
     this.AdminAssessmentService.getData().subscribe(incoming_data =>{
       this.assessment = incoming_data;
 
-      // Trivia Game
-      this.trivia_game = this.assessment[0].trivia_game;
-
       // Pop Quiz
       this.pop_quiz = this.assessment[0].pop_quiz;
 
@@ -50,18 +46,16 @@ export class AdminAssessmentComponent {
     if (this.isAnyChanges()) {
 
       // Check for empty input fields in trivia game and pop quiz data
-      if (this.hasEmptyFields(this.trivia_game) || this.hasEmptyFields(this.pop_quiz)) {
+      if (this.hasEmptyFields(this.pop_quiz)) {
         this.toastr.error('Please fill in all input fields before updating.', 'Validation Error');
         return;
       }
 
-      // Sanitize trivia game and pop quiz data
-      const sanitizedTriviaGame = this.sanitizeTriviaGame(this.trivia_game);
+      // Sanitize pop quiz data
       const sanitizedPopQuiz = this.sanitizePopQuiz(this.pop_quiz);
   
       // Check if any of the inputs failed validation
       if (
-        sanitizedTriviaGame === null ||
         sanitizedPopQuiz === null
       ) {
         // Validation failed, do not proceed with the update
@@ -71,7 +65,6 @@ export class AdminAssessmentComponent {
   
       // Create a sanitized copy of the data
       const sanitizedData = { ...this.assessment[0] };
-      this.trivia_game = sanitizedTriviaGame;
       this.pop_quiz = sanitizedPopQuiz;
   
       this.AdminAssessmentService.updateData(sanitizedData).subscribe(
@@ -156,6 +149,7 @@ export class AdminAssessmentComponent {
       sanitizedPopQuiz[i].property = this.sanitizeInput(sanitizedPopQuiz[i].property);
 
       if (sanitizedPopQuiz[i].property === null) {
+        console.log("1" + sanitizedPopQuiz[i].property)
         return null; // Validation failed
       }
 
@@ -163,13 +157,15 @@ export class AdminAssessmentComponent {
         sanitizedPopQuiz[i].options[j] = this.sanitizeInput(sanitizedPopQuiz[i].options[j]);
 
         if (sanitizedPopQuiz[i].options[j] === null) {
+          console.log("2" +sanitizedPopQuiz[i].options[j]);
           return null; // Validation failed
         }
       }
 
-      sanitizedPopQuiz[i].correct_answer = this.sanitizeInput(sanitizedPopQuiz[i].correct_answer);
+      sanitizedPopQuiz[i].correct_answer.code = this.sanitizeInput(sanitizedPopQuiz[i].correct_answer.code);
 
-      if (sanitizedPopQuiz[i].correct_answer === null) {
+      if (sanitizedPopQuiz[i].correct_answer.code === null) {
+        console.log("3" +sanitizedPopQuiz[i].correct_answer.code)
         return null; // Validation failed
       }
     }
@@ -227,10 +223,6 @@ export class AdminAssessmentComponent {
     this.editing_questions[index] = true;
   }
 
-  finishEditingQuestion(event: any, index: number, property: string): void{
-    this.trivia_game[index].property = event.target.value;
-    this.editing_questions[index] = false;
-  }
 
   // Options
   editing_option(questionIndex: number, optionIndex: number): boolean{
@@ -241,10 +233,6 @@ export class AdminAssessmentComponent {
     this.editing_options[questioIndex][optionIndex] = true;
   }
 
-  finishEditingOption(event: any, questionIndex: number, optionIndex: number): void{
-    this.trivia_game[questionIndex].options[optionIndex] = event.target.value;
-    this.editing_options[questionIndex][optionIndex] = false;
-  }
   
   //  Correct Answer
   editing_correct_answers(index: number): boolean{
@@ -255,10 +243,6 @@ export class AdminAssessmentComponent {
     this.editing_correct_answer[index] = true;
   }
 
-  finishEditingCorrectAnswer(event: any, index: number): void{
-    this.trivia_game[index].correct_answer = event.target.value;
-    this.editing_correct_answer[index] = false;
-  }
 
   doesChange(){
     
@@ -303,7 +287,7 @@ export class AdminAssessmentComponent {
   }
 
   finishEditingCorrectAnswerPopQuiz(event: any, index: number): void{
-    this.pop_quiz[index].correct_answer = event.target.value;
+    this.pop_quiz[index].correct_answer.code = event.target.value;
     this.editing_correct_answer_popquiz[index] = false;
   }
 

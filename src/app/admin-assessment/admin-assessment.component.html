@@ -116,9 +116,8 @@
             *ngIf="!editing_correct_answers_popquiz(i)"
             (click)="startEditingCorrectAnswerPopQuiz(i)"
           >
-            <p>Correct Answer: {{ item.correct_answer.text }}</p>
+            <p>Correct Answer: {{ item.correct_answer.code}}</p>
           </div>
-          <i>Format: p(number of question)_(choices from 1-4)</i>
 
           <textarea
             rows="1" cols="30"
@@ -127,8 +126,10 @@
             (blur)="finishEditingCorrectAnswerPopQuiz($event, i)"
             class="resizable-input"
             (ngModelChange)="doesChange()"
-            [ngModel]="pop_quiz[i].correct_answer"
+            [ngModel]="pop_quiz[i].correct_answer.code"
           ></textarea>
+          
+          <i>Format: p(number of question)_(choices from 1-4)</i>
         </li>
       </ol>
       <div id="result"></div>
