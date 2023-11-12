@@ -67,7 +67,7 @@ export class PrePlayScene5 extends Phaser.Scene {
       guide.text = textToType;
       typeingTimer.remove();
     })
-    this.character = this.add.sprite(-100, 480, 'character');
+    this.character = this.add.sprite(-100, 450, 'character');
     this.character.setScale(0.5);
 
     this.anims.create({

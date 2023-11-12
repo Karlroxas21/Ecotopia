@@ -266,16 +266,16 @@ export class PlayScene5 extends Phaser.Scene {
         this.background = this.add.image(0, 0, 'scene5-bg');
         this.background.setOrigin(0, 0);
 
-        this.flow_sprite = this.add.sprite(0, 0, 'scene5-sprite');
-        this.flow_sprite.setOrigin(0, 0)
-        this.anims.create({
-          key: 'scene5-sprite-key',
-          frames: this.anims.generateFrameNumbers('scene5-sprite', { start: 0, end: 2 }),
-          frameRate: 2,
-          repeat: -1
-        })
+        // this.flow_sprite = this.add.sprite(0, 0, 'scene5-sprite');
+        // this.flow_sprite.setOrigin(0, 0)
+        // this.anims.create({
+        //   key: 'scene5-sprite-key',
+        //   frames: this.anims.generateFrameNumbers('scene5-sprite', { start: 0, end: 2 }),
+        //   frameRate: 2,
+        //   repeat: -1
+        // })
 
-        this.flow_sprite.anims.play('scene5-sprite-key');
+        // this.flow_sprite.anims.play('scene5-sprite-key');
 
          // Clouds
         this.cloud1 = this.add.image(0, 200, 'cloud-1');

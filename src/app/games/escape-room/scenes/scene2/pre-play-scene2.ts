@@ -82,7 +82,7 @@ export class PrePlayScene2 extends Phaser.Scene {
 
     timeline.add({
       targets: this.character,
-      y: 480,
+      y: 450,
       ease: 'Linear',
       duration: 1000,
       onComplete: () =>{

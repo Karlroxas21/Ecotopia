@@ -86,7 +86,7 @@ export class MainScene extends Phaser.Scene {
 
     // Milestone scene
     this.load.spritesheet('congrats-bg', '../../../../assets/game/cngts_bg.png',{
-      frameWidth: 517,
+      frameWidth: 512,
       frameHeight: 598
     })
 
@@ -96,8 +96,8 @@ export class MainScene extends Phaser.Scene {
    
     // Example sprite character
     this.load.spritesheet('character', '../../../../assets/game/chara.png',{
-      frameWidth: 408,
-      frameHeight: 230
+      frameWidth: 261,
+      frameHeight: 233
     })
 
     // Heart sprite

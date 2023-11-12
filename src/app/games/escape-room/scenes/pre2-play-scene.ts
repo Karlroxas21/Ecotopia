@@ -87,7 +87,7 @@ export class Pre2PlayScene extends Phaser.Scene {
       typeingTimer.remove();
     })
 
-    this.character = this.add.sprite(150, 480, 'character');
+    this.character = this.add.sprite(150, 380, 'character');
     this.character.setScale(0.5);
 
     this.anims.create({

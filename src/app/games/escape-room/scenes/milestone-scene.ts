@@ -22,8 +22,8 @@ export class Milestone extends Phaser.Scene {
 
         create() {
                 
-                this.background = this.add.sprite(400, 300, 'congrats-bg');
-                
+                this.background = this.add.sprite(550, 300, 'congrats-bg');
+
                 this.anims.create({
                         key: 'bg-sprite',
                         frames: this.anims.generateFrameNames('congrats-bg', {start: 0, end: 3}),
