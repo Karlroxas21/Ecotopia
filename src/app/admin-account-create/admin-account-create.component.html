@@ -1,0 +1,385 @@
+<app-admin-panel></app-admin-panel>
+
+<div class="main-container">
+        <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                        <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Actions</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        <tr *ngFor="let account of accounts; index as i">
+                                <th scope="row">{{ i + 1 }}</th>
+                                <td>{{ account.status }}</td>
+                                <td>{{ account.username }}</td>
+                                <td>{{ account.email }}</td>
+                                <td>{{ account.full_name }}</td>
+                                <td>{{ account.phone_number }}</td>
+                                <td>{{ account.role }}</td>
+
+                                <div class="buttons">
+
+                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                                [attr.data-bs-target]="'#staticUpdateAccount-' + account._id">Update
+                                                Info</button>
+                                        &nbsp;
+
+                                        <button type="button" class="btn btn-info">Reset Password</button>
+                                        &nbsp;
+
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                [attr.data-bs-target]="'#staticDeleteAccount-' + account._id">Delete</button>
+                                </div>
+
+                        </tr>
+                </tbody>
+        </table>
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#staticBackdropNewAdmin">New admin</button>
+
+        <div class="modal-delete" *ngFor="let account of accounts">
+                <!-- MODAL FOR DELETING ACCOUNT -->
+                <div class="modal fade" [id]="'staticDeleteAccount-' + account._id" tabindex="-1"
+                        aria-labelledby="deleteAccountLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                                <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                        Are you sure you want to delete this account?
+                                                </h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                                <p>
+                                                        Status: <b>{{ account.status }}</b>
+                                                </p>
+                                                <p>
+                                                        Username: <b>{{ account.username }}</b>
+                                                </p>
+                                                <p>
+                                                        Email: <b>{{ account.email }}</b>
+                                                </p>
+                                                <p>
+                                                        Full Name: <b>{{ account.full_name }}</b>
+                                                </p>
+                                                <p>
+                                                        Phone Number: <b>{{ account.phone_number }}</b>
+                                                </p>
+                                                <p>
+                                                        Role: <b>{{account.role}}</b>
+                                                </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                        Close
+                                                </button>
+                                                <button (click)="deleteAccount(account)" type="button"
+                                                        class="btn btn-danger" data-bs-dismiss="modal">
+                                                        Delete
+                                                </button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <!-- END OF MODAL FOR DELETING ACCOUNT -->
+        </div>
+
+        <div class="modal-update" *ngFor="let account of accounts">
+                <!-- Modal for update account -->
+                <div class="modal fade" [id]="'staticUpdateAccount-' + account._id" data-bs-backdrop="static"
+                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticUpdateAccount" aria-hidden="true">
+                        <div class="modal-dialog">
+                                <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="staticUpdateAccount">Update Account
+                                                </h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                                <!-- <form (ngSubmit)=""> -->
+                                                <form>
+
+                                                        <div class="form-floating mb-3">
+                                                                <input class="form-control" id="floatingUsername"
+                                                                        placeholder="Username" name="Username"
+                                                                        [(ngModel)]="account.username"
+                                                                        (ngModelChange)="doesChange()">
+                                                                <label for="floatingUsername">Username</label>
+                                                        </div>
+
+                                                        <div class="form-floating mb-3">
+                                                                <input class="form-control" id="floatingEmail"
+                                                                        placeholder="Email" name="Email"
+                                                                        [(ngModel)]="account.email"
+                                                                        (ngModelChange)="doesChange()">
+                                                                <label for="floatingEmail">Email</label>
+                                                        </div>
+
+                                                        <div class="form-floating mb-3">
+                                                                <input class="form-control" id="floatingFullName"
+                                                                        placeholder="Full Name" name="FullName"
+                                                                        [(ngModel)]="account.full_name"
+                                                                        (ngModelChange)="doesChange()">
+                                                                <label for="floatingFullName">Full Name</label>
+                                                        </div>
+
+                                                        <div class="form-floating mb-3">
+                                                                <input class="form-control" id="floatingPhoneNumber"
+                                                                        placeholder="Phone Number" name="PhoneNumber"
+                                                                        [(ngModel)]="account.phone_number"
+                                                                        (ngModelChange)="doesChange()">
+                                                                <label for="floatingPhoneNumber">Phone Number</label>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                                <label for="roleSelect" class="form-label">Select Role</label>
+                                                                <select class="form-select" id="roleSelect" name="Role"
+                                                                        [(ngModel)]="account.role">
+                                                                        <option value="superadmin">Super Admin</option>
+                                                                        <option value="admin">Admin</option>
+                                                                </select>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                                <label for="statusSelect" class="form-label">Select Status</label>
+                                                                <select class="form-select" id="statusSelect" name="status"
+                                                                        [(ngModel)]="account.status">
+                                                                        <option value="Not Verified">Not Verified</option>
+                                                                        <option value="Verified">Verified</option>
+                                                                        <option value="Disabled">Disabled</option>
+                                                                </select>
+                                                        </div>
+
+                                                </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary"
+                                                        (click)="updateAccount(account._id, account)">Update</button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <!-- End modal for update account -->
+        </div>
+
+        <div class="modal-new" >
+                <!-- Modal for new admin account -->
+                <div class="modal fade" id="staticBackdropNewAdmin" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                                <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">New Account</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body was-validated">
+                                                <form  #form="ngForm" (ngSubmit)="newAdminAccount(form)">
+                                                        <div class="mb-3">
+                                                                <label for="Username">Username</label>
+                                                                <input class="form-control" id="Username"
+                                                                        placeholder="Username" name="username"
+                                                                        [(ngModel)]="accountModel.username" maxlength="255" minlength="5" #username="ngModel"
+                                                                        mdbValidate required novalidate>
+                                                        </div>
+
+                                                        <div *ngIf="username.errors?.['minlength']" class="alert alert-danger">
+                                                                <label *ngIf="username.errors?.['minlength']">Minimum length for username is 5</label>
+                                                        </div>
+
+                                                        <label for="InputPassword" class="form-label">Password</label>
+                                                        <div class="mb-3 input-group">
+
+                                                                <input type="password" class="form-control" placeholder="Password"
+                                                                        id="InputPassword" [(ngModel)]="accountModel.password"
+                                                                        name="InputPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" 
+                                                                        minlength="14" #password="ngModel" mdbValidate required novalidate>
+
+                                                                <div class="input-group-append">
+                                                                        <span class="input-group-text">
+                                                                                <i class="bi bi-eye-slash"
+                                                                                        *ngIf="!passwordVisible"
+                                                                                        aria-hidden="true"
+                                                                                        (click)="togglePasswordVisibility()"></i>
+                                                                                <i class="bi bi-eye-fill"
+                                                                                        *ngIf="passwordVisible"
+                                                                                        aria-hidden="true"
+                                                                                        (click)="togglePasswordVisibility()"></i>
+                                                                        </span>
+                                                                </div>
+
+                                                        </div>
+
+                                                        <div *ngIf="password.errors?.['pattern']" class="alert alert-danger">
+                                                                <label *ngIf="password.errors?.['pattern']">Password must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character.</label>
+                                                        </div>
+
+                                                        <div *ngIf="password.errors?.['minlength']" class="alert alert-danger">
+                                                                <label *ngIf="password.errors?.['minlength']">Password must contain at least 14 characters</label>
+                                                        </div>
+
+                                                        <label for="InputConfirmPassword" class="form-label">Confirm
+                                                                Password</label>
+                                                        <div class="mb-3 input-group">
+
+                                                                <input type="password" class="form-control"
+                                                                        id="InputConfirmPassword" placeholder="Confirm Password"
+                                                                        [(ngModel)]="accountModel.confirmPassword"
+                                                                        #confirmPassword="ngModel" minlength="14"
+                                                                        name="InputConfirmPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" mdbValidate required novalidate>
+                                                                        
+                                                                <div class="input-group-append">
+                                                                        <span class="input-group-text">
+                                                                                <i class="bi bi-eye-slash"
+                                                                                        *ngIf="!confirmPasswordVisible"
+                                                                                        aria-hidden="true"
+                                                                                        (click)="toggleConfirmPasswordVisibility()"></i>
+                                                                                <i class="bi bi-eye-fill"
+                                                                                        *ngIf="confirmPasswordVisible"
+                                                                                        aria-hidden="true"
+                                                                                        (click)="toggleConfirmPasswordVisibility()"></i>
+                                                                        </span>
+                                                                </div>
+                                                        </div>
+
+                                                        
+                                                        <div *ngIf="accountModel.password !== accountModel.confirmPassword" class="alert alert-danger">
+                                                                <label>Password do not match</label>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                                <label for="email">Email</label>
+                                                                <input class="form-control" id="email"
+                                                                        placeholder="Email" name="email" type="email" 
+                                                                        [(ngModel)]="accountModel.email" maxlength="255" mdbValidate required novalidate>
+                                                        </div> 
+                                                        
+                                                        <div class="mb-3">
+                                                                <label for="FullName">Full Name</label>
+                                                                <input class="form-control" id="FullName"
+                                                                        placeholder="Full Name" name="FullName" #fullname="ngModel" pattern="^[a-zA-Z\s]*$"
+                                                                        [(ngModel)]="accountModel.full_name" minlength="3" maxlength="255" mdbValidate required novalidate>
+                                                        </div>
+
+                                                        <div *ngIf="fullname.errors?.['pattern']" class="alert alert-danger">
+                                                                <label>Please input only valid characters</label>
+                                                        </div>
+
+                                                        <div *ngIf="fullname.errors?.['minlength']" class="alert alert-danger">
+                                                                <label>Full name too short</label>
+                                                        </div>
+
+                                                        <div *ngIf="fullname.errors?.['maxlength']" class="alert alert-danger">
+                                                                <label>Full name too long</label>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                                <label for="PhoneNum">Phone Number</label>
+                                                                <input class="form-control" id="PhoneNum"
+                                                                        placeholder="Phone Number" name="PhoneNum"
+                                                                        [(ngModel)]="accountModel.phone_number" maxlength="11" minlength="11" 
+                                                                        #phoneNum="ngModel" pattern="[0-9]*" mdbValidate required novalidate>
+                                                        </div>
+
+                                                        <div *ngIf="phoneNum.errors?.['minlength']" class="alert alert-danger">
+                                                                <label *ngIf="phoneNum.errors?.['minlength']">Phone number must be at least 11 characters long.</label>
+                                                        </div>
+                                                        <div *ngIf="phoneNum.errors?.['pattern']" class="alert alert-danger" role="alert">
+                                                                <label *ngIf="phoneNum.errors?.['pattern']">Phone number only accepts numbers</label>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                                <label for="roleSelect" class="form-label">Select
+                                                                        Role</label>
+                                                                <select class="form-select" id="roleSelect" name="Role"
+                                                                        [(ngModel)]="accountModel.role" mdbValidate required novalidate>
+                                                                        <option value="superadmin">Super Admin</option>
+                                                                        <option value="admin">Admin</option>
+                                                                </select>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                                <label for="status">Status</label>
+                                                                <input class="form-control" id="status"
+                                                                        name="status" value="Not Verified" placeholder="Not Verified"
+                                                                        [ngModel]="accountModel.status" disabled>
+                                                        </div>
+                                                        
+                                                        <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Create Account</button>
+                                                        </div>
+                                                </form>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <!-- End modal for New admin account -->
+        </div>
+
+        <!-- <h3>Create Admin Account</h3>
+        <form (ngSubmit)="onSubmit()" class="needs-validation"  novalidate>
+                <div class="mb-3">
+                  <label for="InputUser" class="form-label">Username</label>
+                  <input type="email" class="form-control" 
+                  id="InputUser" 
+                  [(ngModel)]="model.user" 
+                  name="InputUser" required>
+                        <div class="valid-feedback">
+                                Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                                Looks good!
+                         </div>
+                </div>
+
+                <label for="InputPassword" class="form-label">Password</label>
+                <div class="mb-3 input-group">
+                  
+                  <input type="password" 
+                  class="form-control" 
+                  id="InputPassword" 
+                  [(ngModel)]="model.password" 
+                  name="InputPassword" required>
+
+                        <div class="input-group-append">
+                                <span class="input-group-text">
+                                <i class="bi bi-eye-slash"  *ngIf="!passwordVisible" aria-hidden="true" (click)="togglePasswordVisibility()"></i>
+                                <i class="bi bi-eye-fill" *ngIf="passwordVisible" aria-hidden="true" (click)="togglePasswordVisibility()"></i>
+                                </span>
+                        </div>
+                </div>
+
+                <label for="InputConfirmPassword" class="form-label">Confirm Password</label>
+                <div class="mb-3 input-group">
+                  
+                        <input type="password" 
+                        class="form-control" 
+                        id="InputConfirmPassword" 
+                        [(ngModel)]="model.confirmPassword" 
+                        name="InputConfirmPassword" required>
+      
+                              <div class="input-group-append">
+                                      <span class="input-group-text">
+                                      <i class="bi bi-eye-slash"  *ngIf="!passwordVisible" aria-hidden="true" (click)="togglePasswordVisibility()"></i>
+                                      <i class="bi bi-eye-fill" *ngIf="passwordVisible" aria-hidden="true" (click)="togglePasswordVisibility()"></i>
+                                      </span>
+                              </div>
+                      </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+        </form> -->
+</div>

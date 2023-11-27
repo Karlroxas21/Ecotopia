@@ -14,7 +14,8 @@ export class NavbarComponent {
   hideNavbarPages = ['/admin-currentissue', '/admin-cases', '/admin-case-1', 
   '/admin-case-2', '/admin-case-3', '/admin-case-4', 
   '/adminpanel', '/admin-solution-1', '/admin-solution-2', '/admin-solution-3', '/admin-solutions',
-  '/admin-current-issues-ph', '/login', '/admin-assessment', '/admin-news']; // Add all admin pages here
+  '/admin-current-issues-ph', '/login', '/admin-assessment', '/admin-news', '/admin-account-create', 
+  '/admin-account-create/*', '/not-authorized']; // Add all admin pages here
 
   constructor(private router: Router){
     router.events.subscribe(event => {
@@ -25,7 +26,7 @@ export class NavbarComponent {
   }
 
   private checkHideNavbar(url: string): void{
-    this.hideNavbar = this.hideNavbarPages.includes(url);
+    this.hideNavbar = this.hideNavbarPages.some(page => url.startsWith(page));
   }
 
   // private checkHideNavbar(url: string): void {

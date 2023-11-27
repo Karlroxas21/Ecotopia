@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminCasesComponent } from '../admin-cases/admin-cases.component';
 import { AdminCase1Component } from '../admin-case1/admin-case1.component';
@@ -12,6 +12,8 @@ import { AdminSolutionsComponent } from '../admin-solutions/admin-solutions.comp
 import { AdminCurrentIssuesPhComponent } from '../admin-current-issues-ph/admin-current-issues-ph.component';
 import { AdminNewsComponent } from '../admin-news/admin-news.component';
 import { Router } from '@angular/router';
+import { AdminPanelService } from './admin-panel.service';
+import { Observable } from 'rxjs';
 
 const routes: Routes = [
   {component: AdminNewsComponent, path: 'admin-news'},
@@ -42,12 +44,27 @@ interface NavItem {
   styleUrls: ['./admin-panel.component.css']
 })
 
-export class AdminPanelComponent {
+export class AdminPanelComponent implements OnInit {
   isCollapsed = true;
 
-  constructor(private router: Router){}
+  username = localStorage.getItem('username');
+
+  constructor(private router: Router, private adminPanelService: AdminPanelService){}
   
+  ngOnInit(): void {
+    this.filterNavItems();
+  }
+  
+
+  // Remove admin account manage if super admin
+  filterNavItems(){
+    if(!this.isSuperAdmin()){
+      this.navItems = this.navItems.filter(item => item.text !== 'Accounts');
+    }
+  }
+
   navItems: NavItem[] = [
+    { text: 'Accounts', icon: 'bx bxs-user-plus', route: '/admin-account-create'},
     { text: 'News', icon: 'bx bxs-news', route: '/admin-news' },
     { text: 'Current Issues', icon: 'bx bxs-file', route: '/admin-current-issues-ph' },
     { text: 'Assessment', icon: 'bx bxs-edit', route: '/admin-assessment' },
@@ -69,7 +86,6 @@ export class AdminPanelComponent {
       ]
     }
   ];
-  
 
   toggleSidebar(){
     this.isCollapsed = !this.isCollapsed;
@@ -82,6 +98,15 @@ export class AdminPanelComponent {
 
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('username');
     this.router.navigate(['/login']);
+  }
+
+  isSuperAdmin(){
+    if(localStorage.getItem('role') === 'superadmin'){
+      return true;
+    }
+    return false;
   }
 }

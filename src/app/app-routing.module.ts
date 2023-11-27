@@ -20,6 +20,9 @@ import { MaterialComponent } from './material/material.component';
 import { LoginComponent } from './login/login.component';
 import { PolicyComponent } from './policy/policy.component';
 import { LandingPageNewComponent } from './landing-page-new/landing-page-new.component';
+import { AdminAccountCreateComponent } from './admin-account-create/admin-account-create.component';
+import { AccountConfirmationComponent } from './account-confirmation/account-confirmation.component';
+import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 
 // Cases
 import { Case1Component } from './case1/case1.component';
@@ -52,6 +55,7 @@ import { CausesComponent } from './causes/causes.component';
 import { EffectsComponent } from './effects/effects.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SuperadminGuard } from './superadmin.guard';
 
 const routes: Routes = [
   {
@@ -89,6 +93,9 @@ const routes: Routes = [
       { component: Case3Component, path: 'case3' },
       { component: Case4Component, path: 'case4' },
 
+      // Account admin confirmation
+      {component: AccountConfirmationComponent, path: 'admin-account-create/confirmation'},
+
       // Admin Components
       { component: AdminCasesComponent, path: 'admin-cases', canActivate: [AuthGuard] },
       { component: AdminCase1Component, path: 'admin-case-1', canActivate: [AuthGuard] },
@@ -100,11 +107,15 @@ const routes: Routes = [
       { component: AdminSolution1Component, path: 'admin-solution-1', canActivate: [AuthGuard] },
       { component: AdminSolution2Component, path: 'admin-solution-2', canActivate: [AuthGuard] },
       { component: AdminSolution3Component, path: 'admin-solution-3', canActivate: [AuthGuard] },
+      { component: AdminAccountCreateComponent, path: 'admin-account-create', canActivate: [SuperadminGuard] },
       // Solution 4
       { component: AdminSolutionsComponent, path: 'admin-solutions', canActivate: [AuthGuard] },
       { component: AdminCurrentIssuesPhComponent, path: 'admin-current-issues-ph', canActivate: [AuthGuard] },
       { component: AdminAssessmentComponent, path: 'admin-assessment', canActivate: [AuthGuard] },
       { component: AdminNewsComponent, path: 'admin-news', canActivate: [AuthGuard] },
+
+      // Not Authorized
+      { component: NotAuthorizedComponent, path: 'not-authorized'}
     ],
   },
   {

@@ -55,6 +55,9 @@ import { AdminNewsComponent } from './admin-news/admin-news.component';
 // import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AdminAccountCreateComponent } from './admin-account-create/admin-account-create.component';
+import { AccountConfirmationComponent } from './account-confirmation/account-confirmation.component';
+import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 
 @NgModule({
   declarations: [
@@ -103,7 +106,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     LandingPageNewComponent,
     AdminNewsComponent,
     NotFoundComponent,
-    NavbarComponent
+    NavbarComponent,
+    AdminAccountCreateComponent,
+    AccountConfirmationComponent,
+    NotAuthorizedComponent
   ],
   imports: [
     BrowserModule,
