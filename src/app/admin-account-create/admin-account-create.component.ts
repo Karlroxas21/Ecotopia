@@ -32,8 +32,13 @@ export class AdminAccountCreateComponent implements OnInit {
     status: 'Not Verified'
   };
 
+  newPasswordModel = {
+    password: ''
+  }
+
   passwordVisible = false;
   confirmPasswordVisible = false;
+  newPasswordVisible = false;
 
   isPasswordValid() {
     const passwordRegex = new RegExp('(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}');
@@ -88,6 +93,14 @@ export class AdminAccountCreateComponent implements OnInit {
     }
   }
 
+  toggleNewPasswordVisibility() {
+    this.newPasswordVisible = !this.newPasswordVisible;
+  }
+
+  setNewPasswordVisibileToFalse(){
+    this.newPasswordVisible = false;
+  }
+
   clearAccountModel() {
     this.accountModel = {
       username: '',
@@ -98,6 +111,14 @@ export class AdminAccountCreateComponent implements OnInit {
       phone_number: '',
       role: '',
       status: 'Not Verified'
+    };
+  }
+
+  clearNewPasswordModel(){
+    this.setNewPasswordVisibileToFalse();
+
+    this.newPasswordModel = {
+      password: ''
     };
   }
 
@@ -138,6 +159,12 @@ export class AdminAccountCreateComponent implements OnInit {
       this.accounts[index] = updatedAccount;
       this.toastr.success(account.username, "Updated user: ");
     });
+  }
+
+  resetPassword(id: string, password: any): void{
+    this.accountService.resetPassword(id, password).subscribe(resetPassword => {
+      this.toastr.success("Reset Password Success");
+    })
   }
 
   selectAccount(account: any): void {

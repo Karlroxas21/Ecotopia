@@ -33,5 +33,8 @@ export class AdminAccountCreationService{
                 return this.http.delete<void>(`${this.urlAPI}/${id}`);
         }
 
+        resetPassword(id: string, password: any): Observable<any>{
+                return this.http.put<any>(`${this.urlAPI}/reset-password/${id}`, {password: password});
+        }
 
 }
