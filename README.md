@@ -13,7 +13,7 @@ We use MEAN stack to build this project. All back-end related are in the *backen
 "replace": "src/environments/environment.ts",
 "with": "src/environments/environment.development.ts"
 "defaultConfiguration": "development"
-1. Add Environment in backend BASE_URL=webite.com
+1. Add Environment in backend BASE_URL=webite.com, OUTLOOK_USER_AUTH=email.com, OUTLOOK_PW_AUTH=pw.email
 
 ### Production
 "replace": "src/environments/environment.development.ts",
