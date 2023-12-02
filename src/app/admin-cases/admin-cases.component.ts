@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { AdminService } from './admin-cases-services';
@@ -301,4 +301,55 @@ export class AdminCasesComponent implements OnInit {
     this.editing_case4_1 = false;
     this.case4[1] = event.target.value;
   }
+
+  @ViewChild('imageCaseSelected') imagCaseSelected!: ElementRef;
+  casesSelected!: File;
+  
+  // Image Upload
+  ImageCasesSelected(event: any): void{
+    this.casesSelected = event.target.files[0];
+  }
+  
+  onImageCasesSelected(event: Event): void{
+      if(!this.casesSelected){
+        this.toastr.warning('No file selected');
+        return;
+      }
+      
+      if(this.casesSelected.type !== 'image/webp'){
+        this.toastr.error('Image format should be .webp');
+        return;
+      }
+  
+      const maxFileSize = 100 * 1024; // 100kb
+      if(this.casesSelected.size > maxFileSize){
+        this.toastr.error('Max file size is 100kb');
+        return;
+      } 
+  
+      // Limit resolution
+      const reader = new FileReader();
+      reader.onload = (res: any)=>{
+        const image = new Image();
+        image.onload = ()=>{
+          const MAX_WIDTH = 1200;
+          const MAX_HEIGHT = 1200;
+          let width = image.width;
+          let height = image.height;
+  
+          if(width > MAX_WIDTH || height > MAX_HEIGHT){
+            this.toastr.error('Image resolution should be exact 1200px * 1200px')
+            return;
+          }
+
+          const formData = new FormData();
+          formData.append('image', this.casesSelected)
+          this.AdminCase.imageCasesUpload(formData, this.imagCaseSelected);
+          this.toastr.success('File uploaded successfully. Refresh to see changes');
+
+        };
+        image.src = res.target.result;
+      };
+      reader.readAsDataURL(this.casesSelected);
+    }
 }

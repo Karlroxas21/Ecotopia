@@ -1,5 +1,6 @@
 const express = require("express");
 const Cases = require("../../../model/cases/cases.model");
+const multer = require('multer');
 
 const app = express();
 
@@ -24,5 +25,28 @@ app.get("/admin-cases", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
+// Image upload
+const imageCasesStorage = multer.diskStorage({
+  destination: (req, file, cb) =>{
+    cb(null, '../src/assets/casesimages');
+  },
+  filename: (req, file, cb) =>{
+    cb(null, 'image_cases.webp');
+  }
+});
+
+const imageCasesUpload = multer({
+  storage: imageCasesStorage,
+  limits: 100 * 1024 // 100kb
+});
+
+app.post('/image-cases-upload', imageCasesUpload.single('image'), (req, res) =>{
+  if(!req.file){
+    return res.status(400).json({ error: 'No file uploaded'});
+  }
+
+  return res.status(200).send("File uploaded success");
+})
 
 module.exports = app;
