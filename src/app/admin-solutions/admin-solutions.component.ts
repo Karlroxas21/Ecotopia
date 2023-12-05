@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { AdminSolutionsService } from './admin-solutions-service';
@@ -214,4 +214,56 @@ isValidInput(inputArray: string[]): boolean {
     this.editing_solution_4[index] = false;
     this.solution_4[index] = event.target.value;
   }
+
+  // Image Upload
+  @ViewChild('imageSolutionSelected') imageSolutionSelected!: ElementRef;
+  solutionSelected!: File;
+
+  imageSelected(event: any): void{
+    this.solutionSelected = event.target.files[0];
+  }
+
+  onSolutionSelected(event: Event): void{
+    if(!this.solutionSelected){
+      this.toastr.warning('No file selected');
+      return;
+    }
+    
+    if(this.solutionSelected.type !== 'image/webp'){
+      this.toastr.error('Image format should be .webp');
+      return;
+    }
+
+    const maxFileSize = 100 * 1024; // 100kb
+    if(this.solutionSelected.size > maxFileSize){
+      this.toastr.error('Max file size is 100kb');
+      return;
+    }  
+    
+    // Limit resolution
+    const reader = new FileReader();
+    reader.onload = (res: any)=>{
+      const image = new Image();
+      image.onload = ()=>{
+        const MAX_WIDTH = 1680;
+        const MAX_HEIGHT = 1120;
+        let width = image.width;
+        let height = image.height;
+
+        if(width > MAX_WIDTH || height > MAX_HEIGHT){
+          this.toastr.error(`Max image resolution is ${MAX_WIDTH} * ${MAX_HEIGHT}`)
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append('image', this.solutionSelected)
+        this.AdminSolutionsService.solutionUpload(formData, this.imageSolutionSelected);
+        this.toastr.success('File uploaded successfully. Refresh to see changes');
+
+      };
+      image.src = res.target.result;
+    };
+    reader.readAsDataURL(this.solutionSelected);
+  }
+
 }

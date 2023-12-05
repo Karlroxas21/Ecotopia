@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -453,5 +453,56 @@ isValidInputArray(inputArray: string[]): boolean {
   finishEditingRef2(event: any) {
     this.editing_reference[1] = false;
     this.references[1] = (event.target.value);
+  }
+
+  // Image upload
+  @ViewChild('image3Selected') image3Selected!: ElementRef;
+  case3Selected!: File;
+
+  imageCase3Selected(event: any): void{
+    this.case3Selected = event.target.files[0];
+  }
+
+  onImageCase3Selected(event: Event): void{
+    if(!this.case3Selected){
+      this.toastr.warning('No file selected');
+      return;
+    }
+    
+    if(this.case3Selected.type !== 'image/webp'){
+      this.toastr.error('Image format should be .webp');
+      return;
+    }
+
+    const maxFileSize = 100 * 1024; // 100kb
+    if(this.case3Selected.size > maxFileSize){
+      this.toastr.error('Max file size is 100kb');
+      return;
+    } 
+
+    // Limit resolution
+    const reader = new FileReader();
+    reader.onload = (res: any)=>{
+      const image = new Image();
+      image.onload = ()=>{
+        const MAX_WIDTH = 1200;
+        const MAX_HEIGHT = 1200;
+        let width = image.width;
+        let height = image.height;
+
+        if(width > MAX_WIDTH || height > MAX_HEIGHT){
+          this.toastr.error('Image resolution should be exact 1200px * 1200px')
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append('image', this.case3Selected)
+        this.AdminCase3Service.imageCase3Upload(formData, this.image3Selected);
+        this.toastr.success('File uploaded successfully. Refresh to see changes');
+
+      };
+      image.src = res.target.result;
+    };
+    reader.readAsDataURL(this.case3Selected);
   }
 }

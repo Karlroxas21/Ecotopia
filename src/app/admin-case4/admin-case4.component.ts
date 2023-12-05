@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -405,9 +405,6 @@ isValidInputArray(inputArray: string[]): boolean {
     this.case4_content[11] = event.target.value;
   }
 
-
-  
-
   // Reference 1
   startEditingRef1() {
     this.editing_reference[0] = true;
@@ -415,6 +412,57 @@ isValidInputArray(inputArray: string[]): boolean {
   finishEditingRef1(event: any) {
     this.editing_reference[0] = false;
     this.references[0] = (event.target.value);
+  }
+
+  // Image Upload
+  @ViewChild('image4Selected') image4Selected!: ElementRef;
+  case4Selected!: File;
+
+  imageCase4Selected(event: any): void{
+    this.case4Selected = event.target.files[0];
+  }
+
+  onImageCase4Selected(event: Event): void{
+    if(!this.case4Selected){
+      this.toastr.warning('No file selected');
+      return;
+    }
+    
+    if(this.case4Selected.type !== 'image/webp'){
+      this.toastr.error('Image format should be .webp');
+      return;
+    }
+
+    const maxFileSize = 100 * 1024; // 100kb
+    if(this.case4Selected.size > maxFileSize){
+      this.toastr.error('Max file size is 100kb');
+      return;
+    } 
+
+    // Limit resolution
+    const reader = new FileReader();
+    reader.onload = (res: any)=>{
+      const image = new Image();
+      image.onload = ()=>{
+        const MAX_WIDTH = 1200;
+        const MAX_HEIGHT = 1200;
+        let width = image.width;
+        let height = image.height;
+
+        if(width > MAX_WIDTH || height > MAX_HEIGHT){
+          this.toastr.error('Image resolution should be exact 1200px * 1200px')
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append('image', this.case4Selected)
+        this.AdminCase4Service.imageCase4Upload(formData, this.image4Selected);
+        this.toastr.success('File uploaded successfully. Refresh to see changes');
+
+      };
+      image.src = res.target.result;
+    };
+    reader.readAsDataURL(this.case4Selected);
   }
 
 }

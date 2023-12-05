@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { ElementRef, Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment } from '../../environments/environment'
@@ -9,6 +9,7 @@ import { environment } from '../../environments/environment'
 
 export class AdminSolutionsService {
         private urlAPI = `${environment.apiUrl}admin-solutions`;
+        private baseUrlAPI = `${environment.apiUrl}`;
 
         constructor(private http: HttpClient){ }
 
@@ -25,6 +26,16 @@ export class AdminSolutionsService {
                         solution_4: data.solution_4,
                 }
                 return this.http.put<any>(`${this.urlAPI}/${_id}`, json);
+        }
+
+        solutionUpload(image: FormData, fileInput: ElementRef): void{
+                this.http.post(`${this.baseUrlAPI}image-solution-upload`, image, { responseType: 'text' as 'json'}).subscribe(
+                        (res) =>{
+                                fileInput.nativeElement.value = '';
+                        },(err) =>{
+                                console.error(err);
+                        }
+                )
         }
 
 }

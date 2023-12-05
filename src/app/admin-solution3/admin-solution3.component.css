@@ -9,8 +9,7 @@
 }
 
 body {
-        margin: 0;
-        padding: 0;
+        margin-left: 55px;
 }
 
 html {
@@ -212,3 +211,37 @@ section .reference-container {
   padding: 5px;
   font-size: 1.3rem;
 }
+
+/* Upload file */
+input[type=file] {
+        padding: 5px;
+        border: 2px solid #cccccc;
+        border-radius: 5px;
+        font-size: 1.5rem;
+    }
+    
+    input[type=file]:focus {
+        border-color: #333333;
+    }
+    
+    button[type=submit] {
+        margin: 5px;
+        padding: 5px 15px;
+        border: 0 none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 1.5rem;
+        border: 2px solid #cccccc;
+    }
+    
+    button[type=submit]:hover {
+        background: #001DD3;
+        color: white;
+    }
+    
+    .file-upload {
+        border: 2px solid #cccccc;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    

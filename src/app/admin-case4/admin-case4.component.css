@@ -1,7 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/henry-sans');
 @import "~boxicons/css/boxicons.min.css";
 
-*{
+* {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
@@ -9,15 +9,17 @@
     font-family: 'Henry Sans', sans-serif;
 }
 
-html{
+html {
     margin: 0;
     padding: 0;
 }
-.content img{
+
+.content img {
     width: 800px;
     height: 800px;
 }
-.content{
+
+.content {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -27,7 +29,8 @@ html{
     margin-bottom: 60px;
     transition: 0.5s;
 }
-.content2{
+
+.content2 {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -35,24 +38,30 @@ html{
     padding: 10px;
     min-height: 30vh;
 }
-.content2 i{
+
+.content2 i {
     font-size: 200%;
 }
-.content .textbox{
+
+.content .textbox {
     position: relative;
     max-width: 600px;
 }
-.content2, .textbox2{
+
+.content2,
+.textbox2 {
     padding-right: 10px;
 }
-.content .textbox h2{
+
+.content .textbox h2 {
     color: #1A238D;
     line-height: 120px;
     font-family: 'Roboto', sans-serif;
     font-size: 100px;
     font-weight: 900;
 }
-.content2 .textbox2 h3{
+
+.content2 .textbox2 h3 {
     color: #1A238D;
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
@@ -63,10 +72,12 @@ html{
     padding: 50px 50px 50px 50px;
 
 }
-.content .textbox span{
+
+.content .textbox span {
     color: #FF96A9;
 }
-.content .textbox p{
+
+.content .textbox p {
     font-size: 25px;
     color: #000000;
     text-align: justify;
@@ -75,75 +86,84 @@ html{
     padding-top: 20px;
 }
 
-  /****** NEXT CONTENT ******/
+/****** NEXT CONTENT ******/
 
-  .text{
+.text {
     padding: 0 100px 0 100px;
     color: #080d14;
     transition: 0.5s;
 }
-.text h1{
+
+.text h1 {
     padding-bottom: 40px;
     font-size: 50px;
     font-weight: bold;
 }
-.text p{
+
+.text p {
     line-height: 30px;
     font-size: 21px;
 }
-.text ol{
+
+.text ol {
     /* margin-top: 20px; */
     font-size: 21px;
     padding-left: 20px;
 }
-#next h1{
+
+#next h1 {
     margin-top: 60px;
 }
-section .reference-container{
+
+section .reference-container {
     padding: 50px;
 }
-.center{
+
+.center {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 80%;
 }
+
 .card-container {
     display: flex;
     flex-wrap: wrap;
     padding: 25px;
-    margin-left: 50px; /*you can remove this*/
-  }
-  
-  .card {
+    margin-left: 50px;
+    /*you can remove this*/
+}
+
+.card {
     flex-basis: calc(25% - 20px);
     margin: 10px;
     transition: transform 0.3s ease;
     padding: 20px 10px;
     text-align: center;
     border-radius: 20px;
-  }
-  /*.card:hover {
+}
+
+/*.card:hover {
     transform: scale(1.1);
   }*/
-  .card h2 {
+.card h2 {
     margin-top: 0;
-  }
+}
 
-  .publish-container {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        padding: 50px;
+.publish-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 50px;
 }
 
 .publish:hover {
     background: #02179c;
-  }
-  
-  .publish {
+}
+
+.publish {
     border-radius: 20px;
-    border: 1px solid ;
+    border: 1px solid;
     background-color: #001DD3;
     transition: background-color 0.1s ease-in-out;
     font-size: 2rem;
@@ -151,59 +171,101 @@ section .reference-container{
     color: white;
     font-weight: 600;
     letter-spacing: 1.65px;
-  }
-@media screen and (max-width: 1299px){
-    .content{
+}
+
+@media screen and (max-width: 1299px) {
+    .content {
         flex-direction: column;
         transition: 0.2s;
     }
-    .content2{
+
+    .content2 {
         flex-direction: column;
         transition: 0.2s;
     }
-    .card-container{
+
+    .card-container {
         flex-direction: column;
         transition: 0.2s;
     }
-    .card{
+
+    .card {
         margin-top: 30px;
     }
-    h2{
+
+    h2 {
         margin-top: 100px;
         transition: 0.2s;
     }
 }
-@media screen and (max-width: 825px){
-    .content img{
+
+@media screen and (max-width: 825px) {
+    .content img {
         width: 100%;
         height: 100%;
     }
 }
-@media screen and (max-width: 750px){
-    h1{
+
+@media screen and (max-width: 750px) {
+    h1 {
         text-align: center;
     }
-    .text p{
+
+    .text p {
         text-align: justify;
     }
-    .content .textbox h2{
+
+    .content .textbox h2 {
         line-height: 110px;
         font-size: 80px;
     }
-    .content{
+
+    .content {
         margin-top: 50px;
         flex-direction: column;
     }
 }
 
 .resizable-input {
-    width: 100%; 
-    height: 100px; 
-  }
-  
-  .resizable-input {
+    width: 100%;
+    height: 100px;
+}
+
+.resizable-input {
     border: 1px solid #ccc;
     padding: 5px;
     font-size: 1.3rem;
-  }
-  
+}
+
+/* Upload file */
+input[type=file] {
+    padding: 5px;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+input[type=file]:focus {
+    border-color: #333333;
+}
+
+button[type=submit] {
+    margin: 5px;
+    padding: 5px 15px;
+    border: 0 none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    border: 2px solid #cccccc;
+}
+
+button[type=submit]:hover {
+    background: #001DD3;
+    color: white;
+}
+
+.file-upload {
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    padding: 10px;
+}

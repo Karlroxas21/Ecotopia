@@ -1,6 +1,56 @@
 <main>
   <app-admin-panel></app-admin-panel>
- 
+
+  <div class="content">
+    <div class="textbox" *ngFor="let item of outdated_engine">
+      <div>
+      <!-- <div *ngIf="!editing_header" (click)="startEditingHeader()"> -->
+        <h2>{{ header }}</h2>
+      </div>
+      <h3>
+        <textarea
+          rows="2" cols="25"
+          style="color: #021CD3; font-size: 3rem; font-weight: 600"
+          *ngIf="editing_header"
+          (blur)="finishEditingHeader($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="outdated_engine[0].header"
+        ></textarea>
+      </h3>
+      
+      <div>
+        <p>{{ header_desc }}</p>
+      </div>
+      <p>
+        <textarea
+          rows="2" cols="54"
+          *ngIf="editing_header_desc"
+          (blur)="finishEditingHeaderDescription($event)"
+          class="resizable-input"
+          (ngModelChange)="doesChange()"
+          [(ngModel)]="outdated_engine[0].header_description"
+        ></textarea>
+      </p>
+    </div>
+    <div>
+      <img
+      src="/assets/casesimages/image_case2.webp"
+      alt="sad earth"
+    />
+    <div class="file-upload">
+      
+      <h6>Format should be .webp</h6>
+      <h6>Max image size is 100kb</h6>
+      <h6>Resolution should be exact 1200px*1200px</h6>
+      <form (submit)="onImageCase2Selected($event)" enctype="multipart/form-data">
+        <input type="file" (change)="imageCase2Selected($event)" #image2Selected>
+        <button type="submit">Upload</button>
+      </form>
+    </div>
+    </div>
+    
+  </div>
 
   <div class="text" *ngFor="let item of outdated_engine">
     <h1 style="padding-top: 50px; color: #a6782a">

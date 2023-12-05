@@ -1,11 +1,22 @@
+<app-admin-panel></app-admin-panel>
 <body>
-  <app-admin-panel></app-admin-panel>
+  
   <div class="background" style="margin-bottom: 50px">
-    <!-- <img
+    <img
       src="assets/solutionsimages/actnow.webp"
       alt="Act now! Image"
       width="100%"
-    /> -->
+    />
+
+    <div class="file-upload">
+      <h6>Format should be .webp</h6>
+      <h6>Max image size is 100kb</h6>
+      <h6>Resolution should be not exceed 1680px*1120px</h6>
+      <form (submit)="onSolutionSelected($event)"enctype="multipart/form-data">
+        <input type="file" (change)="imageSelected($event)" #imageSolutionSelected>
+        <button type="submit">Upload</button>
+      </form>
+    </div>
   </div>
 
   <div class="text">

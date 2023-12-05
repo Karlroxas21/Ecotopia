@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -327,5 +327,56 @@ export class AdminSolution3Component {
   finishEditingRef1(event: any){
     this.editing_references[0] = false;
     this.references[0] = event.target.value;
+  }
+
+  // Image upload
+  @ViewChild('imageSolution3Selected') imageSolution3Selected!: ElementRef;
+  solution3Selected!: File;
+
+  imageSelected(event: any): void{
+    this.solution3Selected = event.target.files[0];
+  }
+
+  onSolution3Selected(event: Event): void{
+    if(!this.solution3Selected){
+      this.toastr.warning('No file selected');
+      return;
+    }
+    
+    if(this.solution3Selected.type !== 'image/webp'){
+      this.toastr.error('Image format should be .webp');
+      return;
+    }
+
+    const maxFileSize = 100 * 1024; // 100kb
+    if(this.solution3Selected.size > maxFileSize){
+      this.toastr.error('Max file size is 100kb');
+      return;
+    } 
+
+    //  Limit resolution
+     const reader = new FileReader();
+     reader.onload = (res: any)=>{
+       const image = new Image();
+       image.onload = ()=>{
+         const MAX_WIDTH = 1623;
+         const MAX_HEIGHT = 1080;
+         let width = image.width;
+         let height = image.height;
+ 
+         if(width > MAX_WIDTH || height > MAX_HEIGHT){
+           this.toastr.error(`Max image resolution is ${MAX_WIDTH} * ${MAX_HEIGHT}`)
+           return;
+         }
+ 
+         const formData = new FormData();
+         formData.append('image', this.solution3Selected)
+         this.AdminSolution3Service.solution3ImageUpload(formData, this.imageSolution3Selected);
+         this.toastr.success('File uploaded successfully. Refresh to see changes');
+ 
+       };
+       image.src = res.target.result;
+     };
+     reader.readAsDataURL(this.solution3Selected);
   }
 }

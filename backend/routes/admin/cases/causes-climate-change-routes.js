@@ -1,5 +1,6 @@
 const express = require("express");
 const CauseClimateChange = require("../../../model/cases/cause_climate_change.model");
+const multer = require('multer');
 
 const app = express();
 
@@ -26,5 +27,30 @@ app.get("/admin-case-3", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
+// Image upload
+const imageCase3Storage = multer.diskStorage({
+  destination: (req, file, cb) =>{
+    cb(null, '../src/assets/casesimages');
+  },
+  filename: (req, file, cb) =>{
+    cb(null, 'image_case3.webp');
+  }
+});
+
+const imageCase3Upload = multer({
+  storage: imageCase3Storage,
+  limits: 100 * 1024 // 100kb
+});
+
+app.post('/image-case3-upload', imageCase3Upload.single('image'), (req, res) =>{
+  if(!req.file){
+    return res.status(400).json({ error: 'No file uploaded'});
+  }
+
+  return res.status(200).send("File uploaded success");
+})
+
+
 
 module.exports = app;
