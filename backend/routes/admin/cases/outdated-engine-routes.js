@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 const OutDatedEngineModel = require("../../../model/cases/outdated_engine.model");
 const multer = require('multer');
@@ -29,9 +31,11 @@ app.get("/admin-case-2", async (req, res) => {
 });
 
 // Image upload
+const upload_directory = process.env.UPLOAD_DIR || '../src/assets/';
+
 const imageCase2Storage = multer.diskStorage({
   destination: (req, file, cb) =>{
-    cb(null, '../src/assets/casesimages');
+    cb(null, `${upload_directory}casesimages`);
   },
   filename: (req, file, cb) =>{
     cb(null, 'image_case2.webp');

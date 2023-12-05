@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 const Solution = require("../../../model/solutions/solutions.model");
 const multer = require('multer');
@@ -28,9 +30,11 @@ app.get("/admin-solutions", async (req, res) => {
 });
 
 // Image upload
+const upload_directory = process.env.UPLOAD_DIR || '../src/assets/';
+
 const imageSolutionStorage = multer.diskStorage({
   destination: (req, file, cb) =>{
-    cb(null, '../src/assets/solutionsimages');
+    cb(null, `${upload_directory}solutionsimages`);
   },
   filename: (req, file, cb) =>{
     cb(null, 'actnow.webp');
