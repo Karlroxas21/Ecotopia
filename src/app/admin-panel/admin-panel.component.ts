@@ -68,7 +68,7 @@ export class AdminPanelComponent implements OnInit {
     { text: 'News', icon: 'bx bxs-news', route: '/admin-news' },
     { text: 'Current Issues', icon: 'bx bxs-file', route: '/admin-current-issues-ph' },
     { text: 'Assessment', icon: 'bx bxs-edit', route: '/admin-assessment' },
-    { text: 'Climate Action SDG 13', icon: 'bx-bullseye',
+    { text: 'Climate Action SDG 13', icon: 'bx-bullseye', route: '/admin-cases',
       children: [
         { text: 'SDG #13', icon: 'bx-file', route: '/admin-cases' },
         { text: 'Overview', icon: 'bx-file', route: '/admin-case-1' },
@@ -77,7 +77,7 @@ export class AdminPanelComponent implements OnInit {
         { text: 'Related Topics', icon: 'bx-file', route: '/admin-case-4' }
       ]},
     {
-      text: 'Solutions', icon: 'bx bxs-briefcase-alt',
+      text: 'Solutions', icon: 'bx bxs-briefcase-alt', route: '/admin-solutions',
       children: [
         { text: 'Solutions', icon: 'bx bxs-check-shield', route: '/admin-solutions' },
         { text: 'Solution 1', icon: 'bx-check-shield', route: '/admin-solution-1' },
