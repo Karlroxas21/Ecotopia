@@ -13,6 +13,12 @@ export class PlaySceneWrong extends Phaser.Scene {
         }
 
         background: any;
+        flow_sprite: any;
+
+        character: any;
+
+        garbagePosition: any = [];
+        garbage: any = [];
 
         heart_icon: any;
         
@@ -30,7 +36,7 @@ export class PlaySceneWrong extends Phaser.Scene {
         failedSFX: any;
         xButtonSFX: any;
 
-        textDisplay = "Wrong! We should focus more on hazardous materials and litters\non cleaning up on the beach because they are the one who\nimmediately harm the environment or safety of the beach.";
+        textDisplay = "Time's up! We should focus more on hazardous materials and litters on cleaning up on the beach because they are the one who immediately harm the environment or safety of the beach.";
 
         choice1 = "Plastic bottles and cigarette butts";
         choice2 = "Seashells and pebbles";
@@ -41,14 +47,50 @@ export class PlaySceneWrong extends Phaser.Scene {
         currentHeartPoints = heartPointsService.getHeartPoints();
 
         create() {
-                this.background = this.add.image(0, 0, 'scene1-bg-wrong');
+                this.background = this.add.image(0, 0, 'scene1-bg');
                 this.background.setOrigin(0, 0);
+
+                this.flow_sprite = this.add.sprite(0, 0, 'scene1-sprite');
+                this.flow_sprite.setOrigin(0, 0);
+                this.anims.create({
+                        key: 'scene1-sprite-key',
+                        frames: this.anims.generateFrameNumbers('scene1-sprite', { start: 0, end: 2 }),
+                        frameRate: 1,
+                        repeat: -1
+                });
+
+                this.flow_sprite.anims.play('scene1-sprite-key');
+
+                this.anims.create({
+                        key: 'character_key',
+                        frames: this.anims.generateFrameNumbers('character', {start: 0, end: 6}),
+                        frameRate: 5,
+                        repeat: -1
+                      })
+                this.character = this.add.sprite(150, 400, 'character');
+                this.character.setScale(0.5);
+                this.character.anims.play('character_key');
 
                 this.failedSFX = this.sound.add('failed');
                 this.failedSFX.play();
                 
                 this.xButtonSFX = this.sound.add('x-button');
                 
+                // Push garbages
+                // for(let i = 0; i < 15; i++){
+                //         this.garbage.push(this.add.image(0, 0, 'garbage'+ i))
+                // }
+
+                // // Garbages from scene 1
+                // this.garbagePosition = this.registry.get('garbage');
+                
+                // // TODO: Display the garbages from scene 1
+                // for(let i = 0; i < this.garbagePosition.length; i++){
+                //         this.add.existing(this.garbagePosition[i]);
+                //         this.garbage[i].x = this.garbagePosition[i].x;
+                //         this.garbage[i].y = this.garbagePosition[i].y;
+                // }
+
                 for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
                         this.heart_icon = this.add.sprite(770, 10 + i * 50, 'heart-icon');
                         this.heart_icon.setScale(0.08);
@@ -86,24 +128,24 @@ export class PlaySceneWrong extends Phaser.Scene {
                 const centerX = this.config.width / 2;
                 const centerY = this.config.height / 2;
 
-                const graphics = this.add.graphics();
-                graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-                graphics.fillRect(
-                        75,
-                        centerY - this.cameras.main.height / 6 / 2,
-                        this.cameras.main.width - 150,
-                        this.cameras.main.height / 6
-                );
+                // const graphics = this.add.graphics();
+                // graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+                // graphics.fillRect(
+                //         75,
+                //         centerY - this.cameras.main.height / 6 / 2,
+                //         this.cameras.main.width - 150,
+                //         this.cameras.main.height / 6
+                // );
 
-                const closeButton = this.add.text(
-                        this.config.width - 90, 
-                        centerY - this.config.height / 6 / 2 + 15,
-                        "X",
-                        { font: '18px Arial', color: '#ffffff' }
+                const skipButton = this.add.text(
+                        this.config.width - 90,
+                        this.config.height / 6 / 2 + 15,
+                        "Skip",
+                        { font: '18px Arial', color: '#000000' }
                       );
-                      closeButton.setOrigin(0.5);
-                      closeButton.setInteractive();
-                      closeButton.on('pointerdown', () =>{
+                      skipButton.setOrigin(0.5);
+                      skipButton.setInteractive();
+                      skipButton.on('pointerdown', () =>{
                         this.xButtonSFX.play();
                         this.scene.start('pre-play-scene2', { config: this.game.config});
                       })
@@ -111,10 +153,22 @@ export class PlaySceneWrong extends Phaser.Scene {
                 const guide = this.add.text(
                         100,
                         centerY - 25,
-                        this.textDisplay,
-                        { font: '18px monospace', color: '#ffffff', align: 'left' }
+                        '',
+                        { font: '18px monospace', color: '#000000', align: 'left' }
                 );
-                // End of Question
+                
+                let index = 0;
+                let startIndexOfSegment = 0;
+                while (index < this.textDisplay.length) {
+                        if (this.textDisplay[index] === ' ' && index - startIndexOfSegment >= 55) {
+                          
+                          guide.text += '\n';
+                          startIndexOfSegment = index + 1;
+                        } else {
+                          guide.text += this.textDisplay[index];
+                        }
+                        index++;
+                } 
                 
         }
 

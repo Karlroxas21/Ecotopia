@@ -36,8 +36,33 @@ export class MainScene extends Phaser.Scene {
     this.load.image('cloud-9', '../../../../assets/game/scene1/cloud9.webp');
     this.load.image('cloud-0', '../../../../assets/game/scene1/cloud0.webp');
    
+    //  Player
+    this.load.spritesheet('player', '../../../../assets/game/player.webp', { 
+      frameWidth: 460, frameHeight: 600
+    });
+   
+    // Speech Bubble
+    this.load.image('speech-bubble', '../../../../assets/game/speech.png')
+
+    // Garbages
+    this.load.image('garbage0', '../../../../assets/game/scene1/gb1.webp');
+    this.load.image('garbage1', '../../../../assets/game/scene1/gb2.webp');
+    this.load.image('garbage2', '../../../../assets/game/scene1/gb3.webp');
+    this.load.image('garbage3', '../../../../assets/game/scene1/gb4.webp');
+    this.load.image('garbage4', '../../../../assets/game/scene1/gb5.webp');
+    this.load.image('garbage5', '../../../../assets/game/scene1/gb6.webp');
+    this.load.image('garbage6', '../../../../assets/game/scene1/gb7.webp');
+    this.load.image('garbage7', '../../../../assets/game/scene1/gb8.webp');
+    this.load.image('garbage8', '../../../../assets/game/scene1/gb9.webp');
+    this.load.image('garbage9', '../../../../assets/game/scene1/gb10.webp');
+    this.load.image('garbage10', '../../../../assets/game/scene1/gb11.webp');
+    this.load.image('garbage11', '../../../../assets/game/scene1/gb12.webp');
+    this.load.image('garbage12', '../../../../assets/game/scene1/gb13.webp');
+    this.load.image('garbage13', '../../../../assets/game/scene1/gb14.webp');
+    this.load.image('garbage14', '../../../../assets/game/scene1/gb15.webp');
+
     // Scene 1 Assets
-    this.load.image('scene1-bg', '../../../../assets/game/scene1/scene1-bg.webp');
+    this.load.image('scene1-bg', '../../../../assets/game/scene1/beach.webp');
     this.load.image('scene1-bg-correct', '../../../../assets/game/scene1/scene1-bg-correct.webp');
     this.load.image('scene1-bg-wrong', '../../../../assets/game/scene1/scene1-bg-wrong.webp');
     this.load.spritesheet('scene1-sprite', '../../../../assets/game/scene1/scene1-sprite.webp',{
@@ -93,7 +118,7 @@ export class MainScene extends Phaser.Scene {
     // Game Over Scene
     this.load.image('character-win', '../../../../assets/game/char_cngrts.webp');
     // this.load.image('congrats-bg', '../../../../assets/game/cngts_bg.webp');
-   
+
     // Example sprite character
     this.load.spritesheet('character', '../../../../assets/game/chara.webp',{
       frameWidth: 261,
@@ -154,7 +179,7 @@ export class MainScene extends Phaser.Scene {
     // Uncomment this when done in level 1!
     this.load.on('complete', () => {
       // default-scene is the original value
-      this.scene.start('default-scene', { config: this.game.config });
+      this.scene.start('play-scene', { config: this.game.config });
     });
 
     // Temporary to see Level 2 Scene Fast.

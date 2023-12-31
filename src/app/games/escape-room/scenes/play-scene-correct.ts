@@ -13,6 +13,8 @@ export class PlaySceneCorrect extends Phaser.Scene {
         }
 
         background: any;
+        flow_sprite: any;
+        character: any;
 
         heart_icon: any;
         
@@ -48,11 +50,46 @@ export class PlaySceneCorrect extends Phaser.Scene {
 
         scoreDisplay: any;
 
-        textDisplay = "Correct! Cleaning up beaches is important because they're a\ncommon and harmful source of marine debris that can seriously\nharm the environment and wildlife.";
+        textDisplay = "Cleaning up beaches is important because they're a common and harmful source of marine debris that can seriously harm the environment and wildlife.";
 
         create() {
-                this.background = this.add.image(0, 0, 'scene1-bg-correct');
+                this.background = this.add.image(0, 0, 'scene1-bg');
                 this.background.setOrigin(0, 0);
+
+                this.flow_sprite = this.add.sprite(0, 0, 'scene1-sprite');
+                this.flow_sprite.setOrigin(0, 0);
+
+                this.anims.create({
+                        key: 'scene1-sprite-key',
+                        frames: this.anims.generateFrameNumbers('scene1-sprite', { start: 0, end: 2 }),
+                        frameRate: 1,
+                        repeat: -1
+                });
+
+                this.anims.create({
+                        key: 'character_key',
+                        frames: this.anims.generateFrameNumbers('character', {start: 0, end: 6}),
+                        frameRate: 5,
+                        repeat: -1
+                      })
+                this.character = this.add.sprite(150, 400, 'character');
+                this.character.setScale(0.5);
+                this.character.anims.play('character_key');
+                // const timeline = this.tweens.createTimeline();
+
+                // timeline.add({
+                //   targets: this.character,
+                //   y: 450,
+                //   ease: 'Linear',
+                //   duration: 1000,
+                //   onComplete: () =>{
+                //     this.character.anims.play('character_key')
+                //   },
+                // });
+            
+                // timeline.play();
+                
+                this.flow_sprite.anims.play('scene1-sprite-key');
 
                 this.levelPassedSFX = this.sound.add('level-passed');
                 this.levelPassedSFX.play();
@@ -73,7 +110,7 @@ export class PlaySceneCorrect extends Phaser.Scene {
                       this.heart_icon.anims.play('heart-icon_key');
                 }
 
-                this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
+                // this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
 
 
                 // Clouds
@@ -98,24 +135,24 @@ export class PlaySceneCorrect extends Phaser.Scene {
                 const centerX = this.config.width / 2;
                 const centerY = this.config.height / 2;
 
-                const graphics = this.add.graphics();
-                graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-                graphics.fillRect(
-                        75,
-                        centerY - this.cameras.main.height / 6 / 2,
-                        this.config.width - 150,
-                        this.config.height / 6
-                );
+                // const graphics = this.add.graphics();
+                // graphics.fillStyle(0x000000, 0.5); // Color and Alpha
+                // graphics.fillRect(
+                //         75,
+                //         centerY - this.cameras.main.height / 6 / 2,
+                //         this.config.width - 150,
+                //         this.config.height / 6
+                // );
 
-                const closeButton = this.add.text(
+                const skipButton = this.add.text(
                         this.config.width - 90,
-                        centerY - this.config.height / 6 / 2 + 15,
-                        "X",
-                        { font: '18px Arial', color: '#ffffff' }
+                        this.config.height / 6 / 2 + 15,
+                        "Skip",
+                        { font: '18px Arial', color: '#000000' }
                 );
-                closeButton.setOrigin(0.5);
-                closeButton.setInteractive();
-                closeButton.on('pointerdown', () => {
+                skipButton.setOrigin(0.5);
+                skipButton.setInteractive();
+                skipButton.on('pointerdown', () => {
                         this.xButtonSFX.play();
                         this.scene.start('pre-play-scene2', { config: this.game.config });
                 })
@@ -123,10 +160,22 @@ export class PlaySceneCorrect extends Phaser.Scene {
                 const guide = this.add.text(
                         100,
                         centerY - 25,
-                        this.textDisplay,
-                        { font: '18px monospace', color: '#ffffff', align: 'left' }
+                        '',
+                        { font: '18px monospace', color: '#000000', align: 'left' }
                 );
-                // End of Question
+                
+                let index = 0;
+                let startIndexOfSegment = 0;
+                while (index < this.textDisplay.length) {
+                        if (this.textDisplay[index] === ' ' && index - startIndexOfSegment >= 55) {
+                          
+                          guide.text += '\n';
+                          startIndexOfSegment = index + 1;
+                        } else {
+                          guide.text += this.textDisplay[index];
+                        }
+                        index++;
+                } 
 
         }
 
