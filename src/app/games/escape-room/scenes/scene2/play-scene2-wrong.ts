@@ -13,6 +13,11 @@ export class PlayScene2Wrong extends Phaser.Scene {
         }
 
         background: any;
+        character: any;
+        flow_sprite: any;
+
+        garbagePosition: any = [];
+        garbage: any = [];
 
         heart_icon: any;
 
@@ -20,20 +25,42 @@ export class PlayScene2Wrong extends Phaser.Scene {
         xButtonSFX: any;
         failedSFX: any;
 
-        textDisplay = "Wrong! Neglecting the correct waste when cleaning a river can\nreduce effectiveness and harm the environment, as certain\nmaterials may require special handling or recycling.";
+        textDisplay = "Wrong! Neglecting the correct waste when cleaning a river can reduce effectiveness and harm the environment, as certain materials may require special handling or recycling.";
 
         currentHeartPoints = heartPointsService.getHeartPoints();
 
         scoreDisplay: any;
 
         create() {
-                this.background = this.add.image(0, 0, 'scene2-bg-wrong');
+                this.background = this.add.image(0, 0, 'scene2-bg');
                 this.background.setOrigin(0, 0);
+
+                // Tree sprite
+                this.flow_sprite = this.add.sprite(0, 0, 'scene2-sprite');
+                this.flow_sprite.setOrigin(0, 0)
+                this.anims.create({
+                  key: 'scene2-sprite-key',
+                  frames: this.anims.generateFrameNumbers('scene2-sprite', { start: 0, end: 2 }),
+                  frameRate: 2,
+                  repeat: -1
+                })
+            
+                this.flow_sprite.anims.play('scene2-sprite-key');
 
                 this.xButtonSFX = this.sound.add('x-button');
 
                 this.failedSFX = this.sound.add('failed');
                 this.failedSFX.play();
+
+                // Push garbages
+
+                // Garbages from scene 2
+                this.garbagePosition = this.registry.get('s2garbage');
+                
+                for(let i = 0; i < this.garbagePosition.length; i++){
+                        this.add.existing(this.garbagePosition[i]);
+                        this.garbage.push(this.add.image(this.garbagePosition[i].x, this.garbagePosition[i].y, 's2garbage'+ i));
+                }
 
                 for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
                         this.heart_icon = this.add.sprite(770, 10 + i * 50, 'heart-icon');
@@ -55,24 +82,15 @@ export class PlayScene2Wrong extends Phaser.Scene {
                 const centerX = this.config.width / 2;
                 const centerY = this.config.height / 2;
 
-                const graphics = this.add.graphics();
-                graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-                graphics.fillRect(
-                        75,
-                        centerY - this.cameras.main.height / 6 / 2,
-                        this.config.width - 150,
-                        this.config.height / 6
-                );
-
-                const closeButton = this.add.text(
+                const skipButton = this.add.text(
                         this.config.width - 90,
-                        centerY - this.config.height / 6 / 2 + 15,
-                        "X",
-                        { font: '18px Arial', color: '#ffffff' }
+                        this.config.height / 6 / 2 + 15,
+                        "Skip",
+                        { font: '18px Arial', color: '#000000' }
                 );
-                closeButton.setOrigin(0.5);
-                closeButton.setInteractive();
-                closeButton.on('pointerdown', () => {
+                skipButton.setOrigin(0.5);
+                skipButton.setInteractive();
+                skipButton.on('pointerdown', () => {
                         this.scene.start('pre-play-scene3', { config: this.game.config });
                         this.xButtonSFX.play();
                 })
@@ -80,9 +98,22 @@ export class PlayScene2Wrong extends Phaser.Scene {
                 const guide = this.add.text(
                         100,
                         centerY - 25,
-                        this.textDisplay,
-                        { font: '18px monospace', color: '#ffffff', align: 'left' }
+                        '',
+                        { font: '18px monospace', color: '#000000', align: 'left' }
                 );
+
+                let index = 0;
+                let startIndexOfSegment = 0;
+                while (index < this.textDisplay.length) {
+                        if (this.textDisplay[index] === ' ' && index - startIndexOfSegment >= 55) {
+                          
+                          guide.text += '\n';
+                          startIndexOfSegment = index + 1;
+                        } else {
+                          guide.text += this.textDisplay[index];
+                        }
+                        index++;
+                } 
                 // End of text
 
         }

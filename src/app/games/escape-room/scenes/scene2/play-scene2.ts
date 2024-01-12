@@ -15,9 +15,10 @@ export class PlayScene2 extends Phaser.Scene {
   }
 
   background: any;
-
   flow_sprite: any;
-  
+
+  heart_icon: any;
+
   cloud1: any;
   cloud2: any;
   cloud3: any;
@@ -29,28 +30,24 @@ export class PlayScene2 extends Phaser.Scene {
   cloud9: any;
   cloud0: any;
 
-  heart_icon: any;
-
   bgMusic: any;
   choiceButtonSFX: any;
 
-  character: any;
-
   textDisplay: any;
-
-  choice1: any;
-  choice2: any;
-  choice3: any;
-  choice4: any;
-
-  weight1: number = 0;
-  weight2: number = 0;
-  weight3: number = 0;
-  weight4: number = 0;
 
   scoreDisplay: any;
 
   gameData: any;
+
+  player: any;
+  cursor: any;
+
+  wasd: any;
+
+  timer: any;
+  timerDisplay: any;
+
+  garbage: any = [];
 
   private urlAPI = `${environment.apiUrl}`;
 
@@ -58,214 +55,6 @@ export class PlayScene2 extends Phaser.Scene {
     axios.get(`${this.urlAPI}game_scene2`)
       .then((response) => {
         this.gameData = response.data;
-        const randomIndexForQuestion = Phaser.Math.RND.integerInRange(0, this.gameData.length - 1);
-        const randomQuestion = this.gameData[randomIndexForQuestion];
-
-        const randomIndexesForChoices: number[] = [];
-
-        while (randomIndexesForChoices.length < 4) {
-          const randomIndex = Phaser.Math.RND.integerInRange(0, 3);
-          if (!randomIndexesForChoices.includes(randomIndex)) {
-            randomIndexesForChoices.push(randomIndex);
-          }
-        }
-
-        if (randomQuestion.question.length >= 55) {
-          const indexToInsertNewline = randomQuestion.question.lastIndexOf(' ', 55);
-          if (indexToInsertNewline !== -1) {
-            randomQuestion.question = randomQuestion.question.slice(0, indexToInsertNewline) + '\n' + randomQuestion.question.slice(indexToInsertNewline + 1);
-          }
-        }
-
-        this.textDisplay = randomQuestion.question;
-        this.choice1 = randomQuestion.choices[randomIndexesForChoices[0]];
-        this.choice2 = randomQuestion.choices[randomIndexesForChoices[1]];
-        this.choice3 = randomQuestion.choices[randomIndexesForChoices[2]];
-        this.choice4 = randomQuestion.choices[randomIndexesForChoices[3]];
-
-        this.weight1 = randomQuestion.weights[randomIndexesForChoices[0]];
-        this.weight2 = randomQuestion.weights[randomIndexesForChoices[1]];
-        this.weight3 = randomQuestion.weights[randomIndexesForChoices[2]];
-        this.weight4 = randomQuestion.weights[randomIndexesForChoices[3]];
-
-        const centerX = (this.config.width / 2) - 40;
-        const centerY = 100;
-
-        // Question
-        const graphics = this.add.graphics();
-        graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-        graphics.fillRect(
-          75,
-          centerY - this.config.height / 6 / 2,
-          this.config.width - 150,
-          this.config.height / 6
-        );
-
-        const guide = this.add.text(
-          100,
-          centerY - 20,
-          this.textDisplay,
-          { font: '18px monospace', align: 'left', color: '#ffffff' }
-        );
-        // End of Question
-
-        // Choice 1
-        const choice1CenterX = 100;
-        const choice1CenterY = centerY + 80;
-        const choice1graphics = this.add.graphics();
-        choice1graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-        choice1graphics.fillRect(
-          75,
-          centerY + 70,
-          this.config.width - 150,
-          40
-        );
-
-        const choice1Guide = this.add.text(
-          choice1CenterX,
-          choice1CenterY,
-          this.choice1,
-          { font: '18px monospace', color: '#ffffff' }
-        );
-
-        choice1Guide.setInteractive()
-        choice1Guide.on('pointerdown', () => {
-          if (heartPointsService.getHeartPoints() === 0) {
-            this.scene.start('game-over-scene', { config: this.game.config });
-          }
-          else if (Number(this.weight1) > 0) {
-            scoreService.increaseScorePoints(Number(this.weight1));
-            this.scene.start('play-scene2-correct', { config: this.game.config });
-          }
-          else {
-            scoreService.decreaseScorePoints(1);
-            heartPointsService.decreaseHeartPoints();
-            this.scene.start('play-scene2-wrong', { config: this.game.config });
-          }
-
-
-          this.choiceButtonSFX.play();
-
-        });
-        // End of choice 1
-
-        // Choice 2
-        const choice2CenterX = 100;
-        const choice2CenterY = centerY + 130;
-        const choice2graphics = this.add.graphics();
-        choice2graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-        choice2graphics.fillRect(
-          75,
-          centerY + 120,
-          this.config.width - 150,
-          40
-        );
-
-        const choice2Guide = this.add.text(
-          choice2CenterX,
-          choice2CenterY,
-          this.choice2,
-          { font: '18px monospace', color: '#ffffff' }
-        );
-        choice2Guide.setInteractive()
-        choice2Guide.on('pointerdown', () => {
-          if (heartPointsService.getHeartPoints() === 0) {
-            this.scene.start('game-over-scene', { config: this.game.config });
-          }
-          else if (Number(this.weight2) > 0) {
-            scoreService.increaseScorePoints(Number(this.weight2));
-            this.scene.start('play-scene2-correct', { config: this.game.config });
-          }
-          else {
-            scoreService.decreaseScorePoints(1);
-            heartPointsService.decreaseHeartPoints();
-            this.scene.start('play-scene2-wrong', { config: this.game.config });
-          }
-
-
-          this.choiceButtonSFX.play();
-
-        });
-        // End of choice 2
-
-        // Choice 3
-        const choice3CenterX = 100;
-        const choice3CenterY = centerY + 180;
-        const choice3graphics = this.add.graphics();
-        choice3graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-        choice3graphics.fillRect(
-          75,
-          centerY + 170,
-          this.config.width - 150,
-          40
-        );
-
-        const choice3Guide = this.add.text(
-          choice3CenterX,
-          choice3CenterY,
-          this.choice3,
-          { font: '18px monospace', color: '#ffffff' }
-        );
-
-        choice3Guide.setInteractive()
-        choice3Guide.on('pointerdown', () => {
-          if (heartPointsService.getHeartPoints() === 0) {
-            this.scene.start('game-over-scene', { config: this.game.config });
-          }
-          else if (Number(this.weight3) > 0) {
-            scoreService.increaseScorePoints(Number(this.weight3));
-            this.scene.start('play-scene2-correct', { config: this.game.config });
-          }
-          else {
-            scoreService.decreaseScorePoints(1);
-            heartPointsService.decreaseHeartPoints();
-            this.scene.start('play-scene2-wrong', { config: this.game.config });
-          }
-
-
-
-          this.choiceButtonSFX.play();
-
-        });
-        // End of choice 3
-
-        // Choice 4
-        const choice4CenterX = 100;
-        const choice4CenterY = centerY + 230;
-        const choice4graphics = this.add.graphics();
-        choice4graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-        choice4graphics.fillRect(
-          75,
-          centerY + 220,
-          this.config.width - 150,
-          40
-        );
-
-        const choice4Guide = this.add.text(
-          choice4CenterX,
-          choice4CenterY,
-          this.choice4,
-          { font: '18px monospace', color: '#ffffff' }
-        );
-        choice4Guide.setInteractive()
-        choice4Guide.on('pointerdown', () => {
-          if (heartPointsService.getHeartPoints() === 0) {
-            this.scene.start('game-over-scene', { config: this.game.config });
-          }
-          else if (Number(this.weight4) > 0) {
-            scoreService.increaseScorePoints(Number(this.weight4));
-            this.scene.start('play-scene2-correct', { config: this.game.config });
-          }
-          else {
-            scoreService.decreaseScorePoints(1);
-            heartPointsService.decreaseHeartPoints();
-            this.scene.start('play-scene2-wrong', { config: this.game.config });
-          }
-
-          this.choiceButtonSFX.play();
-
-        });
-        // End of choice 4
       })
   }
 
@@ -284,24 +73,6 @@ export class PlayScene2 extends Phaser.Scene {
 
     this.flow_sprite.anims.play('scene2-sprite-key');
 
-     // Clouds
-     this.cloud1 = this.add.image(0, 200, 'cloud-1');
-    //  this.cloud1.setScale(0.5);
-     this.cloud2 = this.add.image(100, 100, 'cloud-2');
-    //  this.cloud2.setScale(0.3);
-     this.cloud3 = this.add.image(500, 200, 'cloud-3');
-    //  this.cloud3.setScale(0.2);
-     this.cloud4 = this.add.image(400, 100, 'cloud-4');
-    //  this.cloud4.setScale(0.4);
-     this.cloud5 = this.add.image(600, 200, 'cloud-5');
-    //  this.cloud5.setScale(0.5);
-     this.cloud6 = this.add.image(600, 200, 'cloud-6');
-    //  this.cloud6.setScale(0.5);
-     this.cloud7 = this.add.image(650, 300, 'cloud-7');
-     this.cloud8 = this.add.image(400, 300, 'cloud-8');
-     this.cloud9 = this.add.image(300, 150, 'cloud-9');
-     this.cloud0 = this.add.image(100, 200, 'cloud-0');
-
     this.choiceButtonSFX = this.sound.add('choice');
 
     for (let i = 1; i <= heartPointsService.getHeartPoints(); i++) {
@@ -318,57 +89,204 @@ export class PlayScene2 extends Phaser.Scene {
       this.heart_icon.anims.play('heart-icon_key');
     }
 
-    this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
+    // Call keyboard keys
+    this.keyboardKeyRegister();
 
-    this.getRandomQuestion();
+    // Garbages
+    for (let i = 0; i < 15; i++) {
+      this.garbage.push(this.add.image(0, 0, 's2garbage' + i))
+    }
 
-    // End of Question
+    // Random position the garbages in a certain area
+    for (let i = 0; i < this.garbage.length; i++) {
+      this.garbage[i].x = Phaser.Math.Between(10, 790);
+      this.garbage[i].y = Phaser.Math.Between(530, 580);
+    }
 
+    this.registry.set('s2garbage', this.garbage);
+
+    // Player
+    this.player = this.physics.add.sprite(300, 30, 'player').setScale(.1);
+    
+    
+    // Enable physics in player and garbage
+    this.physics.world.enable([this.player, ...this.garbage]);
+
+    // TODO: add collider and timer!
+
+    // Add timer function
+    this.timer = this.time.delayedCall(15000, () => {
+
+      if (this.garbage.length > 0) {
+        heartPointsService.decreaseHeartPoints();
+        this.scene.start('play-scene2-wrong', { config: this.game.config });
+
+        if (heartPointsService.getHeartPoints() <= 0) {
+          this.scene.start('game-over-scene', { config: this.game.config });
+        }
+      }
+    }, [], this);
+
+    // Display time
+    this.timerDisplay = this.add.text(16, 16, `Time: ${Math.round((15000 - this.timer.getElapsed()) / 1000)}`, {
+      fontSize: '32px', color: '#000'
+    });
+
+    // Overlap detection for player and garbages
+    this.physics.add.overlap(this.player,
+      this.garbage, (player, garbage) => {
+        this.choiceButtonSFX.play();
+
+        let index = this.garbage.indexOf(garbage);
+
+        if (index !== -1) {
+          this.garbage.splice(index, 1);
+        }
+
+        if (this.garbage.length == 0) {
+          this.timer.remove(false);
+          this.scene.start('play-scene2-correct', { config: this.game.config });
+          // Scene 2 Success
+        }
+
+        garbage.destroy();
+      });
+
+    // Clouds
+    this.cloud1 = this.add.image(0, 200, 'cloud-1');
+    //  this.cloud1.setScale(0.5);
+    this.cloud2 = this.add.image(100, 100, 'cloud-2');
+    //  this.cloud2.setScale(0.3);
+    this.cloud3 = this.add.image(500, 200, 'cloud-3');
+    //  this.cloud3.setScale(0.2);
+    this.cloud4 = this.add.image(400, 100, 'cloud-4');
+    //  this.cloud4.setScale(0.4);
+    this.cloud5 = this.add.image(600, 200, 'cloud-5');
+    //  this.cloud5.setScale(0.5);
+    this.cloud6 = this.add.image(600, 200, 'cloud-6');
+    //  this.cloud6.setScale(0.5);
+    this.cloud7 = this.add.image(650, 300, 'cloud-7');
+    this.cloud8 = this.add.image(400, 300, 'cloud-8');
+    this.cloud9 = this.add.image(300, 150, 'cloud-9');
+    this.cloud0 = this.add.image(100, 200, 'cloud-0');
   }
 
   override update() {
-     // Update cloud position
-     this.cloud1.x += 0.1;
-     this.cloud2.x += 0.1;
-     this.cloud3.x += 0.1;
-     this.cloud4.x += 0.1;
-     this.cloud5.x += 0.1;
-     this.cloud6.x += 0.1;
-     this.cloud7.x += 0.1;
-     this.cloud8.x += 0.1;
-     this.cloud9.x += 0.1;
-     this.cloud0.x += 0.1;
- 
-     // Reset cloud position when it goes off screen
-     if (this.cloud1.x > this.config.width + this.cloud1.displayWidth / 2) {
-       this.cloud1.x = -this.cloud1.displayWidth / 2;
-     }
-     if (this.cloud2.x > this.config.width + this.cloud2.displayWidth / 2) {
-       this.cloud2.x = -this.cloud2.displayWidth / 2;
-     }
-     if (this.cloud3.x > this.config.width + this.cloud3.displayWidth / 2) {
-       this.cloud3.x = -this.cloud3.displayWidth / 2;
-     }
-     if (this.cloud4.x > this.config.width + this.cloud4.displayWidth / 2) {
-       this.cloud4.x = -this.cloud4.displayWidth / 2;
-     }
-     if (this.cloud5.x > this.config.width + this.cloud5.displayWidth / 2) {
-       this.cloud5.x = -this.cloud5.displayWidth / 2;
-     }
-     if (this.cloud6.x > this.config.width + this.cloud6.displayWidth / 2) {
-       this.cloud6.x = -this.cloud6.displayWidth / 2;
-     }
-     if (this.cloud7.x > this.config.width + this.cloud7.displayWidth / 2) {
-       this.cloud7.x = -this.cloud7.displayWidth / 2;
-     }
-     if (this.cloud8.x > this.config.width + this.cloud8.displayWidth / 2) {
-       this.cloud8.x = -this.cloud8.displayWidth / 2;
-     }
-     if (this.cloud9.x > this.config.width + this.cloud9.displayWidth / 2) {
-       this.cloud9.x = -this.cloud9.displayWidth / 2;
-     }
-     if (this.cloud0.x > this.config.width + this.cloud0.displayWidth / 2) {
-       this.cloud0.x = -this.cloud0.displayWidth / 2;
-     }
+    this.timerDisplay.setText(`Time: ` + Math.round((15000 - this.timer.getElapsed()) / 1000));
+
+    // Lock player move area
+    this.player.x = Phaser.Math.Clamp(this.player.x, 10, 790);
+    this.player.y = Phaser.Math.Clamp(this.player.y, 500, 580)
+
+    // Update cloud position
+    this.cloud1.x += 0.1;
+    this.cloud2.x += 0.1;
+    this.cloud3.x += 0.1;
+    this.cloud4.x += 0.1;
+    this.cloud5.x += 0.1;
+    this.cloud6.x += 0.1;
+    this.cloud7.x += 0.1;
+    this.cloud8.x += 0.1;
+    this.cloud9.x += 0.1;
+    this.cloud0.x += 0.1;
+
+    // Reset cloud position when it goes off screen
+    if (this.cloud1.x > this.config.width + this.cloud1.displayWidth / 2) {
+      this.cloud1.x = -this.cloud1.displayWidth / 2;
+    }
+    if (this.cloud2.x > this.config.width + this.cloud2.displayWidth / 2) {
+      this.cloud2.x = -this.cloud2.displayWidth / 2;
+    }
+    if (this.cloud3.x > this.config.width + this.cloud3.displayWidth / 2) {
+      this.cloud3.x = -this.cloud3.displayWidth / 2;
+    }
+    if (this.cloud4.x > this.config.width + this.cloud4.displayWidth / 2) {
+      this.cloud4.x = -this.cloud4.displayWidth / 2;
+    }
+    if (this.cloud5.x > this.config.width + this.cloud5.displayWidth / 2) {
+      this.cloud5.x = -this.cloud5.displayWidth / 2;
+    }
+    if (this.cloud6.x > this.config.width + this.cloud6.displayWidth / 2) {
+      this.cloud6.x = -this.cloud6.displayWidth / 2;
+    }
+    if (this.cloud7.x > this.config.width + this.cloud7.displayWidth / 2) {
+      this.cloud7.x = -this.cloud7.displayWidth / 2;
+    }
+    if (this.cloud8.x > this.config.width + this.cloud8.displayWidth / 2) {
+      this.cloud8.x = -this.cloud8.displayWidth / 2;
+    }
+    if (this.cloud9.x > this.config.width + this.cloud9.displayWidth / 2) {
+      this.cloud9.x = -this.cloud9.displayWidth / 2;
+    }
+    if (this.cloud0.x > this.config.width + this.cloud0.displayWidth / 2) {
+      this.cloud0.x = -this.cloud0.displayWidth / 2;
+    }
+
+    // Check keyboard action
+    if (this.cursor.left.isDown || this.wasd.left.isDown) {
+      this.player.setVelocityX(-160);
+      this.player.setVelocityY(0);
+      this.player.anims.play('left', true);
+    } else if (this.cursor.right.isDown || this.wasd.right.isDown) {
+      this.player.setVelocityX(160);
+      this.player.setVelocityY(0);
+      this.player.anims.play('right', true);
+    }
+    else if (this.cursor.up.isDown || this.wasd.up.isDown) {
+      this.player.setVelocityY(-160);
+      this.player.setVelocityX(0);
+      this.player.anims.play('up', true);
+    }
+    else if (this.cursor.down.isDown || this.wasd.down.isDown) {
+      this.player.setVelocityY(160);
+      this.player.setVelocityX(0);
+      this.player.anims.play('down', true);
+    }
+    else {
+      this.player.setVelocityX(0);
+      this.player.setVelocityY(0);
+      this.player.anims.stop();
+    }
+  }
+
+  keyboardKeyRegister() {
+
+    // Keyboard registry WASD
+    this.wasd = {
+      up: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W),
+      down: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S),
+      left: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A),
+      right: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D)
+    }
+
+    this.anims.create({
+      key: 'down',
+      frames: this.anims.generateFrameNumbers('player', { start: 0, end: 3 }),
+      frameRate: 10,
+      repeat: -1
+    });
+
+    this.anims.create({
+      key: 'right',
+      frames: this.anims.generateFrameNumbers('player', { start: 4, end: 7 }),
+      frameRate: 10,
+      repeat: -1
+    });
+
+    this.anims.create({
+      key: 'left',
+      frames: this.anims.generateFrameNumbers('player', { start: 8, end: 11 }),
+      frameRate: 10,
+      repeat: -1
+    });
+
+    this.anims.create({
+      key: 'up',
+      frames: this.anims.generateFrameNumbers('player', { start: 12, end: 15 }),
+      frameRate: 10,
+      repeat: -1
+    });
+
+    this.cursor = this.input.keyboard.createCursorKeys();
   }
 }

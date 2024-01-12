@@ -44,7 +44,7 @@ export class MainScene extends Phaser.Scene {
     // Speech Bubble
     this.load.image('speech-bubble', '../../../../assets/game/speech.png')
 
-    // Garbages
+    // Scene 1Garbages 
     this.load.image('garbage0', '../../../../assets/game/scene1/gb1.webp');
     this.load.image('garbage1', '../../../../assets/game/scene1/gb2.webp');
     this.load.image('garbage2', '../../../../assets/game/scene1/gb3.webp');
@@ -71,13 +71,30 @@ export class MainScene extends Phaser.Scene {
     })
 
     // Scene 2
-    this.load.image('scene2-bg', '../../../../assets/game/scene2/scene2-bg.webp');
+    this.load.image('scene2-bg', '../../../../assets/game/scene2/riverbank.webp');
     this.load.image('scene2-bg-correct', '../../../../assets/game/scene2/scene2-bg-correct.webp');
     this.load.image('scene2-bg-wrong', '../../../../assets/game/scene2/scene2-bg-wrong.webp');
     this.load.spritesheet('scene2-sprite', '../../../../assets/game/scene2/scene2-flow-sprite.webp',{
       frameWidth: 800,
       frameHeight: 600
     })
+
+    // Scene 2 Garbages
+    this.load.image('s2garbage0', '../../../../assets/game/scene2/gb1.webp');
+    this.load.image('s2garbage1', '../../../../assets/game/scene2/gb2.webp');
+    this.load.image('s2garbage2', '../../../../assets/game/scene2/gb3.webp');
+    this.load.image('s2garbage3', '../../../../assets/game/scene2/gb4.webp');
+    this.load.image('s2garbage4', '../../../../assets/game/scene2/gb5.webp');
+    this.load.image('s2garbage5', '../../../../assets/game/scene2/gb6.webp');
+    this.load.image('s2garbage6', '../../../../assets/game/scene2/gb7.webp');
+    this.load.image('s2garbage7', '../../../../assets/game/scene2/gb8.webp');
+    this.load.image('s2garbage8', '../../../../assets/game/scene2/gb9.webp');
+    this.load.image('s2garbage9', '../../../../assets/game/scene2/gb10.webp');
+    this.load.image('s2garbage10', '../../../../assets/game/scene2/gb11.webp');
+    this.load.image('s2garbage11', '../../../../assets/game/scene2/gb12.webp');
+    this.load.image('s2garbage12', '../../../../assets/game/scene2/gb13.webp');
+    this.load.image('s2garbage13', '../../../../assets/game/scene2/gb14.webp');
+    this.load.image('s2garbage14', '../../../../assets/game/scene2/gb15.webp');
 
     // Scene 3
     this.load.image('scene3-bg', '../../../../assets/game/scene3/scene3-bg.webp');
@@ -86,7 +103,24 @@ export class MainScene extends Phaser.Scene {
     this.load.spritesheet('scene3-sprite', '../../../../assets/game/scene3/scene3-sprite.webp',{
       frameWidth: 800,
       frameHeight: 600
-    })
+    });
+
+    // Scene 3 Garbages
+    this.load.image('s3garbage0', '../../../../assets/game/scene3/gb1.webp');
+    this.load.image('s3garbage1', '../../../../assets/game/scene3/gb2.webp');
+    this.load.image('s3garbage2', '../../../../assets/game/scene3/gb3.webp');
+    this.load.image('s3garbage3', '../../../../assets/game/scene3/gb4.webp');
+    this.load.image('s3garbage4', '../../../../assets/game/scene3/gb5.webp');
+    this.load.image('s3garbage5', '../../../../assets/game/scene3/gb6.webp');
+    this.load.image('s3garbage6', '../../../../assets/game/scene3/gb7.webp');
+    this.load.image('s3garbage7', '../../../../assets/game/scene3/gb8.webp');
+    this.load.image('s3garbage8', '../../../../assets/game/scene3/gb9.webp');
+    this.load.image('s3garbage9', '../../../../assets/game/scene3/gb10.webp');
+    this.load.image('s3garbage10', '../../../../assets/game/scene3/gb11.webp');
+    this.load.image('s3garbage11', '../../../../assets/game/scene3/gb12.webp');
+    this.load.image('s3garbage12', '../../../../assets/game/scene3/gb13.webp');
+    this.load.image('s3garbage13', '../../../../assets/game/scene3/gb14.webp');
+    this.load.image('s3garbage14', '../../../../assets/game/scene3/gb15.webp');
 
     // Scene 4
     this.load.image('scene4-bg', '../../../../assets/game/scene4/scene4-bg.webp');
@@ -179,7 +213,7 @@ export class MainScene extends Phaser.Scene {
     // Uncomment this when done in level 1!
     this.load.on('complete', () => {
       // default-scene is the original value
-      this.scene.start('play-scene', { config: this.game.config });
+      this.scene.start('play-scene2', { config: this.game.config });
     });
 
     // Temporary to see Level 2 Scene Fast.

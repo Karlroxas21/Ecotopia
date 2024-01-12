@@ -77,19 +77,17 @@ export class PlaySceneWrong extends Phaser.Scene {
                 this.xButtonSFX = this.sound.add('x-button');
                 
                 // Push garbages
-                // for(let i = 0; i < 15; i++){
-                //         this.garbage.push(this.add.image(0, 0, 'garbage'+ i))
-                // }
+                for(let i = 0; i < 15; i++){
+                }
 
-                // // Garbages from scene 1
-                // this.garbagePosition = this.registry.get('garbage');
+                // Garbages from scene 1
+                this.garbagePosition = this.registry.get('garbage');
                 
-                // // TODO: Display the garbages from scene 1
-                // for(let i = 0; i < this.garbagePosition.length; i++){
-                //         this.add.existing(this.garbagePosition[i]);
-                //         this.garbage[i].x = this.garbagePosition[i].x;
-                //         this.garbage[i].y = this.garbagePosition[i].y;
-                // }
+                // TODO: Display the garbages from scene 1
+                for(let i = 0; i < this.garbagePosition.length; i++){
+                        this.add.existing(this.garbagePosition[i]);
+                        this.garbage.push(this.add.image(this.garbagePosition[i].x, this.garbagePosition[i].y, 'garbage'+ i));
+                }
 
                 for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
                         this.heart_icon = this.add.sprite(770, 10 + i * 50, 'heart-icon');
