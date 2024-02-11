@@ -118,12 +118,10 @@ export class PlayScene2Correct extends Phaser.Scene {
                         }
                         index++;
                 } 
-
                 // End of text
 
         }
 
         override update() {
-
         }
 }

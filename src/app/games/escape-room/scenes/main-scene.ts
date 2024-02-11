@@ -97,7 +97,7 @@ export class MainScene extends Phaser.Scene {
     this.load.image('s2garbage14', '../../../../assets/game/scene2/gb15.webp');
 
     // Scene 3
-    this.load.image('scene3-bg', '../../../../assets/game/scene3/scene3-bg.webp');
+    this.load.image('scene3-bg', '../../../../assets/game/scene3/park.webp');
     this.load.image('scene3-bg-correct', '../../../../assets/game/scene3/scene3-bg-correct.webp');
     this.load.image('scene3-bg-wrong', '../../../../assets/game/scene3/scene3-bg-wrong.webp');
     this.load.spritesheet('scene3-sprite', '../../../../assets/game/scene3/scene3-sprite.webp',{
@@ -213,8 +213,8 @@ export class MainScene extends Phaser.Scene {
     // Uncomment this when done in level 1!
     this.load.on('complete', () => {
       // default-scene is the original value
-      this.scene.start('play-scene2', { config: this.game.config });
-    });
+      this.scene.start('play-scene-correct', { config: this.game.config });
+    }); 
 
     // Temporary to see Level 2 Scene Fast.
     // this.load.on('complete', () => {
