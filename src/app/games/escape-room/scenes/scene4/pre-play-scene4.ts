@@ -41,7 +41,7 @@ export class PrePlayScene4 extends Phaser.Scene {
     skipButton.setOrigin(0.5);
     skipButton.setInteractive();
     skipButton.on('pointerdown', () => {
-          this.scene.start('play-scene2', { config: this.game.config });
+          this.scene.start('play-scene4', { config: this.game.config });
     });
 
     const guide = this.add.text(
