@@ -40,6 +40,11 @@ export class MainScene extends Phaser.Scene {
     this.load.spritesheet('player', '../../../../assets/game/player.webp', { 
       frameWidth: 460, frameHeight: 600
     });
+
+    // Character NPC
+    this.load.spritesheet('character-npc', '../../../../assets/game/chara3.webp',{
+      frameWidth: 410, frameHeight: 460
+    });
    
     // Speech Bubble
     this.load.image('speech-bubble', '../../../../assets/game/speech.png')
