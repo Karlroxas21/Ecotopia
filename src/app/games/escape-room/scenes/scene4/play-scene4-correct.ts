@@ -13,6 +13,8 @@ export class PlayScene4Correct extends Phaser.Scene {
         }
 
         background: any;
+        flow_sprite: any;
+        character: any;
 
         heart_icon: any;
         
@@ -20,16 +22,33 @@ export class PlayScene4Correct extends Phaser.Scene {
         levelPassed:any;
         xButtonSFX: any;
 
-        textDisplay = "Correct! This enhances harbors through better waste management,\nreducing marine pollution risks, and preserving coastal\necosystems.";
+        textDisplay = "Correct! This enhances harbors through better waste management, reducing marine pollution risks, and preserving coastal ecosystems.";
 
-        choice1 = "Oil drums and plastic bags";
-        choice2 = "Leaves and branches";
-        
-        scoreDisplay: any;
 
         create() {
-                this.background = this.add.image(0, 0, 'scene4-bg-correct');
+                this.background = this.add.image(0, 0, 'scene4-bg');
                 this.background.setOrigin(0, 0);
+
+                this.flow_sprite = this.add.sprite(0, 0, 'scene4-sprite');
+                this.flow_sprite.setOrigin(0, 0)
+                this.anims.create({
+                  key: 'scene4-sprite-key',
+                  frames: this.anims.generateFrameNumbers('scene4-sprite', { start: 0, end: 2 }),
+                  frameRate: 2,
+                  repeat: -1
+                })
+            
+                this.flow_sprite.anims.play('scene4-sprite-key');
+
+                this.anims.create({
+                        key: 'character_key',
+                        frames: this.anims.generateFrameNumbers('character', {start: 0, end: 6}),
+                        frameRate: 5,
+                        repeat: -1
+                      })
+                this.character = this.add.sprite(150, 400, 'character');
+                this.character.setScale(0.5);
+                this.character.anims.play('character_key');
 
                 this.xButtonSFX = this.sound.add('x-button');
 
@@ -50,39 +69,41 @@ export class PlayScene4Correct extends Phaser.Scene {
                         this.heart_icon.anims.play('heart-icon_key');
                       }
                   
-                      this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
                 // Text
                 const centerX = this.config.width / 2;
                 const centerY = this.config.height / 2;
 
-                const graphics = this.add.graphics();
-                graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-                graphics.fillRect(
-                        75,
-                        centerY - this.cameras.main.height / 6 / 2,
-                        this.config.width - 150,
-                        this.config.height / 6
-                );
-
-                const closeButton = this.add.text(
+                const skipButton = this.add.text(
                         this.config.width - 90,
-                        centerY - this.config.height / 6 / 2 + 15,
-                        "X",
+                        this.config.height / 6 / 2 + 15,
+                        "Skip",
                         { font: '18px Arial', color: '#ffffff' }
                 );
-                closeButton.setOrigin(0.5);
-                closeButton.setInteractive();
-                closeButton.on('pointerdown', () => {
+                skipButton.setOrigin(0.5);
+                skipButton.setInteractive();
+                skipButton.on('pointerdown', () => {
                         this.scene.start('pre-play-scene5', { config: this.game.config });
                         this.xButtonSFX.play();
-                })
+                });
 
                 const guide = this.add.text(
                         100,
-                        centerY - 20,
-                        this.textDisplay,
+                        centerY - 25,
+                        '',
                         { font: '18px monospace', color: '#ffffff', align: 'left' }
                 );
+
+                let index = 0;
+                let startIndexOfSegment = 0;
+                while (index < this.textDisplay.length) {
+                        if (this.textDisplay[index] === ' ' && index - startIndexOfSegment >= 55) {
+                          guide.text += '\n';
+                          startIndexOfSegment = index + 1;
+                        } else {
+                          guide.text += this.textDisplay[index];
+                        }
+                        index++;
+                } 
                 // End of text
 
         }
