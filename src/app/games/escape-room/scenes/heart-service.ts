@@ -1,21 +1,21 @@
 
-export class HeartPointsService{
+export class HeartPointsService {
 
-        private initialHeartPoints = 3;
-        
-        private heartPoints = this.initialHeartPoints;
+    private initialHeartPoints = 3;
 
-        getHeartPoints(): number{
-                return this.heartPoints;
-        }
+    private heartPoints = this.initialHeartPoints;
 
-        decreaseHeartPoints(){
-                this.heartPoints --;
-        } 
-        
-        resetHeartPoints() {
-                this.heartPoints = this.initialHeartPoints;
-        }
+    getHeartPoints(): number {
+        return this.heartPoints;
+    }
+
+    decreaseHeartPoints() {
+        this.heartPoints--;
+    }
+
+    resetHeartPoints() {
+        this.heartPoints = this.initialHeartPoints;
+    }
 }
 
 export const heartPointsService = new HeartPointsService();

@@ -1,25 +1,25 @@
 
-export class ScoreService{
+export class ScoreService {
 
-        private initialScorePoints = 0;
-        
-        private scorePoints = this.initialScorePoints;
+    private initialScorePoints = 0;
 
-        getScorePoints(): number{
-                return this.scorePoints;
-        }
+    private scorePoints = this.initialScorePoints;
 
-        increaseScorePoints(number: number){
-                this.scorePoints += number;
-        } 
+    getScorePoints(): number {
+        return this.scorePoints;
+    }
 
-        decreaseScorePoints(number: number){
-                this.scorePoints -= number;
-        }
-        
-        resetScorePoints() {
-                this.scorePoints = this.initialScorePoints;
-        }
+    increaseScorePoints(number: number) {
+        this.scorePoints += number;
+    }
+
+    decreaseScorePoints(number: number) {
+        this.scorePoints -= number;
+    }
+
+    resetScorePoints() {
+        this.scorePoints = this.initialScorePoints;
+    }
 }
 
 export const scoreService = new ScoreService();

@@ -1,22 +1,21 @@
 import Phaser from 'phaser';
 
-export class DefaultScene extends Phaser.Scene{
-    constructor(){
-        super({key: 'default-scene'});
+export class DefaultScene extends Phaser.Scene {
+    constructor() {
+        super({ key: 'default-scene' });
     }
 
     config: Phaser.Types.Core.GameConfig | any;
-    init(data: {config: Phaser.Types.Core.GameConfig}){
+    init(data: { config: Phaser.Types.Core.GameConfig }) {
         this.config = data.config;
     }
 
-    // Put here the declaration of variables
     background: any;
 
     gameStarted: boolean = false;
     bgMusic: any;
 
-    create(){
+    create() {
         const width = this.config.width;
         const height = this.config.height;
 
@@ -27,18 +26,18 @@ export class DefaultScene extends Phaser.Scene{
             width / 2,
             height - 70,
             'Press any key to start',
-            { font: '18px monospace', color: '#ffffff'}
+            { font: '18px monospace', color: '#ffffff' }
         );
         startText.setOrigin(0.5);
 
         // Keyboard listener if any key is clicked to start the game
         this.input.keyboard.on('keydown', () => {
-            if(!this.gameStarted){
+            if (!this.gameStarted) {
                 this.gameStarted = true;
                 startText.destroy();
             }
         });
-         
+
         // Text blinking
         this.time.addEvent({
             delay: 400,
@@ -49,13 +48,13 @@ export class DefaultScene extends Phaser.Scene{
         });
 
         // BG Music
-        this.bgMusic = this.sound.add('bg-music', {loop: true, volume: 0.3});
+        this.bgMusic = this.sound.add('bg-music', { loop: true, volume: 0.3 });
         this.bgMusic.play();
 
     }
 
-    override update(){
-        if(this.gameStarted){
+    override update() {
+        if (this.gameStarted) {
             this.bgMusic.destroy();
             this.scene.start('pre-play-scene', { config: this.game.config });
         }
