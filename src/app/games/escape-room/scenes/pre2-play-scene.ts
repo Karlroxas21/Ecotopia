@@ -11,8 +11,11 @@ export class Pre2PlayScene extends Phaser.Scene {
   }
 
   background: any;
+
   shark_spritesheet: any;
+
   cloud: any;
+
   basura1: any;
   basura11: any;
   basura111: any;
@@ -26,6 +29,7 @@ export class Pre2PlayScene extends Phaser.Scene {
   basura55: any;
 
   bgMusic: any;
+
   xButtonSFX: any;
 
   character: any;
@@ -33,9 +37,8 @@ export class Pre2PlayScene extends Phaser.Scene {
   guide: any;
   timer: any;
 
-  private textDisplay = 'Welcome to Climate Escape! Your mission is to help restore \nnature to its former glory!\n\nAll you need to do is to click the text of the right answers \nto complete the game. Pick 3 wrong answers and it\'\ll be game over. \n\nGood luck!';
 
-  private textDisplay2 = `You are standing on a pristine beach. As you survey \nthe landscape,you notice the entire beach is covered\nin litter, a clear contrast to the natural beauty\nthat surrounds them.`
+  private textDisplay2 = `You are standing on a pristine beach. As you survey the landscape,you notice the entire beach is covered in litter, a clear contrast to the natural beauty that surrounds them.`
   
   create() {
     this.background = this.add.image(0, 0, 'scene1-bg');
@@ -48,14 +51,6 @@ export class Pre2PlayScene extends Phaser.Scene {
     //Guide
     const centerX = this.config.width / 2;
     const centerY = this.config.height / 2;
-    // const graphics = this.add.graphics();
-    // graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-    // graphics.fillRect(
-    //   75,
-    //   centerY - this.config.height / 6 / 2,
-    //   this.config.width - 150,
-    //   this.config.height / 4
-    // );
 
     const guide = this.add.text(
       100 ,
@@ -65,27 +60,17 @@ export class Pre2PlayScene extends Phaser.Scene {
     );
 
     let index = 0;
-    const textToType = this.textDisplay2;
-
-    const typeingTimer = this.time.addEvent({
-      delay: 50,
-      callback: () =>{
-        guide.text += textToType[index];
-        index++;
-
-        if(index === textToType.length){
-          typeingTimer.remove();
-        }
-      },
-      callbackScope: this,
-      loop: true,
-    })
-
-    // Finish text display when user click
-    this.input.on('pointerdown', ()=>{
-      guide.text = textToType;
-      typeingTimer.remove();
-    })
+    let startIndexOfSegment = 0;
+    while (index < this.textDisplay2.length) {
+            if (this.textDisplay2[index] === ' ' && index - startIndexOfSegment >= 55) {
+              
+              guide.text += '\n';
+              startIndexOfSegment = index + 1;
+            } else {
+              guide.text += this.textDisplay2[index];
+            }
+            index++;
+    } 
 
     this.character = this.add.sprite(150, 380, 'character');
     this.character.setScale(0.5);

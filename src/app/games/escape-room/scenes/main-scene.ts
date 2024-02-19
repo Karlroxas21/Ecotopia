@@ -247,7 +247,7 @@ export class MainScene extends Phaser.Scene {
     // Uncomment this when done in level 1!
     this.load.on('complete', () => {
       // default-scene is the original value
-      this.scene.start('play-scene5', { config: this.game.config });
+      this.scene.start('pre-play-scene', { config: this.game.config });
     }); 
 
     // Temporary to see Level 2 Scene Fast.
