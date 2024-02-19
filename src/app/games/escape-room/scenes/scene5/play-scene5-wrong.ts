@@ -13,6 +13,8 @@ export class PlayScene5Wrong extends Phaser.Scene {
         }
 
         background: any;
+        character: any;
+        flow_sprite: any;
 
         heart_icon: any;
 
@@ -20,18 +22,31 @@ export class PlayScene5Wrong extends Phaser.Scene {
         xButtonSFX: any;
         failedSFX: any;
 
-        textDisplay = "Wrong! Incorrect lake ecosystem management decisions can\nworsen its health and neglect specific ecological challenges,\nhindering improvement.";
+        textDisplay = "Wrong! Incorrect lake ecosystem management decisions can worsen its health and neglect specific ecological challenges, hindering improvement.";
 
         scoreDisplay: any;
+
+        garbagePosition: any = [];
+        garbage: any = [];
+
+        currentHeartPoints = heartPointsService.getHeartPoints();
         
         create() {
-                this.background = this.add.image(0, 0, 'scene5-bg-wrong');
+                this.background = this.add.image(0, 0, 'scene5-bg');
                 this.background.setOrigin(0, 0);
 
                 this.xButtonSFX = this.sound.add('x-button');
 
                 this.failedSFX = this.sound.add('failed');
                 this.failedSFX.play();
+
+                // Garbages from scene 5
+                this.garbagePosition = this.registry.get('s5garbage');
+                
+                for(let i = 0; i < this.garbagePosition.length; i++){
+                        this.add.existing(this.garbagePosition[i]);
+                        this.garbage.push(this.add.image(this.garbagePosition[i].x, this.garbagePosition[i].y, 's5garbage'+ i));
+                }
 
                 for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
                         this.heart_icon = this.add.sprite(770, 10 + i * 50, 'heart-icon');
@@ -52,39 +67,38 @@ export class PlayScene5Wrong extends Phaser.Scene {
                 const centerX = this.config.width / 2;
                 const centerY = this.config.height / 2;
 
-                const graphics = this.add.graphics();
-                graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-                graphics.fillRect(
-                        75,
-                        centerY - this.cameras.main.height / 6 / 2,
-                        this.config.width - 150,
-                        this.config.height / 6
-                );
-
-                const closeButton = this.add.text(
+                const skipButton = this.add.text(
                         this.config.width - 90,
-                        centerY - this.config.height / 6 / 2 + 15,
-                        "X",
-                        { font: '18px Arial', color: '#ffffff' }
+                        this.config.height / 6 / 2 + 15,
+                        "Skip",
+                        { font: '18px Arial', color: '#000000' }
                 );
-                closeButton.setOrigin(0.5);
-                closeButton.setInteractive();
-                closeButton.on('pointerdown', () => {
-                        if (heartPointsService.getHeartPoints() == 0) {
-                                this.scene.start('game-over-scene', { config: this.game.config });
-                        } else {
-
-                                this.scene.start('milestone-scene', { config: this.game.config });
-                                this.xButtonSFX.play();
-                        }
+                skipButton.setOrigin(0.5);
+                skipButton.setInteractive();
+                skipButton.on('pointerdown', () => {
+                        this.scene.start('milestone-scene', { config: this.game.config });
+                        this.xButtonSFX.play();
                 })
 
                 const guide = this.add.text(
                         100,
                         centerY - 25,
-                        this.textDisplay,
-                        { font: '18px monospace', color: '#ffffff', align: 'left' }
+                        '',
+                        { font: '18px monospace', color: '#000000', align: 'left' }
                 );
+
+                let index = 0;
+                let startIndexOfSegment = 0;
+                while (index < this.textDisplay.length) {
+                        if (this.textDisplay[index] === ' ' && index - startIndexOfSegment >= 55) {
+                          
+                          guide.text += '\n';
+                          startIndexOfSegment = index + 1;
+                        } else {
+                          guide.text += this.textDisplay[index];
+                        }
+                        index++;
+                } 
                 // End of text  
 
 

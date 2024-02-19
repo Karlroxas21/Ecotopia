@@ -17,7 +17,7 @@ export class PrePlayScene5 extends Phaser.Scene {
 
   character: any;
                   
-  scriptDisplay = "One more to go, and you’re nearly finished!\n\nThe serene lakeshore's turquoise waters mirror he light,\nbut the sight of the now-polluted shoreline amid the\nnatural beauty floods you with disappointment.";
+  scriptDisplay = "One more to go, and you’re nearly finished! The serene lakeshore's turquoise waters mirror he light, but the sight of the now-polluted shoreline amid the natural beauty floods you with disappointment.";
 
   create() {
     this.background = this.add.image(0, 0, 'scene5-bg');
@@ -25,49 +25,54 @@ export class PrePlayScene5 extends Phaser.Scene {
 
     this.choiceButton = this.sound.add('choice');
 
-    // Question
-    const centerX = (this.config.width / 2) - 40;
-    const centerY = 100;
-    const graphics = this.add.graphics();
-    graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-    graphics.fillRect(
-      75,
-      250,
-      this.config.width - 150,
-      (this.config.height / 5) + 30
-    );
+    const centerX = this.config.width / 2;
+    const centerY = this.config.height / 2;
+
+    const skipButton = this.add.text(
+      this.config.width - 90,
+      this.config.height / 6 / 2 + 15,
+      "Skip",
+      { font: '18px Arial', color: '#000000' });
+    skipButton.setOrigin(0.5);
+    skipButton.setInteractive();
+    skipButton.on('pointerdown', () => {
+          this.scene.start('play-scene5', { config: this.game.config });
+    });
 
     const guide = this.add.text(
       100,
-      300 - 30,
+      centerY - 25,
       '',
-      { font: '18px monospace', color: '#ffffff', align: 'left' }
+      { font: '20px monospace', color: '#000000', align: 'left' }
     );
-    // End of Question
 
     let index = 0;
+    let startIndexOfSegment = 0;
     const textToType = this.scriptDisplay;
+
 
     const typeingTimer = this.time.addEvent({
       delay: 50,
-      callback: () =>{
-        guide.text += textToType[index];
-        index++;
-
-        if(index === textToType.length){
+      callback: () => {
+        if (index < textToType.length) {
+          if (textToType[index] === ' ' && index - startIndexOfSegment >= 40) {
+            
+            guide.text += '\n';
+            startIndexOfSegment = index + 1;
+          } else {
+            guide.text += textToType[index];
+          }
+  
+          index++;
+        } else {
           typeingTimer.remove();
         }
       },
       callbackScope: this,
       loop: true,
-    })
+    });
 
-    // Finish text display when user click
-    this.input.on('pointerdown', ()=>{
-      guide.text = textToType;
-      typeingTimer.remove();
-    })
-    this.character = this.add.sprite(-100, 450, 'character');
+    this.character = this.add.sprite(150, 450, 'character');
     this.character.setScale(0.5);
 
     this.anims.create({
@@ -75,40 +80,9 @@ export class PrePlayScene5 extends Phaser.Scene {
       frames: this.anims.generateFrameNumbers('character', {start: 0, end: 6}),
       frameRate: 10,
       repeat: -1
-    })
-
-    const timeline = this.tweens.createTimeline();
-
-    timeline.add({
-      targets: this.character,
-      x: 150,
-      ease: 'Linear',
-      duration: 1000,
-      onComplete: () =>{
-        this.character.anims.play('character_key')
-      },
     });
 
-    timeline.play();
-
-    const closeButton = this.add.text(
-        this.config.width -140,
-        centerY - this.config.height / 6 / 2 + 330,
-        'continue',
-        { font: '18px monospace', color: '#ffffff' }
-      );
-      closeButton.setOrigin(0.5);
-      closeButton.setInteractive();
-      closeButton.on('pointerdown', () => {
-        graphics.destroy();
-        guide.destroy();
-        closeButton.destroy();
-        this.character.destroy();
-        this.scene.start('play-scene5', { config: this.game.config });
-        this.choiceButton = this.sound.add('x-button');
-        this.choiceButton.play();
-      });
-    
+    this.character.anims.play('character_key');
   }
 
   override update() {

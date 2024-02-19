@@ -13,80 +13,106 @@ export class PlayScene5Correct extends Phaser.Scene {
         }
 
         background: any;
+        character: any;
 
         heart_icon: any;
-        
+
         bgMusic: any;
         levelPassed: any;
         xButtonSFX: any;
 
-        textDisplay = "Correct! Proper lake ecosystem management improves water\nquality, biodiversity, and ecological balance, benefiting both\nthe environment and communities.";
+        textDisplay =
+                'Correct! Proper lake ecosystem management improves water quality, biodiversity, and ecological balance, benefiting both the environment and communities.';
 
         currentHeartPoints = heartPointsService.getHeartPoints();
 
         scoreDisplay: any;
-        
+
         create() {
-                this.background = this.add.image(0, 0, 'scene5-bg-correct');
+                this.background = this.add.image(0, 0, 'scene5-bg');
                 this.background.setOrigin(0, 0);
 
                 this.xButtonSFX = this.sound.add('x-button');
 
                 this.levelPassed = this.sound.add('level-passed');
                 this.levelPassed.play();
-                
-                for(let i = 1; i <= heartPointsService.getHeartPoints(); i++){
+
+                for (let i = 1; i <= heartPointsService.getHeartPoints(); i++) {
                         this.heart_icon = this.add.sprite(770, 10 + i * 50, 'heart-icon');
                         this.heart_icon.setScale(0.08);
-                  
+
                         this.anims.create({
-                          key: 'heart-icon_key',
-                          frames: this.anims.generateFrameNumbers('heart-icon', {start: 0, end: 4}),
-                          frameRate: 10,
-                          repeat: -1
-                      })
-                  
+                                key: 'heart-icon_key',
+                                frames: this.anims.generateFrameNumbers('heart-icon', {
+                                        start: 0,
+                                        end: 4,
+                                }),
+                                frameRate: 10,
+                                repeat: -1,
+                        });
+
                         this.heart_icon.anims.play('heart-icon_key');
-                      }
-                  
-                      this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
+                }
+
+                this.scoreDisplay = this.add.text(
+                        10,
+                        10,
+                        `Score: ${scoreService.getScorePoints()}`,
+                        { font: '20px monospace', color: '#ffffff' }
+                );
+
+                this.anims.create({
+                        key: 'character_key',
+                        frames: this.anims.generateFrameNumbers('character', {
+                                start: 0,
+                                end: 6,
+                        }),
+                        frameRate: 5,
+                        repeat: -1,
+                });
+                this.character = this.add.sprite(150, 400, 'character');
+                this.character.setScale(0.5);
+                this.character.anims.play('character_key');
+
                 // Text
                 const centerX = this.config.width / 2;
                 const centerY = this.config.height / 2;
 
-                const graphics = this.add.graphics();
-                graphics.fillStyle(0x000000, 0.5); // Color and Alpha
-                graphics.fillRect(
-                        75,
-                        centerY - this.cameras.main.height / 6 / 2,
-                        this.config.width - 150,
-                        this.config.height / 6
-                );
-
-                const closeButton = this.add.text(
+                const skipButton = this.add.text(
                         this.config.width - 90,
-                        centerY - this.config.height / 6 / 2 + 15,
-                        "X",
-                        { font: '18px Arial', color: '#ffffff' }
+                        this.config.height / 6 / 2 + 15,
+                        'Skip',
+                        { font: '18px Arial', color: '#000000' }
                 );
-                closeButton.setOrigin(0.5);
-                closeButton.setInteractive();
-                closeButton.on('pointerdown', () => {
+                skipButton.setOrigin(0.5);
+                skipButton.setInteractive();
+                skipButton.on('pointerdown', () => {
                         this.scene.start('milestone-scene', { config: this.game.config });
                         this.xButtonSFX.play();
-                })
+                });
 
-                const guide = this.add.text(
-                        100,
-                        centerY - 25,
-                        this.textDisplay,
-                        { font: '18px monospace', color: '#ffffff', align: 'left' }
-                );
+                const guide = this.add.text(100, centerY - 25, '', {
+                        font: '18px monospace',
+                        color: '#000000',
+                        align: 'left',
+                });
+
+                let index = 0;
+                let startIndexOfSegment = 0;
+                while (index < this.textDisplay.length) {
+                        if (
+                                this.textDisplay[index] === ' ' &&
+                                index - startIndexOfSegment >= 55
+                        ) {
+                                guide.text += '\n';
+                                startIndexOfSegment = index + 1;
+                        } else {
+                                guide.text += this.textDisplay[index];
+                        }
+                        index++;
+                }
                 // End of text
-
         }
 
-        override update() {
-
-        }
+        override update() { }
 }

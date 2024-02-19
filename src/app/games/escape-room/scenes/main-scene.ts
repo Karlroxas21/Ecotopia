@@ -149,13 +149,30 @@ export class MainScene extends Phaser.Scene {
     this.load.image('s4garbage14', '../../../../assets/game/scene4/gb15.webp');
 
     // Scene 5
-    this.load.image('scene5-bg', '../../../../assets/game/scene5/scene5-bg.webp');
+    this.load.image('scene5-bg', '../../../../assets/game/scene5/lake.webp');
     this.load.image('scene5-bg-wrong', '../../../../assets/game/scene5/scene5-bg-wrong.webp');
     this.load.image('scene5-bg-correct', '../../../../assets/game/scene5/scene5-bg-correct.webp');
     this.load.spritesheet('scene5-sprite', '../../../../assets/game/scene5/scene5-sprite.webp',{
       frameWidth: 800,
       frameHeight: 600
-    })
+    });
+
+    // Scene 5 Garbages
+    this.load.image('s5garbage0', '../../../../assets/game/scene5/gb1.webp');
+    this.load.image('s5garbage1', '../../../../assets/game/scene5/gb2.webp');
+    this.load.image('s5garbage2', '../../../../assets/game/scene5/gb3.webp');
+    this.load.image('s5garbage3', '../../../../assets/game/scene5/gb4.webp');
+    this.load.image('s5garbage4', '../../../../assets/game/scene5/gb5.webp');
+    this.load.image('s5garbage5', '../../../../assets/game/scene5/gb6.webp');
+    this.load.image('s5garbage6', '../../../../assets/game/scene5/gb7.webp');
+    this.load.image('s5garbage7', '../../../../assets/game/scene5/gb8.webp');
+    this.load.image('s5garbage8', '../../../../assets/game/scene5/gb9.webp');
+    this.load.image('s5garbage9', '../../../../assets/game/scene5/gb10.webp');
+    this.load.image('s5garbage10', '../../../../assets/game/scene5/gb11.webp');
+    this.load.image('s5garbage11', '../../../../assets/game/scene5/gb12.webp');
+    this.load.image('s5garbage12', '../../../../assets/game/scene5/gb13.webp');
+    this.load.image('s5garbage13', '../../../../assets/game/scene5/gb14.webp');
+    this.load.image('s5garbage14', '../../../../assets/game/scene5/gb15.webp');
     
     // Game Over Scene
     this.load.image('game-over', '../../../../assets/game/game_over.webp');
@@ -230,7 +247,7 @@ export class MainScene extends Phaser.Scene {
     // Uncomment this when done in level 1!
     this.load.on('complete', () => {
       // default-scene is the original value
-      this.scene.start('play-scene4', { config: this.game.config });
+      this.scene.start('play-scene5', { config: this.game.config });
     }); 
 
     // Temporary to see Level 2 Scene Fast.
