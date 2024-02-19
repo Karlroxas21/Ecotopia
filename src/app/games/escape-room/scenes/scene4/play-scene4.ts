@@ -132,13 +132,12 @@ export class PlayScene4 extends Phaser.Scene {
 
     // Add timer function
     this.timer = this.time.delayedCall(15000, () => {
-
       if (this.garbage.length > 0) {
         heartPointsService.decreaseHeartPoints();
-        this.scene.start('play-scene4-wrong', { config: this.game.config });
-
         if (heartPointsService.getHeartPoints() <= 0) {
           this.scene.start('game-over-scene', { config: this.game.config });
+        } else {
+          this.scene.start('play-scene3-wrong', { config: this.game.config });
         }
       }
     }, [], this);

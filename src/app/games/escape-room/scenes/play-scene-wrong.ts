@@ -61,16 +61,6 @@ export class PlaySceneWrong extends Phaser.Scene {
 
                 this.flow_sprite.anims.play('scene1-sprite-key');
 
-                this.anims.create({
-                        key: 'character_key',
-                        frames: this.anims.generateFrameNumbers('character', {start: 0, end: 6}),
-                        frameRate: 5,
-                        repeat: -1
-                      })
-                this.character = this.add.sprite(150, 400, 'character');
-                this.character.setScale(0.5);
-                this.character.anims.play('character_key');
-
                 this.failedSFX = this.sound.add('failed');
                 this.failedSFX.play();
                 
