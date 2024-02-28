@@ -102,7 +102,7 @@ export class PrePlayScene extends Phaser.Scene {
             skipButton.setOrigin(0.5);
             skipButton.setInteractive();
             skipButton.on('pointerdown', () => {
-                this.scene.start('play-scene', { config: this.game.config });
+                this.scene.start('pre2-play-scene', { config: this.game.config });
             })
 
             if (!this.player.collidingWithGameCharacter) {
