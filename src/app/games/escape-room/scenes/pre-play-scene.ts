@@ -157,6 +157,9 @@ export class PrePlayScene extends Phaser.Scene {
         let index = 0;
         const textToType = this.textDisplay;
 
+        this.bgMusic = this.sound.add('bg-music-playing', { loop: true, volume: 0.5 });
+        this.bgMusic.play();
+
     }
 
     override update() {

@@ -23,6 +23,7 @@ export class MainScene extends Phaser.Scene {
         this.load.audio('bg-music', '../../../../assets/game/bg-music.mp3');
         this.load.audio('game-over', '../../../../assets/game/game-over.mp3');
         this.load.audio('milestone', '../../../../assets/game/milestone-scene.mp3');
+        this.load.audio('bg-music-playing', '../../../../assets/game/bg-music-playing.mp3');
 
         // Cloud
         this.load.image('cloud-1', '../../../../assets/game/scene1/cloud1.webp');

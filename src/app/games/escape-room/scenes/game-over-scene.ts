@@ -24,7 +24,7 @@ export class GameOver extends Phaser.Scene {
     bgMusic: any;
     gameOverSFX: any;
 
-    textDisplay = "Game Over! You've run out of chances to make a difference in\nthe fight against water pollution in the context of climate\nchange. Your quiz adventure ends here.";
+    textDisplay = "Game Over! You've run out of chances to make a difference in\nthe fight against water pollution in the context of climate\nchange. Your adventure ends here.";
 
     create() {
         this.background = this.add.image(0, 0, 'game-over'); // Change this
