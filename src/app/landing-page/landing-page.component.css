@@ -448,7 +448,6 @@
 }
 #text2{
   position: absolute;
-  top: 40%;
   transform: translateY(-50%);
   font-size: 3em;
   font-weight: 400;
@@ -456,6 +455,8 @@
   font-family: 'Henry Sans', sans-serif;
   text-align: center;
   width: 100%;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
 
