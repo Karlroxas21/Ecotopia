@@ -435,9 +435,9 @@
   pointer-events: none;
 }
 
-#text, #text2{
+#text{
   position: absolute;
-  top: 50%;
+  top: 28%;
   transform: translateY(-50%);
   font-size: 4em;
   font-weight: 800;
