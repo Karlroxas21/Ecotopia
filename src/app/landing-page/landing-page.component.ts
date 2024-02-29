@@ -57,7 +57,7 @@ export class LandingPageComponent implements OnInit {
       // Apply the effect for the 'boy' element
       let initialOffsetBoy = -100;
       if (scrollY > 0) {
-        initialOffsetBoy += scrollY * 0.3;
+        initialOffsetBoy += scrollY * 0.5;
       }
       if (boy) {
         this.renderer.setStyle(boy, 'transform', `translateY(-${initialOffsetBoy}px)`);
@@ -68,7 +68,7 @@ export class LandingPageComponent implements OnInit {
         let initialOffsetWaterY = -100;
         let initialOffsetWaterX = -150;
         if (scrollY > 0) {
-          initialOffsetWaterY += scrollY * 0.3;
+          initialOffsetWaterY += scrollY * 0.5;
           initialOffsetWaterX += scrollY * 0.9;
         }
         this.renderer.setStyle(water, 'transform', `translateY(${initialOffsetWaterY}px) translateX(${initialOffsetWaterX}px)`);
