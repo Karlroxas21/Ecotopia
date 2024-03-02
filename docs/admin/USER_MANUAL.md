@@ -5,20 +5,20 @@ To access admin you need to go to [ecotopia.systems/login](ecotopia.systems/logi
 
 ### Table of Contents
 1. [Manage Admin Accounts](#manage-admin-accounts)
-1. [Manage News](#manage-news)
-1. [Manage Current Issues](#manage-current-issues)
-1. [Manage Assessment](#manage-assessment)
-1. [Manage Climate Action SDG 13](#manage-climate-action-sdg-13)
-    5.1 [Manage SDG #13](#manage-sdg-13)
-    5.2 [Manage Overview](#Example)
-    5.3 [Manage Target and Indicators](#Example)
-    5.4 [Manage Progress and Info](#Example)
-    5.5 [Manage Related Topics](#Example)
+2. [Manage News](#manage-news)
+3. [Manage Current Issues](#manage-current-issues)
+4. [Manage Assessment](#manage-assessment)
+5. [Manage Climate Action SDG 13](#manage-climate-action-sdg-13)
+    1. [Manage SDG #13](#manage-sdg-13)
+    2. [Manage Overview](#Example)
+    3. [Manage Target and Indicators](#Example)
+    4. [Manage Progress and Info](#Example)
+    5. [Manage Related Topics](#Example)
 1. [Manage Solutions](#Example)
-    6.1 [Manage Solutions](#Example)
-    6.2 [Manage Solutions 1](#Example)
-    6.3 [Manage Solutions 2](#Example)
-    6.4 [Manage Solutions 3](#Example)
+    1. [Manage Solutions](#Example)
+    2. [Manage Solutions 1](#Example)
+    3. [Manage Solutions 2](#Example)
+    4. [Manage Solutions 3](#Example)
 
 ## Manage Admin Accounts
 You can only Manage Admin Accounts with Super Admin Account logged in
