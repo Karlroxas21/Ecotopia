@@ -20,11 +20,13 @@ The system utilize MEAN stack to build this project. Back-end server is in the *
 1. `npm install` at root directory
 1. In seperate terminal, `cd backend` and `npm install`
 1. Create .env file at *backend* folder with the following:
+```
  DB_CONNECTION
  OUTLOOK_USER_AUTH
  OUTLOOK_PW_AUTH
  UPLOAD_DIR
  BASE_URL
+ ```
 
 ### Angular Configuration
 #### Deploying to server
