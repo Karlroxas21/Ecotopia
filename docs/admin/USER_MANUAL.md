@@ -1,9 +1,9 @@
-#User Manual
+# User Manual
 Here is the Sitemap of the website. A box with red indicates that you can modify its content including pictures and text but not structure
 ![Sitemap of Ecotopia](../assets/sitemap.jpg)
 To access admin you need to go to [ecotopia.systems/login](ecotopia.systems/login)
 
-###Table of Contents
+### Table of Contents
 1. [Manage Admin Accounts](#manage-admin-accounts)
 1. [Manage News](#manage-news)
 1. [Manage Current Issues](#manage-current-issues)
@@ -20,7 +20,7 @@ To access admin you need to go to [ecotopia.systems/login](ecotopia.systems/logi
     6.3 [Manage Solutions 2](#Example)
     6.4 [Manage Solutions 3](#Example)
 
-##Manage Admin Accounts
+## Manage Admin Accounts
 You can only Manage Admin Accounts with Super Admin Account logged in
 ##### Create Admin Account
 Note: *You can only create admin accounts if you are logged in as super admin.*
@@ -56,7 +56,7 @@ Note: *You can only delete admin accounts if you are logged in as super admin.*
 
 To delete an account, just simply click the Red Delete Button on the same row of account you want to delete.
 
-##Manage News
+## Manage News
 You can manage news with both super admin and admin accounts
 
 ##### Add News
@@ -75,7 +75,7 @@ To edit the news, simply click the Edit button and modify the field you want to 
 
 To delete news, simply click the delete button and confirm its deletion.
 
-##Manage Current Issues
+## Manage Current Issues
 
 In current issues, you cannot edit the link and name of the tabs. You can only edit the area within the red box. 
 ![Current Issues](../assets/current_issue/current_issue.png)
@@ -83,7 +83,7 @@ To edit the text, simply click it. It is a inline-text. If you want to remove th
 ![Current Issue Inline](../assets/current_issue/current_issue_inline.png)
 To ensure to save the changes, click the Publish button. If you do not Publish it, the changes will not save. 
 
-##Manage Assessment
+## Manage Assessment
 In self-assessment, it has the same idea. You click the text you want to edit, click on the random blank space to remove the text area.
 
 To edit the correct answer, click the correct answer field and enter the correct answer. Correct answer must be the same in the selection.
@@ -94,7 +94,7 @@ The Blue box area is the question, red box area is the options or selection of a
 
 Note: *Make sure that correct answer field has the same character including capitalization and spelling of the correct answer in selection or option.*
 
-##Manage Climate Action SDG 13
+## Manage Climate Action SDG 13
 
-###Manage SDG #13
+### Manage SDG #13
 Note: *In website, it represent the /problems*
