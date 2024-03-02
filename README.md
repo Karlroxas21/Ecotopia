@@ -1,38 +1,46 @@
-# Ecotopia: A Capstone Project
-A Parallax E-Learning Website about Climate Change
+# Ecotopia
 
-## MEAN Stack
-We use MEAN stack to build this project. All back-end related are in the *backend folder*. 
+## Introduction
+A Parallax Enabled Website for Climate Change Awareness with Interactive Mini Arcade Game
 
-## Requirements:
-1. NodeJS
-2. Angular 15.x
+The study presents a website focused on raising awareness about climate change. This website is designed to enlighten users about the causes, effects, and possible solutions to climate change.
 
-## Angular Configuration
-### Deploy
+*Keywords— Climate Change Education, Parallax Website, Parallax Effect, Mini Arcade Game, Information Awareness*
+
+---
+
+## Installation
+### Requirements
+1. NodeJS 15.x
+1. Angular 15.x
+
+The system utilize MEAN stack to build this project. Back-end server is in the *backend* folder.
+
+1. `git clone https://github.com/Karlroxas21/Ecotopia.git`
+1. `npm install` at root directory
+1. In seperate terminal, `cd backend` and `npm install`
+1. Create .env file at *backend* folder with the following:
+ DB_CONNECTION
+ OUTLOOK_USER_AUTH
+ OUTLOOK_PW_AUTH
+ UPLOAD_DIR
+ BASE_URL
+
+### Angular Configuration
+#### Deploying to server
+``` 
 "replace": "src/environments/environment.ts",
 "with": "src/environments/environment.development.ts"
 "defaultConfiguration": "development"
-1. Add Environment in backend BASE_URL=webite.com, OUTLOOK_USER_AUTH=email.com, OUTLOOK_PW_AUTH=pw.email
-
+```
 ### Production
+```
 "replace": "src/environments/environment.development.ts",
 "with": "src/environments/environment.ts"
 "defaultConfiguration": "production"
+```
 
-## Backend configuration
-Create a .env in backend folder and add DB_CONNECTION=*insert mongodb_string_connection_here*
 
----
 
-## Key Features:
-1. Mini-arcade game
-2. Assessment Module
-3. Admin panel
-4. Parallax effect
 
-Documentation still in progress.
 
----
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
