@@ -41,7 +41,7 @@ export class AdminAccountCreateComponent implements OnInit {
   newPasswordVisible = false;
 
   isPasswordValid() {
-    const passwordRegex = new RegExp('(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}');
+    const passwordRegex = new RegExp('(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*@]).{8,}');
     return passwordRegex.test(this.accountModel.password);
   }
 
@@ -55,7 +55,7 @@ export class AdminAccountCreateComponent implements OnInit {
   }
 
   newAdminAccount(form: NgForm) {
-    if (form.valid && this.isPasswordValid() && this.isConfirmPasswordValid() && this.isConfirmPasswordValid()) {
+    if (form.valid && this.isConfirmPasswordValid() && this.isConfirmPasswordValid()) {
       this.createAccount(this.accountModel);
       this.toastr.success(this.accountModel.email, "Email has been sent to: ", {
         timeOut: 0, extendedTimeOut: 0,
