@@ -3,8 +3,7 @@
 
   <div class="content">
     <div class="textbox" *ngFor="let item of outdated_engine">
-      <div>
-      <!-- <div *ngIf="!editing_header" (click)="startEditingHeader()"> -->
+      <div *ngIf="!editing_header" (click)="startEditingHeader()">
         <h2>{{ header }}</h2>
       </div>
       <h3>
@@ -19,9 +18,10 @@
         ></textarea>
       </h3>
       
-      <div>
-        <p>{{ header_desc }}</p>
-      </div>
+        <div *ngIf="!editing_header_desc"
+              (click)="startEditingHeaderDescription()" > 
+              <p>{{ header_desc }}</p>
+        </div>
       <p>
         <textarea
           rows="2" cols="54"

@@ -2,8 +2,7 @@
         <app-admin-panel></app-admin-panel>
         <div class="content">
           <div class="textbox" *ngFor="let item of problem_trash">
-            <div>
-            <!-- <div *ngIf="!editing_header" (click)="startEditingHeader()"> -->
+            <div *ngIf="!editing_header" (click)="startEditingHeader()">
               <h2>{{ header }}</h2>
             </div>
             <h3>
@@ -18,11 +17,8 @@
               ></textarea>
             </h3>
             
-            <div>
-            <!-- <div
-              *ngIf="!editing_header_description"
-              (click)="startEditingHeaderDescription()"
-            > -->
+            <div *ngIf="!editing_header_desc"
+              (click)="startEditingHeaderDescription()" > 
               <p>{{ header_desc }}</p>
             </div>
             <p>
