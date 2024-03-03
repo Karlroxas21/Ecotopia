@@ -11,9 +11,9 @@ export class GameUnityComponent implements OnInit {
     ngOnInit() {
         //@ts-ignore
         createUnityInstance(document.querySelector("#unity-canvas"), {
-            dataUrl: "/assets/game/unity-main/Build/unity-main.data",
-            frameworkUrl: "/assets/game/unity-main/Build/unity-main.framework.js",
-            codeUrl: "/assets/game/unity-main/Build/unity-main.wasm",
+            dataUrl: "assets/game/unity-main/Build/unity-main.data",
+            frameworkUrl: "assets/game/unity-main/Build/unity-main.framework.js",
+            codeUrl: "assets/game/unity-main/Build/unity-main.wasm",
             streamingAssetsUrl: "StreamingAssets",
             companyName: "Maafia",
             productName: "Unity Escape Room",
