@@ -78,7 +78,7 @@ export class PlayScene4Wrong extends Phaser.Scene {
         const skipButton = this.add.text(
             this.config.width - 90,
             this.config.height / 6 / 2 + 15,
-            "Skip",
+            "Continue",
             { font: '18px Arial', color: '#ffffff' }
         );
         skipButton.setOrigin(0.5);
