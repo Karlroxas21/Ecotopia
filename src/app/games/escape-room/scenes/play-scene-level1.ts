@@ -42,6 +42,8 @@ export class PlayScene extends Phaser.Scene {
     cursor: any;
 
     wasd: any;
+    spaceKey: any;
+    pickUpText: any;
 
     timer: any;
     timerDisplay: any;
@@ -97,7 +99,7 @@ export class PlayScene extends Phaser.Scene {
         this.physics.world.enable([this.player, ...this.garbage]);
 
         // Add timer function
-        this.timer = this.time.delayedCall(15000, () => {
+        this.timer = this.time.delayedCall(30000, () => {
 
             if (this.garbage.length > 0) {
                 heartPointsService.decreaseHeartPoints();
@@ -110,28 +112,66 @@ export class PlayScene extends Phaser.Scene {
         }, [], this);
 
         // Display time
-        this.timerDisplay = this.add.text(16, 16, `Time: ${Math.round((15000 - this.timer.getElapsed()) / 1000)}`, {
+        this.timerDisplay = this.add.text(16, 16, `Time: ${Math.round((30000 - this.timer.getElapsed()) / 1000)}`, {
             fontSize: '32px', color: '#000'
         });
+
+        const centerX = this.config.width / 2;
+        const centerY = this.config.height / 2;
+
+        this.spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+        this.pickUpText = this.add.text(centerX, 50, '', { fontSize: '16px', color: '#000000' }).setOrigin(0.5);
 
         // Overlap detection for player and garbages
         this.physics.add.overlap(this.player,
             this.garbage, (player, garbage) => {
-                this.choiceButtonSFX.play();
+                // this.choiceButtonSFX.play();
 
-                let index = this.garbage.indexOf(garbage);
+                // let index = this.garbage.indexOf(garbage);
 
-                if (index !== -1) {
-                    this.garbage.splice(index, 1);
+                // if (index !== -1) {
+                //     this.garbage.splice(index, 1);
+                // }
+
+                // if (this.garbage.length == 0) {
+                //     this.timer.remove(false);
+                //     this.scene.start('play-scene-correct', { config: this.game.config });
+                //     // Scene 1 Success
+                // }
+
+                // garbage.destroy();
+                if (Phaser.Input.Keyboard.JustDown(this.spaceKey)) {
+                    this.choiceButtonSFX.play();
+
+                    let index = this.garbage.indexOf(garbage);
+
+                    if (index !== -1) {
+                        this.garbage.splice(index, 1);
+                    }
+
+                    if (this.garbage.length == 0) {
+                        this.timer.remove(false);
+                        this.scene.start('play-scene-correct', { config: this.game.config });
+                    }
+
+                    garbage.destroy();
+
+                    this.pickUpText.setText('You picked up a trash, Good Job!');
+
+                    this.tweens.killTweensOf(this.pickUpText);
+                    this.pickUpText.setAlpha(1);
+
+                    this.tweens.add({
+                        targets: this.pickUpText,
+                        alpha: 0,
+                        duration: 2000,
+                        ease: 'Power2',
+                        onComplete: () => {
+                            this.pickUpText.setText('');
+                        }
+                    });
                 }
-
-                if (this.garbage.length == 0) {
-                    this.timer.remove(false);
-                    this.scene.start('play-scene-correct', { config: this.game.config });
-                    // Scene 1 Success
-                }
-
-                garbage.destroy();
             });
 
         // Heart Icon set in upper right
@@ -172,7 +212,7 @@ export class PlayScene extends Phaser.Scene {
     }
 
     override update() {
-        this.timerDisplay.setText(`Time: ` + Math.round((15000 - this.timer.getElapsed()) / 1000));
+        this.timerDisplay.setText(`Time: ` + Math.round((30000 - this.timer.getElapsed()) / 1000));
 
         this.player.x = Phaser.Math.Clamp(this.player.x, 10, 790);
         this.player.y = Phaser.Math.Clamp(this.player.y, 450, 580)
