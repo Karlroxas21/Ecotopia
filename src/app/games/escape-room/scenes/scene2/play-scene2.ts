@@ -43,6 +43,8 @@ export class PlayScene2 extends Phaser.Scene {
     cursor: any;
 
     wasd: any;
+    spaceKey: any;
+    pickUpText: any;
 
     timer: any;
     timerDisplay: any;
@@ -72,6 +74,24 @@ export class PlayScene2 extends Phaser.Scene {
         })
 
         this.flow_sprite.anims.play('scene2-sprite-key');
+
+        // Clouds
+        this.cloud1 = this.add.image(0, 200, 'cloud-1');
+        //  this.cloud1.setScale(0.5);
+        this.cloud2 = this.add.image(100, 100, 'cloud-2');
+        //  this.cloud2.setScale(0.3);
+        this.cloud3 = this.add.image(500, 200, 'cloud-3');
+        //  this.cloud3.setScale(0.2);
+        this.cloud4 = this.add.image(400, 100, 'cloud-4');
+        //  this.cloud4.setScale(0.4);
+        this.cloud5 = this.add.image(600, 200, 'cloud-5');
+        //  this.cloud5.setScale(0.5);
+        this.cloud6 = this.add.image(600, 200, 'cloud-6');
+        //  this.cloud6.setScale(0.5);
+        this.cloud7 = this.add.image(650, 300, 'cloud-7');
+        this.cloud8 = this.add.image(400, 300, 'cloud-8');
+        this.cloud9 = this.add.image(300, 150, 'cloud-9');
+        this.cloud0 = this.add.image(100, 200, 'cloud-0');
 
         this.choiceButtonSFX = this.sound.add('choice');
 
@@ -115,7 +135,7 @@ export class PlayScene2 extends Phaser.Scene {
         // TODO: add collider and timer!
 
         // Add timer function
-        this.timer = this.time.delayedCall(15000, () => {
+        this.timer = this.time.delayedCall(30000, () => {
 
             if (this.garbage.length > 0) {
                 heartPointsService.decreaseHeartPoints();
@@ -128,51 +148,71 @@ export class PlayScene2 extends Phaser.Scene {
         }, [], this);
 
         // Display time
-        this.timerDisplay = this.add.text(16, 16, `Time: ${Math.round((15000 - this.timer.getElapsed()) / 1000)}`, {
+        this.timerDisplay = this.add.text(16, 16, `Time: ${Math.round((30000 - this.timer.getElapsed()) / 1000)}`, {
             fontSize: '32px', color: '#000'
         });
+
+        const centerX = this.config.width / 2;
+        const centerY = this.config.height / 2;
+
+        this.spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+        this.pickUpText = this.add.text(centerX, 50, '', { fontSize: '16px', color: '#000000' }).setOrigin(0.5);
 
         // Overlap detection for player and garbages
         this.physics.add.overlap(this.player,
             this.garbage, (player, garbage) => {
-                this.choiceButtonSFX.play();
+                // this.choiceButtonSFX.play();
 
-                let index = this.garbage.indexOf(garbage);
+                // let index = this.garbage.indexOf(garbage);
 
-                if (index !== -1) {
-                    this.garbage.splice(index, 1);
+                // if (index !== -1) {
+                //     this.garbage.splice(index, 1);
+                // }
+
+                // if (this.garbage.length == 0) {
+                //     this.timer.remove(false);
+                //     this.scene.start('play-scene2-correct', { config: this.game.config });
+                //     // Scene 2 Success
+                // }
+
+                // garbage.destroy();
+                if (Phaser.Input.Keyboard.JustDown(this.spaceKey)) {
+                    this.choiceButtonSFX.play();
+
+                    let index = this.garbage.indexOf(garbage);
+
+                    if (index !== -1) {
+                        this.garbage.splice(index, 1);
+                    }
+
+                    if (this.garbage.length == 0) {
+                        this.timer.remove(false);
+                        this.scene.start('play-scene2-correct', { config: this.game.config });
+                    }
+
+                    garbage.destroy();
+
+                    this.pickUpText.setText('You picked up a trash, Good Job!');
+
+                    this.tweens.killTweensOf(this.pickUpText);
+                    this.pickUpText.setAlpha(1);
+
+                    this.tweens.add({
+                        targets: this.pickUpText,
+                        alpha: 0,
+                        duration: 2000,
+                        ease: 'Power2',
+                        onComplete: () => {
+                            this.pickUpText.setText('');
+                        }
+                    });
                 }
-
-                if (this.garbage.length == 0) {
-                    this.timer.remove(false);
-                    this.scene.start('play-scene2-correct', { config: this.game.config });
-                    // Scene 2 Success
-                }
-
-                garbage.destroy();
             });
-
-        // Clouds
-        this.cloud1 = this.add.image(0, 200, 'cloud-1');
-        //  this.cloud1.setScale(0.5);
-        this.cloud2 = this.add.image(100, 100, 'cloud-2');
-        //  this.cloud2.setScale(0.3);
-        this.cloud3 = this.add.image(500, 200, 'cloud-3');
-        //  this.cloud3.setScale(0.2);
-        this.cloud4 = this.add.image(400, 100, 'cloud-4');
-        //  this.cloud4.setScale(0.4);
-        this.cloud5 = this.add.image(600, 200, 'cloud-5');
-        //  this.cloud5.setScale(0.5);
-        this.cloud6 = this.add.image(600, 200, 'cloud-6');
-        //  this.cloud6.setScale(0.5);
-        this.cloud7 = this.add.image(650, 300, 'cloud-7');
-        this.cloud8 = this.add.image(400, 300, 'cloud-8');
-        this.cloud9 = this.add.image(300, 150, 'cloud-9');
-        this.cloud0 = this.add.image(100, 200, 'cloud-0');
     }
 
     override update() {
-        this.timerDisplay.setText(`Time: ` + Math.round((15000 - this.timer.getElapsed()) / 1000));
+        this.timerDisplay.setText(`Time: ` + Math.round((30000 - this.timer.getElapsed()) / 1000));
 
         // Lock player move area
         this.player.x = Phaser.Math.Clamp(this.player.x, 10, 790);
