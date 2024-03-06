@@ -40,18 +40,18 @@ export class PlaySceneCorrect extends Phaser.Scene {
         this.background = this.add.image(0, 0, 'scene1-bg');
         this.background.setOrigin(0, 0);
 
-        this.flow_sprite = this.add.sprite(0, 0, 'scene1-sprite');
-        this.flow_sprite.setOrigin(0, 0);
+        // this.flow_sprite = this.add.sprite(0, 0, 'scene1-sprite');
+        // this.flow_sprite.setOrigin(0, 0);
 
-        this.anims.create({
-            key: 'scene1-sprite-key',
-            frames: this.anims.generateFrameNumbers('scene1-sprite', {
-                start: 0,
-                end: 2,
-            }),
-            frameRate: 1,
-            repeat: -1,
-        });
+        // this.anims.create({
+        //     key: 'scene1-sprite-key',
+        //     frames: this.anims.generateFrameNumbers('scene1-sprite', {
+        //         start: 0,
+        //         end: 2,
+        //     }),
+        //     frameRate: 1,
+        //     repeat: -1,
+        // });
 
         this.anims.create({
             key: 'character_key',
@@ -66,7 +66,7 @@ export class PlaySceneCorrect extends Phaser.Scene {
         this.character.setScale(0.5);
         this.character.anims.play('character_key');
 
-        this.flow_sprite.anims.play('scene1-sprite-key');
+        // this.flow_sprite.anims.play('scene1-sprite-key');
 
         this.levelPassedSFX = this.sound.add('level-passed');
         this.levelPassedSFX.play();

@@ -48,7 +48,10 @@ export class MainScene extends Phaser.Scene {
         });
 
         // Speech Bubble
-        this.load.image('speech-bubble', '../../../../assets/game/speech.png')
+        this.load.image('speech-bubble', '../../../../assets/game/speech.png');
+
+        // Garbage bag
+        this.load.image('garbage-bag', '../../../../assets/game/trash.webp');
 
         // Scene 1Garbages 
         this.load.image('garbage0', '../../../../assets/game/scene1/gb1.webp');

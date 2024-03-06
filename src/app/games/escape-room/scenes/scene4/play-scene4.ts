@@ -50,6 +50,9 @@ export class PlayScene4 extends Phaser.Scene {
 
     timer: any;
     timerDisplay: any;
+    inventoryText: any;
+    basket: any
+    basketCount: any;
 
     garbage: any = [];
 
@@ -66,7 +69,7 @@ export class PlayScene4 extends Phaser.Scene {
         this.background = this.add.image(0, 0, 'scene4-bg');
         this.background.setOrigin(0, 0);
 
-        this.flow_sprite = this.add.sprite(0, 0, 'scene4-sprite');
+        this.flow_sprite = this.add.sprite(0, -100, 'scene4-sprite');
         this.flow_sprite.setOrigin(0, 0)
         this.anims.create({
             key: 'scene4-sprite-key',
@@ -147,7 +150,15 @@ export class PlayScene4 extends Phaser.Scene {
 
         // Display time
         this.timerDisplay = this.add.text(16, 16, `Time: ${Math.round((30000 - this.timer.getElapsed()) / 1000)}`, {
-            fontSize: '32px', color: '#000'
+            fontSize: '32px', color: '#fff'
+        });
+
+        //Display Inventory
+        this.basket = this.add.image(70, 70, 'garbage-bag');
+
+        this.basketCount = 0;
+        this.inventoryText = this.add.text(95, 60, `: 0/15`, {
+            fontSize: '32px', color: "#fff"
         });
 
         const centerX = this.config.width / 2;
@@ -155,7 +166,7 @@ export class PlayScene4 extends Phaser.Scene {
 
         this.spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-        this.pickUpText = this.add.text(centerX, 50, '', { fontSize: '16px', color: '#000000' }).setOrigin(0.5);
+        this.pickUpText = this.add.text(centerX, 120, '', { fontSize: '16px', color: '#fff' }).setOrigin(0.5);
 
         // Overlap detection for player and garbages
         this.physics.add.overlap(this.player,
@@ -176,6 +187,9 @@ export class PlayScene4 extends Phaser.Scene {
 
                     garbage.destroy();
 
+                    this.basketCount++;
+                    this.inventoryText.setText(`: ${this.basketCount}/15`);
+
                     this.pickUpText.setText('You picked up a trash, Good Job!');
 
                     this.tweens.killTweensOf(this.pickUpText);
@@ -184,7 +198,7 @@ export class PlayScene4 extends Phaser.Scene {
                     this.tweens.add({
                         targets: this.pickUpText,
                         alpha: 0,
-                        duration: 2000,
+                        duration: 3000,
                         ease: 'Power2',
                         onComplete: () => {
                             this.pickUpText.setText('');

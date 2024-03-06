@@ -48,6 +48,9 @@ export class PlayScene2 extends Phaser.Scene {
 
     timer: any;
     timerDisplay: any;
+    inventoryText: any;
+    basket: any
+    basketCount: any;
 
     garbage: any = [];
 
@@ -64,7 +67,7 @@ export class PlayScene2 extends Phaser.Scene {
         this.background = this.add.image(0, 0, 'scene2-bg');
         this.background.setOrigin(0, 0);
 
-        this.flow_sprite = this.add.sprite(0, 0, 'scene2-sprite');
+        this.flow_sprite = this.add.sprite(0, -90, 'scene2-sprite');
         this.flow_sprite.setOrigin(0, 0)
         this.anims.create({
             key: 'scene2-sprite-key',
@@ -120,7 +123,7 @@ export class PlayScene2 extends Phaser.Scene {
         // Random position the garbages in a certain area
         for (let i = 0; i < this.garbage.length; i++) {
             this.garbage[i].x = Phaser.Math.Between(10, 790);
-            this.garbage[i].y = Phaser.Math.Between(530, 580);
+            this.garbage[i].y = Phaser.Math.Between(510, 580);
         }
 
         this.registry.set('s2garbage', this.garbage);
@@ -152,12 +155,20 @@ export class PlayScene2 extends Phaser.Scene {
             fontSize: '32px', color: '#000'
         });
 
+        //Display Inventory
+        this.basket = this.add.image(70, 70, 'garbage-bag');
+
+        this.basketCount = 0;
+        this.inventoryText = this.add.text(95, 60, `: 0/15`, {
+            fontSize: '32px', color: "#000"
+        });
+
         const centerX = this.config.width / 2;
         const centerY = this.config.height / 2;
 
         this.spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-        this.pickUpText = this.add.text(centerX, 50, '', { fontSize: '16px', color: '#000000' }).setOrigin(0.5);
+        this.pickUpText = this.add.text(centerX, 120, '', { fontSize: '16px', color: '#000000' }).setOrigin(0.5);
 
         // Overlap detection for player and garbages
         this.physics.add.overlap(this.player,
@@ -193,6 +204,9 @@ export class PlayScene2 extends Phaser.Scene {
 
                     garbage.destroy();
 
+                    this.basketCount++;
+                    this.inventoryText.setText(`: ${this.basketCount}/15`);
+
                     this.pickUpText.setText('You picked up a trash, Good Job!');
 
                     this.tweens.killTweensOf(this.pickUpText);
@@ -201,7 +215,7 @@ export class PlayScene2 extends Phaser.Scene {
                     this.tweens.add({
                         targets: this.pickUpText,
                         alpha: 0,
-                        duration: 2000,
+                        duration: 3000,
                         ease: 'Power2',
                         onComplete: () => {
                             this.pickUpText.setText('');

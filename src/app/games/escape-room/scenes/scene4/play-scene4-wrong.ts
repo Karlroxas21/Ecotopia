@@ -33,7 +33,7 @@ export class PlayScene4Wrong extends Phaser.Scene {
         this.background = this.add.image(0, 0, 'scene4-bg');
         this.background.setOrigin(0, 0);
 
-        this.flow_sprite = this.add.sprite(0, 0, 'scene4-sprite');
+        this.flow_sprite = this.add.sprite(0, -100, 'scene4-sprite');
         this.flow_sprite.setOrigin(0, 0)
         this.anims.create({
             key: 'scene4-sprite-key',

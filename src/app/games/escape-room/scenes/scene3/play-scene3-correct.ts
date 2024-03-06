@@ -33,7 +33,7 @@ export class PlayScene3Correct extends Phaser.Scene {
         this.background = this.add.image(0, 0, 'scene3-bg');
         this.background.setOrigin(0, 0);
 
-        this.flow_sprite = this.add.sprite(0, 0, 'scene3-sprite');
+        this.flow_sprite = this.add.sprite(0, -90, 'scene3-sprite');
         this.flow_sprite.setOrigin(0, 0)
         this.anims.create({
             key: 'scene3-sprite-key',
@@ -72,8 +72,6 @@ export class PlayScene3Correct extends Phaser.Scene {
 
             this.heart_icon.anims.play('heart-icon_key');
         }
-
-        this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
 
         // Text
         const centerX = this.config.width / 2;

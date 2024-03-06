@@ -62,7 +62,6 @@ export class PlayScene5Wrong extends Phaser.Scene {
             this.heart_icon.anims.play('heart-icon_key');
         }
 
-        this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
         // Text
         const centerX = this.config.width / 2;
         const centerY = this.config.height / 2;

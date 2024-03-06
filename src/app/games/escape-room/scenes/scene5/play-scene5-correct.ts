@@ -54,13 +54,6 @@ export class PlayScene5Correct extends Phaser.Scene {
             this.heart_icon.anims.play('heart-icon_key');
         }
 
-        this.scoreDisplay = this.add.text(
-            10,
-            10,
-            `Score: ${scoreService.getScorePoints()}`,
-            { font: '20px monospace', color: '#ffffff' }
-        );
-
         this.anims.create({
             key: 'character_key',
             frames: this.anims.generateFrameNumbers('character', {

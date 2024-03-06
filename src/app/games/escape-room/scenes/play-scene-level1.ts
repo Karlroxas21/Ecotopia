@@ -47,6 +47,9 @@ export class PlayScene extends Phaser.Scene {
 
     timer: any;
     timerDisplay: any;
+    inventoryText: any;
+    basket: any
+    basketCount: any;
 
     garbage: any = [];
 
@@ -64,17 +67,35 @@ export class PlayScene extends Phaser.Scene {
         // Background
         this.background = this.add.image(0, 0, 'scene1-bg');
         this.background.setOrigin(0, 0);
+        
+        // Clouds
+        this.cloud1 = this.add.image(0, 200, 'cloud-1');
+        this.cloud1.setScale(0.5);
+        this.cloud2 = this.add.image(100, 100, 'cloud-2');
+        this.cloud2.setScale(0.3);
+        this.cloud3 = this.add.image(500, 200, 'cloud-3');
+        this.cloud3.setScale(0.2);
+        this.cloud4 = this.add.image(400, 100, 'cloud-4');
+        this.cloud4.setScale(0.4);
+        this.cloud5 = this.add.image(600, 200, 'cloud-5');
+        this.cloud5.setScale(0.5);
+        this.cloud6 = this.add.image(600, 200, 'cloud-6');
+        this.cloud6.setScale(0.5);
+        this.cloud7 = this.add.image(650, 300, 'cloud-7');
+        this.cloud8 = this.add.image(400, 300, 'cloud-8');
+        this.cloud9 = this.add.image(300, 150, 'cloud-9');
+        this.cloud0 = this.add.image(100, 200, 'cloud-0');
 
         // Water/Sea sprite
-        this.flow_sprite = this.add.sprite(0, 0, 'scene1-sprite');
-        this.flow_sprite.setOrigin(0, 0);
-        this.anims.create({
-            key: 'scene1-sprite-key',
-            frames: this.anims.generateFrameNumbers('scene1-sprite', { start: 0, end: 2 }),
-            frameRate: 1,
-            repeat: -1
-        });
-        this.flow_sprite.anims.play('scene1-sprite-key');
+        // this.flow_sprite = this.add.sprite(0, 0, 'scene1-sprite');
+        // this.flow_sprite.setOrigin(0, 0);
+        // this.anims.create({
+        //     key: 'scene1-sprite-key',
+        //     frames: this.anims.generateFrameNumbers('scene1-sprite', { start: 0, end: 2 }),
+        //     frameRate: 1,
+        //     repeat: -1
+        // });
+        // this.flow_sprite.anims.play('scene1-sprite-key');
 
         // Player
         this.player = this.physics.add.sprite(300, 30, 'player').setScale(.1);
@@ -116,12 +137,20 @@ export class PlayScene extends Phaser.Scene {
             fontSize: '32px', color: '#000'
         });
 
+        //Display Inventory
+        this.basket = this.add.image(70, 70, 'garbage-bag');
+
+        this.basketCount = 0;
+        this.inventoryText = this.add.text(95, 60, `: 0/15`, {
+            fontSize: '32px', color: "#000"
+        });
+
         const centerX = this.config.width / 2;
         const centerY = this.config.height / 2;
 
         this.spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-        this.pickUpText = this.add.text(centerX, 50, '', { fontSize: '16px', color: '#000000' }).setOrigin(0.5);
+        this.pickUpText = this.add.text(centerX, 120, '', { fontSize: '16px', color: '#000000' }).setOrigin(0.5);
 
         // Overlap detection for player and garbages
         this.physics.add.overlap(this.player,
@@ -156,6 +185,9 @@ export class PlayScene extends Phaser.Scene {
                     }
 
                     garbage.destroy();
+                    
+                    this.basketCount++;
+                    this.inventoryText.setText(`: ${this.basketCount}/15`);
 
                     this.pickUpText.setText('You picked up a trash, Good Job!');
 
@@ -165,7 +197,7 @@ export class PlayScene extends Phaser.Scene {
                     this.tweens.add({
                         targets: this.pickUpText,
                         alpha: 0,
-                        duration: 2000,
+                        duration: 3000,
                         ease: 'Power2',
                         onComplete: () => {
                             this.pickUpText.setText('');
@@ -188,24 +220,6 @@ export class PlayScene extends Phaser.Scene {
 
             this.heart_icon.anims.play('heart-icon_key');
         }
-
-        // Clouds
-        this.cloud1 = this.add.image(0, 200, 'cloud-1');
-        this.cloud1.setScale(0.5);
-        this.cloud2 = this.add.image(100, 100, 'cloud-2');
-        this.cloud2.setScale(0.3);
-        this.cloud3 = this.add.image(500, 200, 'cloud-3');
-        this.cloud3.setScale(0.2);
-        this.cloud4 = this.add.image(400, 100, 'cloud-4');
-        this.cloud4.setScale(0.4);
-        this.cloud5 = this.add.image(600, 200, 'cloud-5');
-        this.cloud5.setScale(0.5);
-        this.cloud6 = this.add.image(600, 200, 'cloud-6');
-        this.cloud6.setScale(0.5);
-        this.cloud7 = this.add.image(650, 300, 'cloud-7');
-        this.cloud8 = this.add.image(400, 300, 'cloud-8');
-        this.cloud9 = this.add.image(300, 150, 'cloud-9');
-        this.cloud0 = this.add.image(100, 200, 'cloud-0');
 
         this.choiceButtonSFX = this.sound.add('choice');
 

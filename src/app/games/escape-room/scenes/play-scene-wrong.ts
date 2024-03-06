@@ -46,16 +46,16 @@ export class PlaySceneWrong extends Phaser.Scene {
         this.background = this.add.image(0, 0, 'scene1-bg');
         this.background.setOrigin(0, 0);
 
-        this.flow_sprite = this.add.sprite(0, 0, 'scene1-sprite');
-        this.flow_sprite.setOrigin(0, 0);
-        this.anims.create({
-            key: 'scene1-sprite-key',
-            frames: this.anims.generateFrameNumbers('scene1-sprite', { start: 0, end: 2 }),
-            frameRate: 1,
-            repeat: -1
-        });
+        // this.flow_sprite = this.add.sprite(0, 0, 'scene1-sprite');
+        // this.flow_sprite.setOrigin(0, 0);
+        // this.anims.create({
+        //     key: 'scene1-sprite-key',
+        //     frames: this.anims.generateFrameNumbers('scene1-sprite', { start: 0, end: 2 }),
+        //     frameRate: 1,
+        //     repeat: -1
+        // });
 
-        this.flow_sprite.anims.play('scene1-sprite-key');
+        // this.flow_sprite.anims.play('scene1-sprite-key');
 
         this.failedSFX = this.sound.add('failed');
         this.failedSFX.play();
@@ -88,7 +88,6 @@ export class PlaySceneWrong extends Phaser.Scene {
 
             this.heart_icon.anims.play('heart-icon_key');
         }
-        this.scoreDisplay = this.add.text(10, 10, `Score: ${scoreService.getScorePoints()}`, { font: '20px monospace', color: '#ffffff' });
 
         // Clouds
         this.cloud1 = this.add.image(0, 200, 'cloud-1');

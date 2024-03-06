@@ -33,7 +33,7 @@ export class PlayScene2Correct extends Phaser.Scene {
         this.background.setOrigin(0, 0);
 
         // Tree sprite
-        this.flow_sprite = this.add.sprite(0, 0, 'scene2-sprite');
+        this.flow_sprite = this.add.sprite(0, -90, 'scene2-sprite');
         this.flow_sprite.setOrigin(0, 0)
         this.anims.create({
             key: 'scene2-sprite-key',

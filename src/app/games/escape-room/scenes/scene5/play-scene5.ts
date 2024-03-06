@@ -48,6 +48,9 @@ export class PlayScene5 extends Phaser.Scene {
 
     timer: any;
     timerDisplay: any;
+    inventoryText: any;
+    basket: any
+    basketCount: any;
 
     garbage: any = [];
 
@@ -130,7 +133,7 @@ export class PlayScene5 extends Phaser.Scene {
         this.physics.world.enable([this.player, ...this.garbage]);
 
         // Add timer function
-        this.timer = this.time.delayedCall(15000, () => {
+        this.timer = this.time.delayedCall(30000, () => {
             if (this.garbage.length > 0) {
                 heartPointsService.decreaseHeartPoints();
                 if (heartPointsService.getHeartPoints() <= 0) {
@@ -142,16 +145,23 @@ export class PlayScene5 extends Phaser.Scene {
         }, [], this);
 
         // Display time
-        this.timerDisplay = this.add.text(16, 16, `Time: ${Math.round((15000 - this.timer.getElapsed()) / 1000)}`, {
+        this.timerDisplay = this.add.text(16, 16, `Time: ${Math.round((30000 - this.timer.getElapsed()) / 1000)}`, {
             fontSize: '32px', color: '#000'
         });
 
+        //Display Inventory
+        this.basket = this.add.image(70, 70, 'garbage-bag');
+
+        this.basketCount = 0;
+        this.inventoryText = this.add.text(95, 60, `: 0/15`, {
+            fontSize: '32px', color: "#000"
+        });
         const centerX = this.config.width / 2;
         const centerY = this.config.height / 2;
 
         this.spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-        this.pickUpText = this.add.text(centerX, 50, '', { fontSize: '16px', color: '#000000' }).setOrigin(0.5);
+        this.pickUpText = this.add.text(centerX, 120, '', { fontSize: '16px', color: '#000000' }).setOrigin(0.5);
 
         // Overlap detection for player and garbages
         this.physics.add.overlap(this.player,
@@ -172,6 +182,9 @@ export class PlayScene5 extends Phaser.Scene {
 
                     garbage.destroy();
 
+                    this.basketCount++;
+                    this.inventoryText.setText(`: ${this.basketCount}/15`);
+
                     this.pickUpText.setText('You picked up a trash, Good Job!');
 
                     this.tweens.killTweensOf(this.pickUpText);
@@ -180,7 +193,7 @@ export class PlayScene5 extends Phaser.Scene {
                     this.tweens.add({
                         targets: this.pickUpText,
                         alpha: 0,
-                        duration: 2000,
+                        duration: 3000,
                         ease: 'Power2',
                         onComplete: () => {
                             this.pickUpText.setText('');
@@ -192,7 +205,7 @@ export class PlayScene5 extends Phaser.Scene {
     }
 
     override update() {
-        this.timerDisplay.setText(`Time: ` + Math.round((15000 - this.timer.getElapsed()) / 1000));
+        this.timerDisplay.setText(`Time: ` + Math.round((30000 - this.timer.getElapsed()) / 1000));
 
         // Lock player move area
         this.player.x = Phaser.Math.Clamp(this.player.x, 10, 790);
