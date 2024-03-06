@@ -33,7 +33,7 @@ export class Milestone extends Phaser.Scene {
         this.character = this.add.image(300, 440, 'character-win');
         this.character.setScale(0.55);
 
-        this.textDisplay = `Congratulations for raising awareness by picking the\ncorrect answer.Learning and spreading the word about\nwater pollution is a crucial step in addressing\nclimate change!`
+        this.textDisplay = `Congratulations for raising awareness by picking the\ngarbages. Learning and spreading the word about\nwater pollution is a crucial step in addressing\nclimate change!`
 
         // reset score
         scoreService.resetScorePoints();
