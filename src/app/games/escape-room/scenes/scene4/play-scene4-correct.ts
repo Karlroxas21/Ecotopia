@@ -29,7 +29,7 @@ export class PlayScene4Correct extends Phaser.Scene {
         this.background = this.add.image(0, 0, 'scene4-bg');
         this.background.setOrigin(0, 0);
 
-        this.flow_sprite = this.add.sprite(0, 0, 'scene4-sprite');
+        this.flow_sprite = this.add.sprite(0, -100, 'scene4-sprite');
         this.flow_sprite.setOrigin(0, 0)
         this.anims.create({
             key: 'scene4-sprite-key',
@@ -76,7 +76,7 @@ export class PlayScene4Correct extends Phaser.Scene {
         const skipButton = this.add.text(
             this.config.width - 90,
             this.config.height / 6 / 2 + 15,
-            "Skip",
+            "Continue",
             { font: '18px Arial', color: '#ffffff' }
         );
         skipButton.setOrigin(0.5);

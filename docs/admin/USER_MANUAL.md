@@ -20,6 +20,8 @@ To access admin you need to go to [ecotopia.systems/login](ecotopia.systems/logi
     3. [Manage Solutions 2](#Example)
     4. [Manage Solutions 3](#Example)
 
+---
+
 ## Manage Admin Accounts
 You can only Manage Admin Accounts with Super Admin Account logged in
 ##### Create Admin Account
@@ -75,6 +77,8 @@ To edit the news, simply click the Edit button and modify the field you want to 
 
 To delete news, simply click the delete button and confirm its deletion.
 
+---
+
 ## Manage Current Issues
 
 In current issues, you cannot edit the link and name of the tabs. You can only edit the area within the red box. 
@@ -82,6 +86,8 @@ In current issues, you cannot edit the link and name of the tabs. You can only e
 To edit the text, simply click it. It is a inline-text. If you want to remove the text-area just click on the random blank space.
 ![Current Issue Inline](../assets/current_issue/current_issue_inline.png)
 To ensure to save the changes, click the Publish button. If you do not Publish it, the changes will not save. 
+
+---
 
 ## Manage Assessment
 In self-assessment, it has the same idea. You click the text you want to edit, click on the random blank space to remove the text area.
@@ -94,7 +100,34 @@ The Blue box area is the question, red box area is the options or selection of a
 
 Note: *Make sure that correct answer field has the same character including capitalization and spelling of the correct answer in selection or option.*
 
+---
+
 ## Manage Climate Action SDG 13
 
 ### Manage SDG #13
 Note: *In website, it represent the /problems*
+
+![Editable Area in Cases](../assets/cases/sdg13.png)
+
+The red box is the only area you can modify. You can modify the picture by browsing the picture but be mindful with the constraint indicated.
+
+### Manage Overview
+Note: *In website, it represent the /case1*
+
+![Editable Area in Case 1/Overview](../assets/cases/overview.png)
+
+The red box is the only area you can modify
+
+### Manage Target and Indicators
+Note: *In website, it represent the /case2*
+
+![Editable Area in Case 2/Target and Indicators](../assets/cases/target_indicators.png)
+
+The red box is the only area you can modify
+
+### Manage Target and Indicators
+Note: *In website, it represent the /case3*
+
+![Editable Area in Case 1/Overview](../assets/cases/)
+
+The red box is the only area you can modify

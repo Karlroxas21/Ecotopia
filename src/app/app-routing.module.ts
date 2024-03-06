@@ -23,6 +23,7 @@ import { LandingPageNewComponent } from './landing-page-new/landing-page-new.com
 import { AdminAccountCreateComponent } from './admin-account-create/admin-account-create.component';
 import { AccountConfirmationComponent } from './account-confirmation/account-confirmation.component';
 import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
+import { GameUnityComponent } from './game-unity/game-unity.component';
 
 // Cases
 import { Case1Component } from './case1/case1.component';
@@ -86,6 +87,7 @@ const routes: Routes = [
       { component: CausesComponent, path: 'cause' },
       { component: EffectsComponent, path: 'effect' },
       { component: LandingPageNewComponent, path: 'landingpagenew' },
+      { component: GameUnityComponent, path: 'game-unity'},
 
       // Cases
       { component: Case1Component, path: 'case1' },

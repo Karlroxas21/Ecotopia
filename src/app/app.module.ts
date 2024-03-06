@@ -58,6 +58,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AdminAccountCreateComponent } from './admin-account-create/admin-account-create.component';
 import { AccountConfirmationComponent } from './account-confirmation/account-confirmation.component';
 import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
+import { GameUnityComponent } from './game-unity/game-unity.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +110,8 @@ import { NotAuthorizedComponent } from './not-authorized/not-authorized.componen
     NavbarComponent,
     AdminAccountCreateComponent,
     AccountConfirmationComponent,
-    NotAuthorizedComponent
+    NotAuthorizedComponent,
+    GameUnityComponent
   ],
   imports: [
     BrowserModule,

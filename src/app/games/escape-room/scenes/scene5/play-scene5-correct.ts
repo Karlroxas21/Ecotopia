@@ -54,13 +54,6 @@ export class PlayScene5Correct extends Phaser.Scene {
             this.heart_icon.anims.play('heart-icon_key');
         }
 
-        this.scoreDisplay = this.add.text(
-            10,
-            10,
-            `Score: ${scoreService.getScorePoints()}`,
-            { font: '20px monospace', color: '#ffffff' }
-        );
-
         this.anims.create({
             key: 'character_key',
             frames: this.anims.generateFrameNumbers('character', {
@@ -81,7 +74,7 @@ export class PlayScene5Correct extends Phaser.Scene {
         const skipButton = this.add.text(
             this.config.width - 90,
             this.config.height / 6 / 2 + 15,
-            'Skip',
+            'Continue',
             { font: '18px Arial', color: '#000000' }
         );
         skipButton.setOrigin(0.5);
