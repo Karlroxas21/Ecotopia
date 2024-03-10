@@ -254,7 +254,7 @@ export class MainScene extends Phaser.Scene {
 
         this.load.on('complete', () => {
             // default-scene is the original value
-            this.scene.start('play-scene4', { config: this.game.config });
+            this.scene.start('default-scene', { config: this.game.config });
         });
     }
 
