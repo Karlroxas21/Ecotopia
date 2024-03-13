@@ -10,15 +10,15 @@ To access admin you need to go to [ecotopia.systems/login](ecotopia.systems/logi
 4. [Manage Assessment](#manage-assessment)
 5. [Manage Climate Action SDG 13](#manage-climate-action-sdg-13)
     1. [Manage SDG #13](#manage-sdg-13)
-    2. [Manage Overview](#Example)
-    3. [Manage Target and Indicators](#Example)
-    4. [Manage Progress and Info](#Example)
-    5. [Manage Related Topics](#Example)
-1. [Manage Solutions](#Example)
-    1. [Manage Solutions](#Example)
-    2. [Manage Solutions 1](#Example)
-    3. [Manage Solutions 2](#Example)
-    4. [Manage Solutions 3](#Example)
+    2. [Manage Overview](#manage-overview)
+    3. [Manage Target and Indicators](#manage-target-and-indicators)
+    4. [Manage Progress and Info](#manage-progress-and-info)
+    5. [Manage Related Topics](#manage-related-topics)
+1. [Manage Solutions](#manage-solutions)
+    1. [Manage Solutions](#manage-solutions)
+    2. [Manage Solutions 1](#manage-solution-1)
+    3. [Manage Solutions 2](#manage-solution-2)
+    4. [Manage Solutions 3](#manage-solution-3)
 
 ---
 
@@ -125,9 +125,50 @@ Note: *In website, it represent the /case2*
 
 The red box is the only area you can modify
 
-### Manage Target and Indicators
+### Manage Progress and Info
 Note: *In website, it represent the /case3*
 
-![Editable Area in Case 1/Overview](../assets/cases/)
+![Editable Area in Case 3/Progress and Info](../assets/cases/progress_info.png)
 
 The red box is the only area you can modify
+
+### Manage Related Topics
+Note: *In website, it represent the /case4*
+
+![Editable Area in Case 4/Related Topics](../assets/cases/related_topics.png)
+
+The red box is the only area you can modify
+
+---
+
+# Manage Solutions
+
+### Manage Solutions
+Note: *In website, it represent the /solutions*
+
+![Editable Area in Solutions](../assets/solutions/solutions.png)
+
+The red box is the only area you can modify. The image of each solutions can be changed in their respective web page. For example, if you want to change the image display in "Why we should take action" you should go to ``/admin-solution-1`` and change the picture. Same rules apply to all solutions.
+
+### Manage Solution 1
+Note: *In website, it represent the /whyshouldwetakeactions*
+
+![Editable Area in Solution 1](../assets/solutions/why_take_action.png)
+
+The red box is the only area you can modify.
+
+### Manage Solution 2
+Note: *In website, it represent the /othersolutions*
+
+![Editable Area in Solution 2](../assets/solutions/other_solutions.png)
+
+The red box is the only area you can modify.
+
+### Manage Solution 3
+Note: *In website, it represent the /respondingtoclimatechange*
+
+![Editable Area in Solution 3](../assets/solutions/responding_to_climate_change.png)
+
+The red box is the only area you can modify.
+
+
